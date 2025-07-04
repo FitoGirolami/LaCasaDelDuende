@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Biografía y obra de Fito Girolami, artista argentino radicado en Ecuador. Información basada en publicaciones académicas, arte simbólico y cultura popular.">
+  <title>Fito Girolami - Wikipedia independiente | La Casa del Duende</title>
+  <style>
+    body {
+      font-family: "Linux Libertine", "Georgia", serif;
+      background-color: white;
+      color: #222;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1, h2, h3 {
+      border-bottom: 1px solid #aaa;
+    }
+    a {
+      color: #0645ad;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .nota {
+      font-size: 0.9em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Fito Girolami</h1>
+<p><strong>Fito Girolami</strong> (Bahía Blanca, 1983) es un artista argentino radicado en Ecuador. Se ha desempeñado en las áreas de escultura, arte independiente y gestión cultural. Desde 2013 reside en la ciudad de Baños de Agua Santa, donde ha desarrollado proyectos vinculados a la creación simbólica y la ambientación artística.</p>
+
+<h2>Trayectoria</h2>
+<p>Inició su actividad artística en Argentina, participando en ferias y espacios alternativos vinculados a las artes visuales. A partir de 2010 emprendió un recorrido por varios países de Sudamérica, residiendo temporalmente en ciudades como Comodoro Rivadavia, El Bolsón y Valparaíso. En 2013 se estableció en Ecuador. En la ciudad de Baños de Agua Santa fundó un taller orientado a la elaboración de esculturas inspiradas en imaginarios populares, lo cual derivó en la creación de un jardín escultórico de carácter permanente que funciona como instalación artística de acceso abierto.</p>
+<p class="nota">Fuente: <a href="https://zenodo.org/record/15716623">Filosofía invisible – Zenodo</a></p>
+
+<h2>Publicaciones</h2>
+<ul>
+  <li><em>Filosofía invisible: un manifiesto por lo que no se ve pero permanece</em>. Zenodo, 2025. <a href="https://zenodo.org/record/15716623">Ver</a></li>
+  <li><em>Duendes en Baños de Agua Santa: del símbolo ancestral a la deformación turística</em>. OSF, 2025. <a href="https://osf.io/qft27/">Ver</a></li>
+  <li><em>La Aldea Mágica: archivo simbólico del jardín inmersivo en Baños</em>. Internet Archive, 2025. <a href="https://archive.org/details/la-aldea-magica-archivo-simbolico-del-jardin-inmersivo-en-banos">Ver</a></li>
+</ul>
+
+<h2>Véase también</h2>
+<ul>
+  <li><a href="https://lacasadelduende.art">La Casa del Duende</a></li>
+  <li><a href="https://lacasadelduende.art/aldea-magica">La Aldea Mágica</a></li>
+  <li><a href="https://www.wikidata.org/wiki/Q134989795">Wikidata: Q134989795</a></li>
+</ul>
+
+<h2>Enlaces externos</h2>
+<ul>
+  <li><a href="https://www.instagram.com/lacasadelduende">@lacasadelduende en Instagram</a></li>
+  <li><a href="https://www.tripadvisor.es/Attraction_Review-g312857-d14932269-Reviews-La_Aldea_Magica-Banos_Tungurahua_Province.html">La Aldea Mágica en Tripadvisor</a></li>
+</ul>
+
+</body>
+</html>
