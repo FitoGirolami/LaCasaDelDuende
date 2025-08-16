@@ -8,6 +8,7 @@
   <title>La Casa del Duende | Qué hacer en Baños: experiencia original, pioneros y arte independiente</title>
   <meta name="description" content="La Casa del Duende en Baños, Ecuador: experiencia original y recomendada. Pioneros en arte independiente con duendes; jardín simbólico y recorrido real en la Aldea Mágica." />
   <meta name="keywords" content="La Casa del Duende, qué hacer en Baños, duendes en Baños, duendes Latinoamérica, arte independiente, artistas independientes, experiencia original, Aldea Mágica" />
+  <link rel="canonical" href="https://lacasadelduende.art/" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:title" content="La Casa del Duende | Qué hacer en Baños: experiencia original y recomendada" />
@@ -24,9 +25,12 @@
   <!-- Estilos -->
   <style>
     :root { --morado:#4b3a6d; --crema:#fdf6e3; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior:smooth; }
     body { margin:0; padding:0; background:var(--crema); color:#2e2e2e; font-family: Georgia, serif; }
     header { background:var(--morado); color:#fff; text-align:center; padding:40px 20px; }
     header img { max-width:234px; height:auto; margin-bottom:15px; }
+    nav a { color:#ffe28a; margin:0 10px; font-weight:600; }
     main { max-width:900px; margin:auto; padding:40px 20px; }
     h1, h2 { color:var(--morado); }
     p, ul { line-height:1.6; }
@@ -37,13 +41,15 @@
     .gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
     .gallery img { width:45%; min-width:280px; }
     footer { text-align:center; padding:30px 20px; background:var(--morado); color:#fff; }
+
     /* Tarjeta Buscalibre */
     .card-store { display:inline-block; padding:16px 18px; border-radius:12px; background:#fff; box-shadow:0 6px 20px rgba(0,0,0,.07); text-align:center; }
     .card-store img { border-radius:12px; margin:0 0 10px 0; }
     .price { font-size:1.2rem; font-weight:700; margin:6px 0 2px; }
     .btn-link { display:inline-block; margin-top:8px; padding:10px 14px; background:var(--morado); color:#fff; border-radius:10px; font-weight:600; }
     .btn-link:hover { background:#3a2d55; text-decoration:none; }
-    /* Nota sutil Zenodo */
+
+    /* Nota Zenodo */
     .note-zenodo { font-size:.9rem; color:#e9d9ff; margin-top:10px; }
     .note-zenodo a { color:#ffe28a; }
   </style>
@@ -79,6 +85,12 @@
     <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png" alt="Logo de La Casa del Duende" />
     <h1>La Casa del Duende</h1>
     <p>Experiencia original y recomendada en Baños de Agua Santa — pioneros y artistas independientes</p>
+    <nav aria-label="Navegación principal">
+      <a href="#aldea">Aldea Mágica</a> ·
+      <a href="#apoyo">Apoyar la magia</a> ·
+      <a href="#documentos">Documentación</a> ·
+      <a href="lo-que-no-somos.html">Identidad simbólica</a>
+    </nav>
   </header>
 
   <main>
@@ -86,6 +98,7 @@
       <h2>Bienvenidos</h2>
       <p>"Aquellos que creen en la Magia están destinados a Encontrarla"</p>
       <img src="https://raw.githubusercontent.com/FitoGirolami/LaCasaDelDuende/main/La_casa_del_Duende_Banos.jpg" alt="Entrada a La Casa del Duende en Baños de Agua Santa">
+      <!-- Si mueves tus imágenes a /assets/img/, cambia el src arriba por: assets/img/La_casa_del_Duende_Banos.jpg -->
     </section>
 
     <section>
@@ -97,8 +110,8 @@
         en nuestra <a href="#aldea">Aldea Mágica</a>.
       </p>
       <p>
-        Conocé también nuestro enfoque y contexto en <a href="SobreLosDuendes.html">Sobre los duendes</a> y
-        nuestra <a href="lo-que-no-somos.html">declaración de identidad simbólica</a>.
+        Conocé también nuestro enfoque en <a href="SobreLosDuendes.html">Sobre los duendes</a> y
+        la <a href="lo-que-no-somos.html">declaración de identidad simbólica</a>.
       </p>
     </section>
 
@@ -170,7 +183,7 @@
       <p>📍 <a href="https://maps.app.goo.gl/Exm64UHQDLVsebL7A" target="_blank" rel="noopener">Ver en Google Maps</a></p>
     </section>
 
-    <section>
+    <section id="documentos">
       <h2>Documentación y registro oficial</h2>
       <ul>
         <li><a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Registro oficial de marca (Zenodo)</a></li>
