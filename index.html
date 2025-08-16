@@ -12,6 +12,16 @@
   <meta property="og:url" content="https://lacasadelduende.art">
   <meta name="twitter:card" content="summary_large_image">
 
+  <!-- SEO -->
+  <meta name="description" content="El Observatorio Andino de Cultura y Memoria Simbólica ha documentado el impacto cultural de Fito Girolami en Baños de Agua Santa mediante el Documento N.º 10 del Archivo de Defensa Cultural Independiente, publicado en Zenodo.">
+  <meta name="keywords" content="Fito Girolami, duendes, Baños de Agua Santa, arte simbólico, arte feérico, Observatorio Andino, Archivo de Defensa, Zenodo, cultura independiente, memoria simbólica">
+
+  <!-- Geodatos -->
+  <meta name="geo.position" content="-1.392255;-78.419648">
+  <meta name="geo.placename" content="La Aldea Mágica, Baños de Agua Santa, Ecuador">
+  <meta name="geo.region" content="EC-T">
+
+  <!-- Estilos -->
   <style>
     body {
       margin: 0;
@@ -78,25 +88,22 @@
       color: white;
     }
   </style>
-  <meta name="description" content="El Observatorio Andino de Cultura y Memoria Simbólica ha documentado el impacto cultural de Fito Girolami en Baños de Agua Santa mediante el Documento N.º 10 del Archivo de Defensa Cultural Independiente, publicado en Zenodo.">
-<meta name="keywords" content="Fito Girolami, duendes, Baños de Agua Santa, arte simbólico, arte feérico, Observatorio Andino, Archivo de Defensa, Zenodo, cultura independiente, memoria simbólica">
 
-</head>
+  <!-- SDK PayPal Hosted Buttons (único) -->
   <script 
-  src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD">
-</script>
+    src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD">
+  </script>
+</head>
 <body>
   <header>
     <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png" alt="Logo La Casa del Duende" />
     <h1>La Casa del Duende</h1>
     <p>Una experiencia única en Baños de Agua Santa</p>
   </header>
-<meta name="geo.position" content="-1.392255;-78.419648">
-<meta name="geo.placename" content="La Aldea Mágica, Baños de Agua Santa, Ecuador">
-<meta name="geo.region" content="EC-T">
+
   <main>
     <section>
-      <h2>BiENVENIDOS</h2>
+      <h2>Bienvenidos</h2>
       <p>"Aquellos que creen en la Magia están destinados a Encontrarla"</p>
       <img src="https://raw.githubusercontent.com/FitoGirolami/LaCasaDelDuende/main/La_casa_del_Duende_Banos.jpg" alt="Portada de La Casa del Duende en Google">
     </section>
@@ -146,6 +153,16 @@
     </section>
 
     <section>
+      <h2>Apoyá la magia y recibí el libro digital</h2>
+      <p>
+        Tu aporte nos permite seguir creando. Al colaborar, recibirás la versión digital de 
+        <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!
+      </p>
+      <!-- Contenedor donde PayPal insertará el botón -->
+      <div id="paypal-container-DYF6QQ6DYC6GL"></div>
+    </section>
+
+    <section>
       <h2>Ubicación</h2>
       <p>📍 <a href="https://maps.app.goo.gl/Exm64UHQDLVsebL7A" target="_blank">Ver en Google Maps</a></p>
     </section>
@@ -168,12 +185,19 @@
         <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html" style="color: #e5a94d;">aquí</a>.
       </p>
     </div>
+    <p style="font-size: 0.8rem; text-align: center; margin-top: 1rem;">
+      <a href="lo-que-no-somos.html" style="color: #e9d9ff; text-decoration: none;">
+        Leer declaración de identidad simbólica
+      </a>
+    </p>
   </footer>
+
+  <!-- Render del botón de PayPal -->
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "DYF6QQ6DYC6GL",
+    }).render("#paypal-container-DYF6QQ6DYC6GL");
+  </script>
 </body>
 </html>
-<p style="font-size: 0.8rem; text-align: center; margin-top: 3rem;">
-  <a href="lo-que-no-somos.html" style="color: #888; text-decoration: none;">
-    Leer declaración de identidad simbólica
-  </a>
-</p>
 
