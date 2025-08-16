@@ -1,9 +1,80 @@
-<section id="apoyo">
-  <h2>Apoyá la magia y recibí el libro digital</h2>
-  <p>
-    Tu aporte nos permite seguir creando. Al colaborar, recibirás la versión digital de 
-    <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!
-  </p>
-  <!-- Contenedor donde PayPal insertará el botón -->
-  <div id="paypal-container-DYF6QQ6DYC6GL"></div>
-</section>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apoyá la Magia | La Casa del Duende</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fdf6e3;
+      color: #2e2e2e;
+      font-family: Georgia, serif;
+      text-align: center;
+    }
+    header {
+      background: #4b3a6d;
+      color: white;
+      padding: 30px 20px;
+    }
+    header h1 {
+      margin: 0;
+    }
+    main {
+      max-width: 800px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    h2 {
+      color: #4b3a6d;
+    }
+    p {
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: #4b3a6d;
+      color: white;
+      font-size: 0.9rem;
+    }
+  </style>
+
+  <!-- SDK de PayPal -->
+  <script 
+    src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD">
+  </script>
+</head>
+<body>
+  <header>
+    <h1>La Casa del Duende</h1>
+    <p>Apoyá la magia y recibí el libro digital</p>
+  </header>
+
+  <main>
+    <h2>¡Gracias por tu apoyo!</h2>
+    <p>
+      Tu aporte nos permite seguir creando.  
+      Al colaborar, recibirás la versión digital de <em>“Duendes y otras hierbas”</em>.  
+      🌿✨ Gracias por apoyar el arte independiente.
+    </p>
+
+    <!-- Contenedor del botón de PayPal -->
+    <div id="paypal-container-DYF6QQ6DYC6GL"></div>
+  </main>
+
+  <footer>
+    © La Casa del Duende · Baños de Agua Santa · Ecuador
+  </footer>
+
+  <!-- Renderiza el botón -->
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "DYF6QQ6DYC6GL",
+    }).render("#paypal-container-DYF6QQ6DYC6GL");
+  </script>
+</body>
+</html>
