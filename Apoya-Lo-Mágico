@@ -1,0 +1,9 @@
+<section id="apoyo">
+  <h2>Apoyá la magia y recibí el libro digital</h2>
+  <p>
+    Tu aporte nos permite seguir creando. Al colaborar, recibirás la versión digital de 
+    <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!
+  </p>
+  <!-- Contenedor donde PayPal insertará el botón -->
+  <div id="paypal-container-DYF6QQ6DYC6GL"></div>
+</section>
