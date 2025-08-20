@@ -5,87 +5,106 @@
   <title>Escanear QR — Guía La Casa del Duende</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
+  <!-- 1) Si TENÉS un CSS global, descomenta la siguiente línea -->
+  <!-- <link rel="stylesheet" href="/style.css"> -->
+
+  <!-- 2) Fallback de estilos (se aplica si no usás /style.css) -->
   <style>
-    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin:0; padding:1rem; background:#0b0b0b; color:#eee;}
-    .wrap {max-width: 720px; margin: 0 auto;}
-    h1 {font-weight:600; font-size:1.3rem; margin:0 0 .75rem;}
-    .controls {display:flex; gap:.5rem; align-items:center; margin:.5rem 0 1rem; flex-wrap:wrap;}
-    button, select {padding:.6rem .8rem; border-radius:.6rem; border:1px solid #333; background:#1a1a1a; color:#eee; cursor:pointer}
-    button:hover {background:#232323}
-    #reader {width:100%; max-width:720px; margin:0 auto; border-radius:1rem; overflow:hidden; background:#111; aspect-ratio: 3 / 4;}
-    .hint {opacity:.8; font-size:.9rem; margin-top:.5rem}
-    .footer {margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap;}
-    a.btn {text-decoration:none; display:inline-block; border:1px solid #333; padding:.6rem .8rem; border-radius:.6rem; background:#1a1a1a; color:#eee;}
+    :root{
+      --bg:#0b0b0b; --panel:#101010; --ink:#eaeaea; --muted:#b9b9b9;
+      --accent:#3cb371; --accent-2:#1d3127; --border:#2a2a2a; --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    a{color:var(--ink)}
+    header,footer{max-width:1100px; margin:0 auto; padding:1rem}
+    .brand{font-weight:800; letter-spacing:.2px; font-size:1.2rem}
+    nav a{opacity:.9; text-decoration:none; margin-right:.9rem}
+    .wrap{max-width:900px; margin:0 auto; padding:1rem}
+    h1{font-weight:800; font-size:1.6rem; margin:.25rem 0 1rem}
+    .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:1rem}
+    .controls{display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; margin:.5rem 0 1rem}
+    button,select,.btn{
+      background:var(--accent-2); color:var(--ink); border:1px solid var(--accent);
+      padding:.6rem .9rem; border-radius:12px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:.4rem
+    }
+    button:hover,select:hover,.btn:hover{background:var(--accent); color:#0b0f0c}
+    #reader{width:100%; aspect-ratio:3/4; background:#111; border:2px solid var(--accent); border-radius:var(--radius); overflow:hidden}
+    .hint{color:var(--muted); font-size:.95rem; margin-top:.5rem}
+    .footer-links{margin-top:1rem; display:flex; gap:.6rem; flex-wrap:wrap}
   </style>
+
   <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
 </head>
 <body>
-  <div class="wrap">
+  <header>
+    <div class="brand">La Casa del Duende</div>
+    <nav>
+      <a href="/#aldea">Aldea Mágica</a>
+      <a href="/#apoyar">Apoyar la magia</a>
+      <a href="/#docs">Documentación</a>
+      <a href="/#identidad">Identidad simbólica</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
     <h1>Escanear QR — Guía con videos</h1>
-    <div class="controls">
-      <select id="cameraSelect" title="Elegir cámara"></select>
-      <button id="startBtn">Iniciar</button>
-      <button id="stopBtn" disabled>Detener</button>
-      <label style="display:flex; align-items:center; gap:.4rem">
-        <input type="checkbox" id="continuous" checked />
-        Escaneo continuo
-      </label>
-    </div>
+    <div class="card">
+      <div class="controls">
+        <select id="cameraSelect" title="Elegir cámara"></select>
+        <button id="startBtn">Iniciar</button>
+        <button id="stopBtn" disabled>Detener</button>
+        <label style="display:flex;align-items:center;gap:.4rem">
+          <input type="checkbox" id="continuous" checked>
+          Escaneo continuo
+        </label>
+      </div>
 
-    <div id="reader"></div>
-    <div class="hint">Permite el acceso a la cámara. En iOS usa Safari; en Android, Chrome.</div>
+      <div id="reader"></div>
+      <div class="hint">Consejo: permite el acceso a la cámara. En iOS usa Safari; en Android, Chrome.</div>
 
-    <div class="footer">
-      <a class="btn" href="/">Volver al inicio</a>
+      <div class="footer-links">
+        <a class="btn" href="/guia/v/duendes-y-otras-hierbas-cap1.html">Abrir Capítulo 1</a>
+        <a class="btn" href="/">Volver al inicio</a>
+      </div>
     </div>
-  </div>
+  </main>
+
+  <footer class="wrap" style="opacity:.8;">
+    © La Casa del Duende · Baños de Agua Santa · Ecuador
+  </footer>
 
   <script>
-    const readerEl = document.getElementById('reader');
     const startBtn = document.getElementById('startBtn');
     const stopBtn = document.getElementById('stopBtn');
     const cameraSelect = document.getElementById('cameraSelect');
     const continuous = document.getElementById('continuous');
-
-    let html5QrCode = null;
-    let currentCameraId = null;
-    let scanning = false;
+    let html5QrCode = null, currentCameraId = null, scanning = false;
 
     async function listCameras() {
       const devices = await Html5Qrcode.getCameras();
       cameraSelect.innerHTML = '';
-      devices.forEach((d, i) => {
-        const opt = document.createElement('option');
-        opt.value = d.id;
-        opt.textContent = d.label || `Cámara ${i+1}`;
+      devices.forEach((d,i)=>{
+        const opt=document.createElement('option');
+        opt.value=d.id; opt.textContent=d.label||`Cámara ${i+1}`;
         cameraSelect.appendChild(opt);
       });
       if (devices[0]) currentCameraId = devices[0].id;
     }
 
-    cameraSelect.addEventListener('change', () => {
+    cameraSelect.addEventListener('change', ()=>{
       currentCameraId = cameraSelect.value;
-      if (scanning) {
-        stopScan().then(startScan);
-      }
+      if (scanning) stopScan().then(startScan);
     });
 
     async function startScan() {
       if (!currentCameraId) await listCameras();
-      html5QrCode = html5QrCode || new Html5Qrcode("reader", { verbose: false });
-
-      const config = { fps: 15, qrbox: { width: 280, height: 280 }, aspectRatio: 1.333, focusMode: "continuous" };
+      html5QrCode = html5QrCode || new Html5Qrcode("reader",{verbose:false});
+      const config = { fps:15, qrbox:{width:280, height:280}, aspectRatio:1.333, focusMode:"continuous" };
       try {
-        await html5QrCode.start(
-          { deviceId: { exact: currentCameraId } },
-          config,
-          onScanSuccess,
-          onScanFailure
-        );
-        scanning = true;
-        startBtn.disabled = true;
-        stopBtn.disabled = false;
-      } catch (e) {
+        await html5QrCode.start({ deviceId:{ exact: currentCameraId } }, config, onScanSuccess, ()=>{});
+        scanning = true; startBtn.disabled = true; stopBtn.disabled = false;
+      } catch(e) {
         alert("No se pudo iniciar la cámara. Revisa permisos del navegador.");
         console.error(e);
       }
@@ -93,36 +112,23 @@
 
     async function stopScan() {
       if (html5QrCode && scanning) {
-        await html5QrCode.stop();
-        await html5QrCode.clear();
-        scanning = false;
-        startBtn.disabled = false;
-        stopBtn.disabled = true;
+        await html5QrCode.stop(); await html5QrCode.clear();
+        scanning = false; startBtn.disabled = false; stopBtn.disabled = true;
       }
     }
 
     function onScanSuccess(decodedText) {
-      if (decodedText.startsWith("http://") || decodedText.startsWith("https://")) {
-        window.location.href = decodedText;
-        return;
-      }
-      if (decodedText.startsWith("/")) {
-        window.location.href = decodedText;
-        return;
-      }
+      if (decodedText.startsWith("http://") || decodedText.startsWith("https://")) { window.location.href = decodedText; return; }
+      if (decodedText.startsWith("/")) { window.location.href = decodedText; return; }
       alert("Código leído: " + decodedText);
       if (!continuous.checked) stopScan();
     }
 
-    function onScanFailure(error) {
-      // Ignorar errores de lectura
-    }
-
     startBtn.addEventListener('click', startScan);
     stopBtn.addEventListener('click', stopScan);
-
     listCameras().catch(console.error);
   </script>
 </body>
 </html>
+
 
