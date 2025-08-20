@@ -10,9 +10,8 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
   <style>
-    /* Fondo transparente para ver la cámara */
+    /* Mostrar cámara (sin fondo negro) */
     html,body{margin:0;height:100%;background:transparent;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    /* El canvas de A-Frame ocupa pantalla completa y es transparente */
     a-scene, canvas.a-canvas { position:fixed; inset:0; }
     canvas.a-canvas { background: transparent !important; }
 
@@ -70,41 +69,54 @@
   </div>
 
   <script>
-    // Referencias
     const overlay = document.getElementById('overlay');
     const closeBtn = document.getElementById('closeBtn');
     const toast = document.getElementById('toast');
     const sceneEl = document.querySelector('a-scene');
-    let stopped = false; // para saber si ya detuvimos el escaneo
+    const player = document.getElementById('player');
+    const PLAYER_SRC = player.getAttribute('src'); // guardamos el src original
+    let stopped = false;
 
-    // Mostrar overlay y detener el escaneo para que el video siga aunque ya no apunten a la imagen
+    // Mostrar overlay y detener el escaneo
     async function showPlayerAndStopScan() {
+      // Asegura que el iframe tenga el src correcto antes de mostrar (por si fue vaciado antes)
+      if (player.src !== PLAYER_SRC) player.src = PLAYER_SRC;
+
       if (!stopped) {
-        try {
-          await sceneEl.systems['mindar-image'].stop(); // libera la cámara
-          stopped = true;
-        } catch(e) {}
+        try { await sceneEl.systems['mindar-image'].stop(); stopped = true; } catch(e) {}
       }
       toast.style.display = 'none';
       overlay.style.display = 'grid';
     }
 
-    // Cerrar overlay y volver a escanear
+    // Cerrar overlay, detener el video y reanudar el escaneo
     async function resumeScan() {
+      // 1) Cortar el audio/vídeo: reiniciamos el iframe
+      try { player.src = 'about:blank'; } catch(e) {}
       overlay.style.display = 'none';
+
+      // 2) Volver a mostrar estado de escaneo
       toast.textContent = 'Buscando imagen…';
       toast.style.display = 'block';
-      try {
-        await sceneEl.systems['mindar-image'].start(); // reanudar cámara
-        stopped = false;
-      } catch(e) { console.warn('No se pudo reanudar:', e); }
+
+      // 3) Reanudar la cámara
+      try { await sceneEl.systems['mindar-image'].start(); stopped = false; } 
+      catch(e) { console.warn('No se pudo reanudar:', e); }
     }
 
-    // Cuando se detecta el target 0, mostramos el reproductor (sin autoplay)
+    // Abrir overlay al detectar el target 0
     document.getElementById('marker-0').addEventListener('targetFound', showPlayerAndStopScan);
 
-    // Cerrar
+    // Cerrar overlay
     closeBtn.addEventListener('click', resumeScan);
+
+    // Seguridad extra: si la página se oculta (cambia de pestaña), corta el audio
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden && overlay.style.display === 'grid') {
+        try { player.src = 'about:blank'; } catch(e) {}
+      }
+    });
   </script>
 </body>
 </html>
+
