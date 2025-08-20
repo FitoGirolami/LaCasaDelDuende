@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Guía — Escanear QR | La Casa del Duende</title>
+  <title>Escanear QR — Guía La Casa del Duende</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
   <style>
@@ -33,10 +33,9 @@
     </div>
 
     <div id="reader"></div>
-    <div class="hint">Consejo: permite el acceso a la cámara. En iOS usa Safari; en Android, Chrome.</div>
+    <div class="hint">Permite el acceso a la cámara. En iOS usa Safari; en Android, Chrome.</div>
 
     <div class="footer">
-      <a class="btn" href="/guia/v/duendes-y-otras-hierbas-cap1.html">Abrir Capítulo 1 (manual)</a>
       <a class="btn" href="/">Volver al inicio</a>
     </div>
   </div>
@@ -73,7 +72,7 @@
 
     async function startScan() {
       if (!currentCameraId) await listCameras();
-      html5QrCode = html5QrCode || new Html5Qrcode(/* element id */ "reader", { verbose: false });
+      html5QrCode = html5QrCode || new Html5Qrcode("reader", { verbose: false });
 
       const config = { fps: 15, qrbox: { width: 280, height: 280 }, aspectRatio: 1.333, focusMode: "continuous" };
       try {
@@ -103,30 +102,27 @@
     }
 
     function onScanSuccess(decodedText) {
-      // Si el QR contiene un URL, redirige.
       if (decodedText.startsWith("http://") || decodedText.startsWith("https://")) {
         window.location.href = decodedText;
         return;
       }
-      // Si quieres aceptar códigos relativos tipo "/guia/v/…" también:
       if (decodedText.startsWith("/")) {
         window.location.href = decodedText;
         return;
       }
-      // Si es texto, mostrar y seguir si está activado el escaneo continuo
       alert("Código leído: " + decodedText);
       if (!continuous.checked) stopScan();
     }
 
     function onScanFailure(error) {
-      // Ignorar lecturas fallidas para seguir intentando
+      // Ignorar errores de lectura
     }
 
     startBtn.addEventListener('click', startScan);
     stopBtn.addEventListener('click', stopScan);
 
-    // Intentar precargar cámaras al entrar
     listCameras().catch(console.error);
   </script>
 </body>
 </html>
+
