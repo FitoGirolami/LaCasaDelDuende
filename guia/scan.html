@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guía — Escanear QR | La Casa del Duende</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <style>
+    body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; margin:0; padding:1rem; background:#0b0b0b; color:#eee;}
+    .wrap {max-width: 720px; margin: 0 auto;}
+    h1 {font-weight:600; font-size:1.3rem; margin:0 0 .75rem;}
+    .controls {display:flex; gap:.5rem; align-items:center; margin:.5rem 0 1rem; flex-wrap:wrap;}
+    button, select {padding:.6rem .8rem; border-radius:.6rem; border:1px solid #333; background:#1a1a1a; color:#eee; cursor:pointer}
+    button:hover {background:#232323}
+    #reader {width:100%; max-width:720px; margin:0 auto; border-radius:1rem; overflow:hidden; background:#111; aspect-ratio: 3 / 4;}
+    .hint {opacity:.8; font-size:.9rem; margin-top:.5rem}
+    .footer {margin-top:1rem; display:flex; gap:.5rem; flex-wrap:wrap;}
+    a.btn {text-decoration:none; display:inline-block; border:1px solid #333; padding:.6rem .8rem; border-radius:.6rem; background:#1a1a1a; color:#eee;}
+  </style>
+  <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Escanear QR — Guía con videos</h1>
+    <div class="controls">
+      <select id="cameraSelect" title="Elegir cámara"></select>
+      <button id="startBtn">Iniciar</button>
+      <button id="stopBtn" disabled>Detener</button>
+      <label style="display:flex; align-items:center; gap:.4rem">
+        <input type="checkbox" id="continuous" checked />
+        Escaneo continuo
+      </label>
+    </div>
+
+    <div id="reader"></div>
+    <div class="hint">Consejo: permite el acceso a la cámara. En iOS usa Safari; en Android, Chrome.</div>
+
+    <div class="footer">
+      <a class="btn" href="/guia/v/duendes-y-otras-hierbas-cap1.html">Abrir Capítulo 1 (manual)</a>
+      <a class="btn" href="/">Volver al inicio</a>
+    </div>
+  </div>
+
+  <script>
+    const readerEl = document.getElementById('reader');
+    const startBtn = document.getElementById('startBtn');
+    const stopBtn = document.getElementById('stopBtn');
+    const cameraSelect = document.getElementById('cameraSelect');
+    const continuous = document.getElementById('continuous');
+
+    let html5QrCode = null;
+    let currentCameraId = null;
+    let scanning = false;
+
+    async function listCameras() {
+      const devices = await Html5Qrcode.getCameras();
+      cameraSelect.innerHTML = '';
+      devices.forEach((d, i) => {
+        const opt = document.createElement('option');
+        opt.value = d.id;
+        opt.textContent = d.label || `Cámara ${i+1}`;
+        cameraSelect.appendChild(opt);
+      });
+      if (devices[0]) currentCameraId = devices[0].id;
+    }
+
+    cameraSelect.addEventListener('change', () => {
+      currentCameraId = cameraSelect.value;
+      if (scanning) {
+        stopScan().then(startScan);
+      }
+    });
+
+    async function startScan() {
+      if (!currentCameraId) await listCameras();
+      html5QrCode = html5QrCode || new Html5Qrcode(/* element id */ "reader", { verbose: false });
+
+      const config = { fps: 15, qrbox: { width: 280, height: 280 }, aspectRatio: 1.333, focusMode: "continuous" };
+      try {
+        await html5QrCode.start(
+          { deviceId: { exact: currentCameraId } },
+          config,
+          onScanSuccess,
+          onScanFailure
+        );
+        scanning = true;
+        startBtn.disabled = true;
+        stopBtn.disabled = false;
+      } catch (e) {
+        alert("No se pudo iniciar la cámara. Revisa permisos del navegador.");
+        console.error(e);
+      }
+    }
+
+    async function stopScan() {
+      if (html5QrCode && scanning) {
+        await html5QrCode.stop();
+        await html5QrCode.clear();
+        scanning = false;
+        startBtn.disabled = false;
+        stopBtn.disabled = true;
+      }
+    }
+
+    function onScanSuccess(decodedText) {
+      // Si el QR contiene un URL, redirige.
+      if (decodedText.startsWith("http://") || decodedText.startsWith("https://")) {
+        window.location.href = decodedText;
+        return;
+      }
+      // Si quieres aceptar códigos relativos tipo "/guia/v/…" también:
+      if (decodedText.startsWith("/")) {
+        window.location.href = decodedText;
+        return;
+      }
+      // Si es texto, mostrar y seguir si está activado el escaneo continuo
+      alert("Código leído: " + decodedText);
+      if (!continuous.checked) stopScan();
+    }
+
+    function onScanFailure(error) {
+      // Ignorar lecturas fallidas para seguir intentando
+    }
+
+    startBtn.addEventListener('click', startScan);
+    stopBtn.addEventListener('click', stopScan);
+
+    // Intentar precargar cámaras al entrar
+    listCameras().catch(console.error);
+  </script>
+</body>
+</html>
