@@ -38,7 +38,7 @@
   <a-scene
     embedded
     renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
-    mindar-image="imageTargetSrc: /guia/targets/targets.mind; maxTrack: 1; uiLoading: true; uiScanning: true"
+    mindar-image="imageTargetSrc: /guia/targets/targets.mind?v=3; maxTrack: 1; uiLoading: true; uiScanning: true"
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -94,14 +94,20 @@
     const sceneEl = document.querySelector('a-scene');
     const player = document.getElementById('player');
     let stopped = false;
+    let opening = false; // <-- evita disparos múltiples
 
     async function showPlayerAndStopScan(url) {
+      if (opening) return; // ignora re-entradas
+      opening = true;
       if (player.src !== url) player.src = url;
+
       if (!stopped) {
         try { await sceneEl.systems['mindar-image'].stop(); stopped = true; } catch(e) {}
       }
       toast.style.display = 'none';
       overlay.style.display = 'grid';
+      // pequeño defer para permitir que todo se estabilice
+      setTimeout(()=>{ opening = false; }, 300);
     }
 
     async function resumeScan() {
@@ -129,5 +135,4 @@
   </script>
 </body>
 </html>
-
 
