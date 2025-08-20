@@ -2,28 +2,101 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Reconocer Imagen — Guía La Casa del Duende</title>
+  <title>Reconocer Imagen — Guía</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
-
-  <!-- AFRAME + MindAR -->
+  <!-- A-Frame + MindAR -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+  <style>
+    html,body{margin:0;height:100%;background:#0b0b0b;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    /* Barra superior */
+    .ui{position:fixed; z-index:20; left:0; right:0; top:0; display:flex; justify-content:space-between; align-items:center;
+        padding:.7rem 1rem; background:linear-gradient(180deg,rgba(0,0,0,.6),transparent)}
+    .btn{background:#1d3127;border:1px solid #3cb371;color:#eaeaea;padding:.5rem .8rem;border-radius:12px;text-decoration:none}
+    /* Overlay del reproductor */
+    .overlay{position:fixed; inset:0; display:none; place-items:center; z-index:30; background:rgba(0,0,0,.7); backdrop-filter:blur(2px)}
+    .card{width:min(92vw,56vh); aspect-ratio:9/16; background:#111; border:1px solid #2a2a2a; border-radius:16px; overflow:hidden; position:relative}
+    .close{position:absolute; top:.5rem; right:.5rem; z-index:2; background:#1d3127; border:1px solid #3cb371; color:#eaeaea;
+           padding:.35rem .6rem; border-radius:10px; cursor:pointer}
+    iframe{width:100%; height:100%; border:0}
+    /* Mensaje inferior */
+    .toast{position:fixed; left:50%; transform:translateX(-50%); bottom:12px; background:#101010; color:#eaeaea; border:1px solid #2a2a2a;
+           border-radius:10px; padding:.5rem .8rem; font-size:.9rem; z-index:25}
+  </style>
 </head>
 <body>
-  <a-scene mindar-image="imageTargetSrc: /guia/targets/targets.mind; maxTrack: 1"
-           vr-mode-ui="enabled: false"
-           device-orientation-permission-ui="enabled: false">
-    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+  <!-- UI -->
+  <div class="ui">
+    <div>Apunta a la imagen objetivo</div>
+    <a class="btn" href="/guia/scan.html">Escanear QR</a>
+  </div>
+  <div id="toast" class="toast">Buscando imagen…</div>
 
-    <!-- Primer marcador -->
+  <!-- Escena AR (usa tu targets.mind) -->
+  <a-scene
+    mindar-image="imageTargetSrc: /guia/targets/targets.mind; maxTrack: 1"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <!-- Primer marcador (index 0) -->
     <a-entity mindar-image-target="targetIndex: 0" id="marker-0"></a-entity>
   </a-scene>
 
+  <!-- Overlay con el reproductor (MISMA PÁGINA) -->
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true">
+    <div class="card">
+      <button id="closeBtn" class="close" title="Cerrar">✕</button>
+      <!-- NO autoplay: la persona debe tocar Play -->
+      <iframe
+        id="player"
+        src="https://www.youtube-nocookie.com/embed/1uTcUwQH4Pk?playsinline=1&modestbranding=1&rel=0"
+        title="Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin">
+      </iframe>
+    </div>
+  </div>
+
   <script>
-    document.getElementById("marker-0").addEventListener("targetFound", () => {
-      window.location.href = "/guia/v/duendes-cap1.html";
-    });
+    // Referencias
+    const overlay = document.getElementById('overlay');
+    const closeBtn = document.getElementById('closeBtn');
+    const toast = document.getElementById('toast');
+    const sceneEl = document.querySelector('a-scene');
+    let stopped = false; // para saber si ya detuvimos el escaneo
+
+    // Mostrar overlay y detener el escaneo para que el video siga aunque ya no apunten a la imagen
+    async function showPlayerAndStopScan() {
+      if (!stopped) {
+        try {
+          // Detener MindAR (libera la cámara y evita redetecciones)
+          await sceneEl.systems['mindar-image'].stop();
+          stopped = true;
+        } catch(e) { /* algunos navegadores no requieren await */ }
+      }
+      toast.style.display = 'none';
+      overlay.style.display = 'grid';
+    }
+
+    // Cerrar overlay y volver a escanear (opcional)
+    async function resumeScan() {
+      overlay.style.display = 'none';
+      toast.textContent = 'Buscando imagen…';
+      toast.style.display = 'block';
+      try {
+        await sceneEl.systems['mindar-image'].start(); // reanudar cámara
+        stopped = false;
+      } catch(e) { console.warn('No se pudo reanudar:', e); }
+    }
+
+    // Cuando se detecta el target 0, mostramos el reproductor (sin autoplay)
+    document.getElementById('marker-0').addEventListener('targetFound', showPlayerAndStopScan);
+
+    // Cerrar
+    closeBtn.addEventListener('click', resumeScan);
   </script>
 </body>
 </html>
