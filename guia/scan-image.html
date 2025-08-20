@@ -10,17 +10,24 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
   <style>
-    html,body{margin:0;height:100%;background:#0b0b0b;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    /* Fondo transparente para ver la cámara */
+    html,body{margin:0;height:100%;background:transparent;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    /* El canvas de A-Frame ocupa pantalla completa y es transparente */
+    a-scene, canvas.a-canvas { position:fixed; inset:0; }
+    canvas.a-canvas { background: transparent !important; }
+
     /* Barra superior */
     .ui{position:fixed; z-index:20; left:0; right:0; top:0; display:flex; justify-content:space-between; align-items:center;
         padding:.7rem 1rem; background:linear-gradient(180deg,rgba(0,0,0,.6),transparent)}
     .btn{background:#1d3127;border:1px solid #3cb371;color:#eaeaea;padding:.5rem .8rem;border-radius:12px;text-decoration:none}
+
     /* Overlay del reproductor */
     .overlay{position:fixed; inset:0; display:none; place-items:center; z-index:30; background:rgba(0,0,0,.7); backdrop-filter:blur(2px)}
     .card{width:min(92vw,56vh); aspect-ratio:9/16; background:#111; border:1px solid #2a2a2a; border-radius:16px; overflow:hidden; position:relative}
     .close{position:absolute; top:.5rem; right:.5rem; z-index:2; background:#1d3127; border:1px solid #3cb371; color:#eaeaea;
            padding:.35rem .6rem; border-radius:10px; cursor:pointer}
     iframe{width:100%; height:100%; border:0}
+
     /* Mensaje inferior */
     .toast{position:fixed; left:50%; transform:translateX(-50%); bottom:12px; background:#101010; color:#eaeaea; border:1px solid #2a2a2a;
            border-radius:10px; padding:.5rem .8rem; font-size:.9rem; z-index:25}
@@ -36,7 +43,9 @@
 
   <!-- Escena AR (usa tu targets.mind) -->
   <a-scene
-    mindar-image="imageTargetSrc: /guia/targets/targets.mind; maxTrack: 1"
+    embedded
+    renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
+    mindar-image="imageTargetSrc: /guia/targets/targets.mind; maxTrack: 1; uiLoading: true; uiScanning: true"
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -72,16 +81,15 @@
     async function showPlayerAndStopScan() {
       if (!stopped) {
         try {
-          // Detener MindAR (libera la cámara y evita redetecciones)
-          await sceneEl.systems['mindar-image'].stop();
+          await sceneEl.systems['mindar-image'].stop(); // libera la cámara
           stopped = true;
-        } catch(e) { /* algunos navegadores no requieren await */ }
+        } catch(e) {}
       }
       toast.style.display = 'none';
       overlay.style.display = 'grid';
     }
 
-    // Cerrar overlay y volver a escanear (opcional)
+    // Cerrar overlay y volver a escanear
     async function resumeScan() {
       overlay.style.display = 'none';
       toast.textContent = 'Buscando imagen…';
