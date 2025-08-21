@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Home -->
   <url>
     <loc>https://lacasadelduende.art/</loc>
     <lastmod>2025-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- Si luego agregas secciones internas (ej. /faq, /galeria, /contacto),
-       añádelas aquí con <url> igual que arriba -->
+
+  <!-- Página ¿Qué hacer en Baños? -->
+  <url>
+    <loc>https://lacasadelduende.art/que-hacer-en-banos-ecuador.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Página Sobre los Duendes -->
+  <url>
+    <loc>https://lacasadelduende.art/SobreLosDuendes.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Declaración de identidad simbólica -->
+  <url>
+    <loc>https://lacasadelduende.art/lo-que-no-somos.html</loc>
+    <lastmod>2025-08-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
 </urlset>
