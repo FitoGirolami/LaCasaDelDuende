@@ -29,6 +29,34 @@
   </style>
 </head>
 <body>
+  <!-- Intersticial Instagram -->
+  <div id="ig-gate" style="position:fixed; inset:0; z-index:50; display:grid; place-items:center;
+       background:rgba(0,0,0,.8); backdrop-filter:blur(3px);">
+    <div style="width:min(92vw,520px); background:#111; color:#eee; border:1px solid #2a2a2a;
+                border-radius:18px; padding:1rem 1.1rem; box-shadow:0 10px 30px rgba(0,0,0,.4);">
+      <h2 style="margin:.2rem 0 0; font:600 1.25rem/1.2 system-ui">¿Nos apoyas en Instagram? 💚</h2>
+      <p style="margin:.6rem 0 1rem; color:#cfcfcf">
+        Seguirnos nos ayuda a divulgar este proyecto y nuesto arte. Igualmente puedes continuar sin hacerlo si prefieres.
+      </p>
+      <div style="display:flex; gap:.6rem; flex-wrap:wrap">
+        <a id="ig-follow" href="https://instagram.com/lacasadelduende"
+           style="text-decoration:none; padding:.6rem .9rem; border-radius:12px;
+                  border:1px solid #e1306c; background:#2b0d18; color:#ffd1e1; font-weight:600"
+           target="_blank" rel="noopener">
+          Seguir en Instagram
+        </a>
+        <button id="ig-continue" style="padding:.6rem .9rem; border-radius:12px; border:1px solid #3cb371;
+                background:#1d3127; color:#eaeaea; font-weight:600; cursor:pointer">
+          Continuar
+        </button>
+      </div>
+      <label style="display:flex; align-items:center; gap:.5rem; margin-top:1rem; color:#bdbdbd; font-size:.9rem">
+        <input id="ig-dontshow" type="checkbox" />
+        No mostrar de nuevo por hoy
+      </label>
+    </div>
+  </div>
+
   <div class="ui">
     <div>Apunta a una imagen de la guía</div>
     <a class="btn" href="/guia/scan.html">Escanear QR</a>
@@ -43,7 +71,6 @@
     device-orientation-permission-ui="enabled: false">
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-    <!-- Marcadores para los 11 audioguías -->
     <a-entity mindar-image-target="targetIndex: 0" id="marker-0"></a-entity>
     <a-entity mindar-image-target="targetIndex: 1" id="marker-1"></a-entity>
     <a-entity mindar-image-target="targetIndex: 2" id="marker-2"></a-entity>
@@ -75,17 +102,17 @@
     const YT = id => `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&modestbranding=1&rel=0`;
 
     const VIDEOS = [
-      YT("PD7Y1lhBzJE"),     // Audioguia01
-      YT("xsruCvUtH2M"),     // Audioguia02
-      YT("yqWba2Lw24E"),     // Audioguia03
-      YT("eKuCIJecyoo"),     // Audioguia04
-      YT("fm5oAIHAr6U"),     // Audioguia05
-      YT("wmJZa8K04so"),     // Audioguia06
-      YT("XSdyrTGTW1Q"),     // Audioguia07
-      YT("ml03DFpuao8"),     // Audioguia08
-      YT("esKhQS-GeYQ"),     // Audioguia09
-      YT("z7nQZb6WuOo"),     // Audioguia10
-      YT("x8699MTqXMs")      // Audioguia11
+      YT("PD7Y1lhBzJE"), // Audioguia01
+      YT("xsruCvUtH2M"), // Audioguia02
+      YT("yqWba2Lw24E"), // Audioguia03
+      YT("eKuCIJecyoo"), // Audioguia04
+      YT("fm5oAIHAr6U"), // Audioguia05
+      YT("wmJZa8K04so"), // Audioguia06
+      YT("XSdyrTGTW1Q"), // Audioguia07
+      YT("ml03DFpuao8"), // Audioguia08
+      YT("esKhQS-GeYQ"), // Audioguia09
+      YT("z7nQZb6WuOo"), // Audioguia10
+      YT("x8699MTqXMs")  // Audioguia11
     ];
 
     const overlay = document.getElementById('overlay');
@@ -93,20 +120,17 @@
     const toast = document.getElementById('toast');
     const sceneEl = document.querySelector('a-scene');
     const player = document.getElementById('player');
-    let stopped = false;
-    let opening = false; // <-- evita disparos múltiples
+    let stopped = false, opening = false;
 
     async function showPlayerAndStopScan(url) {
-      if (opening) return; // ignora re-entradas
+      if (opening) return;
       opening = true;
       if (player.src !== url) player.src = url;
-
       if (!stopped) {
         try { await sceneEl.systems['mindar-image'].stop(); stopped = true; } catch(e) {}
       }
       toast.style.display = 'none';
       overlay.style.display = 'grid';
-      // pequeño defer para permitir que todo se estabilice
       setTimeout(()=>{ opening = false; }, 300);
     }
 
@@ -132,7 +156,44 @@
         try { player.src = 'about:blank'; } catch(e) {}
       }
     });
+
+    // Lógica del intersticial Instagram
+    (function(){
+      const KEY = 'igGateLastSeen';
+      const gate = document.getElementById('ig-gate');
+      const btnGo = document.getElementById('ig-continue');
+      const chkNo = document.getElementById('ig-dontshow');
+      const aFollow = document.getElementById('ig-follow');
+      const user = 'lacasadelduende';
+
+      aFollow.addEventListener('click', (e) => {
+        const appLink = `instagram://user?username=${user}`;
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = appLink;
+        document.body.appendChild(iframe);
+        setTimeout(()=> { try { document.body.removeChild(iframe); } catch(_){} }, 1200);
+      });
+
+      try {
+        const last = localStorage.getItem(KEY);
+        const today = new Date().toISOString().slice(0,10);
+        if (last === today) { gate.style.display = 'none'; }
+      } catch(_) {}
+
+      btnGo.addEventListener('click', async () => {
+        if (chkNo.checked) {
+          try {
+            const today = new Date().toISOString().slice(0,10);
+            localStorage.setItem(KEY, today);
+          } catch(_) {}
+        }
+        gate.style.display = 'none';
+        try {
+          await sceneEl?.systems?.['mindar-image']?.start?.();
+        } catch(_) {}
+      });
+    })();
   </script>
 </body>
 </html>
-
