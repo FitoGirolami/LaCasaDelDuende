@@ -2,219 +2,333 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- SEO principal -->
+  <!-- Canonical + robots -->
+  <link rel="canonical" href="https://lacasadelduende.art/" />
+  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
+
+  <!-- Título + descripción -->
   <title>La Casa del Duende | Qué hacer en Baños: experiencia original, pioneros y arte independiente</title>
   <meta name="description" content="La Casa del Duende en Baños, Ecuador: experiencia original y recomendada. Pioneros en arte independiente con duendes; jardín simbólico y recorrido real en la Aldea Mágica." />
   <meta name="keywords" content="La Casa del Duende, qué hacer en Baños, duendes en Baños, duendes Latinoamérica, arte independiente, artistas independientes, experiencia original, Aldea Mágica" />
-  <link rel="canonical" href="https://lacasadelduende.art/" />
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="La Casa del Duende | Qué hacer en Baños: experiencia original y recomendada" />
-  <meta property="og:description" content="Pioneros en arte independiente con duendes en Baños. Jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica." />
-  <meta property="og:image" content="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg" />
-  <meta property="og:url" content="https://lacasadelduende.art" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:locale" content="es_EC"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://lacasadelduende.art/"/>
+  <meta property="og:site_name" content="La Casa del Duende"/>
+  <meta property="og:title" content="La Casa del Duende | Qué hacer en Baños: experiencia original y recomendada"/>
+  <meta property="og:description" content="Pioneros en arte independiente con duendes en Baños. Jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica."/>
+  <meta property="og:image" content="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta property="og:image:alt" content="La Casa del Duende en Baños de Agua Santa, jardín simbólico y arte independiente"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Geodatos -->
   <meta name="geo.position" content="-1.392255;-78.419648">
   <meta name="geo.placename" content="La Aldea Mágica, Baños de Agua Santa, Ecuador">
   <meta name="geo.region" content="EC-T">
 
+  <!-- Favicons / theme -->
+  <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
+  <meta name="theme-color" content="#4b3a6d">
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg" imagesizes="100vw">
+
   <!-- Estilos -->
   <style>
-    :root { --morado:#4b3a6d; --crema:#fdf6e3; }
-    * { box-sizing: border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; padding:0; background:var(--crema); color:#2e2e2e; font-family: Georgia, serif; }
-    header { background:var(--morado); color:#fff; text-align:center; padding:40px 20px; }
-    header img { max-width:234px; height:auto; margin-bottom:15px; }
-    nav a { color:#ffe28a; margin:0 10px; font-weight:600; }
-    main { max-width:900px; margin:auto; padding:40px 20px; }
-    h1, h2 { color:var(--morado); }
-    p, ul { line-height:1.6; }
-    img { max-width:100%; border-radius:12px; margin:20px 0; }
-    iframe { width:100%; height:600px; border:none; border-radius:12px; margin:30px 0; }
-    a { color:var(--morado); text-decoration:none; }
-    a:hover { text-decoration:underline; }
-    .gallery { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
-    .gallery img { width:45%; min-width:280px; }
-    footer { text-align:center; padding:30px 20px; background:var(--morado); color:#fff; }
+    :root{
+      --morado:#4b3a6d; --morado-2:#3a2d55; --crema:#f7f3ea;
+      --tinta:#2e2e2e; --tinta-2:#444; --linea:#e7e0d1; --panel:#fff;
+      --radius:16px; --shadow:0 12px 40px rgba(0,0,0,.12);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--tinta); background:var(--crema);
+      font:16px/1.7 ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif;
+    }
+    img{max-width:100%; height:auto; border-radius:12px}
+    a{color:var(--morado); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px; margin:0 auto; padding:24px}
 
-    /* Tarjeta Buscalibre */
-    .card-store { display:inline-block; padding:16px 18px; border-radius:12px; background:#fff; box-shadow:0 6px 20px rgba(0,0,0,.07); text-align:center; }
-    .card-store img { border-radius:12px; margin:0 0 10px 0; }
-    .price { font-size:1.2rem; font-weight:700; margin:6px 0 2px; }
-    .btn-link { display:inline-block; margin-top:8px; padding:10px 14px; background:var(--morado); color:#fff; border-radius:10px; font-weight:600; }
-    .btn-link:hover { background:#3a2d55; text-decoration:none; }
+    /* Header */
+    header.hero{
+      background: radial-gradient(900px 260px at 50% -80px, rgba(255,255,255,.35), transparent 60%), var(--morado);
+      color:#fff; text-align:center; padding:46px 20px 36px;
+      border-bottom:1px solid rgba(255,255,255,.15);
+    }
+    header .brand{display:flex; align-items:center; justify-content:center; gap:.8rem; margin-bottom:10px}
+    header .brand img{width:80px; height:auto; border-radius:14px; border:1px solid rgba(255,255,255,.2)}
+    header h1{font:800 clamp(1.4rem,3.6vw,2.2rem)/1.15 ui-sans-serif;margin:0}
+    header p.sub{margin:.4rem 0 1rem; opacity:.95}
+    nav.main a{color:#ffe28a; font-weight:700; padding:.35rem .6rem; border-radius:999px}
+    nav.main a:hover{background:rgba(255,226,138,.15); text-decoration:none}
 
-    /* Nota Zenodo */
-    .note-zenodo { font-size:.9rem; color:#e9d9ff; margin-top:10px; }
-    .note-zenodo a { color:#ffe28a; }
+    /* Secciones */
+    section{padding:28px 0; border-bottom:1px solid var(--linea)}
+    h2{color:var(--morado); font:700 clamp(1.1rem,2.8vw,1.6rem)/1.2 ui-sans-serif; margin:.2rem 0 .8rem}
+    p{margin:.4rem 0 1rem}
+    .card{background:var(--panel); border:1px solid var(--linea); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
+    .gallery img{grid-column: span 12}
+    @media(min-width:720px){ .gallery img{grid-column: span 6} }
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .half{grid-column:span 12}
+    @media(min-width:760px){ .half{grid-column:span 6} }
+
+    /* Botones */
+    .btn{display:inline-block; padding:.75rem 1.1rem; border-radius:12px; font-weight:800}
+    .btn.primary{background:var(--morado); color:#fff}
+    .btn.primary:hover{background:var(--morado-2); text-decoration:none}
+    .btn.ghost{border:1px solid var(--linea); background:#fff; color:var(--tinta)}
+
+    /* Embeds */
+    iframe.embed{width:100%; aspect-ratio:16/9; border:0; border-radius:12px}
+
+    /* Footer */
+    footer{background:var(--morado); color:#fff; text-align:center; padding:28px 20px}
+    footer a{color:#ffe28a}
+
+    /* Motion-safe */
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+    }
   </style>
 
   <!-- SDK PayPal Hosted Buttons -->
-  <script src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD"></script>
+  <script src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD" defer></script>
 
-  <!-- Datos estructurados: TouristAttraction -->
+  <!-- Datos estructurados -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"TouristAttraction",
-    "name":"La Casa del Duende",
-    "description":"Experiencia original y recomendada en Baños de Agua Santa. Pioneros en arte independiente con duendes en Latinoamérica: jardín simbólico y exposición permanente en la Aldea Mágica.",
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Baños de Agua Santa",
-      "addressRegion":"Tungurahua",
-      "addressCountry":"EC"
-    },
-    "url":"https://lacasadelduende.art",
-    "sameAs":[
-      "https://maps.app.goo.gl/Exm64UHQDLVsebL7A",
-      "https://zenodo.org/record/15733877",
-      "https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078"
-    ],
-    "image":"https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg"
+    "@graph":[
+      {
+        "@type":"TouristAttraction",
+        "@id":"https://lacasadelduende.art/#attraction",
+        "name":"La Casa del Duende",
+        "description":"Espacio cultural independiente en Baños de Agua Santa. Pioneros en arte simbólico con duendes: jardín, figuras únicas y recorrido en la Aldea Mágica.",
+        "url":"https://lacasadelduende.art/",
+        "image":"https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg",
+        "address":{"@type":"PostalAddress","addressLocality":"Baños de Agua Santa","addressRegion":"Tungurahua","addressCountry":"EC"},
+        "geo":{"@type":"GeoCoordinates","latitude":-1.392255,"longitude":-78.419648},
+        "sameAs":[
+          "https://maps.app.goo.gl/Exm64UHQDLVsebL7A",
+          "https://zenodo.org/record/15733877",
+          "https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078"
+        ]
+      },
+      {
+        "@type":"WebSite",
+        "@id":"https://lacasadelduende.art/#website",
+        "url":"https://lacasadelduende.art/",
+        "name":"La Casa del Duende",
+        "inLanguage":"es"
+      },
+      {
+        "@type":"BreadcrumbList",
+        "@id":"https://lacasadelduende.art/#breadcrumbs",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Inicio","item":"https://lacasadelduende.art/"},
+          {"@type":"ListItem","position":2,"name":"Aldea Mágica","item":"https://lacasadelduende.art/#aldea"}
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header>
-    <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png" alt="Logo de La Casa del Duende" />
-    <h1>La Casa del Duende</h1>
-    <p>Experiencia original y recomendada en Baños de Agua Santa — pioneros y artistas independientes</p>
-    <nav aria-label="Navegación principal">
-      <a href="#aldea">Aldea Mágica</a> ·
-      <a href="#apoyo">Apoyar la magia</a> ·
-      <a href="#documentos">Documentación</a> ·
-      <a href="lo-que-no-somos.html">Identidad simbólica</a>
-    </nav>
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="La Casa del Duende">
+    <div class="wrap">
+      <div class="brand">
+        <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png" alt="Logo de La Casa del Duende" width="160" height="160" loading="eager">
+        <h1>La Casa del Duende</h1>
+      </div>
+      <p class="sub">Experiencia original y recomendada — artistas independientes en Baños de Agua Santa</p>
+      <nav class="main" aria-label="Navegación principal">
+        <a href="#aldea">Aldea Mágica</a> ·
+        <a href="#apoyo">Apoyar la magia</a> ·
+        <a href="#documentos">Documentación</a> ·
+        <a href="lo-que-no-somos.html" rel="noopener">Identidad simbólica</a>
+      </nav>
+    </div>
   </header>
 
   <main>
+    <!-- Bienvenida -->
     <section>
-      <h2>Bienvenidos</h2>
-      <p>"Aquellos que creen en la Magia están destinados a Encontrarla"</p>
-      <img src="https://raw.githubusercontent.com/FitoGirolami/LaCasaDelDuende/main/La_casa_del_Duende_Banos.jpg" alt="Entrada a La Casa del Duende en Baños de Agua Santa">
-      <!-- Si mueves tus imágenes a /assets/img/, cambia el src arriba por: assets/img/La_casa_del_Duende_Banos.jpg -->
-    </section>
-
-    <section>
-      <h2>¿Qué hacer en Baños? La experiencia original con duendes</h2>
-      <p>
-        Si buscás una experiencia distinta, lejos del turismo comercial, <strong>La Casa del Duende</strong> es
-        <em>la propuesta original y recomendada</em> en Baños: creada por <strong>artistas independientes</strong>,
-        pionera en Latinoamérica en arte simbólico con <strong>duendes en Baños</strong>, integrada a la naturaleza
-        en nuestra <a href="#aldea">Aldea Mágica</a>.
-      </p>
-      <p>
-        Conocé también nuestro enfoque en <a href="SobreLosDuendes.html">Sobre los duendes</a> y
-        la <a href="lo-que-no-somos.html">declaración de identidad simbólica</a>.
-      </p>
-    </section>
-
-    <section id="aldea">
-      <h2>Recorrido virtual por la Aldea Mágica</h2>
-      <p>Entrá desde cualquier parte del mundo y caminá por el jardín donde habitan nuestras creaciones.</p>
-      <iframe src="https://kuula.co/share/collection/7qPbZ?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1" allow="xr-spatial-tracking; gyroscope; accelerometer" allowfullscreen scrolling="no" title="Recorrido virtual 360° por la Aldea Mágica"></iframe>
-    </section>
-
-    <section>
-      <h2>La Aldea Mágica: arte simbólico y naturaleza</h2>
-      <p>
-        Un recorrido sin apuro donde cada paso te conecta con figuras de Duendes y Hadas escondidas entre plantas y piedras.
-        Esta exposición permanente es ideal para quienes buscan conexión, contemplación y profundidad.
-      </p>
-      <div class="gallery" aria-label="Galería de la Aldea Mágica">
-        <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/488648251_1071721728328405_4751746123281231289_n_crlnjy.jpg" alt="Escultura de duende en el jardín mágico">
-        <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823342/123783753_1515624761961650_6601102288891155899_n_mixxms.jpg" alt="Sendero con figuras simbólicas">
-        <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/487175867_1063623669138211_6343020294761451066_n_np5im6.jpg" alt="Detalle de hada entre las plantas">
-        <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/498716321_1237050027792586_1281064383806648130_n_el7t38.jpg" alt="Rincón de la Aldea Mágica con musgos y piedras">
+      <div class="wrap grid">
+        <article class="half card">
+          <h2>Bienvenidos</h2>
+          <p><em>“Quienes creen en la magia están destinados a encontrarla.”</em></p>
+          <p>Si buscas una experiencia distinta, lejos del turismo comercial, aquí la obra se vive en silencio, con símbolos y atención.</p>
+          <p>
+            <a class="btn primary" href="#aldea">Recorrer la Aldea</a>
+            <a class="btn ghost" href="#documentos">Ver documentación</a>
+          </p>
+        </article>
+        <aside class="half">
+          <img src="https://raw.githubusercontent.com/FitoGirolami/LaCasaDelDuende/main/La_casa_del_Duende_Banos.jpg"
+               alt="Entrada a La Casa del Duende en Baños de Agua Santa"
+               loading="lazy" width="1200" height="800">
+        </aside>
       </div>
     </section>
 
+    <!-- Qué hacer -->
     <section>
-      <h2>Testimonios y valoración</h2>
-      <p>Más de 600 reseñas positivas en Google con 5 estrellas confirman la autenticidad y profundidad de la experiencia.</p>
-      <a href="https://g.page/r/Car0ff_OC1VaEAE/review" target="_blank" rel="noopener">Ver reseñas en Google</a>
+      <div class="wrap">
+        <article class="card">
+          <h2>¿Qué hacer en Baños? La experiencia original con duendes</h2>
+          <p>
+            <strong>La Casa del Duende</strong> es la propuesta original y recomendada en Baños: creada por artistas independientes,
+            pionera en Latinoamérica en arte simbólico con <strong>duendes</strong>, integrada a la naturaleza en nuestra
+            <a href="#aldea">Aldea Mágica</a>.
+          </p>
+          <p>Conoce nuestro enfoque en <a href="SobreLosDuendes.html" rel="noopener">Sobre los duendes</a> y la
+            <a href="lo-que-no-somos.html" rel="noopener">declaración de identidad simbólica</a>.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <section>
-      <h2>Acústicos íntimos</h2>
-      <p>Conciertos grabados en el corazón del jardín mágico. Arte y sonido entre duendes.</p>
-      <iframe src="https://www.youtube.com/embed/aAMMUixvzps?si=wTnB0MK1ohDu_TMV" allowfullscreen title="Acústicos íntimos en La Casa del Duende"></iframe>
+    <!-- Recorrido virtual -->
+    <section id="aldea">
+      <div class="wrap">
+        <article class="card">
+          <h2>Recorrido virtual por la Aldea Mágica</h2>
+          <p>Entra desde cualquier parte del mundo y camina por el jardín donde habitan nuestras creaciones.</p>
+          <iframe class="embed"
+                  src="https://kuula.co/share/collection/7qPbZ?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
+                  allow="xr-spatial-tracking; gyroscope; accelerometer"
+                  loading="lazy"
+                  title="Recorrido virtual 360° por la Aldea Mágica"></iframe>
+        </article>
+      </div>
     </section>
 
+    <!-- Galería Aldea -->
     <section>
-      <h2>Figuras simbólicas de Duendes y Hadas</h2>
-      <p>
-        No vendemos superstición: cada figura es una obra auténtica, única y numerada, creada con intención.
-        <strong>Obra original</strong> de artistas independientes; no reproducimos en masa ni como amuletos vacíos.
-      </p>
-    </section>
-
-    <!-- Apoyo + PayPal + Buscalibre -->
-    <section id="apoyo">
-      <h2>Apoyá la magia y recibí el libro digital</h2>
-      <p>
-        Tu aporte nos permite seguir creando. Al colaborar, recibirás la versión digital de 
-        <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!
-      </p>
-      <!-- Contenedor PayPal -->
-      <div id="paypal-container-DYF6QQ6DYC6GL"></div>
-
-      <!-- Buscalibre -->
-      <div style="margin-top:30px; text-align:center;">
-        <h3>📚 También disponible en Buscalibre</h3>
-        <div class="card-store" aria-label="Compra del libro en Buscalibre">
-          <a href="https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078?srsltid=AfmBOorjxV3wpAUuw5zm6a9pNM-IybaSLCPrpGFl1kcMUPxYZ4CzcbSH" target="_blank" rel="noopener" style="text-decoration:none;">
-            <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/39/99/3999fbfc96ef43fbc42889206acb1d45.jpg" alt="Portada del libro Duendes y otras hierbas" style="max-width:240px; display:block; margin:0 auto 10px;">
-            <div class="price">USD $37.99</div>
-            <span class="btn-link">Comprar en Buscalibre</span>
-          </a>
+      <div class="wrap">
+        <h2>La Aldea Mágica: arte simbólico y naturaleza</h2>
+        <div class="gallery" aria-label="Galería de la Aldea Mágica">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/488648251_1071721728328405_4751746123281231289_n_crlnjy.jpg" alt="Escultura de duende en el jardín mágico" loading="lazy" width="1200" height="800">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823342/123783753_1515624761961650_6601102288891155899_n_mixxms.jpg" alt="Sendero con figuras simbólicas" loading="lazy" width="1200" height="800">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/487175867_1063623669138211_6343020294761451066_n_np5im6.jpg" alt="Detalle de hada entre plantas" loading="lazy" width="1200" height="800">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/498716321_1237050027792586_1281064383806648130_n_el7t38.jpg" alt="Rincón de la Aldea con musgos y piedras" loading="lazy" width="1200" height="800">
         </div>
       </div>
     </section>
 
+    <!-- Reseñas -->
     <section>
-      <h2>Ubicación</h2>
-      <p>📍 <a href="https://maps.app.goo.gl/Exm64UHQDLVsebL7A" target="_blank" rel="noopener">Ver en Google Maps</a></p>
+      <div class="wrap card">
+        <h2>Testimonios y valoración</h2>
+        <p>Reseñas en Google confirman la autenticidad y profundidad de la experiencia.</p>
+        <p>📍 <a href="https://g.page/r/Car0ff_OC1VaEAE/review" target="_blank" rel="noopener">Ver reseñas en Google</a></p>
+      </div>
     </section>
 
+    <!-- Acústicos -->
+    <section>
+      <div class="wrap card">
+        <h2>Acústicos íntimos</h2>
+        <p>Conciertos grabados en el corazón del jardín simbólico: arte y sonido entre duendes.</p>
+        <iframe class="embed"
+                src="https://www.youtube.com/embed/aAMMUixvzps?si=wTnB0MK1ohDu_TMV"
+                title="Acústicos íntimos en La Casa del Duende"
+                loading="lazy" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Figuras -->
+    <section>
+      <div class="wrap card">
+        <h2>Figuras simbólicas de Duendes y Hadas</h2>
+        <p>No vendemos superstición: cada figura es obra auténtica, única y numerada. Creación original con intención; no producimos en masa ni como amuletos vacíos.</p>
+      </div>
+    </section>
+
+    <!-- Apoyo -->
+    <section id="apoyo">
+      <div class="wrap">
+        <article class="card">
+          <h2>Apoyar la magia y recibir el libro digital</h2>
+          <p>Tu aporte sostiene el proyecto. Al colaborar, recibes la versión digital de <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!</p>
+          <div id="paypal-container-DYF6QQ6DYC6GL" aria-live="polite"></div>
+
+          <div style="margin-top:22px; text-align:center;">
+            <h3 style="margin:.2rem 0 1rem">📚 También disponible en Buscalibre</h3>
+            <div class="card" style="display:inline-block; text-align:center;">
+              <a href="https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078?srsltid=AfmBOorjxV3wpAUuw5zm6a9pNM-IybaSLCPrpGFl1kcMUPxYZ4CzcbSH"
+                 target="_blank" rel="noopener" style="text-decoration:none;">
+                <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/39/99/3999fbfc96ef43fbc42889206acb1d45.jpg"
+                     alt="Portada del libro Duendes y otras hierbas"
+                     width="240" height="240" loading="lazy">
+                <div style="font-weight:700; margin:.4rem 0 .2rem; color:var(--tinta)">USD $37.99</div>
+                <span class="btn primary">Comprar en Buscalibre</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section>
+      <div class="wrap card">
+        <h2>Ubicación</h2>
+        <p>📍 <a href="https://maps.app.goo.gl/Exm64UHQDLVsebL7A" target="_blank" rel="noopener">Ver en Google Maps</a></p>
+      </div>
+    </section>
+
+    <!-- Documentación -->
     <section id="documentos">
-      <h2>Documentación y registro oficial</h2>
-      <ul>
-        <li><a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Registro oficial de marca (Zenodo)</a></li>
-        <li><a href="https://osf.io/smvg6/" target="_blank" rel="noopener">Publicación académica OSF</a></li>
-        <li><a href="https://medium.com/@girolami/filosofía-invisible-un-manifiesto-por-lo-que-no-se-ve-pero-permanece-c962be4e7519" target="_blank" rel="noopener">Filosofía invisible</a></li>
-      </ul>
+      <div class="wrap card">
+        <h2>Documentación y registro oficial</h2>
+        <ul>
+          <li><a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Registro oficial de marca (Zenodo)</a></li>
+          <li><a href="https://osf.io/smvg6/" target="_blank" rel="noopener">Publicación académica OSF</a></li>
+          <li><a href="https://medium.com/@girolami/filosofía-invisible-un-manifiesto-por-lo-que-no-se-ve-pero-permanece-c962be4e7519" target="_blank" rel="noopener">Filosofía invisible</a></li>
+        </ul>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <p>© La Casa del Duende · Baños de Agua Santa · Ecuador</p>
-    <div style="margin-top:1rem;">
-      <p style="font-size:0.9rem; color:#ffcc66;">
-        👉 ¿Buscás <strong>qué hacer en Baños de Agua Santa</strong>? Explorá experiencias simbólicas y auténticas
-        <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html" style="color:#ffe28a;">aquí</a>.
+  <footer role="contentinfo">
+    <div class="wrap" style="text-align:center; color:#ffe6a8">
+      <p style="color:#fff; margin:.2rem 0">© <span id="y"></span> La Casa del Duende · Baños de Agua Santa · Ecuador</p>
+      <p style="font-size:.95rem; margin:.4rem 0 1rem;">
+        👉 ¿Buscas <strong>qué hacer en Baños de Agua Santa</strong>? Explora experiencias simbólicas
+        <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html">aquí</a>.
+      </p>
+      <p style="font-size:.85rem; color:#ffe28a;">
+        Para prensa e investigadores: registro documental abierto en
+        <a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Zenodo</a>.
+      </p>
+      <p style="font-size:.85rem; margin-top:.6rem;">
+        <a href="lo-que-no-somos.html" style="color:#ffdfff;">Leer declaración de identidad simbólica</a>
       </p>
     </div>
-    <p class="note-zenodo">
-      Para investigadores y prensa: mantenemos un registro documental abierto en 
-      <a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Zenodo</a>, que cruza publicaciones y antecedentes de la experiencia original.
-    </p>
-    <p style="font-size:0.8rem; text-align:center; margin-top:1rem;">
-      <a href="lo-que-no-somos.html" style="color:#e9d9ff; text-decoration:none;">Leer declaración de identidad simbólica</a>
-    </p>
   </footer>
 
-  <!-- Render del botón de PayPal -->
+  <!-- PayPal render -->
   <script>
-    paypal.HostedButtons({
-      hostedButtonId: "DYF6QQ6DYC6GL",
-    }).render("#paypal-container-DYF6QQ6DYC6GL");
+    window.addEventListener('DOMContentLoaded', function(){
+      if (window.paypal && paypal.HostedButtons) {
+        paypal.HostedButtons({ hostedButtonId: "DYF6QQ6DYC6GL" })
+              .render("#paypal-container-DYF6QQ6DYC6GL");
+      }
+      document.getElementById('y').textContent = new Date().getFullYear();
+    });
   </script>
 </body>
 </html>
