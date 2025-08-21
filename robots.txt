@@ -1,4 +1,13 @@
-User-agent: *
-Disallow:
+# robots.txt para lacasadelduende.art
 
+User-agent: *
+Allow: /
+
+# Evitar indexar archivos internos o carpetas de sistema (si existen)
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /private/
+
+# Indicar a Google y otros motores dónde está el sitemap
 Sitemap: https://lacasadelduende.art/sitemap.xml
