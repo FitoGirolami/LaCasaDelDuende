@@ -9,20 +9,20 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Origen de los Duendes en Baños -->
-  <url>
-    <loc>https://lacasadelduende.art/origen-duendes-banos.html</loc>
-    <lastmod>2025-08-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Qué hacer en Baños -->
+  <!-- Página ¿Qué hacer en Baños? -->
   <url>
     <loc>https://lacasadelduende.art/que-hacer-en-banos-ecuador.html</loc>
     <lastmod>2025-08-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Página Origen de los Duendes en Baños -->
+  <url>
+    <loc>https://lacasadelduende.art/origen-duendes-banos.html</loc>
+    <lastmod>2025-08-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
   </url>
 
   <!-- Página Sobre los Duendes -->
