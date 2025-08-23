@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Reconocer Imagen — Guía</title>
+  <title>Audio Guía — Reconocer Imagen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
   <!-- A-Frame + MindAR -->
@@ -10,58 +10,59 @@
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 
   <style>
-    html,body{margin:0;height:100%;background:transparent;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    html,body{margin:0;height:100%;background:#000;color:#eaeaea;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial}
     a-scene, canvas.a-canvas { position:fixed; inset:0; }
     canvas.a-canvas { background: transparent !important; }
 
-    .ui{position:fixed; z-index:20; left:0; right:0; top:0; display:flex; justify-content:space-between; align-items:center;
-        padding:.7rem 1rem; background:linear-gradient(180deg,rgba(0,0,0,.6),transparent)}
-    .btn{background:#1d3127;border:1px solid #3cb371;color:#eaeaea;padding:.5rem .8rem;border-radius:12px;text-decoration:none}
-
+    .ui{position:fixed; z-index:20; left:0; right:0; top:0; display:flex; justify-content:center; align-items:center;
+        padding:.7rem 1rem; background:linear-gradient(180deg,rgba(0,0,0,.6),transparent); font-weight:600}
     .overlay{position:fixed; inset:0; display:none; place-items:center; z-index:30; background:rgba(0,0,0,.7); backdrop-filter:blur(2px)}
     .card{width:min(92vw,56vh); aspect-ratio:9/16; background:#111; border:1px solid #2a2a2a; border-radius:16px; overflow:hidden; position:relative}
     .close{position:absolute; top:.5rem; right:.5rem; z-index:2; background:#1d3127; border:1px solid #3cb371; color:#eaeaea;
            padding:.35rem .6rem; border-radius:10px; cursor:pointer}
     iframe{width:100%; height:100%; border:0}
-
     .toast{position:fixed; left:50%; transform:translateX(-50%); bottom:12px; background:#101010; color:#eaeaea; border:1px solid #2a2a2a;
            border-radius:10px; padding:.5rem .8rem; font-size:.9rem; z-index:25}
+
+    /* Pantalla de indicaciones */
+    .intro{position:fixed; inset:0; z-index:40; display:grid; place-items:center; background:radial-gradient(1200px 800px at 50% 20%, rgba(60,179,113,.12), rgba(0,0,0,.85))}
+    .intro-card{width:min(92vw,560px); background:#0f1311; color:#e9f4ee; border:1px solid #2c3a33; border-radius:18px; padding:1.1rem 1.2rem;
+                box-shadow:0 12px 40px rgba(0,0,0,.45)}
+    .intro h1{margin:.1rem 0 .4rem; font:700 1.35rem/1.2 system-ui}
+    .intro p{margin:.55rem 0; color:#cfe4d8}
+    .intro ul{margin:.5rem 0 .2rem 1rem; color:#cfe4d8}
+    .intro .btn-row{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.8rem}
+    .btn{background:#1d3127;border:1px solid #3cb371;color:#eaeaea;padding:.6rem .9rem;border-radius:12px;text-decoration:none;cursor:pointer;font-weight:600}
+    .btn.secondary{background:#151a18;border-color:#2c3a33;color:#cfe4d8}
   </style>
 </head>
 <body>
-  <!-- Intersticial Instagram -->
-  <div id="ig-gate" style="position:fixed; inset:0; z-index:50; display:grid; place-items:center;
-       background:rgba(0,0,0,.8); backdrop-filter:blur(3px);">
-    <div style="width:min(92vw,520px); background:#111; color:#eee; border:1px solid #2a2a2a;
-                border-radius:18px; padding:1rem 1.1rem; box-shadow:0 10px 30px rgba(0,0,0,.4);">
-      <h2 style="margin:.2rem 0 0; font:600 1.25rem/1.2 system-ui">¿Nos apoyas en Instagram? 💚</h2>
-      <p style="margin:.6rem 0 1rem; color:#cfcfcf">
-        Seguirnos nos ayuda a divulgar este proyecto y nuesto arte. Igualmente puedes continuar sin hacerlo si prefieres.
+  <!-- Pantalla de indicaciones al abrir desde el QR -->
+  <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
+    <div class="intro-card">
+      <h1 id="intro-title">Audio Guía — Instrucciones</h1>
+      <p>
+        Estás por vivir un recorrido sonoro dentro de <strong>La Casa del Duende / La Aldea Mágica</strong>.
       </p>
-      <div style="display:flex; gap:.6rem; flex-wrap:wrap">
-        <a id="ig-follow" href="https://instagram.com/lacasadelduende"
-           style="text-decoration:none; padding:.6rem .9rem; border-radius:12px;
-                  border:1px solid #e1306c; background:#2b0d18; color:#ffd1e1; font-weight:600"
-           target="_blank" rel="noopener">
-          Seguir en Instagram
-        </a>
-        <button id="ig-continue" style="padding:.6rem .9rem; border-radius:12px; border:1px solid #3cb371;
-                background:#1d3127; color:#eaeaea; font-weight:600; cursor:pointer">
-          Continuar
-        </button>
+      <ul>
+        <li><strong>Apunta la cámara</strong> de esta guía hacia los <strong>rótulos señalados</strong> en el espacio.</li>
+        <li>Cuando se reconozca un rótulo, se abrirá el reproductor: <strong>pulsa “play”</strong> y escucha.</li>
+        <li>Para comprender el conjunto, se recomienda <strong>hacer pausa</strong> en el lugar y escuchar cada audio con <strong>atención y predisposición</strong>.</li>
+      </ul>
+      <div class="btn-row">
+        <button id="startGuide" class="btn" aria-label="Comenzar">Comenzar</button>
+        <button id="noSound" class="btn secondary" aria-label="¿No escuchas audio?">¿Sin sonido?<span aria-hidden="true"> 🔈</span></button>
       </div>
-      <label style="display:flex; align-items:center; gap:.5rem; margin-top:1rem; color:#bdbdbd; font-size:.9rem">
-        <input id="ig-dontshow" type="checkbox" />
-        No mostrar de nuevo por hoy
-      </label>
+      <p id="helpMsg" style="display:none; font-size:.9rem; color:#a7c5b7; margin-top:.6rem">
+        Sube el volumen del dispositivo y desactiva el modo silencio. En iOS, verifica el interruptor lateral.
+      </p>
     </div>
   </div>
 
-  <div class="ui">
-    <div>Apunta a una imagen de la guía</div>
-    <a class="btn" href="/guia/scan.html">Escanear QR</a>
-  </div>
-  <div id="toast" class="toast">Buscando imagen…</div>
+  <!-- Barra superior (solo texto informativo) -->
+  <div class="ui" aria-live="polite">Apunta a un rótulo de la guía para continuar</div>
+
+  <div id="toast" class="toast" style="display:none">Buscando imagen…</div>
 
   <a-scene
     embedded
@@ -71,6 +72,7 @@
     device-orientation-permission-ui="enabled: false">
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
+    <!-- Marcadores / índices deben coincidir con el targets.mind -->
     <a-entity mindar-image-target="targetIndex: 0" id="marker-0"></a-entity>
     <a-entity mindar-image-target="targetIndex: 1" id="marker-1"></a-entity>
     <a-entity mindar-image-target="targetIndex: 2" id="marker-2"></a-entity>
@@ -84,7 +86,8 @@
     <a-entity mindar-image-target="targetIndex: 10" id="marker-10"></a-entity>
   </a-scene>
 
-  <div id="overlay" class="overlay" role="dialog" aria-modal="true">
+  <!-- Overlay del reproductor -->
+  <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-label="Reproductor de la Audio Guía">
     <div class="card">
       <button id="closeBtn" class="close" title="Cerrar">✕</button>
       <iframe
@@ -99,7 +102,7 @@
   </div>
 
   <script>
-    const YT = id => `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&modestbranding=1&rel=0`;
+    const YT = id => `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&modestbranding=1&rel=0&autoplay=1`;
 
     const VIDEOS = [
       YT("PD7Y1lhBzJE"), // Audioguia01
@@ -120,80 +123,83 @@
     const toast = document.getElementById('toast');
     const sceneEl = document.querySelector('a-scene');
     const player = document.getElementById('player');
-    let stopped = false, opening = false;
+
+    const intro = document.getElementById('intro');
+    const startBtn = document.getElementById('startGuide');
+    const noSoundBtn = document.getElementById('noSound');
+    const helpMsg = document.getElementById('helpMsg');
+
+    let stopped = true, opening = false;
+
+    // Mostrar mensaje "Buscando imagen…" solo cuando está activa la cámara
+    function showSearching(v=true){
+      toast.style.display = v ? 'block' : 'none';
+      if (v) toast.textContent = 'Buscando imagen…';
+    }
+
+    async function startScan(){
+      try {
+        await sceneEl.systems['mindar-image'].start();
+        stopped = false;
+        showSearching(true);
+      } catch(e) {
+        console.warn('No se pudo iniciar el escaneo:', e);
+      }
+    }
+
+    async function stopScan(){
+      try { await sceneEl.systems['mindar-image'].stop(); }
+      catch(e) {}
+      stopped = true;
+      showSearching(false);
+    }
 
     async function showPlayerAndStopScan(url) {
       if (opening) return;
       opening = true;
       if (player.src !== url) player.src = url;
-      if (!stopped) {
-        try { await sceneEl.systems['mindar-image'].stop(); stopped = true; } catch(e) {}
-      }
-      toast.style.display = 'none';
+      if (!stopped) { await stopScan(); }
       overlay.style.display = 'grid';
-      setTimeout(()=>{ opening = false; }, 300);
+      setTimeout(()=>{ opening = false; }, 250);
     }
 
     async function resumeScan() {
       try { player.src = 'about:blank'; } catch(e) {}
       overlay.style.display = 'none';
-      toast.textContent = 'Buscando imagen…';
-      toast.style.display = 'block';
-      try { await sceneEl.systems['mindar-image'].start(); stopped = false; }
-      catch(e) { console.warn('No se pudo reanudar:', e); }
+      await startScan();
     }
 
+    // Eventos de los marcadores -> abrir reproductor
     for (let i = 0; i < VIDEOS.length; i++) {
       const marker = document.getElementById('marker-' + i);
       if (!marker) continue;
       marker.addEventListener('targetFound', () => showPlayerAndStopScan(VIDEOS[i]));
     }
 
+    // Cerrar reproductor
     closeBtn.addEventListener('click', resumeScan);
 
+    // Gestionar visibilidad de la pestaña para detener autoplay en background
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && overlay.style.display === 'grid') {
         try { player.src = 'about:blank'; } catch(e) {}
       }
     });
 
-    // Lógica del intersticial Instagram
-    (function(){
-      const KEY = 'igGateLastSeen';
-      const gate = document.getElementById('ig-gate');
-      const btnGo = document.getElementById('ig-continue');
-      const chkNo = document.getElementById('ig-dontshow');
-      const aFollow = document.getElementById('ig-follow');
-      const user = 'lacasadelduende';
+    // Pantalla de introducción (desde QR)
+    startBtn.addEventListener('click', async () => {
+      intro.style.display = 'none';
+      await startScan();
+    });
+    noSoundBtn.addEventListener('click', () => {
+      helpMsg.style.display = helpMsg.style.display === 'none' ? 'block' : 'none';
+    });
 
-      aFollow.addEventListener('click', (e) => {
-        const appLink = `instagram://user?username=${user}`;
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = appLink;
-        document.body.appendChild(iframe);
-        setTimeout(()=> { try { document.body.removeChild(iframe); } catch(_){} }, 1200);
-      });
-
-      try {
-        const last = localStorage.getItem(KEY);
-        const today = new Date().toISOString().slice(0,10);
-        if (last === today) { gate.style.display = 'none'; }
-      } catch(_) {}
-
-      btnGo.addEventListener('click', async () => {
-        if (chkNo.checked) {
-          try {
-            const today = new Date().toISOString().slice(0,10);
-            localStorage.setItem(KEY, today);
-          } catch(_) {}
-        }
-        gate.style.display = 'none';
-        try {
-          await sceneEl?.systems?.['mindar-image']?.start?.();
-        } catch(_) {}
-      });
-    })();
+    // Al cargar, mostrar introducción y NO iniciar aún la cámara
+    window.addEventListener('load', () => {
+      intro.style.display = 'grid';
+      showSearching(false);
+    });
   </script>
 </body>
 </html>
