@@ -8,10 +8,11 @@
   <link rel="canonical" href="https://lacasadelduende.art/" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
 
-  <!-- Título + descripción -->
+  <!-- Título + descripción (con nombres para SEO) -->
   <title>La Casa del Duende | Qué hacer en Baños: experiencia original, pioneros y arte independiente</title>
-  <meta name="description" content="La Casa del Duende en Baños, Ecuador: experiencia original y recomendada. Pioneros en arte independiente con duendes; jardín simbólico y recorrido real en la Aldea Mágica." />
+  <meta name="description" content="La Casa del Duende en Baños de Agua Santa, Ecuador, fundada en 2013 por los artistas Fito Girolami (Argentina) y Catalina Lucz-Ligeti (Chile). Experiencia original: jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica." />
   <meta name="keywords" content="La Casa del Duende, qué hacer en Baños, duendes en Baños, duendes Latinoamérica, arte independiente, artistas independientes, experiencia original, Aldea Mágica" />
+  <meta name="author" content="Fito Girolami, Catalina Lucz-Ligeti" />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:locale" content="es_EC"/>
@@ -19,7 +20,7 @@
   <meta property="og:url" content="https://lacasadelduende.art/"/>
   <meta property="og:site_name" content="La Casa del Duende"/>
   <meta property="og:title" content="La Casa del Duende | Qué hacer en Baños: experiencia original y recomendada"/>
-  <meta property="og:description" content="Pioneros en arte independiente con duendes en Baños. Jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica."/>
+  <meta property="og:description" content="Fundada en 2013 por Fito Girolami y Catalina Lucz-Ligeti. Arte independiente con duendes: jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica."/>
   <meta property="og:image" content="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
@@ -37,7 +38,7 @@
 
   <!-- Performance -->
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-  <link rel="preload" as="image" href="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg" imagesizes="100vw">
+  <link rel="preload" as="image" href="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg">
 
   <!-- Estilos -->
   <style>
@@ -104,23 +105,75 @@
   <!-- SDK PayPal Hosted Buttons -->
   <script src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD" defer></script>
 
-  <!-- Datos estructurados -->
+  <!-- Datos estructurados (graph con Organization + Person + TouristAttraction) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@graph":[
       {
+        "@type":"Organization",
+        "@id":"https://lacasadelduende.art/#org",
+        "name":"La Casa del Duende",
+        "url":"https://lacasadelduende.art/",
+        "logo":"https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png",
+        "foundingDate":"2013-01-01",
+        "founder":[
+          {"@id":"https://lacasadelduende.art/#person-fito"},
+          {"@id":"https://lacasadelduende.art/#person-cata"}
+        ],
+        "sameAs":[
+          "https://maps.app.goo.gl/Exm64UHQDLVsebL7A",
+          "https://banos.travel/",
+          "https://zenodo.org/record/15733877"
+        ]
+      },
+      {
+        "@type":"Person",
+        "@id":"https://lacasadelduende.art/#person-fito",
+        "name":"Fito Girolami",
+        "nationality":"Argentina",
+        "sameAs":[
+          "https://www.wikidata.org/wiki/Q134989795",
+          "https://zenodo.org/records/16891513",
+          "https://lacasadelduende.art/"
+        ]
+      },
+      {
+        "@type":"Person",
+        "@id":"https://lacasadelduende.art/#person-cata",
+        "name":"Catalina Lucz-Ligeti",
+        "nationality":"Chile",
+        "sameAs":[
+          "https://lacasadelduende.art/",
+          "https://banos.travel/"
+        ]
+      },
+      {
+        "@type":"Place",
+        "@id":"https://lacasadelduende.art/#place",
+        "name":"La Aldea Mágica",
+        "address":{
+          "@type":"PostalAddress",
+          "addressLocality":"Baños de Agua Santa",
+          "addressRegion":"Tungurahua",
+          "addressCountry":"EC"
+        },
+        "geo":{"@type":"GeoCoordinates","latitude":-1.392255,"longitude":-78.419648}
+      },
+      {
         "@type":"TouristAttraction",
         "@id":"https://lacasadelduende.art/#attraction",
         "name":"La Casa del Duende",
-        "description":"Espacio cultural independiente en Baños de Agua Santa. Pioneros en arte simbólico con duendes: jardín, figuras únicas y recorrido en la Aldea Mágica.",
+        "description":"Espacio cultural independiente en Baños de Agua Santa, fundado en 2013 por Fito Girolami y Catalina Lucz-Ligeti. Pioneros en arte simbólico con duendes: jardín, figuras únicas y recorrido en la Aldea Mágica.",
         "url":"https://lacasadelduende.art/",
         "image":"https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg",
-        "address":{"@type":"PostalAddress","addressLocality":"Baños de Agua Santa","addressRegion":"Tungurahua","addressCountry":"EC"},
-        "geo":{"@type":"GeoCoordinates","latitude":-1.392255,"longitude":-78.419648},
+        "founder":[
+          {"@id":"https://lacasadelduende.art/#person-fito"},
+          {"@id":"https://lacasadelduende.art/#person-cata"}
+        ],
+        "isPartOf":{"@id":"https://lacasadelduende.art/#place"},
         "sameAs":[
           "https://maps.app.goo.gl/Exm64UHQDLVsebL7A",
-          "https://zenodo.org/record/15733877",
           "https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078"
         ]
       },
@@ -129,7 +182,17 @@
         "@id":"https://lacasadelduende.art/#website",
         "url":"https://lacasadelduende.art/",
         "name":"La Casa del Duende",
-        "inLanguage":"es"
+        "inLanguage":"es",
+        "publisher":{"@id":"https://lacasadelduende.art/#org"}
+      },
+      {
+        "@type":"WebPage",
+        "@id":"https://lacasadelduende.art/#webpage",
+        "url":"https://lacasadelduende.art/",
+        "name":"La Casa del Duende – Sitio oficial",
+        "isPartOf":{"@id":"https://lacasadelduende.art/#website"},
+        "about":{"@id":"https://lacasadelduende.art/#attraction"},
+        "breadcrumb":{"@id":"https://lacasadelduende.art/#breadcrumbs"}
       },
       {
         "@type":"BreadcrumbList",
@@ -152,7 +215,7 @@
         <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png" alt="Logo de La Casa del Duende" width="160" height="160" loading="eager">
         <h1>La Casa del Duende</h1>
       </div>
-      <p class="sub">Experiencia original y recomendada — artistas independientes en Baños de Agua Santa</p>
+      <p class="sub">Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong> — experiencia original en Baños de Agua Santa</p>
       <nav class="main" aria-label="Navegación principal">
         <a href="#aldea">Aldea Mágica</a> ·
         <a href="#apoyo">Apoyar la magia</a> ·
@@ -306,6 +369,7 @@
   <footer role="contentinfo">
     <div class="wrap" style="text-align:center; color:#ffe6a8">
       <p style="color:#fff; margin:.2rem 0">© <span id="y"></span> La Casa del Duende · Baños de Agua Santa · Ecuador</p>
+      <p style="margin:.2rem 0 .8rem;">Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong>.</p>
       <p style="font-size:.95rem; margin:.4rem 0 1rem;">
         👉 ¿Buscas <strong>qué hacer en Baños de Agua Santa</strong>? Explora experiencias simbólicas
         <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html">aquí</a>.
