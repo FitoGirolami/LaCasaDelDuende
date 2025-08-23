@@ -24,38 +24,57 @@
     .toast{position:fixed; left:50%; transform:translateX(-50%); bottom:12px; background:#101010; color:#eaeaea; border:1px solid #2a2a2a;
            border-radius:10px; padding:.5rem .8rem; font-size:.9rem; z-index:25}
 
-    /* Pantalla de indicaciones */
+    /* Intro y diagnóstico */
     .intro{position:fixed; inset:0; z-index:40; display:grid; place-items:center; background:radial-gradient(1200px 800px at 50% 20%, rgba(60,179,113,.12), rgba(0,0,0,.85))}
-    .intro-card{width:min(92vw,560px); background:#0f1311; color:#e9f4ee; border:1px solid #2c3a33; border-radius:18px; padding:1.1rem 1.2rem;
-                box-shadow:0 12px 40px rgba(0,0,0,.45)}
+    .intro-card{width:min(92vw,560px); background:#0f1311; color:#e9f4ee; border:1px solid #2c3a33; border-radius:18px; padding:1.1rem 1.2rem; box-shadow:0 12px 40px rgba(0,0,0,.45)}
     .intro h1{margin:.1rem 0 .4rem; font:700 1.35rem/1.2 system-ui}
     .intro p{margin:.55rem 0; color:#cfe4d8}
     .intro ul{margin:.5rem 0 .2rem 1rem; color:#cfe4d8}
     .intro .btn-row{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.8rem}
     .btn{background:#1d3127;border:1px solid #3cb371;color:#eaeaea;padding:.6rem .9rem;border-radius:12px;text-decoration:none;cursor:pointer;font-weight:600}
     .btn.secondary{background:#151a18;border-color:#2c3a33;color:#cfe4d8}
+
+    .diag{position:fixed; inset:0; z-index:45; display:none; place-items:center; background:rgba(0,0,0,.8); backdrop-filter:blur(2px)}
+    .diag-card{width:min(92vw,640px); background:#111; color:#eee; border:1px solid #2a2a2a; border-radius:16px; padding:1rem 1.1rem}
+    .diag h2{margin:.2rem 0 .6rem; font:700 1.2rem/1.1 system-ui}
+    .diag pre{white-space:pre-wrap; word-break:break-word; background:#0b0b0b; border:1px solid #262626; border-radius:10px; padding:.6rem .7rem; color:#c7c7c7}
+    .diag .row{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.7rem}
+    .hint{font-size:.92rem; color:#c9e7d7; margin-top:.5rem}
   </style>
 </head>
 <body>
-  <!-- Pantalla de indicaciones al abrir desde el QR -->
+  <!-- Pantalla de indicaciones -->
   <div id="intro" class="intro" role="dialog" aria-modal="true" aria-labelledby="intro-title">
     <div class="intro-card">
       <h1 id="intro-title">Audio Guía — Instrucciones</h1>
-      <p>
-        Estás por vivir un recorrido sonoro dentro de <strong>La Casa del Duende / La Aldea Mágica</strong>.
-      </p>
+      <p>Estás por vivir un recorrido sonoro dentro de <strong>La Casa del Duende / La Aldea Mágica</strong>.</p>
       <ul>
         <li><strong>Apunta la cámara</strong> de esta guía hacia los <strong>rótulos señalados</strong> en el espacio.</li>
-        <li>Cuando se reconozca un rótulo, se abrirá el reproductor: <strong>pulsa “play”</strong> y escucha.</li>
-        <li>Para comprender el conjunto, se recomienda <strong>hacer pausa</strong> en el lugar y escuchar cada audio con <strong>atención y predisposición</strong>.</li>
+        <li>Al reconocer un rótulo, se abrirá el reproductor: <strong>toca “play”</strong> y escucha.</li>
+        <li>Para comprender el conjunto, <strong>haz pausa</strong> en el lugar y escucha con <strong>atención y predisposición</strong>.</li>
       </ul>
       <div class="btn-row">
         <button id="startGuide" class="btn" aria-label="Comenzar">Comenzar</button>
         <button id="noSound" class="btn secondary" aria-label="¿No escuchas audio?">¿Sin sonido?<span aria-hidden="true"> 🔈</span></button>
       </div>
       <p id="helpMsg" style="display:none; font-size:.9rem; color:#a7c5b7; margin-top:.6rem">
-        Sube el volumen del dispositivo y desactiva el modo silencio. En iOS, verifica el interruptor lateral.
+        Sube el volumen del dispositivo y desactiva el modo silencio. En iOS, revisa el interruptor lateral.
       </p>
+      <p class="hint" id="httpsHint" style="display:none;">Sugerencia: abre esta guía en <strong>HTTPS</strong> (requerido para usar la cámara).</p>
+    </div>
+  </div>
+
+  <!-- Diálogo de diagnóstico -->
+  <div id="diag" class="diag" role="dialog" aria-modal="true" aria-labelledby="diag-title">
+    <div class="diag-card">
+      <h2 id="diag-title">No se puede acceder a la cámara</h2>
+      <pre id="diagMsg">Diagnóstico…</pre>
+      <div class="row">
+        <button id="retryBtn" class="btn">Reintentar</button>
+        <button id="switchBtn" class="btn secondary">Cambiar cámara</button>
+        <button id="closeDiag" class="btn secondary">Cerrar</button>
+      </div>
+      <p class="hint" id="platformHint"></p>
     </div>
   </div>
 
@@ -102,22 +121,19 @@
   </div>
 
   <script>
-    const YT = id => `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&modestbranding=1&rel=0&autoplay=1`;
+    // Utilidades
+    const isHTTPS = location.protocol === 'https:' || location.hostname === 'localhost';
+    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isAndroid = /Android/i.test(navigator.userAgent);
 
+    const YT = id => `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&modestbranding=1&rel=0&autoplay=1`;
     const VIDEOS = [
-      YT("PD7Y1lhBzJE"), // Audioguia01
-      YT("xsruCvUtH2M"), // Audioguia02
-      YT("yqWba2Lw24E"), // Audioguia03
-      YT("eKuCIJecyoo"), // Audioguia04
-      YT("fm5oAIHAr6U"), // Audioguia05
-      YT("wmJZa8K04so"), // Audioguia06
-      YT("XSdyrTGTW1Q"), // Audioguia07
-      YT("ml03DFpuao8"), // Audioguia08
-      YT("esKhQS-GeYQ"), // Audioguia09
-      YT("z7nQZb6WuOo"), // Audioguia10
-      YT("x8699MTqXMs")  // Audioguia11
+      YT("PD7Y1lhBzJE"), YT("xsruCvUtH2M"), YT("yqWba2Lw24E"), YT("eKuCIJecyoo"),
+      YT("fm5oAIHAr6U"), YT("wmJZa8K04so"), YT("XSdyrTGTW1Q"), YT("ml03DFpuao8"),
+      YT("esKhQS-GeYQ"), YT("z7nQZb6WuOo"), YT("x8699MTqXMs")
     ];
 
+    // Elementos
     const overlay = document.getElementById('overlay');
     const closeBtn = document.getElementById('closeBtn');
     const toast = document.getElementById('toast');
@@ -128,13 +144,23 @@
     const startBtn = document.getElementById('startGuide');
     const noSoundBtn = document.getElementById('noSound');
     const helpMsg = document.getElementById('helpMsg');
+    const httpsHint = document.getElementById('httpsHint');
+
+    const diag = document.getElementById('diag');
+    const diagMsg = document.getElementById('diagMsg');
+    const platformHint = document.getElementById('platformHint');
+    const retryBtn = document.getElementById('retryBtn');
+    const switchBtn = document.getElementById('switchBtn');
+    const closeDiag = document.getElementById('closeDiag');
 
     let stopped = true, opening = false;
+    let preferredFacing = 'environment'; // alterna entre 'environment' y 'user'
+    let sceneReady = false;
 
     // Esperar a que A-Frame + MindAR estén listos
     const waitSceneReady = new Promise(resolve => {
-      if (sceneEl.hasLoaded) resolve();
-      else sceneEl.addEventListener('loaded', resolve, { once:true });
+      if (sceneEl.hasLoaded) { sceneReady = true; resolve(); }
+      else sceneEl.addEventListener('loaded', () => { sceneReady = true; resolve(); }, { once:true });
     });
 
     function showSearching(v=true){
@@ -142,28 +168,92 @@
       if (v) toast.textContent = 'Buscando imagen…';
     }
 
-    async function ensureCameraPermission(){
-      // Solicita permiso y cierra el stream (algunas plataformas necesitan la interacción previa)
-      if (!navigator.mediaDevices?.getUserMedia) return;
+    function showDiag(message, err){
+      const eName = err?.name || '';
+      const eMsg = err?.message || '';
+      const proto = location.protocol.replace(':','').toUpperCase();
+      diagMsg.textContent =
+        (message ? message + "\n\n" : "") +
+        (eName ? "Error: " + eName + "\n" : "") +
+        (eMsg ? eMsg + "\n" : "") +
+        "Protocolo: " + proto + "\n" +
+        "Facing preferido: " + preferredFacing;
+
+      // Sugerencias por plataforma
+      if (!isHTTPS) {
+        platformHint.innerHTML = "Esta guía requiere <strong>HTTPS</strong>. Abre la URL con https:// o en <strong>localhost</strong>.";
+      } else if (isiOS) {
+        platformHint.innerHTML = "iOS: abre en <strong>Safari</strong>, recarga después de otorgar permisos; desactiva el modo silencio y permite acceso a Cámara en Ajustes &gt; Safari.";
+      } else if (isAndroid) {
+        platformHint.innerHTML = "Android: abre en <strong>Chrome</strong> o navegador actualizado, verifica permisos de Cámara para el sitio (icono del candado &gt; Permisos).";
+      } else {
+        platformHint.textContent = "Revisa permisos del navegador para Cámara y que ningún otro app esté usando la cámara.";
+      }
+      diag.style.display = 'grid';
+    }
+
+    async function checkDevices(){
+      try {
+        const devices = await navigator.mediaDevices?.enumerateDevices?.() || [];
+        const cams = devices.filter(d => d.kind === 'videoinput');
+        return cams.length;
+      } catch { return 0; }
+    }
+
+    async function ensureCameraPermission(facing){
+      // Solicita permiso y cierra el stream. Retorna true si se pudo abrir.
+      if (!navigator.mediaDevices?.getUserMedia) throw new Error('getUserMedia no soportado en este navegador.');
       let stream;
       try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } } });
+        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: facing } } });
+        return true;
       } finally {
         try { stream?.getTracks()?.forEach(t => t.stop()); } catch(_) {}
       }
     }
 
+    async function startMindARWithFacing(facing){
+      // MindAR acepta videoSettings; usamos el facing que funciona.
+      await sceneEl.systems['mindar-image'].start({ 
+        videoSettings: { facingMode: facing }
+      });
+    }
+
     async function startScan(){
       try {
         await waitSceneReady;
-        await ensureCameraPermission();
-        await sceneEl.systems['mindar-image'].start();
+
+        if (!isHTTPS) {
+          // Sin HTTPS, la cámara suele ser bloqueada
+          throw new Error('La cámara está bloqueada porque la página no se sirve por HTTPS.');
+        }
+
+        // Intento 1: cámara trasera (environment)
+        let granted = false, err1 = null;
+        try { granted = await ensureCameraPermission(preferredFacing); }
+        catch(e){ err1 = e; }
+
+        // Si falla el facing preferido, probamos el otro
+        if (!granted) {
+          preferredFacing = (preferredFacing === 'environment') ? 'user' : 'environment';
+          try { granted = await ensureCameraPermission(preferredFacing); }
+          catch(e){ /* guardamos error abajo si tampoco va */ }
+        }
+
+        if (!granted) {
+          // Ni environment ni user: mostramos diagnóstico
+          const cams = await checkDevices();
+          const extra = cams === 0 ? "No se detectan cámaras o el navegador bloquea el acceso." : "Cámara detectada pero sin permiso.";
+          showDiag(extra + " Toca Reintentar tras permitir acceso.");
+          return;
+        }
+
+        await startMindARWithFacing(preferredFacing);
         stopped = false;
         showSearching(true);
       } catch(e) {
         console.warn('No se pudo iniciar el escaneo:', e);
-        toast.textContent = 'No se pudo acceder a la cámara. Verifica permisos y recarga.';
-        toast.style.display = 'block';
+        showDiag('No se pudo acceder a la cámara. Verifica permisos y HTTPS.', e);
       }
     }
 
@@ -198,6 +288,22 @@
     // Cerrar reproductor
     closeBtn.addEventListener('click', resumeScan);
 
+    // Diagnóstico: botones
+    retryBtn.addEventListener('click', async () => {
+      diag.style.display = 'none';
+      await startScan();
+    });
+
+    switchBtn.addEventListener('click', async () => {
+      preferredFacing = (preferredFacing === 'environment') ? 'user' : 'environment';
+      diag.style.display = 'none';
+      await startScan();
+    });
+
+    closeDiag.addEventListener('click', () => {
+      diag.style.display = 'none';
+    });
+
     // Pausar si se cambia de pestaña
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && overlay.style.display === 'grid') {
@@ -215,11 +321,12 @@
       helpMsg.style.display = helpMsg.style.display === 'none' ? 'block' : 'none';
     });
 
-    // Al cargar: mostrar introducción y NO iniciar aún la cámara
+    // Al cargar
     window.addEventListener('load', () => {
       intro.style.display = 'grid';
       showSearching(false);
+      if (!isHTTPS) httpsHint.style.display = 'block';
     });
   </script>
 </body>
-</html
+</html>
