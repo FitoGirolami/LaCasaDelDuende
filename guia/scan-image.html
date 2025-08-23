@@ -67,7 +67,7 @@
   <a-scene
     embedded
     renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
-    mindar-image="imageTargetSrc: /guia/targets/targets.mind?v=3; maxTrack: 1; uiLoading: true; uiScanning: true"
+    mindar-image="imageTargetSrc: /guia/targets/targets.mind?v=3; maxTrack: 1; uiLoading: true; uiScanning: true; autoStart: false"
     vr-mode-ui="enabled: false"
     device-orientation-permission-ui="enabled: false">
     <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
@@ -131,25 +131,44 @@
 
     let stopped = true, opening = false;
 
-    // Mostrar mensaje "Buscando imagen…" solo cuando está activa la cámara
+    // Esperar a que A-Frame + MindAR estén listos
+    const waitSceneReady = new Promise(resolve => {
+      if (sceneEl.hasLoaded) resolve();
+      else sceneEl.addEventListener('loaded', resolve, { once:true });
+    });
+
     function showSearching(v=true){
       toast.style.display = v ? 'block' : 'none';
       if (v) toast.textContent = 'Buscando imagen…';
     }
 
+    async function ensureCameraPermission(){
+      // Solicita permiso y cierra el stream (algunas plataformas necesitan la interacción previa)
+      if (!navigator.mediaDevices?.getUserMedia) return;
+      let stream;
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } } });
+      } finally {
+        try { stream?.getTracks()?.forEach(t => t.stop()); } catch(_) {}
+      }
+    }
+
     async function startScan(){
       try {
+        await waitSceneReady;
+        await ensureCameraPermission();
         await sceneEl.systems['mindar-image'].start();
         stopped = false;
         showSearching(true);
       } catch(e) {
         console.warn('No se pudo iniciar el escaneo:', e);
+        toast.textContent = 'No se pudo acceder a la cámara. Verifica permisos y recarga.';
+        toast.style.display = 'block';
       }
     }
 
     async function stopScan(){
-      try { await sceneEl.systems['mindar-image'].stop(); }
-      catch(e) {}
+      try { await sceneEl.systems['mindar-image'].stop(); } catch(e) {}
       stopped = true;
       showSearching(false);
     }
@@ -179,27 +198,28 @@
     // Cerrar reproductor
     closeBtn.addEventListener('click', resumeScan);
 
-    // Gestionar visibilidad de la pestaña para detener autoplay en background
+    // Pausar si se cambia de pestaña
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && overlay.style.display === 'grid') {
         try { player.src = 'about:blank'; } catch(e) {}
       }
     });
 
-    // Pantalla de introducción (desde QR)
+    // Pantalla de introducción
     startBtn.addEventListener('click', async () => {
       intro.style.display = 'none';
       await startScan();
     });
+
     noSoundBtn.addEventListener('click', () => {
       helpMsg.style.display = helpMsg.style.display === 'none' ? 'block' : 'none';
     });
 
-    // Al cargar, mostrar introducción y NO iniciar aún la cámara
+    // Al cargar: mostrar introducción y NO iniciar aún la cámara
     window.addEventListener('load', () => {
       intro.style.display = 'grid';
       showSearching(false);
     });
   </script>
 </body>
-</html>
+</html
