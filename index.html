@@ -40,6 +40,12 @@
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
   <link rel="preload" as="image" href="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg">
 
+  <!-- Licencia / derechos (SEO) -->
+  <link rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+  <meta name="license" content="Creative Commons CC BY-NC-ND 4.0">
+  <meta name="rights" content="© La Casa del Duende – Fito Girolami & Catalina Lucz-Ligeti">
+  <meta name="copyright" content="© La Casa del Duende">
+
   <!-- Estilos -->
   <style>
     :root{
@@ -105,7 +111,7 @@
   <!-- SDK PayPal Hosted Buttons -->
   <script src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD" defer></script>
 
-  <!-- Datos estructurados (graph con Organization + Person + TouristAttraction) -->
+  <!-- Datos estructurados (graph con Organization + Person + TouristAttraction + CreativeWork/licencia) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -201,6 +207,19 @@
           {"@type":"ListItem","position":1,"name":"Inicio","item":"https://lacasadelduende.art/"},
           {"@type":"ListItem","position":2,"name":"Aldea Mágica","item":"https://lacasadelduende.art/#aldea"}
         ]
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://lacasadelduende.art/#obra",
+        "name": "Imágenes y obras de La Casa del Duende",
+        "creator": [
+          {"@id":"https://lacasadelduende.art/#person-fito"},
+          {"@id":"https://lacasadelduende.art/#person-cata"}
+        ],
+        "copyrightHolder": {"@id":"https://lacasadelduende.art/#org"},
+        "copyrightYear": "2013",
+        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+        "locationCreated": {"@id":"https://lacasadelduende.art/#place"}
       }
     ]
   }
@@ -380,6 +399,16 @@
       </p>
       <p style="font-size:.85rem; margin-top:.6rem;">
         <a href="lo-que-no-somos.html" style="color:#ffdfff;">Leer declaración de identidad simbólica</a>
+      </p>
+
+      <!-- Aviso de licencia visible -->
+      <p style="font-size:.9rem; margin-top:1rem; color:#ffe28a;">
+        Todas las imágenes y creaciones de <strong>La Casa del Duende</strong> —realizadas por
+        <strong>Fito Girolami</strong> (Argentina) y <strong>Catalina Lucz-Ligeti</strong> (Chile)— están protegidas por derechos de autor ©
+        y licenciadas bajo
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener">
+          Creative Commons CC BY-NC-ND 4.0
+        </a>.
       </p>
     </div>
   </footer>
