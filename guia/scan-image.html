@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KY6MFZZ1SH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KY6MFZZ1SH');
-</script>
-  
+<head> 
   <meta charset="UTF-8" />
   <title>Audio Guía — Reconocer Imagen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KY6MFZZ1SH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-KY6MFZZ1SH', { anonymize_ip: true });
+  </script>
+
   <!-- A-Frame + MindAR -->
   <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
@@ -141,6 +141,32 @@
   </div>
 
   <script>
+    // ======= ANALYTICS HELPERS (GA4) =======
+    const STOP_NAMES = [
+      "Bienvenida","Misión-Visión","Pista 3","Pista 4","Pista 5",
+      "Pista 6","Pista 7","Pista 8","Pista 9","Cierre","Pista 11"
+    ];
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+    const sessionId = (crypto && crypto.randomUUID) ? crypto.randomUUID() : String(Math.random()).slice(2);
+    let openSince = null;
+    let openStopIndex = null;
+
+    function hourLocal() {
+      const d = new Date();
+      return String(d.getHours()).padStart(2,'0') + ':00';
+    }
+    function logEvent(name, params = {}) {
+      try {
+        gtag('event', name, Object.assign({
+          guide: 'CasaDelDuende',
+          session_id: sessionId,
+          hour_local: hourLocal(),
+          timezone: tz
+        }, params));
+        console.debug('[GA]', name, params);
+      } catch(e) { console.warn('No se pudo enviar evento', e); }
+    }
+
     // --- Utilidades de entorno ---
     const isHTTPS = location.protocol === 'https:' || location.hostname === 'localhost';
     const ua = navigator.userAgent || '';
@@ -204,13 +230,21 @@
       diagMsg.textContent = (msg||'') + (err ? `\n\n${err.name||''}\n${err.message||''}` : '');
       diag.style.display = 'grid';
       console.warn('Cam diag:', msg, err);
+      // track opcional
+      logEvent('camera_error', { reason: (err && err.name) || msg || 'unknown' });
     }
 
     // --- Inicio UX ---
+    window.addEventListener('load', () => {
+      intro.style.display = 'grid';
+      logEvent('guide_view');
+    });
+
     startBtn.addEventListener('click', async () => {
       intro.style.display = 'none';
       toast.style.display = 'block';
       toast.textContent = 'Buscando imagen…';
+      logEvent('guide_start');
 
       if (!isHTTPS) { showDiag('Se requiere HTTPS para usar la cámara.'); return; }
       if (inApp) { /* muchos in-app bloquean cámara */ }
@@ -227,25 +261,33 @@
     toggleCamBtn.addEventListener('click', async () => {
       const tmp = facing; facing = altFacing; altFacing = tmp;
       try {
-        // Si el sistema expone start/stop, reiniciamos con sugerencia de facing
         await sceneEl.systems['mindar-image']?.stop?.();
         await preflightCameraTry();
-        // algunos builds aceptan videoSettings; si no, al menos el preflight fija la cámara del navegador
         await sceneEl.systems['mindar-image']?.start?.({ videoSettings: { facingMode: facing } });
         stopped = false;
+        logEvent('camera_switch', { facing });
       } catch(e) {
         showDiag('No se pudo cambiar de cámara. Asegúrate de dar permiso a ambas.', e);
       }
     });
 
-    // --- Reproductor & MindAR stop/start como el tuyo ---
-    async function showPlayerAndStopScan(url) {
+    // --- Reproductor & MindAR stop/start ---
+    async function showPlayerAndStopScan(url, index = null) {
       if (opening) return;
       opening = true;
       if (player.src !== url) player.src = url;
       if (!stopped) {
         try { await sceneEl.systems['mindar-image']?.stop?.(); stopped = true; } catch(e) {}
       }
+      // Analytics: apertura de parada
+      openSince = Date.now();
+      openStopIndex = index;
+      logEvent('ar_stop_open', {
+        stop_index: index,
+        stop_name: STOP_NAMES[index] || ('Parada_'+index),
+        media_url: url
+      });
+
       toast.style.display = 'none';
       overlay.style.display = 'grid';
       setTimeout(()=>{ opening = false; }, 250);
@@ -256,8 +298,20 @@
       overlay.style.display = 'none';
       toast.textContent = 'Buscando imagen…';
       toast.style.display = 'block';
+
+      // Analytics: cierre de parada + duración
+      if (openSince !== null && openStopIndex !== null) {
+        const ms = Date.now() - openSince;
+        logEvent('ar_stop_close', {
+          stop_index: openStopIndex,
+          stop_name: STOP_NAMES[openStopIndex] || ('Parada_'+openStopIndex),
+          listen_ms: ms
+        });
+      }
+      openSince = null;
+      openStopIndex = null;
+
       try {
-        // Si soporta videoSettings, sugerimos el facing elegido
         await sceneEl.systems['mindar-image']?.start?.({ videoSettings: { facingMode: facing } });
         stopped = false;
       } catch(e) { console.warn('No se pudo reanudar:', e); }
@@ -267,7 +321,7 @@
     for (let i = 0; i < VIDEOS.length; i++) {
       const marker = document.getElementById('marker-' + i);
       if (!marker) continue;
-      marker.addEventListener('targetFound', () => showPlayerAndStopScan(VIDEOS[i]));
+      marker.addEventListener('targetFound', () => showPlayerAndStopScan(VIDEOS[i], i));
     }
 
     closeBtn.addEventListener('click', resumeScan);
@@ -277,11 +331,6 @@
       if (document.hidden && overlay.style.display === 'grid') {
         try { player.src = 'about:blank'; } catch(e) {}
       }
-    });
-
-    // Mostrar intro al cargar
-    window.addEventListener('load', () => {
-      intro.style.display = 'grid';
     });
 
     // Diagnóstico: botones
