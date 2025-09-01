@@ -233,35 +233,37 @@
     ]
   }
   </script>
+
+  <!-- JSON-LD del Report con DOI (cease & desist) -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Report",
-  "@id": "https://doi.org/10.5281/zenodo.17021534#report",
-  "name": "Registro público de evidencia y solicitud de cese — proyecto «Bosque Encantado», Baños de Agua Santa (31/08/2025)",
-  "author": [
-    { "@type": "Person", "name": "Fito Girolami", "affiliation": "La Casa del Duende" },
-    { "@type": "Person", "name": "Catalina Lucz-Ligeti", "affiliation": "La Casa del Duende" }
-  ],
-  "datePublished": "2025-09-01",
-  "inLanguage": "es",
-  "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-  "identifier": {
-    "@type": "PropertyValue",
-    "propertyID": "DOI",
-    "value": "10.5281/zenodo.17021534",
-    "url": "https://doi.org/10.5281/zenodo.17021534"
-  },
-  "url": "https://doi.org/10.5281/zenodo.17021534",
-  "sameAs": ["https://zenodo.org/records/17021534"],
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "La Casa del Duende",
-    "url": "https://lacasadelduende.art/"
-  },
-  "about": "Documento con evidencia primaria (PDF + video + checksums) que respalda una solicitud de cese y abstención por presuntas prácticas desleales."
-}
-</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "Report",
+    "@id": "https://doi.org/10.5281/zenodo.17021534#report",
+    "name": "Registro público de evidencia y solicitud de cese — proyecto «Bosque Encantado», Baños de Agua Santa (31/08/2025)",
+    "author": [
+      { "@type": "Person", "name": "Fito Girolami", "affiliation": "La Casa del Duende" },
+      { "@type": "Person", "name": "Catalina Lucz-Ligeti", "affiliation": "La Casa del Duende" }
+    ],
+    "datePublished": "2025-09-01",
+    "inLanguage": "es",
+    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+    "identifier": {
+      "@type": "PropertyValue",
+      "propertyID": "DOI",
+      "value": "10.5281/zenodo.17021534",
+      "url": "https://doi.org/10.5281/zenodo.17021534"
+    },
+    "url": "https://doi.org/10.5281/zenodo.17021534",
+    "sameAs": ["https://zenodo.org/records/17021534"],
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "La Casa del Duende",
+      "url": "https://lacasadelduende.art/"
+    },
+    "about": "Documento con evidencia primaria (PDF + video + checksums) que respalda una solicitud de cese y abstención por presuntas prácticas desleales."
+  }
+  </script>
 
 </head>
 <body>
@@ -416,6 +418,7 @@
       <div class="wrap card">
         <h2>Documentación y registro oficial</h2>
         <ul>
+          <li><a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Solicitud de cese y evidencia (DOI Zenodo)</a></li>
           <li><a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Registro oficial de marca (Zenodo)</a></li>
           <li><a href="https://osf.io/smvg6/" target="_blank" rel="noopener">Publicación académica OSF</a></li>
           <li><a href="https://medium.com/@girolami/filosofía-invisible-un-manifiesto-por-lo-que-no-se-ve-pero-permanece-c962be4e7519" target="_blank" rel="noopener">Filosofía invisible</a></li>
@@ -434,10 +437,12 @@
       </p>
       <p style="font-size:.85rem; color:#ffe28a;">
         Para prensa e investigadores: registro documental abierto en
-        <a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Zenodo</a>.
+        <a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Zenodo (DOI 10.5281/zenodo.17021534)</a>.
       </p>
       <p style="font-size:.85rem; margin-top:.6rem;">
         <a href="lo-que-no-somos.html" style="color:#ffdfff;">Leer declaración de identidad simbólica</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/transparencia.html" title="Transparencia y documentación" style="color:#ffdfff;">Transparencia</a>
       </p>
 
       <!-- Aviso de licencia visible -->
@@ -452,14 +457,14 @@
     </div>
   </footer>
 
-  <!-- PayPal render -->
+  <!-- PayPal render + año dinámico -->
   <script>
     window.addEventListener('DOMContentLoaded', function(){
       if (window.paypal && paypal.HostedButtons) {
         paypal.HostedButtons({ hostedButtonId: "DYF6QQ6DYC6GL" })
               .render("#paypal-container-DYF6QQ6DYC6GL");
       }
-      document.getElementById('y').textContent = new Date().getFullYear();
+      var y=document.getElementById('y'); if(y){ y.textContent=new Date().getFullYear(); }
     });
   </script>
 </body>
