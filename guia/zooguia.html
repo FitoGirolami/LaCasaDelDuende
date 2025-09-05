@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Video Guía — Gran Zoológico</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Staging: evita indexar hasta publicar -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- © 2025 FitoGirolami.art — Licencia: Todos los derechos reservados. -->
+
+  <!-- Google tag (gtag.js) — UNIFICADO -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCLBJT60LV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NCLBJT60LV', { anonymize_ip: true });
+  </script>
+
+  <!-- A-Frame + MindAR -->
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+    /* A-Frame full-screen y por detrás de la UI */
+    a-scene, .a-canvas {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
+    }
+    canvas.a-canvas { background: transparent !important; }
+
+    /* Transiciones suaves para UI */
+    .ui-fade { transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; }
+    .hidden-scale { opacity: 0; transform: scale(0.95); }
+
+    /* Cuando el reproductor está abierto, deshabilita clicks al canvas AR */
+    .no-cam-events a-scene,
+    .no-cam-events canvas.a-canvas { pointer-events: none; }
+  </style>
+</head>
+<body class="bg-black text-gray-200">
+
+  <!-- Intro Screen -->
+  <div id="intro" class="fixed inset-0 z-40 grid place-items-center bg-slate-900/80 backdrop-blur-sm p-4 ui-fade">
+    <div class="bg-slate-800/80 ring-1 ring-amber-500/30 rounded-2xl shadow-2xl p-6 md:p-8 max-w-lg w-full">
+      <h1 id="intro-title" class="text-2xl font-bold text-amber-300 mb-3">Video Guía del Zoológico</h1>
+      <p class="text-gray-300 mb-4">Estás a punto de iniciar un recorrido interactivo por el <strong>Gran Zoológico</strong>.</p>
+      <ul class="list-disc list-inside space-y-2 text-gray-300 mb-6">
+        <li><strong>Apunta la cámara</strong> hacia los rótulos en los hábitats.</li>
+        <li>Al reconocer un animal, se abrirá el reproductor de video.</li>
+        <li>Para una mejor experiencia, <strong>haz una pausa</strong> y disfruta del contenido.</li>
+      </ul>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button id="startGuide" class="w-full bg-amber-600 hover:bg-amber-500 text-white font-bold py-3 px-4 rounded-lg transition-colors">Comenzar Aventura</button>
+        <button id="noSound" class="w-full bg-slate-700 hover:bg-slate-600 text-gray-300 font-bold py-3 px-4 rounded-lg transition-colors">¿Sin sonido? 🔈</button>
+      </div>
+      <p id="helpMsg" class="hidden text-sm text-amber-200 mt-4">Sube el volumen del dispositivo y desactiva el modo silencio.</p>
+      <div id="appWarn" class="hidden warn bg-yellow-900/50 text-yellow-200 border border-yellow-700 rounded-lg p-3 mt-4 text-sm"></div>
+      <div id="httpswarn" class="hidden warn bg-red-900/50 text-red-200 border border-red-700 rounded-lg p-3 mt-4 text-sm">Esta guía requiere <strong>HTTPS</strong>. Abre la URL segura (https://) para usar la cámara.</div>
+    </div>
+  </div>
+
+  <!-- Diagnostic Modal -->
+  <div id="diag" class="fixed inset-0 z-50 hidden place-items-center bg-black/80 backdrop-blur-md p-4 ui-fade hidden-scale">
+    <div class="bg-slate-800 ring-1 ring-red-500/30 rounded-2xl shadow-xl p-6 max-w-md w-full">
+      <h2 id="diag-title" class="text-xl font-bold text-red-300 mb-3">No se puede acceder a la cámara</h2>
+      <pre id="diagMsg" class="text-sm bg-slate-900 rounded-lg p-4 my-4 whitespace-pre-wrap break-words text-gray-400">Diagnóstico...</pre>
+      <div class="flex flex-wrap gap-3">
+        <button id="retryBtn" class="flex-1 bg-amber-600 hover:bg-amber-500 text-white font-bold py-2 px-4 rounded-lg">Reintentar</button>
+        <button id="switchBtn" class="flex-1 bg-slate-700 hover:bg-slate-600 text-gray-300 font-bold py-2 px-4 rounded-lg">Cambiar cámara</button>
+        <button id="closeDiag" class="bg-slate-600 hover:bg-slate-500 text-gray-300 font-bold py-2 px-4 rounded-lg">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top UI Bar -->
+  <div id="top-ui" class="fixed top-0 left-0 right-0 z-20 flex justify-between items-center p-4 bg-gradient-to-b from-black/70 to-transparent ui-fade hidden-scale">
+    <div id="toast" aria-live="polite" class="bg-black/50 backdrop-blur-sm text-white text-sm font-semibold py-2 px-4 rounded-full">
+      Buscando hábitat...
+    </div>
+    <button id="toggleCam" class="bg-black/50 backdrop-blur-sm p-3 rounded-full hover:bg-white/20 transition-colors" aria-label="Cambiar de cámara" title="Cambiar de cámara">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-camera-reverse" viewBox="0 0 24 24"><path d="m11 19-3-3-4 4"/><path d="m5 13-2.5 2.5a2.83 2.83 0 0 0 0 4l9 9a2.83 2.83 0 0 0 4 0l9-9a2.83 2.83 0 0 0 0-4L19 13"/><path d="m15 10-4-4 6-6 4 4Z"/></svg>
+    </button>
+  </div>
+
+  <!-- A-Frame Scene -->
+  <a-scene
+    embedded
+    renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
+    mindar-image="imageTargetSrc: /zoologico/targets/targets.mind; maxTrack: 1; uiLoading: #aframe-loading; uiScanning: #aframe-scanning"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    <div id="aframe-loading" class="hidden">Cargando...</div>
+    <div id="aframe-scanning" class="hidden"></div>
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+    <!-- Markers (targetIndex 0..9) -->
+    <a-entity mindar-image-target="targetIndex: 0" class="marker"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 1" class="marker"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 2" class="marker"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 3" class="marker"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 4" class="marker"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 5" class="marker"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 6" class="marker"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 7" class="marker"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 8" class="marker"></a-entity>
+    <a-entity mindar-image-target="targetIndex: 9" class="marker"></a-entity>
+  </a-scene>
+
+  <!-- Player Overlay -->
+  <div id="overlay" class="fixed inset-0 z-30 hidden place-items-center bg-black/80 backdrop-blur-md p-4 ui-fade hidden-scale">
+    <div class="relative w-full max-w-xl aspect-video bg-black rounded-2xl shadow-2xl overflow-hidden ring-1 ring-white/10">
+      <button id="closeBtn" class="absolute top-2 right-2 z-10 bg-black/50 p-2 rounded-full hover:bg-white/20 transition-colors" title="Cerrar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <iframe
+        id="player"
+        class="w-full h-full border-0"
+        src="about:blank"
+        title="Video Guía del Zoológico"
+        allow="autoplay; encrypted-media; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <!-- Watermark and Copyright -->
+  <div class="fixed bottom-2 right-3 z-50 text-xs text-right pointer-events-none">
+    <span class="text-white/40">Esta video guía es desarrollada por FitoGirolami.art</span><br>
+    <span class="text-white/30">© 2025 FitoGirolami.art. Todos los derechos reservados.</span>
+  </div>
+
+  <script type="module">
+    // © 2025 FitoGirolami.art. Todos los derechos reservados.
+
+    // --- CONFIGURATION ---
+    const STOPS = [
+      { name: "Leones",      url: "https://www.youtube-nocookie.com/embed/_u5_2_d_l-Y?playsinline=1&modestbranding=1&rel=0&autoplay=1" },
+      { name: "Elefantes",   url: "https://www.youtube-nocookie.com/embed/C_q-42p3kU?playsinline=1&modestbranding=1&rel=0&autoplay=1" },
+      { name: "Monos",       url: "https://www.youtube-nocookie.com/embed/4oY_w37bQx0?playsinline=1&modestbranding=1&rel=0&autoplay=1" },
+      { name: "Pingüinos",   url: "https://www.youtube-nocookie.com/embed/h_c5-M5PY-8?playsinline=1&modestbranding=1&rel=0&autoplay=1" },
+      { name: "Serpientes",  url: "https://www.youtube-nocookie.com/embed/7Oq751WJ_5Y?playsinline=1&modestbranding=1&rel=0&autoplay=1" },
+      { name: "Jirafas",     url: "https://www.youtube-nocookie.com/embed/kL0-m9E8t_0?playsinline=1&modestbranding=1&rel=0&autoplay=1" },
+      { name: "Osos Panda",  url: "https://www.youtube-nocookie.com/embed/ALyKaT_a2uA?playsinline=1&modestbranding=1&rel=0&autoplay=1" },
+      { name: "Tigres",      url: "https://www.youtube-nocookie.com/embed/QJ2sr_9eCS0?playsinline=1&modestbranding=1&rel=0&autoplay=1" },
+      { name: "Cebras",      url: "https://www.youtube-nocookie.com/embed/d2z-7f_pL-A?playsinline=1&modestbranding=1&rel=0&autoplay=1" },
+      { name: "Despedida",   url: "https://www.youtube-nocookie.com/embed/_xV4e32A-44?playsinline=1&modestbranding=1&rel=0&autoplay=1" }
+    ];
+
+    // --- APP STATE & DOM ELEMENTS ---
+    const AppState = {
+      isScanning: false,
+      isPlayerOpen: false,
+      cameraFacingMode: 'environment',
+      activeStopIndex: null,
+      listenStartTime: null,
+      sessionId: crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2),
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC',
+    };
+
+    const DOM = {
+      intro: document.querySelector('#intro'),
+      startBtn: document.querySelector('#startGuide'),
+      noSoundBtn: document.querySelector('#noSound'),
+      helpMsg: document.querySelector('#helpMsg'),
+      appWarn: document.querySelector('#appWarn'),
+      httpsWarn: document.querySelector('#httpswarn'),
+      diag: document.querySelector('#diag'),
+      diagMsg: document.querySelector('#diagMsg'),
+      retryBtn: document.querySelector('#retryBtn'),
+      switchBtn: document.querySelector('#switchBtn'),
+      closeDiag: document.querySelector('#closeDiag'),
+      topUI: document.querySelector('#top-ui'),
+      toast: document.querySelector('#toast'),
+      toggleCamBtn: document.querySelector('#toggleCam'),
+      overlay: document.querySelector('#overlay'),
+      player: document.querySelector('#player'),
+      closeBtn: document.querySelector('#closeBtn'),
+      scene: document.querySelector('a-scene'),
+    };
+
+    // --- UI HELPERS ---
+    const showUI = (el) => { if (el) el.classList.remove('hidden', 'hidden-scale'); };
+    const hideUI = (el) => {
+      if (!el) return;
+      el.classList.add('hidden-scale');
+      setTimeout(() => el.classList.add('hidden'), 300);
+    };
+
+    // --- ANALYTICS ---
+    const logEvent = (name, params = {}) => {
+      if (typeof gtag !== 'function') return;
+      try {
+        const data = {
+          guide: 'GranZoologico',
+          session_id: AppState.sessionId,
+          hour_local: new Date().getHours().toString().padStart(2, '0') + ':00',
+          timezone: AppState.timeZone,
+          ...params,
+        };
+        gtag('event', name, data);
+        console.debug('[GA]', name, data);
+      } catch (e) {
+        console.warn('Failed to send GA event', e);
+      }
+    };
+
+    // --- CORE ---
+    const environmentCheck = () => {
+      const isHTTPS = location.protocol === 'https:' || ['localhost','127.0.0.1'].includes(location.hostname);
+      const ua = navigator.userAgent || '';
+      const inApp = /(FBAN|FBAV|Instagram|TikTok)/i.test(ua);
+
+      if (!isHTTPS) DOM.httpsWarn.classList.remove('hidden');
+      if (inApp) {
+        DOM.appWarn.innerHTML = 'Parece que abriste la guía desde una app. Toca <strong>⋯</strong> y elige <strong>“Abrir en el navegador”</strong>, o <a class="underline" href="'+ location.href +'" target="_blank" rel="noopener">toca aquí para abrir</a>.';
+        DOM.appWarn.classList.remove('hidden');
+      }
+      return isHTTPS;
+    };
+
+    const showDiagnostic = (message, error) => {
+      const errorInfo = error ? `\n\n${error.name || ''}\n${error.message || ''}` : '';
+      DOM.diagMsg.textContent = message + errorInfo;
+      showUI(DOM.diag);
+      logEvent('camera_error', { reason: (error && error.name) || message || 'unknown' });
+    };
+
+    const preflightCamera = async (facingMode) => {
+      if (!navigator.mediaDevices?.getUserMedia) throw new Error('getUserMedia not supported');
+      const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: facingMode } } });
+      stream.getTracks().forEach(t => t.stop());
+    };
+
+    const getMindarSystem = () => DOM.scene?.systems?.['mindar-image-system'];
+
+    const ensureSceneLoaded = () =>
+      new Promise(resolve => {
+        if (DOM.scene.hasLoaded) return resolve();
+        DOM.scene.addEventListener('loaded', () => resolve(), { once: true });
+      });
+
+    const startScanner = async () => {
+      DOM.toast.textContent = 'Buscando hábitat...';
+      await ensureSceneLoaded();
+      try {
+        const sys = getMindarSystem();
+        await sys?.start({ videoSettings: { facingMode: AppState.cameraFacingMode } });
+        AppState.isScanning = true;
+      } catch (e) {
+        console.error('Failed to start scanner:', e);
+        showDiagnostic('No se pudo iniciar el escáner. Asegúrate de dar permisos a la cámara.', e);
+      }
+    };
+
+    const stopScanner = () => {
+      if (!AppState.isScanning) return;
+      try {
+        const sys = getMindarSystem();
+        sys?.stop();
+      } catch (e) {
+        console.warn('Failed to stop scanner:', e);
+      }
+      AppState.isScanning = false;
+    };
+
+    const showPlayerAndStopScan = (stopIndex) => {
+      if (AppState.isPlayerOpen) return;
+
+      AppState.isPlayerOpen = true;
+      AppState.activeStopIndex = stopIndex;
+      AppState.listenStartTime = Date.now();
+
+      const stop = STOPS[stopIndex];
+      // Autoplay robusto en iOS: comienza silenciado (mute=1)
+      const url = stop.url + (stop.url.includes('?') ? '&' : '?') + 'mute=1';
+      DOM.player.src = url;
+
+      stopScanner();
+      document.body.classList.add('no-cam-events');
+
+      logEvent('ar_stop_open', {
+        stop_index: stopIndex,
+        stop_name: stop.name,
+        media_url: stop.url
+      });
+
+      hideUI(DOM.topUI);
+      showUI(DOM.overlay);
+    };
+
+    const hidePlayerAndResumeScan = () => {
+      if (!AppState.isPlayerOpen) return;
+
+      DOM.player.src = 'about:blank';
+      hideUI(DOM.overlay);
+      showUI(DOM.topUI);
+      document.body.classList.remove('no-cam-events');
+
+      if (AppState.listenStartTime !== null && AppState.activeStopIndex !== null) {
+        const listenMs = Date.now() - AppState.listenStartTime;
+        logEvent('ar_stop_close', {
+          stop_index: AppState.activeStopIndex,
+          stop_name: STOPS[AppState.activeStopIndex].name,
+          listen_ms: listenMs
+        });
+      }
+
+      AppState.isPlayerOpen = false;
+      AppState.activeStopIndex = null;
+      AppState.listenStartTime = null;
+
+      startScanner();
+    };
+
+    const switchCamera = async () => {
+      AppState.cameraFacingMode = AppState.cameraFacingMode === 'environment' ? 'user' : 'environment';
+      stopScanner();
+      try {
+        await preflightCamera(AppState.cameraFacingMode);
+        await startScanner();
+        logEvent('camera_switch', { facing: AppState.cameraFacingMode });
+      } catch (e) {
+        showDiagnostic('No se pudo cambiar de cámara. Asegúrate de dar permiso a ambas.', e);
+        // Revertir en caso de fallo
+        AppState.cameraFacingMode = AppState.cameraFacingMode === 'environment' ? 'user' : 'environment';
+      }
+    };
+
+    // --- EVENT LISTENERS ---
+    const setupEventListeners = () => {
+      DOM.startBtn.addEventListener('click', async () => {
+        hideUI(DOM.intro);
+        logEvent('guide_start');
+
+        try {
+          await preflightCamera(AppState.cameraFacingMode);
+          showUI(DOM.topUI);
+          await startScanner();
+        } catch (e) {
+          showDiagnostic('No se pudo acceder a la cámara. Revisa los permisos del navegador y que no esté en uso por otra app.', e);
+        }
+      });
+
+      DOM.noSoundBtn.addEventListener('click', () => {
+        const hidden = DOM.helpMsg.classList.toggle('hidden');
+        DOM.noSoundBtn.textContent = hidden ? '¿Sin sonido? 🔈' : 'Ocultar ayuda 🔇';
+      });
+
+      DOM.toggleCamBtn.addEventListener('click', switchCamera);
+      DOM.closeBtn.addEventListener('click', hidePlayerAndResumeScan);
+
+      // Diagnostic modal buttons
+      DOM.retryBtn.addEventListener('click', () => {
+        hideUI(DOM.diag);
+        DOM.startBtn.click();
+      });
+      DOM.switchBtn.addEventListener('click', () => {
+        hideUI(DOM.diag);
+        switchCamera();
+      });
+      DOM.closeDiag.addEventListener('click', () => hideUI(DOM.diag));
+
+      // MindAR target events
+      document.querySelectorAll('.marker').forEach((marker, index) => {
+        marker.addEventListener('targetFound', () => showPlayerAndStopScan(index));
+        // Opcional: marker.addEventListener('targetLost', () => { ... });
+      });
+
+      // Pausar si la pestaña pierde foco
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden && AppState.isPlayerOpen) hidePlayerAndResumeScan();
+      });
+    };
+
+    // --- INIT ---
+    const init = async () => {
+      if (environmentCheck()) {
+        setupEventListeners();
+        logEvent('guide_view');
+      }
+    };
+
+    window.addEventListener('load', init);
+  </script>
+</body>
+</html>
