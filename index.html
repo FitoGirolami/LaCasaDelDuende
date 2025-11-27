@@ -4,14 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Canonical + robots -->
   <link rel="canonical" href="https://lacasadelduende.art/" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
 
+  <!-- Título + descripción (con nombres para SEO) -->
   <title>La Casa del Duende | Qué hacer en Baños: experiencia original, pioneros y arte independiente</title>
   <meta name="description" content="La Casa del Duende en Baños de Agua Santa, Ecuador, fundada en 2013 por los artistas Fito Girolami (Argentina) y Catalina Lucz-Ligeti (Chile). Experiencia original: jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica." />
   <meta name="keywords" content="La Casa del Duende, qué hacer en Baños, duendes en Baños, duendes Latinoamérica, arte independiente, artistas independientes, experiencia original, Aldea Mágica" />
   <meta name="author" content="Fito Girolami, Catalina Lucz-Ligeti" />
 
+  <!-- Open Graph / Twitter -->
   <meta property="og:locale" content="es_EC"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://lacasadelduende.art/"/>
@@ -24,24 +27,26 @@
   <meta property="og:image:alt" content="La Casa del Duende en Baños de Agua Santa, jardín simbólico y arte independiente"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
+  <!-- Geodatos -->
   <meta name="geo.position" content="-1.392255;-78.419648">
   <meta name="geo.placename" content="La Aldea Mágica, Baños de Agua Santa, Ecuador">
   <meta name="geo.region" content="EC-T">
 
+  <!-- Favicons / theme -->
   <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
-  <meta name="theme-color" content="#2d233e">
+  <meta name="theme-color" content="#4b3a6d">
 
+  <!-- Performance -->
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg">
 
+  <!-- Licencia / derechos (SEO) -->
   <link rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
   <meta name="license" content="Creative Commons CC BY-NC-ND 4.0">
   <meta name="rights" content="© La Casa del Duende – Fito Girolami & Catalina Lucz-Ligeti">
   <meta name="copyright" content="© La Casa del Duende">
 
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCLBJT60LV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -50,272 +55,72 @@
     gtag('config', 'G-NCLBJT60LV', { anonymize_ip: true });
   </script>
 
+  <!-- Estilos -->
   <style>
     :root{
-      /* Paleta Artística y Seria */
-      --primary: #2d233e;       /* Morado profundo, casi nocturno */
-      --accent: #9d81ba;        /* Lavanda suave para detalles */
-      --gold: #c5a065;          /* Dorado apagado para toques mágicos */
-      --bg-paper: #fdfbf7;      /* Blanco cálido tipo papel de acuarela */
-      --text-body: #3d3d3d;     /* Gris carbón para lectura cómoda */
-      --text-heading: #1a1a1a;  /* Casi negro para títulos */
-      --line: #e6e2da;          /* Líneas sutiles */
-      
-      /* Espaciado y Formas */
-      --radius: 8px;            /* Bordes menos redondeados, más elegantes */
-      --shadow-soft: 0 10px 30px -10px rgba(45, 35, 62, 0.1);
-      --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
-      --font-serif: 'Lora', serif; /* Tipografía editorial */
+      --morado:#4b3a6d; --morado-2:#3a2d55; --crema:#f7f3ea;
+      --tinta:#2e2e2e; --tinta-2:#444; --linea:#e7e0d1; --panel:#fff;
+      --radius:16px; --shadow:0 12px 40px rgba(0,0,0,.12);
     }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; color:var(--tinta); background:var(--crema);
+      font:16px/1.7 ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif;
+    }
+    img{max-width:100%; height:auto; border-radius:12px}
+    a{color:var(--morado); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:980px; margin:0 auto; padding:24px}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    
-    body {
-      margin: 0;
-      background-color: var(--bg-paper);
-      color: var(--text-body);
-      font-family: var(--font-body);
-      font-size: 17px;
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
+    /* Header */
+    header.hero{
+      background: radial-gradient(900px 260px at 50% -80px, rgba(255,255,255,.35), transparent 60%), var(--morado);
+      color:#fff; text-align:center; padding:46px 20px 36px;
+      border-bottom:1px solid rgba(255,255,255,.15);
     }
+    header .brand{display:flex; align-items:center; justify-content:center; gap:.8rem; margin-bottom:10px}
+    header .brand img{width:80px; height:auto; border-radius:14px; border:1px solid rgba(255,255,255,.2)}
+    header h1{font:800 clamp(1.4rem,3.6vw,2.2rem)/1.15 ui-sans-serif;margin:0}
+    header p.sub{margin:.4rem 0 1rem; opacity:.95}
+    nav.main a{color:#ffe28a; font-weight:700; padding:.35rem .6rem; border-radius:999px}
+    nav.main a:hover{background:rgba(255,226,138,.15); text-decoration:none}
 
-    /* Tipografía General */
-    h1, h2, h3, h4 {
-      font-family: var(--font-serif);
-      color: var(--text-heading);
-      margin-top: 0;
-      font-weight: 600;
-    }
-    
-    a {
-      color: var(--primary);
-      text-decoration: none;
-      transition: color 0.3s ease, border 0.3s ease;
-      border-bottom: 1px solid transparent;
-    }
-    a:hover {
-      color: var(--gold);
-      border-bottom-color: var(--gold);
-    }
-    
-    p { margin-bottom: 1.5rem; }
-    img { max-width: 100%; height: auto; display: block; }
-    
-    .wrap {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 24px;
-      position: relative;
-    }
+    /* Secciones */
+    section{padding:28px 0; border-bottom:1px solid var(--linea)}
+    h2{color:var(--morado); font:700 clamp(1.1rem,2.8vw,1.6rem)/1.2 ui-sans-serif; margin:.2rem 0 .8rem}
+    p{margin:.4rem 0 1rem}
+    .card{background:var(--panel); border:1px solid var(--linea); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
+    .gallery img{grid-column: span 12}
+    @media(min-width:720px){ .gallery img{grid-column: span 6} }
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .half{grid-column:span 12}
+    @media(min-width:760px){ .half{grid-column:span 6} }
 
-    /* --- HERO HEADER --- */
-    header.hero {
-      background: linear-gradient(to bottom, #2d233e, #1f182b);
-      color: #fff;
-      padding: 60px 0 50px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    /* Sutil efecto de luz en el header */
-    header.hero::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
-      pointer-events: none;
-    }
+    /* Botones */
+    .btn{display:inline-block; padding:.75rem 1.1rem; border-radius:12px; font-weight:800}
+    .btn.primary{background:var(--morado); color:#fff}
+    .btn.primary:hover{background:var(--morado-2); text-decoration:none}
+    .btn.ghost{border:1px solid var(--linea); background:#fff; color:var(--tinta)}
 
-    header .brand {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    header .brand img {
-      width: 110px;
-      height: 110px;
-      border-radius: 50%;
-      border: 3px solid rgba(255,255,255,0.2);
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    }
-    header h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 400; /* Elegancia en ligereza */
-      color: #fff;
-      margin: 0;
-      letter-spacing: -0.02em;
-    }
-    header p.sub {
-      font-family: var(--font-body);
-      font-weight: 300;
-      font-size: 1.1rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    
-    /* Nav minimalista */
-    nav.main {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1.5rem;
-      font-size: 0.95rem;
-      font-family: var(--font-body);
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-    nav.main a {
-      color: #e0d4bc; 
-      border-bottom: 1px solid transparent;
-    }
-    nav.main a:hover { color: #fff; border-bottom-color: #fff; }
+    /* Embeds */
+    iframe.embed{width:100%; aspect-ratio:16/9; border:0; border-radius:12px}
 
-    /* --- SECCIONES Y TARJETAS --- */
-    section {
-      padding: 60px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.03);
-    }
-    section:last-of-type { border: none; }
+    /* Footer */
+    footer{background:var(--morado); color:#fff; text-align:center; padding:28px 20px}
+    footer a{color:#ffe28a}
 
-    .card {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 40px;
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px -10px rgba(45, 35, 62, 0.15);
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1.2rem;
-      color: var(--primary);
-    }
-    
-    /* Layouts */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-    @media(min-width: 800px) {
-      .grid-2 { grid-template-columns: 1fr 1fr; }
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .gallery img {
-      width: 100%;
-      height: 300px; /* Altura uniforme */
-      object-fit: cover;
-      border-radius: var(--radius);
-      transition: opacity 0.3s;
-    }
-    .gallery img:hover { opacity: 0.9; }
-
-    /* --- BOTONES --- */
-    .btn-group { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-    
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.8rem 1.6rem;
-      border-radius: 50px; /* Pill shape = amigable */
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .btn.primary {
-      background-color: var(--primary);
-      color: #fff;
-      border: 1px solid var(--primary);
-    }
-    .btn.primary:hover {
-      background-color: #3e3155;
-      text-decoration: none;
-      transform: translateY(-1px);
-    }
-    .btn.ghost {
-      background-color: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-    }
-    .btn.ghost:hover {
-      background-color: rgba(45, 35, 62, 0.05);
-      text-decoration: none;
-    }
-
-    /* --- EMBEDS --- */
-    iframe.embed {
-      width: 100%;
-      aspect-ratio: 16/9;
-      border: none;
-      border-radius: var(--radius);
-      background: #eee;
-    }
-
-    /* --- LISTAS DE DOCUMENTOS --- */
-    ul.doc-list {
-      list-style: none;
-      padding: 0;
-    }
-    ul.doc-list li {
-      margin-bottom: 0.8rem;
-      padding-left: 1.2rem;
-      position: relative;
-    }
-    ul.doc-list li::before {
-      content: "•";
-      color: var(--gold);
-      position: absolute;
-      left: 0;
-      font-size: 1.2rem;
-      line-height: 1.6rem;
-    }
-
-    /* --- FOOTER --- */
-    footer {
-      background-color: var(--primary);
-      color: #dcdcdc;
-      padding: 60px 0;
-      text-align: center;
-      font-size: 0.9rem;
-    }
-    footer a { color: #e0d4bc; }
-    footer strong { color: #fff; font-weight: 600; }
-    
-    .footer-links {
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    /* Motion Safe */
-    @media (prefers-reduced-motion: reduce) {
-      * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    /* Motion-safe */
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
     }
   </style>
 
+  <!-- SDK PayPal Hosted Buttons -->
   <script src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD" defer></script>
 
+  <!-- Datos estructurados (graph con Organization + Person + TouristAttraction + CreativeWork/licencia) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -429,6 +234,7 @@
   }
   </script>
 
+  <!-- JSON-LD del Report con DOI (cease & desist) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -459,6 +265,7 @@
   }
   </script>
 
+  <!-- JSON-LD del ScholarlyArticle (ensayo académico con DOI) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -483,66 +290,68 @@
 </head>
 <body>
 
+  <!-- HERO -->
   <header class="hero" role="banner" aria-label="La Casa del Duende">
     <div class="wrap">
       <div class="brand">
         <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png" alt="Logo de La Casa del Duende" width="160" height="160" loading="eager">
         <h1>La Casa del Duende</h1>
       </div>
-      <p class="sub">Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong>.<br>La experiencia original en Baños de Agua Santa.</p>
-      
+      <p class="sub">Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong> — experiencia original en Baños de Agua Santa</p>
       <nav class="main" aria-label="Navegación principal">
         <a href="#aldea">Aldea Mágica</a> ·
-        <a href="#apoyo">Apoyar</a> ·
+        <a href="#apoyo">Apoyar la magia</a> ·
         <a href="#documentos">Documentación</a> ·
         <a href="/investigacion.html" rel="noopener">Investigación</a> ·
-        <a href="lo-que-no-somos.html" rel="noopener">Identidad</a>
+        <a href="lo-que-no-somos.html" rel="noopener">Identidad simbólica</a>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Bienvenida -->
     <section>
-      <div class="wrap grid-2">
-        <div class="card" style="border:none; box-shadow:none; padding:0; background:transparent;">
+      <div class="wrap grid">
+        <article class="half card">
           <h2>Bienvenidos</h2>
-          <p style="font-family:var(--font-serif); font-style:italic; font-size:1.1em; color:var(--primary);">“Quienes creen en la magia están destinados a encontrarla.”</p>
-          <p>Si buscas una experiencia distinta, lejos del turismo comercial masivo, aquí la obra se vive en silencio, con símbolos y atención al detalle.</p>
-          <div class="btn-group">
+          <p><em>“Quienes creen en la magia están destinados a encontrarla.”</em></p>
+          <p>Si buscas una experiencia distinta, lejos del turismo comercial, aquí la obra se vive en silencio, con símbolos y atención.</p>
+          <p>
             <a class="btn primary" href="#aldea">Recorrer la Aldea</a>
             <a class="btn ghost" href="#documentos">Ver documentación</a>
-          </div>
-        </div>
-        <div class="visual">
+          </p>
+        </article>
+        <aside class="half">
           <img src="https://raw.githubusercontent.com/FitoGirolami/LaCasaDelDuende/main/La_casa_del_Duende_Banos.jpg"
                alt="Entrada a La Casa del Duende en Baños de Agua Santa"
-               loading="lazy" width="1200" height="800" style="border-radius:var(--radius); box-shadow:var(--shadow-soft);">
-        </div>
+               loading="lazy" width="1200" height="800">
+        </aside>
       </div>
     </section>
 
+    <!-- Qué hacer -->
     <section>
       <div class="wrap">
         <article class="card">
-          <h2>¿Qué hacer en Baños? La experiencia original</h2>
+          <h2>¿Qué hacer en Baños? La experiencia original con duendes</h2>
           <p>
-            <strong>La Casa del Duende</strong> es la propuesta recomendada por su autenticidad: creada por artistas independientes,
-            somos pioneros en Latinoamérica en arte simbólico con <strong>duendes</strong>. Nuestra obra se integra a la naturaleza en la <a href="#aldea">Aldea Mágica</a>.
+            <strong>La Casa del Duende</strong> es la propuesta original y recomendada en Baños: creada por artistas independientes,
+            pionera en Latinoamérica en arte simbólico con <strong>duendes</strong>, integrada a la naturaleza en nuestra
+            <a href="#aldea">Aldea Mágica</a>.
           </p>
-          <p>Te invitamos a conocer nuestro enfoque en <a href="SobreLosDuendes.html" rel="noopener">Sobre los duendes</a> y leer nuestra
+          <p>Conoce nuestro enfoque en <a href="SobreLosDuendes.html" rel="noopener">Sobre los duendes</a> y la
             <a href="lo-que-no-somos.html" rel="noopener">declaración de identidad simbólica</a>.
           </p>
         </article>
       </div>
     </section>
 
+    <!-- Recorrido virtual -->
     <section id="aldea">
       <div class="wrap">
         <article class="card">
-          <header style="margin-bottom:1.5rem">
-            <h2>Recorrido virtual por la Aldea Mágica</h2>
-            <p>Entra desde cualquier parte del mundo y camina por el jardín donde habitan nuestras creaciones.</p>
-          </header>
+          <h2>Recorrido virtual por la Aldea Mágica</h2>
+          <p>Entra desde cualquier parte del mundo y camina por el jardín donde habitan nuestras creaciones.</p>
           <iframe class="embed"
                   src="https://kuula.co/share/collection/7qPbZ?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
                   allow="xr-spatial-tracking; gyroscope; accelerometer"
@@ -552,120 +361,128 @@
       </div>
     </section>
 
+    <!-- Galería Aldea -->
     <section>
       <div class="wrap">
-        <div style="text-align:center; margin-bottom:2rem;">
-          <h2>Arte simbólico y naturaleza</h2>
-          <p>Un vistazo a los rincones de la Aldea.</p>
-        </div>
+        <h2>La Aldea Mágica: arte simbólico y naturaleza</h2>
         <div class="gallery" aria-label="Galería de la Aldea Mágica">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/488648251_1071721728328405_4751746123281231289_n_crlnjy.jpg" alt="Escultura de duende en el jardín mágico" loading="lazy">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823342/123783753_1515624761961650_6601102288891155899_n_mixxms.jpg" alt="Sendero con figuras simbólicas" loading="lazy">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/487175867_1063623669138211_6343020294761451066_n_np5im6.jpg" alt="Detalle de hada entre plantas" loading="lazy">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/498716321_1237050027792586_1281064383806648130_n_el7t38.jpg" alt="Rincón de la Aldea con musgos y piedras" loading="lazy">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/488648251_1071721728328405_4751746123281231289_n_crlnjy.jpg" alt="Escultura de duende en el jardín mágico" loading="lazy" width="1200" height="800">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823342/123783753_1515624761961650_6601102288891155899_n_mixxms.jpg" alt="Sendero con figuras simbólicas" loading="lazy" width="1200" height="800">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/487175867_1063623669138211_6343020294761451066_n_np5im6.jpg" alt="Detalle de hada entre plantas" loading="lazy" width="1200" height="800">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/498716321_1237050027792586_1281064383806648130_n_el7t38.jpg" alt="Rincón de la Aldea con musgos y piedras" loading="lazy" width="1200" height="800">
         </div>
       </div>
     </section>
 
+    <!-- Reseñas -->
     <section>
-      <div class="wrap grid-2" style="align-items:start;">
-        
-        <div class="card">
-          <h3>Testimonios y valoración</h3>
-          <p>Las reseñas en Google confirman la autenticidad y profundidad de la experiencia que ofrecemos.</p>
-          <a class="btn ghost" href="https://g.page/r/Car0ff_OC1VaEAE/review" target="_blank" rel="noopener">
-            📍 Ver reseñas en Google
-          </a>
-        </div>
-
-        <div class="card">
-          <h3>Acústicos íntimos</h3>
-          <p>Conciertos grabados en el corazón del jardín simbólico.</p>
-          <iframe class="embed" style="height:200px;"
-                  src="https://www.youtube.com/embed/aAMMUixvzps?si=wTnB0MK1ohDu_TMV"
-                  title="Acústicos íntimos en La Casa del Duende"
-                  loading="lazy" allowfullscreen></iframe>
-        </div>
-
+      <div class="wrap card">
+        <h2>Testimonios y valoración</h2>
+        <p>Reseñas en Google confirman la autenticidad y profundidad de la experiencia.</p>
+        <p>📍 <a href="https://g.page/r/Car0ff_OC1VaEAE/review" target="_blank" rel="noopener">Ver reseñas en Google</a></p>
       </div>
     </section>
 
+    <!-- Acústicos -->
     <section>
+      <div class="wrap card">
+        <h2>Acústicos íntimos</h2>
+        <p>Conciertos grabados en el corazón del jardín simbólico: arte y sonido entre duendes.</p>
+        <iframe class="embed"
+                src="https://www.youtube.com/embed/aAMMUixvzps?si=wTnB0MK1ohDu_TMV"
+                title="Acústicos íntimos en La Casa del Duende"
+                loading="lazy" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <!-- Figuras -->
+    <section>
+      <div class="wrap card">
+        <h2>Figuras simbólicas de Duendes y Hadas</h2>
+        <p>No vendemos superstición: cada figura es obra auténtica, única y numerada. Creación original con intención; no producimos en masa ni como amuletos vacíos.</p>
+      </div>
+    </section>
+
+    <!-- Apoyo -->
+    <section id="apoyo">
       <div class="wrap">
-        <div class="card" style="text-align:center; border-left: 4px solid var(--gold);">
-          <h3>Figuras simbólicas de Duendes y Hadas</h3>
-          <p style="margin:0;">No vendemos superstición: cada figura es una <strong>obra auténtica, única y numerada</strong>. <br>Es creación original con intención; no producimos en masa ni como amuletos vacíos.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="apoyo" style="background-color: #fff;">
-      <div class="wrap grid-2">
-        <div>
-          <h2>Apoyar la magia</h2>
-          <p>Tu aporte sostiene el proyecto cultural. Al colaborar, recibes la versión digital de nuestro libro <em>“Duendes y otras hierbas”</em>.</p>
+        <article class="card">
+          <h2>Apoyar la magia y recibir el libro digital</h2>
+          <p>Tu aporte sostiene el proyecto. Al colaborar, recibes la versión digital de <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!</p>
           <div id="paypal-container-DYF6QQ6DYC6GL" aria-live="polite"></div>
-        </div>
-        
-        <div style="text-align:center; background:var(--bg-paper); padding:30px; border-radius:var(--radius);">
-          <h3>📚 Edición Física</h3>
-          <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/39/99/3999fbfc96ef43fbc42889206acb1d45.jpg"
-               alt="Portada del libro Duendes y otras hierbas"
-               width="180" height="180" loading="lazy" style="margin:0 auto 1rem; box-shadow:0 5px 15px rgba(0,0,0,0.1);">
-          <div style="font-weight:700; font-size:1.2rem; color:var(--text-heading); margin-bottom:1rem;">USD $37.99</div>
-          <a class="btn primary" 
-             href="https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078?srsltid=AfmBOorjxV3wpAUuw5zm6a9pNM-IybaSLCPrpGFl1kcMUPxYZ4CzcbSH"
-             target="_blank" rel="noopener">
-             Comprar en Buscalibre
-          </a>
-        </div>
+
+          <div style="margin-top:22px; text-align:center;">
+            <h3 style="margin:.2rem 0 1rem">📚 También disponible en Buscalibre</h3>
+            <div class="card" style="display:inline-block; text-align:center;">
+              <a href="https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078?srsltid=AfmBOorjxV3wpAUuw5zm6a9pNM-IybaSLCPrpGFl1kcMUPxYZ4CzcbSH"
+                 target="_blank" rel="noopener" style="text-decoration:none;">
+                <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/39/99/3999fbfc96ef43fbc42889206acb1d45.jpg"
+                     alt="Portada del libro Duendes y otras hierbas"
+                     width="240" height="240" loading="lazy">
+                <div style="font-weight:700; margin:.4rem 0 .2rem; color:var(--tinta)">USD $37.99</div>
+                <span class="btn primary">Comprar en Buscalibre</span>
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
+    <!-- Ubicación -->
     <section>
-      <div class="wrap card" style="text-align:center;">
+      <div class="wrap card">
         <h2>Ubicación</h2>
-        <p>Estamos en la Aldea Mágica, Baños de Agua Santa.</p>
-        <a class="btn ghost" href="https://maps.app.goo.gl/Exm64UHQDLVsebL7A" target="_blank" rel="noopener">📍 Ver mapa en Google Maps</a>
+        <p>📍 <a href="https://maps.app.goo.gl/Exm64UHQDLVsebL7A" target="_blank" rel="noopener">Ver en Google Maps</a></p>
       </div>
     </section>
 
-    <section id="documentos" style="background:#f4f1ea;">
-      <div class="wrap">
-        <div class="card">
-          <h2 style="font-size:1.5rem; border-bottom:1px solid var(--line); padding-bottom:1rem;">Documentación y registro oficial</h2>
-          <ul class="doc-list">
-            <li><a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Solicitud de cese y evidencia (DOI Zenodo)</a></li>
-            <li><a href="https://doi.org/10.5281/zenodo.17268348" target="_blank" rel="noopener">Duende de Baños: ¿Obra Protegible o Abstracta? (Zenodo)</a></li>
-            <li><a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Registro oficial de marca (Zenodo)</a></li>
-            <li><a href="https://osf.io/smvg6/" target="_blank" rel="noopener">Publicación académica OSF</a></li>
-            <li><a href="https://medium.com/@girolami/filosofía-invisible-un-manifiesto-por-lo-que-no-se-ve-pero-permanece-c962be4e7519" target="_blank" rel="noopener">Filosofía invisible</a></li>
-            <li><a href="/investigacion.html" rel="noopener">¿Qué son los duendes? – Antropología simbólica (síntesis de investigación)</a></li>
-          </ul>
-        </div>
+    <!-- Documentación -->
+    <section id="documentos">
+      <div class="wrap card">
+        <h2>Documentación y registro oficial</h2>
+        <ul>
+          <li><a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Solicitud de cese y evidencia (DOI Zenodo)</a></li>
+          <li><a href="https://doi.org/10.5281/zenodo.17268348" target="_blank" rel="noopener">Duende de Baños: ¿Obra Protegible o Abstracta? (Zenodo)</a></li>
+          <li><a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Registro oficial de marca (Zenodo)</a></li>
+          <li><a href="https://osf.io/smvg6/" target="_blank" rel="noopener">Publicación académica OSF</a></li>
+          <li><a href="https://medium.com/@girolami/filosofía-invisible-un-manifiesto-por-lo-que-no-se-ve-pero-permanece-c962be4e7519" target="_blank" rel="noopener">Filosofía invisible</a></li>
+          <li><a href="/investigacion.html" rel="noopener">¿Qué son los duendes? – Antropología simbólica (síntesis de investigación)</a></li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer role="contentinfo">
-    <div class="wrap">
-      <p style="font-size:1.1rem; margin-bottom:0.5rem;">© <span id="y"></span> <strong>La Casa del Duende</strong></p>
-      <p style="margin:0; opacity:0.8;">Fundada en 2013 por <strong>Fito Girolami</strong> (Argentina) y <strong>Catalina Lucz-Ligeti</strong> (Chile).</p>
-      
-      <div class="footer-links">
-        <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html">Qué hacer en Baños</a>
-        <a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Registro Prensa (DOI)</a>
-        <a href="lo-que-no-somos.html">Identidad simbólica</a>
-        <a href="/transparencia.html">Transparencia</a>
-      </div>
+    <div class="wrap" style="text-align:center; color:#ffe6a8">
+      <p style="color:#fff; margin:.2rem 0">© <span id="y"></span> La Casa del Duende · Baños de Agua Santa · Ecuador</p>
+      <p style="margin:.2rem 0 .8rem;">Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong>.</p>
+      <p style="font-size:.95rem; margin:.4rem 0 1rem;">
+        👉 ¿Buscas <strong>qué hacer en Baños de Agua Santa</strong>? Explora experiencias simbólicas
+        <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html">aquí</a>.
+      </p>
+      <p style="font-size:.85rem; color:#ffe28a;">
+        Para prensa e investigadores: registro documental abierto en
+        <a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Zenodo (DOI 10.5281/zenodo.17021534)</a>.
+      </p>
+      <p style="font-size:.85rem; margin-top:.6rem;">
+        <a href="lo-que-no-somos.html" style="color:#ffdfff;">Leer declaración de identidad simbólica</a>
+        <span aria-hidden="true"> · </span>
+        <a href="/transparencia.html" title="Transparencia y documentación" style="color:#ffdfff;">Transparencia</a>
+      </p>
 
-      <p style="font-size:0.85rem; margin-top:2rem; opacity:0.6; max-width:600px; margin-left:auto; margin-right:auto;">
-        Todas las imágenes y creaciones están protegidas por derechos de autor © y licenciadas bajo
-        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener" style="text-decoration:underline;">Creative Commons CC BY-NC-ND 4.0</a>.
+      <!-- Aviso de licencia visible -->
+      <p style="font-size:.9rem; margin-top:1rem; color:#ffe28a;">
+        Todas las imágenes y creaciones de <strong>La Casa del Duende</strong> —realizadas por
+        <strong>Fito Girolami</strong> (Argentina) y <strong>Catalina Lucz-Ligeti</strong> (Chile)— están protegidas por derechos de autor ©
+        y licenciadas bajo
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener">
+          Creative Commons CC BY-NC-ND 4.0
+        </a>.
       </p>
     </div>
   </footer>
 
+  <!-- PayPal render + año dinámico -->
   <script>
     window.addEventListener('DOMContentLoaded', function(){
       if (window.paypal && paypal.HostedButtons) {
@@ -677,3 +494,4 @@
   </script>
 </body>
 </html>
+
