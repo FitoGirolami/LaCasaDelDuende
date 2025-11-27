@@ -4,20 +4,28 @@
   <!-- Home -->
   <url>
     <loc>https://lacasadelduende.art/</loc>
-    <lastmod>2025-08-21</lastmod>
+    <lastmod>2025-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Página ¿Qué hacer en Baños? -->
+  <!-- Investigación Antropológica -->
+  <url>
+    <loc>https://lacasadelduende.art/investigacion.html</loc>
+    <lastmod>2025-11-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Qué hacer en Baños -->
   <url>
     <loc>https://lacasadelduende.art/que-hacer-en-banos-ecuador.html</loc>
     <lastmod>2025-08-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.90</priority>
   </url>
 
-  <!-- Página Origen de los Duendes en Baños -->
+  <!-- Origen de los Duendes en Baños -->
   <url>
     <loc>https://lacasadelduende.art/origen-duendes-banos.html</loc>
     <lastmod>2025-08-21</lastmod>
@@ -25,12 +33,12 @@
     <priority>0.95</priority>
   </url>
 
-  <!-- Página Sobre los Duendes -->
+  <!-- Sobre los Duendes -->
   <url>
     <loc>https://lacasadelduende.art/SobreLosDuendes.html</loc>
     <lastmod>2025-08-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.80</priority>
   </url>
 
   <!-- Declaración de identidad simbólica -->
@@ -38,7 +46,8 @@
     <loc>https://lacasadelduende.art/lo-que-no-somos.html</loc>
     <lastmod>2025-08-20</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.70</priority>
   </url>
 
 </urlset>
+
