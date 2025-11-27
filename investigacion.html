@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>¿Qué son los duendes? – Antropología Simbólica | La Casa del Duende</title>
+
+    <!-- Meta básicos -->
+    <meta name="description" content="Investigación de Fito Girolami desde La Casa del Duende (Baños de Agua Santa, Ecuador) sobre qué son los duendes: más allá de la fantasía, como manifestaciones simbólicas, territoriales y arquetípicas en la cultura latinoamericana.">
+    <meta name="author" content="Fito Girolami · La Casa del Duende">
+    <link rel="canonical" href="https://lacasadelduende.art/investigacion.html">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
+
+    <!-- Open Graph / compartir -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="¿Qué son los duendes? – Antropología Simbólica | La Casa del Duende">
+    <meta property="og:description" content="Tratado introductorio sobre la fenomenología del duende: manifestación ontológica, memoria del territorio y simulacro comercial.">
+    <meta property="og:site_name" content="La Casa del Duende">
+    <meta property="og:url" content="https://lacasadelduende.art/investigacion.html">
+    <!-- Si quieres una imagen OG específica para esta página, descomenta y ajusta: -->
+    <!-- <meta property="og:image" content="https://lacasadelduende.art/imagenes/duende-investigacion-og.jpg"> -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Estilos y librerías -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap');
+
+        :root {
+            --color-bg: #f5f2eb; /* Papel antiguo / Arena */
+            --color-text: #2d2a26; /* Tinta oscura */
+            --color-accent: #8c3b1a; /* Arcilla / Terracota */
+            --color-secondary: #4a5d4e; /* Musgo oscuro */
+            --color-muted: #8b8682; /* Piedra */
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Merriweather', serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 500px;
+        }
+
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+            }
+        }
+
+        .active-tab {
+            border-bottom: 3px solid var(--color-accent);
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        .inactive-tab {
+            border-bottom: 3px solid transparent;
+            color: var(--color-muted);
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+
+        .custom-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #e5e0d8;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background-color: var(--color-secondary);
+            border-radius: 10px;
+        }
+    </style>
+
+    <!-- Datos estructurados: página + artículo académico -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://lacasadelduende.art/investigacion.html#webpage",
+          "url": "https://lacasadelduende.art/investigacion.html",
+          "name": "¿Qué son los duendes? – Antropología Simbólica | La Casa del Duende",
+          "inLanguage": "es",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://lacasadelduende.art/#website",
+            "name": "La Casa del Duende",
+            "url": "https://lacasadelduende.art/"
+          },
+          "about": {
+            "@type":"Thing",
+            "name":"Duendes como manifestaciones simbólicas, territoriales y arquetípicas"
+          }
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "@id": "https://lacasadelduende.art/investigacion.html#articulo",
+          "headline": "¿Qué son los duendes? Antropología simbólica y manifestación territorial",
+          "author": {
+            "@type": "Person",
+            "name": "Fito Girolami",
+            "affiliation": "La Casa del Duende"
+          },
+          "inLanguage": "es",
+          "isPartOf": {
+            "@id": "https://lacasadelduende.art/investigacion.html#webpage"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "La Casa del Duende"
+          },
+          "datePublished": "2025-11-27",
+          "description": "Tratado introductorio sobre el duende como manifestación simbólica compleja: agencia territorial, psicología arquetipal, folclore comparado y simulacro comercial."
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="antialiased selection:bg-stone-300 selection:text-stone-900">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#f5f2eb]/95 backdrop-blur-sm border-b border-stone-300 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="text-xl font-bold font-serif text-[#8c3b1a]">
+                La Casa del Duende
+                <span class="block text-xs font-normal text-stone-500">Antropología Simbólica del Duende</span>
+            </div>
+            <div class="hidden md:flex space-x-6 text-sm font-semibold text-stone-600">
+                <a href="#investigacion" class="hover:text-[#8c3b1a] transition">La Ruptura</a>
+                <a href="#levels" class="hover:text-[#8c3b1a] transition">3 Niveles</a>
+                <a href="#morphology" class="hover:text-[#8c3b1a] transition">Morfología</a>
+                <a href="#manifestation" class="hover:text-[#8c3b1a] transition">Manifestación</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section / Ancla principal de investigación -->
+    <header id="investigacion" class="pt-16 pb-12 px-4 max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-serif font-bold text-[#2d2a26] mb-6 leading-tight">
+            ¿Qué son los Duendes?
+        </h1>
+        <p class="text-xl text-[#4a5d4e] font-serif italic mb-4">
+            Más allá de la fantasía: una investigación sobre agencia territorial, psicología arquetipal y folclore comparado.
+        </p>
+
+        <p class="text-sm text-stone-600 mb-6">
+            Investigación de <strong>Fito Girolami</strong> desde <strong>La Casa del Duende</strong>,  
+            Baños de Agua Santa · Ecuador.
+        </p>
+
+        <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#8c3b1a] text-left">
+            <p class="text-stone-700 leading-relaxed">
+                <span class="font-bold text-[#8c3b1a]">Tesis Central:</span>
+                El "duende" no es una criatura biológica ni un juguete de cuento de hadas. Es una
+                <span class="font-semibold">manifestación simbólica compleja</span>
+                que las culturas utilizan para interactuar con lo desconocido, dar rostro a la memoria del territorio
+                y gestionar la frontera entre lo humano y lo salvaje.
+            </p>
+        </div>
+    </header>
+
+    <!-- Section 1: The Great Divide (Interactive Contrast) -->
+    <section class="py-12 px-4 bg-stone-100">
+        <div class="container mx-auto max-w-5xl">
+            <div class="mb-8 text-center md:text-left">
+                <h2 class="text-3xl font-serif font-bold text-[#2d2a26] mb-4">La Degradación del Símbolo</h2>
+                <p class="text-stone-600 max-w-2xl mx-auto md:mx-0">
+                    Para entender qué es un duende, primero debemos descartar lo que la cultura de consumo ha fabricado.
+                    Utilice los controles para contrastar la visión comercial con la realidad antropológica.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Modern/Fantasy View -->
+                <div id="view-fantasy" class="bg-white p-8 rounded-xl card-shadow border border-stone-200 opacity-50 transition-all duration-300 hover:opacity-100 cursor-pointer" onclick="activateView('fantasy')">
+                    <div class="flex items-center mb-4">
+                        <div class="text-3xl mr-3">🧸</div>
+                        <h3 class="text-xl font-bold text-stone-400 font-serif">Visión Moderna / Comercial</h3>
+                    </div>
+                    <ul class="space-y-3 text-stone-500 text-sm">
+                        <li>• <strong>Origen:</strong> Literatura infantil victoriana y marketing turístico.</li>
+                        <li>• <strong>Función:</strong> Entretenimiento, decoración ("cute"), travesura inocente.</li>
+                        <li>• <strong>Apariencia:</strong> Humanizados, sombreros picudos, estandarizados.</li>
+                        <li>• <strong>Conclusión:</strong> Una <span class="italic">degradación</span> que despoja al ser de su poder y peligro.</li>
+                    </ul>
+                </div>
+
+                <!-- Ancestral/Manifestation View -->
+                <div id="view-ancestral" class="bg-[#e8e4dc] p-8 rounded-xl card-shadow border-2 border-[#8c3b1a] relative transform scale-105 transition-all duration-300 cursor-pointer" onclick="activateView('ancestral')">
+                    <div class="absolute -top-3 -right-3 bg-[#8c3b1a] text-white text-xs px-3 py-1 rounded-full uppercase tracking-wider font-bold">Enfoque de Estudio</div>
+                    <div class="flex items-center mb-4">
+                        <div class="text-3xl mr-3">🏺</div>
+                        <h3 class="text-xl font-bold text-[#8c3b1a] font-serif">Visión Ancestral / Antropológica</h3>
+                    </div>
+                    <ul class="space-y-3 text-[#2d2a26] text-sm">
+                        <li>• <strong>Origen:</strong> Memoria del territorio, culto a los ancestros, animismo.</li>
+                        <li>• <strong>Función:</strong> Guardianes de límites, reguladores ecológicos, explicación de lo inexplicable.</li>
+                        <li>• <strong>Apariencia:</strong> Proteica (cambia de forma), sombras, viento, sonidos.</li>
+                        <li>• <strong>Conclusión:</strong> Una <span class="font-bold">Manifestación</span> de la agencia de un lugar.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The Three Concept Levels -->
+    <section id="levels" class="py-16 px-4 container mx-auto max-w-6xl">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-[#2d2a26] mb-4">Los Tres Niveles Conceptuales</h2>
+            <p class="text-stone-600 max-w-3xl mx-auto">
+                La investigación académica disecciona el fenómeno del "duende" en tres estratos superpuestos.
+                Navegue por las pestañas para profundizar en cada dimensión.
+            </p>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap justify-center mb-8 border-b border-stone-300">
+            <button onclick="switchLevel('folk')" id="tab-folk" class="active-tab px-6 py-3 text-lg transition-colors focus:outline-none">1. Nivel Folclórico</button>
+            <button onclick="switchLevel('psych')" id="tab-psych" class="inactive-tab px-6 py-3 text-lg transition-colors focus:outline-none">2. Nivel Psicológico</button>
+            <button onclick="switchLevel('territory')" id="tab-territory" class="inactive-tab px-6 py-3 text-lg transition-colors focus:outline-none">3. Nivel Territorial</button>
+        </div>
+
+        <!-- Tab Content Area -->
+        <div class="bg-white p-8 md:p-12 rounded-lg card-shadow min-h-[400px]">
+            <!-- Level 1: Folkloric -->
+            <div id="content-folk" class="animate-fade-in block">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-serif font-bold text-[#4a5d4e] mb-4">El Relato Oral y la Tradición</h3>
+                        <p class="text-stone-700 mb-4 leading-relaxed">
+                            En este nivel, el duende se describe a través de la narrativa cultural. No se cuestiona su existencia, se documentan sus hábitos.
+                            Históricamente, en Europa (como el <em>Domovoi</em> eslavo o el <em>Brownie</em> escocés), funcionaban como
+                            <strong>espíritus domésticos</strong>: simbiosis entre la familia y la casa.
+                        </p>
+                        <p class="text-stone-700 mb-4 leading-relaxed">
+                            En América (Andes y Mesoamérica), la figura es más salvaje. El <em>Chullachaki</em> o el <em>Alux</em> no son mascotas del hogar, son
+                            <strong>dueños</strong> de un espacio natural. El relato folclórico establece las "reglas del juego": si pides permiso al entrar al bosque,
+                            el duende te protege; si no, te pierde.
+                        </p>
+                        <div class="bg-stone-100 p-4 rounded border-l-4 border-stone-400 mt-6">
+                            <span class="font-bold text-sm uppercase tracking-wide text-stone-500">Función Antropológica:</span>
+                            <p class="italic text-stone-800">
+                                Pedagogía del respeto. El cuento del duende enseña a la comunidad a respetar los límites de la naturaleza y el hogar.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded border border-stone-200">
+                        <h4 class="font-bold text-[#8c3b1a] mb-3">Arquetipos Comunes</h4>
+                        <ul class="space-y-2 text-sm text-stone-700">
+                            <li><strong>El Trickster:</strong> Travieso, caótico, rompe normas.</li>
+                            <li><strong>El Guardián:</strong> Celoso de su territorio (mina, bosque).</li>
+                            <li><strong>El Negociador:</strong> Exige ofrendas (tabaco, alcohol, leche) a cambio de paz.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 2: Psychological -->
+            <div id="content-psych" class="hidden">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-serif font-bold text-[#4a5d4e] mb-4">La Proyección de la Sombra</h3>
+                        <p class="text-stone-700 mb-4 leading-relaxed">
+                            Desde la psicología profunda (Jung) y la fenomenología, el duende es una proyección de contenidos inconscientes.
+                            Representa la <strong>intuición autónoma</strong> y la <strong>creatividad lúdica</strong>, pero también los miedos atávicos a lo incontrolable.
+                        </p>
+                        <p class="text-stone-700 mb-4 leading-relaxed">
+                            Cuando decimos que alguien "tiene duende" (especialmente en el arte flamenco), no hablamos de un enano mágico,
+                            sino de un estado de conciencia alterado donde la emoción pura toma el control. Es una metáfora de la
+                            <strong>fuerza vital irracional</strong>.
+                        </p>
+                        <div class="bg-stone-100 p-4 rounded border-l-4 border-stone-400 mt-6">
+                            <span class="font-bold text-sm uppercase tracking-wide text-stone-500">Mecanismo Psicológico:</span>
+                            <p class="italic text-stone-800">
+                                Pareidolia cultural. El cerebro humano, ante el silencio opresivo de un bosque o el crujido de una casa vieja,
+                                proyecta una figura humanoide para explicar la presencia que "siente".
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded border border-stone-200">
+                        <h4 class="font-bold text-[#8c3b1a] mb-3">Conceptos Clave</h4>
+                        <ul class="space-y-2 text-sm text-stone-700">
+                            <li><strong>Lo Siniestro (Unheimlich):</strong> Lo familiar que se vuelve extraño y aterrador.</li>
+                            <li><strong>Animismo Infantil:</strong> La etapa donde los objetos tienen vida (remanente en el adulto).</li>
+                            <li><strong>Externalización:</strong> Poner nombre a una angustia interna.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Level 3: Territorial -->
+            <div id="content-territory" class="hidden">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2">
+                        <h3 class="text-2xl font-serif font-bold text-[#4a5d4e] mb-4">La Agencia del Lugar (Manifestación)</h3>
+                        <p class="text-stone-700 mb-4 leading-relaxed">
+                            Este es el nivel más complejo y el objetivo de nuestra investigación. Aquí, el duende se entiende como la
+                            <strong>voz simbólica de un ecosistema</strong>. Las culturas indígenas (Mapuche con los <em>Ngen</em>, Andinos con el <em>Muki</em>)
+                            entienden que los lugares tienen "agencia" (voluntad).
+                        </p>
+                        <p class="text-stone-700 mb-4 leading-relaxed">
+                            El duende es la interfaz de usuario entre el humano y la naturaleza cruda. Es una
+                            <strong>Manifestación Liminal</strong>: aparece en los bordes (atardecer, linde del bosque, cruce de caminos). No es un "fantasma" de un muerto,
+                            es la <strong>memoria viva del territorio</strong> reaccionando a la intrusión humana.
+                        </p>
+                        <div class="bg-stone-100 p-4 rounded border-l-4 border-stone-400 mt-6">
+                            <span class="font-bold text-sm uppercase tracking-wide text-stone-500">Teoría de la Manifestación:</span>
+                            <p class="italic text-stone-800">
+                                El duende no "existe" biológicamente, sino que "sucede". Es un evento semiótico que ocurre cuando un humano
+                                transgrede un espacio cargado de significado.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-stone-50 p-6 rounded border border-stone-200">
+                        <h4 class="font-bold text-[#8c3b1a] mb-3">Geografía Sagrada</h4>
+                        <ul class="space-y-2 text-sm text-stone-700">
+                            <li><strong>Espacios Liminales:</strong> Puentes, umbrales, cuevas.</li>
+                            <li><strong>Genius Loci:</strong> El espíritu protector del lugar (Roma antigua).</li>
+                            <li><strong>Reciprocidad:</strong> El duende exige pago por los recursos extraídos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Transcultural Morphology (Data Viz) -->
+    <section id="morphology" class="py-16 px-4 bg-white border-t border-stone-200">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Context -->
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-[#2d2a26] mb-6">Morfología Comparada</h2>
+                    <p class="text-stone-600 mb-6">
+                        Aunque los nombres cambian, las estructuras funcionales se repiten globalmente. Hemos cuantificado los atributos de cinco entidades
+                        representativas para mostrar sus similitudes y diferencias arquetipales.
+                    </p>
+
+                    <div class="mb-6">
+                        <label class="block text-sm font-bold text-[#8c3b1a] mb-2">Seleccione una Entidad para Analizar:</label>
+                        <select id="entitySelector" class="w-full p-3 bg-stone-100 border border-stone-300 rounded font-serif text-stone-800 focus:outline-none focus:border-[#8c3b1a]" onchange="updateChart()">
+                            <option value="0">Aluxes (Maya) - Guardián Agrícola</option>
+                            <option value="1">Domovoi (Eslavo) - Espíritu Doméstico</option>
+                            <option value="2">Chullachaki (Amazonía) - El Doble Engañoso</option>
+                            <option value="3">Leprechaun (Ancestral) - El Artesano Sídhe</option>
+                            <option value="4">Muki (Andino) - El Dueño de la Mina</option>
+                        </select>
+                    </div>
+
+                    <div id="entity-description" class="p-6 bg-[#f5f2eb] rounded-lg border-l-4 border-[#4a5d4e]">
+                        <h4 id="desc-title" class="font-bold text-lg mb-2">Aluxes (Maya)</h4>
+                        <p id="desc-text" class="text-sm text-stone-700">
+                            Seres de barro creados por sacerdotes para proteger las cosechas (milpas). Si se les ofrenda, cuidan el cultivo;
+                            si no, envían enfermedad ("mal aire"). Son estrictamente territoriales y vinculados a la agricultura.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visualization -->
+                <div class="flex flex-col items-center">
+                    <div class="chart-container">
+                        <canvas id="duendeRadar"></canvas>
+                    </div>
+                    <p class="text-xs text-stone-500 mt-4 text-center">
+                        Gráfico Radar: Compara la intensidad de atributos simbólicos (Escala 0-100)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: The "Activated Duende" - Synthesis -->
+    <section id="manifestation" class="py-16 px-4 bg-[#2d2a26] text-[#f5f2eb]">
+        <div class="container mx-auto max-w-4xl text-center">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8 text-[#e5e0d8]">El "Duende Activado": Conclusiones</h2>
+
+            <div class="grid md:grid-cols-2 gap-8 text-left mb-12">
+                <div class="bg-[#3d3a36] p-8 rounded-lg border border-stone-600">
+                    <h3 class="text-xl font-bold text-[#d4a373] mb-4">¿Por qué regresan?</h3>
+                    <p class="text-stone-300 leading-relaxed">
+                        El duende "regresa" en tiempos de crisis o cambio rápido. No como criatura física, sino como
+                        <strong>síntoma cultural</strong>. Cuando una comunidad siente que su territorio está amenazado
+                        (minería, deforestación, gentrificación), la memoria colectiva "reactiva" al guardián. El avistamiento de duendes
+                        aumenta cuando la ansiedad territorial aumenta.
+                    </p>
+                </div>
+                <div class="bg-[#3d3a36] p-8 rounded-lg border border-stone-600">
+                    <h3 class="text-xl font-bold text-[#d4a373] mb-4">Definición Final</h3>
+                    <p class="text-stone-300 leading-relaxed">
+                        Los duendes son <strong>metáforas de la otredad radical</strong>. Son la forma en que el ser humano admite
+                        que no está solo en el mundo, que la casa cruje, que el bosque observa y que la tierra tiene voluntad.
+                        Son el respeto al misterio encapsulado en una figura antropomorfa.
+                    </p>
+                </div>
+            </div>
+
+            <div class="inline-block p-1 border-b border-[#8c3b1a]">
+                <p class="text-stone-400 italic text-sm">
+                    Investigación sintetizada basada en mitología comparada y antropología simbólica.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1a1918] py-8 text-center text-stone-400 text-xs">
+        <p class="mb-1">
+            Texto y curaduría conceptual: <strong>Fito Girolami</strong> · La Casa del Duende – Baños de Agua Santa, Ecuador.
+        </p>
+        <p>
+            Fragmento del ecosistema de investigación sobre duendes, memoria territorial y manifestación simbólica en América Latina.
+        </p>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- DATA STORAGE ---
+        const entityData = [
+            {
+                name: "Aluxes (Maya)",
+                data: [90, 40, 30, 85, 95],
+                desc: "Seres de barro creados por sacerdotes para proteger las cosechas (milpas). Si se les ofrenda, cuidan el cultivo; si no, envían enfermedad ('mal aire'). Son estrictamente territoriales y vinculados a la agricultura."
+            },
+            {
+                name: "Domovoi (Eslavo)",
+                data: [20, 10, 95, 80, 70],
+                desc: "El espíritu del hogar por excelencia. Vive tras la estufa. No es un espíritu de la naturaleza, sino un ancestro de la familia. Su función es mantener el orden doméstico. Se vuelve hostil solo si la casa está sucia o hay discordia familiar."
+            },
+            {
+                name: "Chullachaki (Amazonía)",
+                data: [95, 90, 0, 90, 20],
+                desc: "El 'pie diferente'. Un maestro del engaño y el camuflaje en la selva profunda. Imita a seres queridos para perder a los viajeros. Representa el peligro absoluto de la naturaleza no domesticada. Cero domesticidad."
+            },
+            {
+                name: "Leprechaun Ancestral (Irlanda)",
+                data: [60, 50, 40, 95, 60],
+                desc: "Antes del marketing de cereales, eran artesanos del 'Sídhe' (la gente de los túmulos). Seres de otro mundo, ni buenos ni malos, pero con códigos de honor estrictos. Solitarios y guardianes de tesoros antiguos (memoria)."
+            },
+            {
+                name: "Muki (Andino)",
+                data: [95, 80, 10, 85, 95],
+                desc: "El dueño de la veta mineral. Un ser subterráneo que concede riqueza a cambio de vida o pactos sexuales/vitales. Representa la transacción peligrosa con la tierra. Muy temido y respetado por los mineros."
+            }
+        ];
+
+        const labels = [
+            'Territorialidad (Vínculo Tierra)',
+            'Peligrosidad / Caos',
+            'Domesticidad (Hogar)',
+            'Ancestralidad (Profundidad)',
+            'Reciprocidad (Exige Pago)'
+        ];
+
+        let radarChart;
+
+        function initChart() {
+            const ctx = document.getElementById('duendeRadar').getContext('2d');
+
+            radarChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: entityData[0].name,
+                        data: entityData[0].data,
+                        fill: true,
+                        backgroundColor: 'rgba(140, 59, 26, 0.2)',
+                        borderColor: 'rgb(140, 59, 26)',
+                        pointBackgroundColor: 'rgb(140, 59, 26)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgb(140, 59, 26)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    elements: {
+                        line: { borderWidth: 3 }
+                    },
+                    scales: {
+                        r: {
+                            angleLines: { color: '#e5e0d8' },
+                            grid: { color: '#e5e0d8' },
+                            pointLabels: {
+                                font: { size: 11, family: 'Inter' },
+                                color: '#4a5d4e'
+                            },
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                            ticks: { display: false }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: { font: { family: 'Merriweather' } }
+                        },
+                        tooltip: {
+                            backgroundColor: '#2d2a26',
+                            titleFont: { family: 'Merriweather' },
+                            bodyFont: { family: 'Inter' }
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateChart() {
+            const selector = document.getElementById('entitySelector');
+            const selectedIndex = selector.value;
+            const selectedEntity = entityData[selectedIndex];
+
+            radarChart.data.datasets[0].label = selectedEntity.name;
+            radarChart.data.datasets[0].data = selectedEntity.data;
+
+            if (selectedEntity.data[1] > 70) {
+                radarChart.data.datasets[0].backgroundColor = 'rgba(140, 59, 26, 0.4)';
+                radarChart.data.datasets[0].borderColor = 'rgb(140, 59, 26)';
+                radarChart.data.datasets[0].pointBackgroundColor = 'rgb(140, 59, 26)';
+            } else if (selectedEntity.data[2] > 70) {
+                radarChart.data.datasets[0].backgroundColor = 'rgba(212, 163, 115, 0.4)';
+                radarChart.data.datasets[0].borderColor = 'rgb(180, 130, 80)';
+                radarChart.data.datasets[0].pointBackgroundColor = 'rgb(180, 130, 80)';
+            } else {
+                radarChart.data.datasets[0].backgroundColor = 'rgba(74, 93, 78, 0.4)';
+                radarChart.data.datasets[0].borderColor = 'rgb(74, 93, 78)';
+                radarChart.data.datasets[0].pointBackgroundColor = 'rgb(74, 93, 78)';
+            }
+
+            radarChart.update();
+
+            document.getElementById('desc-title').innerText = selectedEntity.name;
+            document.getElementById('desc-text').innerText = selectedEntity.desc;
+        }
+
+        function switchLevel(level) {
+            const tabs = ['folk', 'psych', 'territory'];
+            tabs.forEach(t => {
+                document.getElementById(`tab-${t}`).className = 'inactive-tab px-6 py-3 text-lg transition-colors focus:outline-none';
+                document.getElementById(`content-${t}`).classList.add('hidden');
+            });
+
+            document.getElementById(`tab-${level}`).className = 'active-tab px-6 py-3 text-lg transition-colors focus:outline-none';
+            document.getElementById(`content-${level}`).classList.remove('hidden');
+            document.getElementById(`content-${level}`).classList.add('animate-fade-in');
+        }
+
+        function activateView(view) {
+            if (view === 'fantasy') {
+                alert("Observación: Esta visión es rechazada por el estudio antropológico. La investigación se centrará en la visión Ancestral.");
+            } else {
+                document.getElementById('levels').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        window.addEventListener('load', function() {
+            initChart();
+        });
+    </script>
+</body>
+</html>
