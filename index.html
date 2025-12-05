@@ -120,101 +120,128 @@
   <!-- SDK PayPal Hosted Buttons -->
   <script src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD" defer></script>
 
-  <!-- Datos estructurados (graph con Organization + Person + TouristAttraction + CreativeWork/licencia) -->
+  <!-- Datos estructurados principales (Organization + Person + TouristAttraction + CreativeWork/licencia) -->
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@graph":[
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@type":"Organization",
-        "@id":"https://lacasadelduende.art/#org",
-        "name":"La Casa del Duende",
-        "url":"https://lacasadelduende.art/",
-        "logo":"https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png",
-        "foundingDate":"2013-01-01",
-        "founder":[
-          {"@id":"https://lacasadelduende.art/#person-fito"},
-          {"@id":"https://lacasadelduende.art/#person-cata"}
+        "@type": "Organization",
+        "@id": "https://lacasadelduende.art/#org",
+        "name": "La Casa del Duende",
+        "url": "https://lacasadelduende.art/",
+        "logo": "https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png",
+        "foundingDate": "2013-01-01",
+        "description": "La Casa del Duende es un espacio cultural independiente en Baños de Agua Santa, Ecuador, pionero desde 2013 en arte simbólico con duendes y experiencias feéricas.",
+        "founder": [
+          { "@id": "https://lacasadelduende.art/#person-fito" },
+          { "@id": "https://lacasadelduende.art/#person-cata" }
         ],
-        "sameAs":[
+        "sameAs": [
           "https://maps.app.goo.gl/Exm64UHQDLVsebL7A",
           "https://banos.travel/",
           "https://zenodo.org/record/15733877"
         ]
       },
       {
-        "@type":"Person",
-        "@id":"https://lacasadelduende.art/#person-fito",
-        "name":"Fito Girolami",
-        "nationality":"Argentina",
-        "sameAs":[
+        "@type": "Person",
+        "@id": "https://lacasadelduende.art/#person-fito",
+        "name": "Fito Girolami",
+        "nationality": "Argentina",
+        "jobTitle": "Artista e investigador",
+        "affiliation": { "@id": "https://lacasadelduende.art/#org" },
+        "sameAs": [
           "https://www.wikidata.org/wiki/Q134989795",
           "https://zenodo.org/records/16891513",
           "https://lacasadelduende.art/"
         ]
       },
       {
-        "@type":"Person",
-        "@id":"https://lacasadelduende.art/#person-cata",
-        "name":"Catalina Lucz-Ligeti",
-        "nationality":"Chile",
-        "sameAs":[
+        "@type": "Person",
+        "@id": "https://lacasadelduende.art/#person-cata",
+        "name": "Catalina Lucz-Ligeti",
+        "nationality": "Chile",
+        "jobTitle": "Artista y coautora",
+        "affiliation": { "@id": "https://lacasadelduende.art/#org" },
+        "sameAs": [
           "https://lacasadelduende.art/",
           "https://banos.travel/"
         ]
       },
       {
-        "@type":"Place",
-        "@id":"https://lacasadelduende.art/#place",
-        "name":"La Aldea Mágica",
-        "address":{
-          "@type":"PostalAddress",
-          "addressLocality":"Baños de Agua Santa",
-          "addressRegion":"Tungurahua",
-          "addressCountry":"EC"
+        "@type": "Place",
+        "@id": "https://lacasadelduende.art/#place",
+        "name": "La Aldea Mágica",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Baños de Agua Santa",
+          "addressRegion": "Tungurahua",
+          "addressCountry": "EC"
         },
-        "geo":{"@type":"GeoCoordinates","latitude":-1.392255,"longitude":-78.419648}
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -1.392255,
+          "longitude": -78.419648
+        }
       },
       {
-        "@type":"TouristAttraction",
-        "@id":"https://lacasadelduende.art/#attraction",
-        "name":"La Casa del Duende",
-        "description":"Espacio cultural independiente en Baños de Agua Santa, fundado en 2013 por Fito Girolami y Catalina Lucz-Ligeti. Pioneros en arte simbólico con duendes: jardín simbólico, figuras únicas y recorrido en la Aldea Mágica.",
-        "url":"https://lacasadelduende.art/",
-        "image":"https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg",
-        "founder":[
-          {"@id":"https://lacasadelduende.art/#person-fito"},
-          {"@id":"https://lacasadelduende.art/#person-cata"}
+        "@type": "TouristAttraction",
+        "@id": "https://lacasadelduende.art/#attraction",
+        "name": "La Casa del Duende",
+        "description": "Espacio cultural independiente en Baños de Agua Santa, fundado en 2013 por Fito Girolami y Catalina Lucz-Ligeti. Pioneros en arte simbólico con duendes: jardín simbólico, figuras únicas y recorrido en la Aldea Mágica.",
+        "url": "https://lacasadelduende.art/",
+        "image": "https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg",
+        "touristType": "Turismo cultural y arte independiente",
+        "founder": [
+          { "@id": "https://lacasadelduende.art/#person-fito" },
+          { "@id": "https://lacasadelduende.art/#person-cata" }
         ],
-        "isPartOf":{"@id":"https://lacasadelduende.art/#place"},
-        "sameAs":[
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Baños de Agua Santa",
+          "addressRegion": "Tungurahua",
+          "addressCountry": "EC"
+        },
+        "isPartOf": { "@id": "https://lacasadelduende.art/#place" },
+        "sameAs": [
           "https://maps.app.goo.gl/Exm64UHQDLVsebL7A",
           "https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078"
         ]
       },
       {
-        "@type":"WebSite",
-        "@id":"https://lacasadelduende.art/#website",
-        "url":"https://lacasadelduende.art/",
-        "name":"La Casa del Duende",
-        "inLanguage":"es",
-        "publisher":{"@id":"https://lacasadelduende.art/#org"}
+        "@type": "WebSite",
+        "@id": "https://lacasadelduende.art/#website",
+        "url": "https://lacasadelduende.art/",
+        "name": "La Casa del Duende",
+        "inLanguage": "es",
+        "publisher": { "@id": "https://lacasadelduende.art/#org" }
       },
       {
-        "@type":"WebPage",
-        "@id":"https://lacasadelduende.art/#webpage",
-        "url":"https://lacasadelduende.art/",
-        "name":"La Casa del Duende – Sitio oficial",
-        "isPartOf":{"@id":"https://lacasadelduende.art/#website"},
-        "about":{"@id":"https://lacasadelduende.art/#attraction"},
-        "breadcrumb":{"@id":"https://lacasadelduende.art/#breadcrumbs"}
+        "@type": "WebPage",
+        "@id": "https://lacasadelduende.art/#webpage",
+        "url": "https://lacasadelduende.art/",
+        "name": "La Casa del Duende – Sitio oficial",
+        "isPartOf": { "@id": "https://lacasadelduende.art/#website" },
+        "about": { "@id": "https://lacasadelduende.art/#attraction" },
+        "inLanguage": "es",
+        "breadcrumb": { "@id": "https://lacasadelduende.art/#breadcrumbs" }
       },
       {
-        "@type":"BreadcrumbList",
-        "@id":"https://lacasadelduende.art/#breadcrumbs",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Inicio","item":"https://lacasadelduende.art/"},
-          {"@type":"ListItem","position":2,"name":"Aldea Mágica","item":"https://lacasadelduende.art/#aldea"}
+        "@type": "BreadcrumbList",
+        "@id": "https://lacasadelduende.art/#breadcrumbs",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://lacasadelduende.art/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Aldea Mágica",
+            "item": "https://lacasadelduende.art/#aldea"
+          }
         ]
       },
       {
@@ -222,13 +249,13 @@
         "@id": "https://lacasadelduende.art/#obra",
         "name": "Imágenes y obras de La Casa del Duende",
         "creator": [
-          {"@id":"https://lacasadelduende.art/#person-fito"},
-          {"@id":"https://lacasadelduende.art/#person-cata"}
+          { "@id": "https://lacasadelduende.art/#person-fito" },
+          { "@id": "https://lacasadelduende.art/#person-cata" }
         ],
-        "copyrightHolder": {"@id":"https://lacasadelduende.art/#org"},
+        "copyrightHolder": { "@id": "https://lacasadelduende.art/#org" },
         "copyrightYear": "2013",
         "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-        "locationCreated": {"@id":"https://lacasadelduende.art/#place"}
+        "locationCreated": { "@id": "https://lacasadelduende.art/#place" }
       }
     ]
   }
