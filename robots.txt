@@ -1,13 +1,30 @@
-# robots.txt para lacasadelduende.art
+# robots.txt para lacasadelduende.art – versión optimizada (2025)
 
 User-agent: *
 Allow: /
 
-# Evitar indexar archivos internos o carpetas de sistema (si existen)
+# Bloqueo de carpetas de sistema (solo si existen)
 Disallow: /tmp/
 Disallow: /cgi-bin/
 Disallow: /admin/
 Disallow: /private/
+Disallow: /drafts/
+Disallow: /temp/
 
-# Indicar a Google y otros motores dónde está el sitemap
+# Evitar indexación de parámetros comunes
+Disallow: /*?utm_*
+Disallow: /*?fbclid=*
+Disallow: /*?ref=*
+Disallow: /*?source=*
+
+# Prioridad explícita para páginas clave
+Allow: /index.html
+Allow: /investigacion.html
+Allow: /que-hacer-en-banos-ecuador.html
+Allow: /preguntas.html
+Allow: /SobreLosDuendes.html
+Allow: /lo-que-no-somos.html
+Allow: /transparencia.html
+
+# Sitemap principal
 Sitemap: https://lacasadelduende.art/sitemap.xml
