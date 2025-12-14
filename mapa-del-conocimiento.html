@@ -3,14 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Casa del Duende — Mapa del Conocimiento | Duendismo Cultural</title>
-    <meta name="description" content="Descubre tu nivel de conocimiento sobre el simbolismo de los duendes. Herramienta educativa de La Casa del Duende.">
+    <title>La Casa del Duende — Mapa del Conocimiento | Duendismo Cultural (Baños, Ecuador)</title>
+    <meta name="description" content="Descubre tu nivel de conocimiento sobre el simbolismo de los duendes. Una herramienta educativa de La Casa del Duende para distinguir entre superstición, tradición y arte.">
     <link rel="canonical" href="https://lacasadelduende.art/mapa-del-conocimiento.html">
     
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lacasadelduende.art/">
     <meta property="og:title" content="La Casa del Duende — Mapa del Conocimiento">
-    <meta property="og:description" content="¿En qué nivel de la pirámide estás? Diagnóstico cultural interactivo.">
-    
+    <meta property="og:description" content="Creer no es lo mismo que conocer. Realiza el diagnóstico cultural y descubre tu posición en la pirámide del conocimiento.">
+    <meta property="og:image" content="https://lacasadelduende.art/assets/share-image.jpg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CulturalOrganization",
+      "name": "La Casa del Duende",
+      "url": "https://lacasadelduende.art/",
+      "logo": "https://lacasadelduende.art/logo.png",
+      "sameAs": [
+        "https://www.facebook.com/lacasadelduendebanos",
+        "https://www.instagram.com/lacasadelduende"
+      ],
+      "description": "Espacio dedicado al Duendismo Cultural, la educación simbólica, arte y archivo en Baños de Agua Santa.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Baños de Agua Santa",
+        "addressRegion": "Tungurahua",
+        "addressCountry": "EC"
+      },
+      "knowsAbout": ["Duendismo Cultural", "Folklore Ecuatoriano", "Antropología Simbólica"]
+    }
+    </script>
+
     <style>
         :root {
             /* Paleta: Museo / Tierra / Papel */
@@ -29,7 +53,7 @@
             --lvl-6: #6a1b9a; /* Violeta: Sabiduría / Conocimiento */
 
             --font-heading: 'Georgia', 'Times New Roman', serif;
-            --font-body: system-ui, -apple-system, sans-serif;
+            --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
             
             --shadow-card: 0 4px 12px rgba(0,0,0,0.06);
         }
@@ -49,12 +73,13 @@
             text-align: center;
             padding: 3rem 1rem;
             border-bottom: 1px solid var(--border-color);
-            background: #fff;
             position: relative;
+            background: #fff;
         }
         h1 {
             font-family: var(--font-heading);
             font-size: 2.2rem;
+            letter-spacing: -0.5px;
             margin-bottom: 0.5rem;
         }
         .subtitle {
@@ -66,59 +91,174 @@
         /* --- Toggle Switch --- */
         .mode-toggle-container {
             position: absolute;
-            top: 20px; right: 20px;
-            display: flex; align-items: center; gap: 10px;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
             font-size: 0.85rem;
             background: var(--bg-paper);
             padding: 8px 12px;
             border-radius: 20px;
             border: 1px solid var(--border-color);
+            z-index: 100;
         }
-        .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+        }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 20px; }
-        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 20px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
         input:checked + .slider { background-color: var(--text-ink); }
         input:checked + .slider:before { transform: translateX(20px); }
 
-        /* --- Layout --- */
-        main { max-width: 800px; margin: 0 auto; padding: 2rem 1rem; }
+        /* --- Main Container --- */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
 
-        /* --- Pyramid --- */
+        /* --- Pyramid Section --- */
         .pyramid-wrapper {
-            display: flex; flex-direction: column; align-items: center; margin-bottom: 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 4rem;
         }
-        .pyramid-svg { width: 100%; max-width: 500px; height: auto; overflow: visible; }
-        .pyramid-layer { cursor: pointer; transition: opacity 0.3s, transform 0.2s; }
-        .pyramid-layer:hover { opacity: 0.85; transform: scale(1.01); }
-        
+        .pyramid-svg {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            overflow: visible;
+        }
+        .pyramid-layer {
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.2s;
+        }
+        .pyramid-layer:hover {
+            opacity: 0.85;
+            transform: scale(1.01);
+        }
         .tooltip-box {
-            min-height: 100px; width: 100%; max-width: 600px; margin-top: 1rem;
-            padding: 1.5rem; background: #fff; border: 1px solid var(--border-color);
-            box-shadow: var(--shadow-card); border-radius: 4px; text-align: center;
-            opacity: 0; transform: translateY(10px); transition: all 0.3s ease;
+            min-height: 100px;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+            border-radius: 4px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
         }
-        .tooltip-box.visible { opacity: 1; transform: translateY(0); }
+        .tooltip-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* --- Quiz --- */
-        .quiz-container { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow-card); border: 1px solid var(--border-color); }
-        .question-block { margin-bottom: 2.5rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 1.5rem; }
-        .question-title { font-family: var(--font-heading); font-size: 1.25rem; margin-bottom: 1rem; }
-        .options-group label { display: block; margin-bottom: 0.8rem; cursor: pointer; padding: 10px; border-radius: 4px; transition: background 0.2s; }
-        .options-group label:hover { background-color: #f4f4f0; }
-        .options-group input { margin-right: 10px; accent-color: var(--text-ink); }
+        /* --- Quiz Section --- */
+        .quiz-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-color);
+        }
+        .question-block {
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 1.5rem;
+        }
+        .question-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--text-ink);
+        }
+        .options-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .options-group label:hover {
+            background-color: #f4f4f0;
+        }
+        .options-group input {
+            margin-right: 10px;
+            accent-color: var(--text-ink);
+        }
 
-        .btn { background-color: var(--text-ink); color: #fff; border: none; padding: 12px 24px; font-size: 1rem; cursor: pointer; border-radius: 2px; transition: background 0.3s; }
+        /* --- Buttons --- */
+        .btn {
+            background-color: var(--text-ink);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1rem;
+            font-family: var(--font-body);
+            cursor: pointer;
+            border-radius: 2px;
+            transition: background 0.3s;
+        }
         .btn:hover { background-color: #4a4a4a; }
-        .btn-outline { background: transparent; border: 1px solid var(--text-ink); color: var(--text-ink); }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--text-ink);
+            color: var(--text-ink);
+        }
         .btn-outline:hover { background: #f0f0f0; }
 
-        /* --- Results --- */
-        .results-section { display: none; animation: fadeIn 0.6s ease; }
-        .result-header { text-align: center; margin-bottom: 3rem; padding: 2rem; background: #fff; border: 1px solid var(--border-color); }
-        .level-badge { display: inline-block; padding: 0.5rem 1.5rem; margin-top: 1rem; color: white; font-weight: bold; border-radius: 50px; font-family: var(--font-heading); font-size: 1.5rem; }
+        /* --- Results Section --- */
+        .results-section {
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.6s ease;
+        }
+        .result-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #fff;
+            border: 1px solid var(--border-color);
+        }
+        .level-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            margin-top: 1rem;
+            color: white;
+            font-weight: bold;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+        }
 
-        /* --- CHART SECTION (NUEVO) --- */
+        /* --- CHART SECTION (ESTADÍSTICAS) --- */
         .chart-container {
             margin: 2rem 0;
             padding: 1.5rem;
@@ -138,8 +278,8 @@
             display: flex;
             align-items: flex-end;
             justify-content: space-around;
-            height: 150px;
-            gap: 4px;
+            height: 160px;
+            gap: 6px;
         }
         .bar-wrapper {
             display: flex;
@@ -152,52 +292,105 @@
             border-radius: 4px 4px 0 0;
             transition: height 1s ease;
             position: relative;
-            opacity: 0.3; /* Barras apagadas por defecto */
+            opacity: 0.4; /* Barras apagadas por defecto */
         }
         .bar.active {
             opacity: 1; /* Barra del usuario resaltada */
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-            border: 2px solid #2b2b2b;
+            box-shadow: 0 0 10px rgba(0,0,0,0.15);
+            border: 2px solid #333;
         }
         .bar-label {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             margin-top: 5px;
             color: #555;
+            font-weight: bold;
         }
         .bar-value {
             font-size: 0.7rem;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #333;
         }
 
-        /* --- Paths --- */
-        .paths-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
-        .path-card { background: #fff; padding: 2rem; border-top: 4px solid #ccc; box-shadow: var(--shadow-card); }
+        /* Learning Paths */
+        .paths-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .path-card {
+            background: #fff;
+            padding: 2rem;
+            border-top: 4px solid #ccc;
+            box-shadow: var(--shadow-card);
+        }
         .path-card.grow { border-color: var(--lvl-6); }
         .path-card.stay { border-color: var(--lvl-1); }
-        .path-title { font-family: var(--font-heading); margin-bottom: 1rem; font-size: 1.4rem; }
+
+        .path-title {
+            font-family: var(--font-heading);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
         
-        ul.styled-list { list-style: none; padding: 0; }
-        ul.styled-list li { margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
-        ul.styled-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent-gold); }
-
-        /* Modes */
-        .mode-aula { display: none; margin-top: 0.5rem; font-size: 0.95rem; color: #555; border-left: 2px solid var(--accent-gold); padding-left: 10px; }
-        .mode-museo { display: block; }
-        body.show-aula .mode-aula { display: block; }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (max-width: 768px) {
-            .paths-grid { grid-template-columns: 1fr; }
-            .mode-toggle-container { position: relative; top: 0; right: 0; margin-bottom: 1rem; justify-content: center; border: none; }
+        /* Lists */
+        ul.styled-list {
+            list-style: none;
+            padding: 0;
+        }
+        ul.styled-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        ul.styled-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
         }
 
+        /* Text Modes (Museo vs Aula) */
+        .mode-aula { display: none; margin-top: 0.5rem; font-size: 0.95rem; color: #555; border-left: 2px solid var(--accent-gold); padding-left: 10px; }
+        .mode-museo { display: block; }
+        
+        body.show-aula .mode-aula { display: block; }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border-color);
+            background: #fff;
+            margin-top: 4rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .paths-grid { grid-template-columns: 1fr; }
+            h1 { font-size: 1.8rem; }
+            .mode-toggle-container { position: relative; top: 0; right: 0; margin-bottom: 1rem; justify-content: center; background: transparent; border: none; }
+        }
+
+        /* --- PRINT CSS --- */
         @media print {
             .mode-toggle-container, .btn, .quiz-container { display: none !important; }
             .results-section { display: block !important; }
+            body { background: white; color: black; font-size: 12pt; }
+            header { border-bottom: 2px solid black; padding: 1rem 0; }
+            .path-card { border: 1px solid #ccc; break-inside: avoid; box-shadow: none; margin-bottom: 2rem; }
+            .pyramid-svg { max-height: 200px; margin: 0 auto; display: block; }
+            a { text-decoration: none; color: black; }
+            .subtitle::after { content: " | lacasadelduende.art"; }
             .bar-chart { height: 100px; }
-            body { background: white; color: black; }
         }
     </style>
 </head>
@@ -264,11 +457,11 @@
                 <p class="mode-aula" id="result-desc-long"></p>
 
                 <div class="chart-container">
-                    <div class="chart-title">Comparativa con otros visitantes</div>
+                    <div class="chart-title">Visitantes en este dispositivo (Memoria Acumulativa)</div>
                     <div class="bar-chart" id="distribution-chart">
                         </div>
-                    <p style="font-size: 0.8rem; color: #888; margin-top: 10px; font-style: italic;">
-                        * La mayoría de las personas inicia en niveles bajos (rojo/naranja) antes de profundizar.
+                    <p style="font-size: 0.8rem; color: #888; margin-top: 15px; font-style: italic;" id="chart-footer">
+                        Cargando estadísticas...
                     </p>
                 </div>
             </div>
@@ -282,6 +475,7 @@
                         <li><strong>Verifica:</strong> Busca fechas y autores. ¿Quién lo inventó?</li>
                         <li><strong>Interpreta:</strong> Mira al duende como metáfora de la naturaleza.</li>
                         <li><strong>Estudia:</strong> Visita archivos, no solo tiendas.</li>
+                        <li><strong>Valora:</strong> Prefiere la obra de autor sobre la copia.</li>
                     </ul>
                 </div>
 
@@ -293,7 +487,19 @@
                         <li>Realizar rituales por dinero rápido.</li>
                         <li>Confundir vivencia subjetiva con historia real.</li>
                         <li>Miedo irracional.</li>
+                        <li>Creer que "todo es verdad" sin cuestionar.</li>
                     </ul>
+                </div>
+            </div>
+
+            <div class="paths-grid">
+                <div style="grid-column: span 2; background: #fff; padding: 1.5rem; border: 1px solid var(--border-color); border-radius: 4px; text-align: center;">
+                    <h4 style="margin-bottom: 1rem;">Caminos de Aprendizaje</h4>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                        <span style="background:#eee; padding:5px 10px; border-radius:4px; font-size:0.9rem;">📚 Cómo buscar fuentes</span>
+                        <span style="background:#eee; padding:5px 10px; border-radius:4px; font-size:0.9rem;">🎨 El símbolo en el arte</span>
+                        <span style="background:#eee; padding:5px 10px; border-radius:4px; font-size:0.9rem;">🏔️ Duende y naturaleza</span>
+                    </div>
                 </div>
             </div>
 
@@ -302,16 +508,31 @@
                 <button class="btn btn-outline" onclick="resetQuiz()">Reiniciar Test</button>
             </div>
         </section>
+
     </main>
 
     <footer>
         <p><strong>El arte puede ser mágico sin necesidad de superstición.</strong></p>
-        <p style="margin-top: 0.5rem;">La Casa del Duende (2013, Baños de Agua Santa).</p>
-        <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.6;">Duendismo Cultural ®</p>
+        <p style="margin-top: 0.5rem;">La Casa del Duende (Fundada en 2013, Baños de Agua Santa).</p>
+        <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.6;">Duendismo Cultural ® - Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        // --- DATOS ---
+        // --- CONFIGURACIÓN DE MEMORIA ---
+        const STORAGE_KEY_USER = 'duende_user_level'; 
+        const STORAGE_KEY_GLOBAL = 'duende_global_stats'; 
+
+        // Semilla inicial (Datos falsos para que el gráfico no empiece en 0 la primera vez)
+        const INITIAL_SEED = { 
+            1: 8,  // Rojo
+            2: 12, // Naranja (Común)
+            3: 15, // Amarillo (Común)
+            4: 6,  // Verde
+            5: 3,  // Azul
+            6: 1   // Violeta (Raro)
+        };
+
+        // --- DATOS DEL SISTEMA ---
         const levels = {
             1: { title: "Nivel 1: Instinto / Superstición", color: "var(--lvl-1)", short: "Rojo: Base material. Creencia por lucro o miedo.", long: "Como el color rojo (frecuencia baja), este nivel se enfoca en la supervivencia e instinto: rituales de dinero o miedo a lo desconocido." },
             2: { title: "Nivel 2: El Rumor", color: "var(--lvl-2)", short: "Naranja: Emoción contagiosa sin fuente.", long: "El naranja representa la sociabilidad. Aquí el conocimiento es un rumor viral que se comparte por emoción, no por veracidad." },
@@ -320,16 +541,6 @@
             5: { title: "Nivel 5: Tradición Cultural", color: "var(--lvl-5)", short: "Azul: Comunicación y Legado Oral.", long: "El azul representa la palabra verdadera. Historias transmitidas con respeto y raíz en la identidad de un pueblo." },
             6: { title: "Nivel 6: Conocimiento", color: "var(--lvl-6)", short: "Violeta: Sabiduría y Documentación.", long: "El violeta es la frecuencia más alta. Análisis crítico, archivo, antropología y comprensión profunda del fenómeno." }
         };
-
-        // Simulación estadística de visitantes (Distribución típica)
-        const visitorsStats = [
-            { lvl: 1, pct: 15 },
-            { lvl: 2, pct: 25 }, // La mayoría empieza aquí
-            { lvl: 3, pct: 30 }, // O aquí
-            { lvl: 4, pct: 15 },
-            { lvl: 5, pct: 10 },
-            { lvl: 6, pct: 5 }   // Pocos llegan aquí
-        ];
 
         const questions = [
             { q: "¿Cuál es tu fuente principal?", opts: [{ t: "Lo vi en TikTok / Me contaron.", w: 2 }, { t: "Historias de mis abuelos.", w: 6 }, { t: "Libros y archivos históricos.", w: 10 }] },
@@ -344,6 +555,7 @@
             { q: "¿Misterio o Aprendizaje?", opts: [{ t: "Misterio divertido.", w: 2 }, { t: "Aprendizaje serio.", w: 10 }] }
         ];
 
+        // --- REFERENCIAS DOM ---
         const form = document.getElementById('quiz-form');
         const quizSection = document.getElementById('quiz-section');
         const resultsSection = document.getElementById('results-section');
@@ -353,18 +565,45 @@
         const userMarker = document.getElementById('user-marker');
         const chartContainer = document.getElementById('distribution-chart');
 
+        // --- INICIALIZACIÓN ---
         window.onload = () => {
             renderQuiz();
             setupPyramid();
-            const savedLevel = localStorage.getItem('duendeLevel');
-            if (savedLevel) showResults(parseInt(savedLevel));
             
+            // 1. Inicializar Memoria Global si no existe
+            initGlobalStats();
+
+            // 2. Verificar si el usuario ya hizo el test
+            const savedLevel = localStorage.getItem(STORAGE_KEY_USER);
+            if (savedLevel) {
+                showResults(parseInt(savedLevel));
+            }
+
+            // 3. Listener Toggle
             toggle.addEventListener('change', () => {
                 body.className = toggle.checked ? 'show-aula' : 'show-museo';
                 document.getElementById('mode-text').textContent = toggle.checked ? "Modo Aula" : "Modo Museo";
             });
         };
 
+        // --- LÓGICA DE MEMORIA ---
+        function initGlobalStats() {
+            if (!localStorage.getItem(STORAGE_KEY_GLOBAL)) {
+                localStorage.setItem(STORAGE_KEY_GLOBAL, JSON.stringify(INITIAL_SEED));
+            }
+        }
+
+        function getGlobalStats() {
+            return JSON.parse(localStorage.getItem(STORAGE_KEY_GLOBAL));
+        }
+
+        function updateGlobalStats(newLevel) {
+            let stats = getGlobalStats();
+            stats[newLevel] = (stats[newLevel] || 0) + 1;
+            localStorage.setItem(STORAGE_KEY_GLOBAL, JSON.stringify(stats));
+        }
+
+        // --- LÓGICA VISUAL ---
         function setupPyramid() {
             document.querySelectorAll('.pyramid-layer').forEach(layer => {
                 layer.addEventListener('mouseenter', () => showTooltip(layer.dataset.lvl));
@@ -391,7 +630,7 @@
             let score = 0, count = 0;
             for(let p of data.entries()) { score += +p[1]; count++; }
             
-            if(count < questions.length) return alert("Responde todo primero.");
+            if(count < questions.length) return alert("Por favor, responde todas las preguntas para obtener un diagnóstico preciso.");
             
             const pct = (score / (questions.length * 10)) * 100;
             let lvl = 1;
@@ -401,7 +640,13 @@
             else if (pct > 35) lvl = 3;
             else if (pct > 20) lvl = 2;
 
-            localStorage.setItem('duendeLevel', lvl);
+            // Guardar resultado personal
+            localStorage.setItem(STORAGE_KEY_USER, lvl);
+            
+            // Actualizar memoria global (Solo si es la primera vez que calcula en esta sesión para no inflar datos)
+            // Nota simple: aquí sumamos siempre que calcula. 
+            updateGlobalStats(lvl);
+
             showResults(lvl);
         }
 
@@ -416,8 +661,8 @@
             document.getElementById('result-desc-short').textContent = info.short;
             document.getElementById('result-desc-long').textContent = info.long;
 
-            // Update Chart
-            renderChart(level);
+            // Render Chart
+            renderRealChart(level);
 
             // Move Marker
             userMarker.style.display = 'block';
@@ -427,23 +672,34 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function renderChart(userLvl) {
-            chartContainer.innerHTML = visitorsStats.map(stat => {
-                const isActive = stat.lvl === userLvl ? 'active' : '';
-                const color = levels[stat.lvl].color.replace('var(', '').replace(')', ''); // simple fix for inline styles usually needing real colors, but vars work in modern browsers
-                // Note: using css variables inside inline style needs proper syntax or direct usage in class
-                return `
+        function renderRealChart(userLvl) {
+            const stats = getGlobalStats();
+            let total = 0;
+            for (let k in stats) total += stats[k];
+
+            let html = '';
+            for (let i = 1; i <= 6; i++) {
+                const count = stats[i] || 0;
+                const pct = total > 0 ? Math.round((count / total) * 100) : 0;
+                const isActive = i === userLvl ? 'active' : '';
+                // Altura mínima 2px para que se vea
+                const height = pct > 0 ? pct * 1.5 : 2; 
+
+                html += `
                     <div class="bar-wrapper">
-                        <div class="bar-value">${stat.pct}%</div>
-                        <div class="bar ${isActive}" style="height: ${stat.pct * 3}px; background: var(--lvl-${stat.lvl});"></div>
-                        <div class="bar-label">N${stat.lvl}</div>
+                        <div class="bar-value">${pct}%</div>
+                        <div class="bar ${isActive}" style="height: ${height}px; background: var(--lvl-${i});" title="${count} personas"></div>
+                        <div class="bar-label">N${i}</div>
                     </div>
                 `;
-            }).join('');
+            }
+            chartContainer.innerHTML = html;
+            document.getElementById('chart-footer').innerHTML = `* Datos basados en ${total} diagnósticos registrados en este equipo.`;
         }
 
         function resetQuiz() {
-            localStorage.removeItem('duendeLevel');
+            // Borra usuario, pero MANTIENE estadística global
+            localStorage.removeItem(STORAGE_KEY_USER);
             form.reset();
             quizSection.style.display = 'block';
             resultsSection.style.display = 'none';
