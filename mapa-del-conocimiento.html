@@ -11,7 +11,7 @@
     <meta property="og:url" content="https://lacasadelduende.art/">
     <meta property="og:title" content="La Casa del Duende — Mapa del Conocimiento">
     <meta property="og:description" content="Creer no es lo mismo que conocer. Realiza el diagnóstico cultural y descubre tu posición en la pirámide del conocimiento.">
-    <meta property="og:image" content="https://lacasadelduende.art/assets/share-image.jpg">
+    <meta property="og:image" content="https://lacasadelduende.art/La_casa_del_Duende_Banos.jpg">
 
     <script type="application/ld+json">
     {
@@ -68,14 +68,25 @@
             transition: background 0.3s ease;
         }
 
-        /* --- Header --- */
+        /* --- Header & Banner --- */
         header {
             text-align: center;
-            padding: 3rem 1rem;
+            padding: 1rem 1rem 3rem 1rem; /* Padding ajustado para el banner */
             border-bottom: 1px solid var(--border-color);
             position: relative;
             background: #fff;
         }
+        .site-banner {
+            width: 100%;
+            max-width: 900px; /* Ancho máximo contenido */
+            height: 200px; /* Altura limitada ("no muy grande") */
+            object-fit: cover; /* Recorte elegante */
+            border-radius: 4px;
+            margin: 0 auto 2rem auto; /* Centrado y separación inferior */
+            display: block;
+            box-shadow: var(--shadow-card);
+        }
+
         h1 {
             font-family: var(--font-heading);
             font-size: 2.2rem;
@@ -91,7 +102,7 @@
         /* --- Toggle Switch --- */
         .mode-toggle-container {
             position: absolute;
-            top: 20px;
+            top: 220px; /* Ajustado para quedar debajo del banner en desktop */
             right: 20px;
             display: flex;
             align-items: center;
@@ -377,12 +388,13 @@
         @media (max-width: 768px) {
             .paths-grid { grid-template-columns: 1fr; }
             h1 { font-size: 1.8rem; }
+            .site-banner { height: auto; max-height: 150px; margin-bottom: 1.5rem; }
             .mode-toggle-container { position: relative; top: 0; right: 0; margin-bottom: 1rem; justify-content: center; background: transparent; border: none; }
         }
 
         /* --- PRINT CSS --- */
         @media print {
-            .mode-toggle-container, .btn, .quiz-container { display: none !important; }
+            .site-banner, .mode-toggle-container, .btn, .quiz-container { display: none !important; }
             .results-section { display: block !important; }
             body { background: white; color: black; font-size: 12pt; }
             header { border-bottom: 2px solid black; padding: 1rem 0; }
@@ -397,6 +409,8 @@
 <body class="show-museo">
 
     <header>
+        <img src="https://lacasadelduende.art/La_casa_del_Duende_Banos.jpg" alt="La Casa del Duende en Baños de Agua Santa" class="site-banner">
+
         <div class="mode-toggle-container">
             <span id="mode-text">Modo Museo (Breve)</span>
             <label class="switch">
@@ -523,6 +537,7 @@
         const STORAGE_KEY_GLOBAL = 'duende_global_stats'; 
 
         // Semilla inicial (Datos falsos para que el gráfico no empiece en 0 la primera vez)
+        // Si quieres empezar de cero absoluto, cambia todos los valores a 0.
         const INITIAL_SEED = { 
             1: 8,  // Rojo
             2: 12, // Naranja (Común)
@@ -643,8 +658,7 @@
             // Guardar resultado personal
             localStorage.setItem(STORAGE_KEY_USER, lvl);
             
-            // Actualizar memoria global (Solo si es la primera vez que calcula en esta sesión para no inflar datos)
-            // Nota simple: aquí sumamos siempre que calcula. 
+            // Actualizar memoria global
             updateGlobalStats(lvl);
 
             showResults(lvl);
