@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>La Casa del Duende | Regalo: Guía Definitiva sobre Duendes – Vol. 1 (PDF)</title>
-  <meta name="description" content="Participá con un mini cuestionario cultural sobre duendes y descargá la Guía Definitiva sobre Duendes – Vol. 1 (PDF). La Casa del Duende, Baños de Agua Santa, Ecuador." />
+  <meta name="description" content="Completá un mini cuestionario cultural sobre duendes y desbloqueá la descarga de la Guía Definitiva sobre Duendes – Vol. 1 (PDF). La Casa del Duende, Baños de Agua Santa, Ecuador." />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="La Casa del Duende | Regalo: Guía Definitiva sobre Duendes – Vol. 1 (PDF)" />
-  <meta property="og:description" content="Completá un mini cuestionario cultural y descargá la guía en PDF. Arte, simbolismo y folclore: sin superstición inventada." />
+  <meta property="og:description" content="Cuestionario cultural + descarga del PDF. Arte, simbolismo y folclore: sin superstición inventada." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lacasadelduende.art/" />
 
@@ -20,17 +19,27 @@
     .wrap { max-width: var(--max); margin: 0 auto; padding: 22px; }
     .card { background: #fff; border: 1px solid #e7e7e7; border-radius: 14px; padding: 18px; box-shadow: 0 2px 10px rgba(0,0,0,.04); }
     h1 { font-size: 26px; margin: 0 0 6px; }
-    h2 { font-size: 18px; margin: 22px 0 10px; }
+    h2 { font-size: 18px; margin: 18px 0 10px; }
     p { margin: 10px 0; }
     .muted { color: #555; font-size: 14px; }
-    .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
-    a.btn { display: inline-block; padding: 10px 14px; border-radius: 12px; text-decoration: none; border: 1px solid #ddd; background: #fff; color: #111; }
-    a.btn.primary { background: #111; border-color: #111; color: #fff; }
-    .hr { height: 1px; background: #eee; margin: 18px 0; }
-    .iframe-wrap { width: 100%; }
-    iframe { width: 100%; border: 0; border-radius: 14px; }
-    .footer { margin-top: 18px; font-size: 13px; color: #666; }
     .note { background:#fff7e6; border:1px solid #ffe2b3; padding: 12px; border-radius: 12px; }
+    .hr { height: 1px; background: #eee; margin: 18px 0; }
+    .btnrow { display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
+    a.btn, button.btn {
+      appearance:none; -webkit-appearance:none;
+      display:inline-block; padding: 10px 14px; border-radius: 12px;
+      text-decoration:none; border: 1px solid #ddd; background:#fff; color:#111;
+      cursor:pointer; font: inherit;
+    }
+    button.btn.primary { background:#111; border-color:#111; color:#fff; }
+    a.btn.primary { background:#111; border-color:#111; color:#fff; }
+    a.btn.disabled {
+      pointer-events:none; opacity:.45; filter: grayscale(1);
+    }
+    iframe { width: 100%; border: 0; border-radius: 14px; }
+    .footer { margin-top: 14px; font-size: 13px; color: #666; }
+    .ok { display:none; margin-top: 10px; }
+    .ok.show { display:block; }
   </style>
 </head>
 
@@ -39,63 +48,80 @@
     <div class="card">
       <h1>🎁 Regalo: Guía Definitiva sobre Duendes – Vol. 1 (PDF)</h1>
       <p class="muted">
-        La Casa del Duende — Baños de Agua Santa, Ecuador. Un proyecto de arte y cultura: duendes como símbolo, obra y memoria (no superstición inventada).
+        La Casa del Duende — Baños de Agua Santa, Ecuador. Proyecto de arte y cultura: duendes como símbolo, obra y memoria (no superstición inventada).
       </p>
 
       <div class="hr"></div>
 
-      <h2>Cómo participar</h2>
+      <h2>Instrucciones</h2>
       <p>
-        1) Completá el mini cuestionario (1 minuto).<br>
-        2) Descargá el PDF.
+        Completá el cuestionario. Cuando lo envíes, tocá <strong>“Ya lo envié”</strong> y se habilita la descarga.
       </p>
 
-      <div class="btns">
+      <div class="btnrow">
         <a class="btn primary" href="#cuestionario">Ir al cuestionario</a>
-        <a class="btn" href="/assets/guia-duendes-vol1.pdf" download>Descargar PDF</a>
+        <a id="downloadBtn" class="btn disabled" href="https://lacasadelduende.art/assets/guia-duendes-vol1.pdf" download aria-disabled="true">
+          Descargar PDF (bloqueado)
+        </a>
+        <button id="confirmBtn" class="btn" type="button">Ya lo envié</button>
       </div>
 
-      <p class="muted">
-        Si el botón de descarga no aparece o no funciona en tu celular, probá abrirlo en otra pestaña.
-      </p>
+      <div id="okMsg" class="note ok" role="status" aria-live="polite">
+        ✅ Descarga habilitada. Gracias por participar.
+      </div>
 
       <div class="hr"></div>
 
       <h2 id="cuestionario">Cuestionario</h2>
-
       <div class="note">
         <strong>Nota:</strong> este cuestionario es parte de una investigación cultural y artística. Tus respuestas ayudan a comprender cómo circula hoy la idea del “duende” en América Latina.
       </div>
 
-      <p class="muted" style="margin-top:10px;">
-        Si el formulario se ve muy largo en pantalla, desplazate dentro del recuadro.
+      <p class="muted">
+        Si se ve largo en pantalla, desplazate dentro del recuadro.
       </p>
 
-      <div class="iframe-wrap" style="margin-top:12px;">
-        <!-- TU IFRAME (tal cual lo pasaste) -->
-        <iframe
-          src="https://docs.google.com/forms/d/e/1FAIpQLSejyP7hg8GrzqMZJvqY_dhp7ugF86Jnx9XpVbaC0Cpgg92zMA/viewform?embedded=true"
-          height="1254"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0"
-          title="Cuestionario Duendes – La Casa del Duende"
-        >Cargando…</iframe>
-      </div>
-
-      <div class="hr"></div>
-
-      <h2>Descarga</h2>
-      <p>
-        📘 <strong>Guía Definitiva sobre Duendes – Vol. 1</strong><br>
-        <a class="btn" href="/assets/guia-duendes-vol1.pdf" download>Descargar PDF</a>
-      </p>
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSejyP7hg8GrzqMZJvqY_dhp7ugF86Jnx9XpVbaC0Cpgg92zMA/viewform?embedded=true"
+        height="1254"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        title="Cuestionario Duendes – La Casa del Duende"
+      >Cargando…</iframe>
 
       <p class="footer">
-        © La Casa del Duende — Fito Girolami & Catalina Lucz-Ligeti. <br>
-        Consejo: si querés “ocultar” un poco la descarga, después la movemos a una ruta menos obvia (ej: <code>/assets/duendes/vol1-9f3a.pdf</code>).
+        © La Casa del Duende — Fito Girolami & Catalina Lucz-Ligeti.
       </p>
     </div>
   </div>
+
+  <script>
+    (function () {
+      const downloadBtn = document.getElementById('downloadBtn');
+      const confirmBtn = document.getElementById('confirmBtn');
+      const okMsg = document.getElementById('okMsg');
+
+      // Si ya lo habilitó antes, mantenerlo habilitado (no lo obligamos a repetir)
+      const unlocked = localStorage.getItem('duende_pdf_unlocked') === '1';
+      if (unlocked) unlock();
+
+      confirmBtn.addEventListener('click', function () {
+        // Habilita descarga y recuerda elección
+        localStorage.setItem('duende_pdf_unlocked', '1');
+        unlock();
+        // opcional: llevarlo directo a descargar
+        // downloadBtn.click();
+      });
+
+      function unlock() {
+        downloadBtn.classList.remove('disabled');
+        downloadBtn.textContent = 'Descargar PDF';
+        downloadBtn.setAttribute('aria-disabled', 'false');
+        okMsg.classList.add('show');
+      }
+    })();
+  </script>
 </body>
 </html>
+
