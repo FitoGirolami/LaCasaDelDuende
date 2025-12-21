@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>La Casa del Duende | Regalo: Guía Definitiva sobre Duendes – Vol. 1 (PDF)</title>
-  <meta name="description" content="Completá un breve cuestionario cultural sobre duendes y desbloqueá la descarga gratuita de la Guía Definitiva sobre Duendes – Vol. 1 (PDF). La Casa del Duende, Baños de Agua Santa." />
+  <meta name="description" content="Completá un breve cuestionario cultural sobre duendes. El regalo (PDF) se entrega únicamente a quienes completan el formulario. La Casa del Duende, Baños de Agua Santa." />
   <meta name="robots" content="index,follow" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="La Casa del Duende | Regalo cultural" />
-  <meta property="og:description" content="Arte, investigación y duendes como símbolo cultural. Accedé al PDF tras completar el cuestionario." />
+  <meta property="og:description" content="Arte, investigación y duendes como símbolo cultural. El regalo (PDF) se entrega únicamente a quienes completan el cuestionario." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://lacasadelduende.art/regalo.html" />
 
@@ -69,7 +69,7 @@
       border-color: #111;
       color: #fff;
     }
-    a.btn.disabled {
+    a.btn.disabled, button.btn.disabled {
       pointer-events: none;
       opacity: .45;
       filter: grayscale(1);
@@ -109,31 +109,42 @@
         sobre cómo circula hoy la idea del “duende” en América Latina.
       </div>
 
+      <div class="note" style="background:#f3f7ff;border-color:#cfe0ff;">
+        <strong>Importante:</strong> el regalo (PDF) se entrega <strong>únicamente</strong> a quienes
+        <strong>completan el formulario</strong>. No hay descarga directa desde esta página.
+      </div>
+
       <div class="hr"></div>
 
       <h2>Cómo participar</h2>
       <p>
         1) Completá el cuestionario.<br>
         2) Volvé a esta página y tocá <strong>“Ya completé el formulario”</strong>.<br>
-        3) Se habilita la descarga del PDF.
+        3) Te mostramos las instrucciones para recibir el PDF (solo para quienes completaron).
       </p>
 
       <div class="btnrow">
         <a class="btn primary" href="#cuestionario">Ir al cuestionario</a>
-        <a id="downloadBtn"
-           class="btn disabled"
-           href="/assets/guia-duendes-vol1.pdf"
-           download
-           aria-disabled="true">
-          Descargar PDF (bloqueado)
-        </a>
+
+        <button id="downloadBtn"
+                class="btn disabled"
+                type="button"
+                aria-disabled="true"
+                title="Disponible solo para quienes completan el formulario">
+          Recibir el PDF (bloqueado)
+        </button>
+
         <button id="confirmBtn" class="btn" type="button">
           Ya completé el formulario
         </button>
       </div>
 
       <div id="okMsg" class="note ok">
-        ✅ Gracias por participar. La descarga ya está habilitada.
+        ✅ Gracias por participar. <strong>El regalo se entrega únicamente a quienes completaron el formulario.</strong><br><br>
+        <strong>Cómo recibir el PDF:</strong><br>
+        • Si completaste el formulario, escribinos por mensaje con la palabra <strong>“LISTO”</strong> y te enviamos el PDF.<br>
+        • También podés mostrar esta pantalla en La Casa del Duende si estás en Baños.<br><br>
+        <span class="muted">Nota: si no completaste el formulario, esta opción no aplica.</span>
       </div>
 
       <div class="hr"></div>
@@ -202,10 +213,16 @@
         unlock();
       });
 
+      // Si alguien intenta clickear cuando está desbloqueado, mostramos un recordatorio (sin link de descarga)
+      downloadBtn.addEventListener('click', function () {
+        if (downloadBtn.classList.contains('disabled')) return;
+        alert("Recordatorio: el PDF se entrega únicamente a quienes completaron el formulario. Si ya lo completaste, seguí las instrucciones que aparecen en pantalla.");
+      });
+
       function unlock() {
         downloadBtn.classList.remove('disabled');
         downloadBtn.setAttribute('aria-disabled', 'false');
-        downloadBtn.textContent = 'Descargar PDF';
+        downloadBtn.textContent = 'Recibir el PDF (instrucciones)';
         okMsg.classList.add('show');
       }
     })();
@@ -213,9 +230,3 @@
 
 </body>
 </html>
-
-  </script>
-
-</body>
-</html>
-
