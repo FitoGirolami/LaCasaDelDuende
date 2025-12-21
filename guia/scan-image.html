@@ -30,9 +30,19 @@
 
     .overlay{position:fixed; inset:0; display:none; place-items:center; z-index:30; background:rgba(0,0,0,.7); backdrop-filter:blur(2px)}
     .card{width:min(92vw,56vh); aspect-ratio:9/16; background:#111; border:1px solid #2a2a2a; border-radius:16px; overflow:hidden; position:relative}
-    .close{position:absolute; top:.5rem; right:.5rem; z-index:2; background:#1d3127; border:1px solid #3cb371; color:#eaeaea;
+    .close{position:absolute; top:.5rem; right:.5rem; z-index:3; background:#1d3127; border:1px solid #3cb371; color:#eaeaea;
            padding:.35rem .6rem; border-radius:10px; cursor:pointer}
+
+    /* ✅ Botón para activar sonido (autoplay suele ir muteado) */
+    .sound{
+      position:absolute; bottom:.6rem; left:.6rem; z-index:3;
+      background:#151a18;border:1px solid #2c3a33;color:#cfe4d8;
+      padding:.45rem .65rem;border-radius:12px; cursor:pointer; font-weight:600;
+      display:none;
+    }
+
     iframe{width:100%; height:100%; border:0}
+
     .toast{position:fixed; left:50%; transform:translateX(-50%); bottom:12px; background:#101010; color:#eaeaea; border:1px solid #2a2a2a;
            border-radius:10px; padding:.5rem .8rem; font-size:.9rem; z-index:25}
 
@@ -67,15 +77,15 @@
       <p>Estás por vivir un recorrido sonoro dentro de <strong>La Casa del Duende / La Aldea Mágica</strong>.</p>
       <ul>
         <li><strong>Apunta la cámara</strong> de esta guía hacia los <strong>rótulos señalados</strong> en el espacio.</li>
-        <li>Al reconocer un rótulo, se abrirá el reproductor: <strong>toca “play”</strong> y escucha.</li>
-        <li>Para comprender el conjunto, <strong>haz pausa</strong> en el lugar y escucha con <strong>atención y predisposición</strong>.</li>
+        <li>Al reconocer un rótulo, se abrirá el reproductor y el video comenzará <strong>automáticamente</strong>.</li>
+        <li>Para comprender el conjunto, <strong>haz pausa</strong> en el lugar y escucha con <strong>atención</strong>.</li>
       </ul>
       <div class="btn-row">
         <button id="startGuide" class="btn" aria-label="Comenzar">Comenzar</button>
         <button id="noSound" class="btn secondary" aria-label="¿No escuchas audio?">¿Sin sonido?<span aria-hidden="true"> 🔈</span></button>
       </div>
       <p id="helpMsg" style="display:none; font-size:.9rem; color:#a7c5b7; margin-top:.6rem">
-        Sube el volumen del dispositivo y desactiva el modo silencio.
+        Sube el volumen del dispositivo y desactiva el modo silencio. Si el video inicia sin audio, toca <strong>Activar sonido</strong>.
       </p>
       <div id="appWarn" class="warn"></div>
       <div id="httpsWarn" class="warn bad">Esta guía requiere <strong>HTTPS</strong>. Abre la URL segura (https://) para usar la cámara.</div>
@@ -102,7 +112,7 @@
   </div>
   <div id="toast" class="toast">Buscando imagen…</div>
 
-  <!-- MindAR (autoStart por defecto) -->
+  <!-- MindAR -->
   <a-scene
     embedded
     renderer="alpha: true; colorManagement: true; physicallyCorrectLights: true"
@@ -129,12 +139,15 @@
   <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-label="Reproductor de la Audio Guía">
     <div class="card">
       <button id="closeBtn" class="close" title="Cerrar">✕</button>
+
+      <!-- ✅ Botón para activar sonido (porque autoplay suele estar muteado) -->
+      <button id="soundBtn" class="sound" type="button" title="Activar sonido">Activar sonido 🔊</button>
+
       <iframe
         id="player"
         src="about:blank"
         title="Audio Guía"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
+        allow="autoplay; encrypted-media; picture-in-picture"
         referrerpolicy="strict-origin-when-cross-origin">
       </iframe>
     </div>
@@ -163,8 +176,7 @@
           hour_local: hourLocal(),
           timezone: tz
         }, params));
-        console.debug('[GA]', name, params);
-      } catch(e) { console.warn('No se pudo enviar evento', e); }
+      } catch(e) {}
     }
 
     // --- Utilidades de entorno ---
@@ -180,7 +192,9 @@
     }
     if (!isHTTPS) document.getElementById('httpsWarn').style.display = 'block';
 
-    const YT = id => `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&modestbranding=1&rel=0`;
+    // ✅ Embed con autoplay (muteado) + JS API + playsinline + origin
+    const ORIGIN = encodeURIComponent(location.origin);
+    const YT = id => `https://www.youtube-nocookie.com/embed/${id}?playsinline=1&autoplay=1&mute=1&modestbranding=1&rel=0&enablejsapi=1&origin=${ORIGIN}`;
     const VIDEOS = [
       YT("PD7Y1lhBzJE"), YT("xsruCvUtH2M"), YT("yqWba2Lw24E"), YT("eKuCIJecyoo"),
       YT("fm5oAIHAr6U"), YT("wmJZa8K04so"), YT("XSdyrTGTW1Q"), YT("ml03DFpuao8"),
@@ -198,19 +212,26 @@
     const overlay = document.getElementById('overlay');
     const player = document.getElementById('player');
     const closeBtn = document.getElementById('closeBtn');
+    const soundBtn = document.getElementById('soundBtn');
 
     const sceneEl = document.querySelector('a-scene');
 
     let opening = false;
     let stopped = false;
-    let facing = 'environment'; // actual
-    let altFacing = 'user';     // alternativo
+    let facing = 'environment';
+    let altFacing = 'user';
 
-    // --- Pre-chequeo de cámara (Android & navegadores chinos) ---
+    // ✅ Anti “re-apertura inmediata”
+    let lastCloseAt = 0;
+    const COOLDOWN_MS = 1200;
+
+    // ✅ Track del target actual (para pedir “targetLost” antes de reabrir el mismo)
+    let activeTargetIndex = null;
+
+    // --- Pre-chequeo de cámara ---
     async function preflightCameraTry() {
       if (!navigator.mediaDevices?.getUserMedia) throw new Error('getUserMedia no soportado');
       let stream;
-      // probamos trasera y si falla, frontal
       const tries = [
         { video: { facingMode: { ideal: facing }, width: { ideal: 1280 }, height: { ideal: 720 } } },
         { video: { facingMode: { ideal: altFacing }, width: { ideal: 1280 }, height: { ideal: 720 } } }
@@ -229,8 +250,6 @@
       const diagMsg = document.getElementById('diagMsg');
       diagMsg.textContent = (msg||'') + (err ? `\n\n${err.name||''}\n${err.message||''}` : '');
       diag.style.display = 'grid';
-      console.warn('Cam diag:', msg, err);
-      // track opcional
       logEvent('camera_error', { reason: (err && err.name) || msg || 'unknown' });
     }
 
@@ -247,7 +266,6 @@
       logEvent('guide_start');
 
       if (!isHTTPS) { showDiag('Se requiere HTTPS para usar la cámara.'); return; }
-      if (inApp) { /* muchos in-app bloquean cámara */ }
 
       try { await preflightCameraTry(); }
       catch(e){ showDiag('No se pudo acceder a la cámara. Revisa permisos del sitio y que no esté abierta en otra app.', e); }
@@ -257,7 +275,7 @@
       helpMsg.style.display = helpMsg.style.display === 'none' ? 'block' : 'none';
     });
 
-    // --- Cambiar cámara (reinicia MindAR con otro facing si es posible) ---
+    // --- Cambiar cámara ---
     toggleCamBtn.addEventListener('click', async () => {
       const tmp = facing; facing = altFacing; altFacing = tmp;
       try {
@@ -271,15 +289,39 @@
       }
     });
 
+    // ✅ helper: comandos a YouTube (JS API)
+    function ytCommand(func, args=[]) {
+      try {
+        player.contentWindow?.postMessage(JSON.stringify({
+          event: 'command',
+          func,
+          args
+        }), '*');
+      } catch(e) {}
+    }
+
     // --- Reproductor & MindAR stop/start ---
     async function showPlayerAndStopScan(url, index = null) {
+      const now = Date.now();
       if (opening) return;
+      if (overlay.style.display === 'grid') return;
+      if (now - lastCloseAt < COOLDOWN_MS) return;
+
+      // si seguimos mirando el mismo target sin "targetLost", no reabrimos
+      if (activeTargetIndex === index) return;
+
       opening = true;
+      activeTargetIndex = index;
+
+      // ✅ cargar URL (autoplay muteado) + mostrar botón de sonido
       if (player.src !== url) player.src = url;
+
+      // ✅ importante: evitamos que MindAR siga “re-detectando” mientras está el video
       if (!stopped) {
         try { await sceneEl.systems['mindar-image']?.stop?.(); stopped = true; } catch(e) {}
       }
-      // Analytics: apertura de parada
+
+      // Analytics
       openSince = Date.now();
       openStopIndex = index;
       logEvent('ar_stop_open', {
@@ -290,16 +332,27 @@
 
       toast.style.display = 'none';
       overlay.style.display = 'grid';
-      setTimeout(()=>{ opening = false; }, 250);
+
+      // ✅ intentamos “play” por JS API (a veces ayuda en ciertos móviles)
+      setTimeout(() => {
+        ytCommand('playVideo');
+        soundBtn.style.display = 'block';
+        opening = false;
+      }, 300);
     }
 
     async function resumeScan() {
+      // ✅ frenar video
+      try { ytCommand('stopVideo'); } catch(e) {}
       try { player.src = 'about:blank'; } catch(e) {}
+
       overlay.style.display = 'none';
+      soundBtn.style.display = 'none';
+
       toast.textContent = 'Buscando imagen…';
       toast.style.display = 'block';
 
-      // Analytics: cierre de parada + duración
+      // Analytics: cierre + duración
       if (openSince !== null && openStopIndex !== null) {
         const ms = Date.now() - openSince;
         logEvent('ar_stop_close', {
@@ -311,25 +364,48 @@
       openSince = null;
       openStopIndex = null;
 
+      lastCloseAt = Date.now();
+
       try {
         await sceneEl.systems['mindar-image']?.start?.({ videoSettings: { facingMode: facing } });
         stopped = false;
-      } catch(e) { console.warn('No se pudo reanudar:', e); }
+      } catch(e) {}
+
+      // ✅ liberamos “activeTargetIndex” recién después de un pequeño margen
+      // (para evitar reapertura instantánea si sigue apuntando al mismo rótulo)
+      setTimeout(() => { activeTargetIndex = null; }, COOLDOWN_MS);
     }
+
+    // ✅ “Activar sonido”: unmute + play (requiere tap del usuario, perfecto para políticas del navegador)
+    soundBtn.addEventListener('click', () => {
+      ytCommand('unMute');
+      ytCommand('setVolume', [100]);
+      ytCommand('playVideo');
+      soundBtn.style.display = 'none';
+      logEvent('audio_unmute', { stop_index: openStopIndex ?? -1 });
+    });
 
     // Abrir reproductor al detectar un target
     for (let i = 0; i < VIDEOS.length; i++) {
       const marker = document.getElementById('marker-' + i);
       if (!marker) continue;
+
       marker.addEventListener('targetFound', () => showPlayerAndStopScan(VIDEOS[i], i));
+
+      // ✅ cuando se pierde el target, permitimos reabrir ese mismo en el futuro
+      marker.addEventListener('targetLost', () => {
+        if (activeTargetIndex === i && overlay.style.display !== 'grid') {
+          activeTargetIndex = null;
+        }
+      });
     }
 
     closeBtn.addEventListener('click', resumeScan);
 
-    // Evitar audio si se va a background
+    // Si se va a background, paramos reproducción (sin cerrar la página)
     document.addEventListener('visibilitychange', () => {
       if (document.hidden && overlay.style.display === 'grid') {
-        try { player.src = 'about:blank'; } catch(e) {}
+        try { ytCommand('pauseVideo'); } catch(e) {}
       }
     });
 
@@ -345,3 +421,4 @@
   </script>
 </body>
 </html>
+
