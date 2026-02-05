@@ -199,7 +199,7 @@
     }
   </style>
 
-  <!-- Structured Data: Organization + LocalBusiness + WebPage + Breadcrumb + FAQ + Product sample -->
+  <!-- Structured Data (sin inventar horarios/dirección) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -211,9 +211,17 @@
         "url":"https://lacasadelduende.art/",
         "logo":"https://lacasadelduende.art/assets/img/logo-la-casa-del-duende.png",
         "sameAs":[
-          "https://www.instagram.com/LA_CUENTA_REAL_AQUI",
-          "https://www.facebook.com/LA_CUENTA_REAL_AQUI",
-          "https://www.youtube.com/@LA_CUENTA_REAL_AQUI"
+          "https://www.instagram.com/lacasadelduende/",
+          "https://aldeamagica.art/"
+        ],
+        "contactPoint":[
+          {
+            "@type":"ContactPoint",
+            "contactType":"Ventas y consultas",
+            "telephone":"+593 98 437 3739",
+            "availableLanguage":["es","en"],
+            "url":"https://lacasadelduende.art/comprar-duendes-en-ecuador.html#contacto"
+          }
         ]
       },
       {
@@ -222,30 +230,14 @@
         "name":"La Casa del Duende",
         "image":"https://lacasadelduende.art/assets/img/duendes-ecuador-portada.jpg",
         "url":"https://lacasadelduende.art/",
-        "telephone":"+593-XXX-XXXXXX",
+        "telephone":"+593 98 437 3739",
         "priceRange":"$$",
         "address":{
           "@type":"PostalAddress",
-          "streetAddress":"DIRECCIÓN AQUÍ",
           "addressLocality":"Baños de Agua Santa",
           "addressRegion":"Tungurahua",
           "addressCountry":"EC"
         },
-        "geo":{
-          "@type":"GeoCoordinates",
-          "latitude":-1.396,
-          "longitude":-78.425
-        },
-        "openingHoursSpecification":[
-          {
-            "@type":"OpeningHoursSpecification",
-            "dayOfWeek":[
-              "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
-            ],
-            "opens":"10:00",
-            "closes":"19:00"
-          }
-        ],
         "makesOffer":{
           "@type":"OfferCatalog",
           "name":"Duendes artesanales",
@@ -261,7 +253,6 @@
               },
               "availability":"https://schema.org/InStock",
               "priceCurrency":"USD",
-              "price":"0",
               "url":"https://lacasadelduende.art/comprar-duendes-en-ecuador.html#duendes"
             }
           ]
@@ -272,7 +263,6 @@
         "@id":"https://lacasadelduende.art/comprar-duendes-en-ecuador.html#webpage",
         "url":"https://lacasadelduende.art/comprar-duendes-en-ecuador.html",
         "name":"Comprar duendes en Ecuador | La Casa del Duende",
-        "isPartOf":{"@id":"https://lacasadelduende.art/#org"},
         "about":{"@id":"https://lacasadelduende.art/#localbusiness"},
         "inLanguage":"es",
         "description":"Comprar duendes en Ecuador: figuras artesanales hechas a mano en La Casa del Duende. Arte feérico, piezas únicas, visita en Baños y opciones de envío."
@@ -310,7 +300,15 @@
             "name":"¿Hacen envíos dentro y fuera de Ecuador?",
             "acceptedAnswer":{
               "@type":"Answer",
-              "text":"Sí. Se coordinan envíos dentro de Ecuador y al exterior según destino y disponibilidad. Puedes escribir por WhatsApp o redes para recibir opciones de envío y recomendaciones de embalaje."
+              "text":"Sí. Se coordinan envíos dentro de Ecuador y al exterior según destino y disponibilidad. Puedes escribir por WhatsApp o Instagram para recibir opciones de envío."
+            }
+          },
+          {
+            "@type":"Question",
+            "name":"¿Cuál es el horario de visita?",
+            "acceptedAnswer":{
+              "@type":"Answer",
+              "text":"Para ver el horario actualizado, consulta el sitio oficial de La Aldea Mágica (aldeamagica.art) o escribe por WhatsApp para coordinar según el día."
             }
           }
         ]
@@ -332,7 +330,7 @@
       </div>
       <nav aria-label="Navegación principal">
         <a href="/">Inicio</a>
-        <a href="/la-aldea-magica.html">La Aldea Mágica</a>
+        <a href="https://aldeamagica.art/" target="_blank" rel="noopener">La Aldea Mágica</a>
         <a href="/investigacion.html">Investigación</a>
         <a href="#visitar">Visitar</a>
         <a href="#contacto">Contacto</a>
@@ -369,7 +367,7 @@
 
           <p class="note">
             Aquí el duende se presenta como <strong>figura cultural</strong> y <strong>obra artesanal</strong>.
-            La elección no es apurada: se mira, se siente, se conversa y se elige lo que resuena.
+            La elección se vive con calma: mirar, conversar y elegir lo que resuena.
           </p>
         </div>
 
@@ -380,16 +378,19 @@
               <small>Baños de Agua Santa, Tungurahua, Ecuador</small>
             </div>
             <div class="meta-item">
-              <b>Tipo de piezas</b>
-              <small>Figuras de duendes artesanales, una a una (no serie)</small>
+              <b>WhatsApp</b>
+              <small><a href="https://wa.me/593984373739" target="_blank" rel="noopener">+593 98 437 3739</a></small>
             </div>
             <div class="meta-item">
-              <b>Compra</b>
-              <small>En visita / por consulta directa (según disponibilidad)</small>
+              <b>Instagram</b>
+              <small><a href="https://www.instagram.com/lacasadelduende/" target="_blank" rel="noopener">@lacasadelduende</a></small>
             </div>
             <div class="meta-item">
-              <b>Envíos</b>
-              <small>Ecuador y exterior, coordinado por destino</small>
+              <b>Horario</b>
+              <small>
+                Consulta el horario actualizado aquí:
+                <a href="https://aldeamagica.art/" target="_blank" rel="noopener">aldeamagica.art</a>
+              </small>
             </div>
           </div>
         </aside>
@@ -411,11 +412,11 @@
           <h3>Pieza única · Duende artesanal</h3>
           <p class="muted">
             Figura creada una a una, con detalles finos, materiales trabajados y acabado artesanal.
-            Si quieres elegir por estilo (bosque, casa, guardián, caminante), escríbenos y te orientamos con fotos disponibles.
+            Si quieres elegir por estilo, escríbenos y te orientamos con fotos disponibles.
           </p>
           <ul class="list">
             <li><strong>Hecho a mano:</strong> proceso artesanal completo.</li>
-            <li><strong>Selección:</strong> por resonancia estética y sentido.</li>
+            <li><strong>Selección:</strong> por afinidad estética y presencia.</li>
             <li><strong>Entrega:</strong> retiro en visita o envío coordinado.</li>
           </ul>
 
@@ -469,10 +470,11 @@
     </section>
 
     <section class="card" id="visitar">
-      <h2>Visitar La Casa del Duende en Baños de Agua Santa</h2>
+      <h2>Visitar en Baños de Agua Santa</h2>
       <p class="muted">
-        Si estás en Baños, puedes visitarnos para ver piezas disponibles, conversar sobre la obra y elegir con calma.
-        La visita es parte de la experiencia: mirar de cerca revela textura, gesto y carácter.
+        Para coordinar visita y ver piezas disponibles, la vía más directa es WhatsApp.
+        El <strong>horario actualizado</strong> se consulta en el sitio oficial de La Aldea Mágica:
+        <a href="https://aldeamagica.art/" target="_blank" rel="noopener">aldeamagica.art</a>.
       </p>
 
       <div class="divider"></div>
@@ -480,21 +482,28 @@
       <div class="grid-3">
         <div class="meta-item">
           <b>Dirección</b>
-          <small>DIRECCIÓN AQUÍ (ajusta)</small>
+          <small>
+            Para evitar errores, confirmamos ubicación por WhatsApp:
+            <a href="https://wa.me/593984373739" target="_blank" rel="noopener">+593 98 437 3739</a>
+          </small>
         </div>
         <div class="meta-item">
           <b>Horario</b>
-          <small>10:00–19:00 (ajusta)</small>
+          <small>
+            Ver horario actualizado: <a href="https://aldeamagica.art/" target="_blank" rel="noopener">aldeamagica.art</a>
+          </small>
         </div>
         <div class="meta-item">
-          <b>Cómo llegar</b>
-          <small>Agrega enlace a Google Maps</small>
+          <b>Contacto rápido</b>
+          <small>
+            Instagram: <a href="https://www.instagram.com/lacasadelduende/" target="_blank" rel="noopener">@lacasadelduende</a>
+          </small>
         </div>
       </div>
 
       <div class="cta" style="margin-top:14px">
-        <a class="btn primary" href="https://www.google.com/maps?q=La+Casa+del+Duende+Baños+de+Agua+Santa" target="_blank" rel="noopener">Abrir en Google Maps</a>
-        <a class="btn" href="#contacto">Escribir para coordinar</a>
+        <a class="btn primary" href="https://wa.me/593984373739" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn" href="https://aldeamagica.art/" target="_blank" rel="noopener">Ver horario (Aldea Mágica)</a>
       </div>
     </section>
 
@@ -519,7 +528,7 @@
       <details>
         <summary>¿Qué precios manejan?</summary>
         <p class="muted">
-          Los valores varían por tamaño, detalle y complejidad de la pieza. Escríbenos y te enviamos opciones disponibles con fotos y referencias.
+          Los valores varían por tamaño, detalle y complejidad de la pieza. Escríbenos y te enviamos opciones disponibles con fotos.
         </p>
       </details>
 
@@ -531,17 +540,18 @@
       </details>
 
       <details>
-        <summary>¿Puedo elegir por estilo o “tipo” de duende?</summary>
+        <summary>¿Cuál es el horario?</summary>
         <p class="muted">
-          Sí. Puedes pedir opciones por estilo (hogar, bosque, caminante, guardián, etc.) y te guiamos con fotos actuales.
+          Para horario actualizado, consulta <a href="https://aldeamagica.art/" target="_blank" rel="noopener">aldeamagica.art</a>
+          o escribe por WhatsApp para coordinar.
         </p>
       </details>
     </section>
 
     <section class="card" id="contacto">
-      <h2>Contacto para comprar duendes en Ecuador</h2>
+      <h2>Contacto</h2>
       <p class="muted">
-        Para consultar disponibilidad, fotos actuales, tamaños y envíos, escríbenos por WhatsApp o redes.
+        Para disponibilidad, fotos actuales, tamaños y envíos, escríbenos por WhatsApp o Instagram.
         Te respondemos con opciones concretas para que elijas con claridad.
       </p>
 
@@ -550,22 +560,21 @@
       <div class="grid-3">
         <div class="meta-item">
           <b>WhatsApp</b>
-          <small><a href="https://wa.me/593XXXXXXXXX" target="_blank" rel="noopener">+593 XXX XXX XXX</a> (ajusta)</small>
+          <small><a href="https://wa.me/593984373739" target="_blank" rel="noopener">+593 98 437 3739</a></small>
         </div>
         <div class="meta-item">
           <b>Instagram</b>
-          <small><a href="https://www.instagram.com/LA_CUENTA_REAL_AQUI" target="_blank" rel="noopener">@LA_CUENTA_REAL_AQUI</a></small>
+          <small><a href="https://www.instagram.com/lacasadelduende/" target="_blank" rel="noopener">@lacasadelduende</a></small>
         </div>
         <div class="meta-item">
-          <b>Facebook</b>
-          <small><a href="https://www.facebook.com/LA_CUENTA_REAL_AQUI" target="_blank" rel="noopener">La Casa del Duende</a></small>
+          <b>Horario (actualizado)</b>
+          <small><a href="https://aldeamagica.art/" target="_blank" rel="noopener">aldeamagica.art</a></small>
         </div>
       </div>
 
       <div class="cta" style="margin-top:14px">
-        <a class="btn primary" href="https://wa.me/593XXXXXXXXX" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-        <a class="btn" href="/investigacion.html">Conocer la investigación</a>
-        <a class="btn" href="/la-aldea-magica.html">Visitar La Aldea Mágica</a>
+        <a class="btn primary" href="https://wa.me/593984373739" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn" href="https://aldeamagica.art/" target="_blank" rel="noopener">Ver horario</a>
       </div>
     </section>
   </main>
@@ -577,7 +586,8 @@
         © <span id="y"></span> La Casa del Duende · Duendes artesanales hechos a mano en Ecuador · Baños de Agua Santa
       </p>
       <p class="muted" style="margin:8px 0 0">
-        Página diseñada para responder de forma clara a búsquedas como “comprar duendes en Ecuador” y facilitar la elección de piezas únicas.
+        Contacto directo: <a href="https://wa.me/593984373739" target="_blank" rel="noopener">WhatsApp +593 98 437 3739</a> ·
+        <a href="https://www.instagram.com/lacasadelduende/" target="_blank" rel="noopener">Instagram @lacasadelduende</a>
       </p>
     </div>
   </footer>
