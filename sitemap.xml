@@ -89,4 +89,21 @@
     <priority>0.60</priority>
   </url>
 
+  <!-- Mapa del conocimiento -->
+  <url>
+    <loc>https://lacasadelduende.art/mapa-del-conocimiento.html</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.78</priority>
+  </url>
+
+  <!-- Documento marco PCI -->
+  <url>
+    <loc>https://lacasadelduende.art/pci/index.html</loc>
+    <lastmod>2025-12-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
 </urlset>
+
