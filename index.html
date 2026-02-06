@@ -116,12 +116,23 @@
       text-shadow:2px 2px 4px rgba(0,0,0,.45);
       letter-spacing:.04em;
     }
+
+    /* ✅ FIX CONTRASTE + PLACA SUTIL para los .sub */
     header p.sub{
       margin:12px auto;
-      font-style:italic; opacity:.92;
       max-width:760px;
       font-family:var(--serif);
+      font-style:italic;
+      color:rgba(255,255,255,.92);
+      opacity:1;
+      text-shadow:0 2px 10px rgba(0,0,0,.55);
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:14px;
+      background:rgba(0,0,0,.18);
+      border:1px solid rgba(197,160,89,.22);
     }
+
     nav.main a{
       font:700 .9rem/1 var(--display);
       color:var(--dorado);
@@ -129,6 +140,7 @@
       border-radius:999px;
       letter-spacing:.03em;
       transition:.2s;
+      display:inline-block;
     }
     nav.main a:hover{
       background: rgba(197,160,89,.14);
@@ -187,6 +199,7 @@
       letter-spacing:.03em;
       transition:.2s;
       text-transform:none;
+      margin:4px 6px 4px 0;
     }
     .btn.primary{
       background:var(--acento);
@@ -209,7 +222,7 @@
       box-shadow:0 10px 26px rgba(0,0,0,.32);
     }
 
-    /* Arquetipos: como usas UNA sola imagen con los 3, lo presentamos como “lámina” + 3 textos */
+    /* Arquetipos: UNA sola imagen con los 3 */
     .arquetipos{
       display:grid;
       grid-template-columns:1fr;
@@ -616,7 +629,7 @@
           <div class="arquetipos" aria-label="Arquetipos de duendes">
             <!-- Lámina con los 3 -->
             <div class="lamina">
-              <img src="/assets/img/duende_resguardo_card.png"
+              <img src="assets/img/duende_resguardo_card.png"
                    alt="Arquetipos: Duendes del Resguardo, Duendes del Ritmo y Duendes del Amparo"
                    loading="lazy">
             </div>
@@ -797,3 +810,4 @@
   </script>
 </body>
 </html>
+
