@@ -55,63 +55,225 @@
     gtag('config', 'G-NCLBJT60LV', { anonymize_ip: true });
   </script>
 
-  <!-- Estilos -->
+  <!-- Estilos (Tarjeta/Archivo — sin cambiar el contenido) -->
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+
     :root{
-      --morado:#4b3a6d; --morado-2:#3a2d55; --crema:#f7f3ea;
-      --tinta:#2e2e2e; --tinta-2:#444; --linea:#e7e0d1; --panel:#fff;
-      --radius:16px; --shadow:0 12px 40px rgba(0,0,0,.12);
+      /* Mantengo tu morado como firma, y sumo “papel/archivo” */
+      --morado:#4b3a6d; --morado-2:#3a2d55;
+      --primario:#5d2e17; --acento:#a64b2a; --dorado:#c5a059;
+      --crema:#f2e7c3; --papel:#fffdf5;
+      --tinta:#2c1b10; --tinta-2:#3b2a1c;
+      --linea:rgba(93,46,23,.18);
+      --radius:14px;
+      --shadow:0 10px 28px rgba(0,0,0,.12);
+      --serif:'EB Garamond', ui-serif, Georgia, "Times New Roman", Times, serif;
+      --display:'Cinzel', ui-serif, Georgia, "Times New Roman", Times, serif;
     }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; color:var(--tinta); background:var(--crema);
-      font:16px/1.7 ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,"Noto Sans",sans-serif;
+      margin:0; color:var(--tinta);
+      background:
+        radial-gradient(900px 520px at 50% -200px, rgba(255,255,255,.35), transparent 60%),
+        linear-gradient(180deg, #f6edcf, var(--crema));
+      font:18px/1.65 var(--serif);
     }
-    img{max-width:100%; height:auto; border-radius:12px}
+
     a{color:var(--morado); text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:980px; margin:0 auto; padding:24px}
 
-    /* Header */
-    header.hero{
-      background: radial-gradient(900px 260px at 50% -80px, rgba(255,255,255,.35), transparent 60%), var(--morado);
-      color:#fff; text-align:center; padding:46px 20px 36px;
-      border-bottom:1px solid rgba(255,255,255,.15);
+    img{
+      max-width:100%; height:auto;
+      border-radius:10px;
+      border:1px solid rgba(197,160,89,.55);
     }
-    header .brand{display:flex; align-items:center; justify-content:center; gap:.8rem; margin-bottom:10px}
-    header .brand img{width:80px; height:auto; border-radius:14px; border:1px solid rgba(255,255,255,.2)}
-    header h1{font:800 clamp(1.4rem,3.6vw,2.2rem)/1.15 ui-sans-serif;margin:0}
-    header p.sub{margin:.4rem 0 1rem; opacity:.95}
-    nav.main a{color:#ffe28a; font-weight:700; padding:.35rem .6rem; border-radius:999px}
-    nav.main a:hover{background:rgba(255,226,138,.15); text-decoration:none}
+
+    .wrap{max-width:1000px; margin:0 auto; padding:24px}
+
+    /* HERO */
+    header.hero{
+      background:
+        radial-gradient(900px 260px at 50% -80px, rgba(255,255,255,.18), transparent 60%),
+        linear-gradient(180deg, #3e1f0f, #5d2e17);
+      color:#f7f3ea; text-align:center;
+      padding:56px 20px 44px;
+      border-bottom:3px double var(--dorado);
+      box-shadow: inset 0 -14px 28px rgba(0,0,0,.28);
+    }
+    header .brand{display:flex; align-items:center; justify-content:center; gap:.9rem; margin-bottom:10px}
+    header .brand img{
+      width:92px; height:auto;
+      border:2px solid var(--dorado);
+      border-radius:18px;
+    }
+    header h1{
+      margin:0;
+      font:800 clamp(1.8rem,5vw,2.7rem)/1.12 var(--display);
+      color:var(--crema);
+      text-shadow:2px 2px 4px rgba(0,0,0,.45);
+      letter-spacing:.04em;
+    }
+    header p.sub{
+      margin:12px auto;
+      font-style:italic; opacity:.92;
+      max-width:760px;
+      font-family:var(--serif);
+    }
+    nav.main a{
+      font:700 .9rem/1 var(--display);
+      color:var(--dorado);
+      padding:8px 10px;
+      border-radius:999px;
+      letter-spacing:.03em;
+      transition:.2s;
+    }
+    nav.main a:hover{
+      background: rgba(197,160,89,.14);
+      color:#fff;
+      text-decoration:none;
+    }
 
     /* Secciones */
-    section{padding:28px 0; border-bottom:1px solid var(--linea)}
-    h2{color:var(--morado); font:700 clamp(1.1rem,2.8vw,1.6rem)/1.2 ui-sans-serif; margin:.2rem 0 .8rem}
-    p{margin:.4rem 0 1rem}
-    .card{background:var(--panel); border:1px solid var(--linea); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
-    .gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
-    .gallery img{grid-column: span 12}
-    @media(min-width:720px){ .gallery img{grid-column: span 6} }
+    section{padding:40px 0; border-bottom:1px solid var(--linea)}
+
+    h2{
+      margin:0 0 18px;
+      color:var(--primario);
+      font:800 clamp(1.1rem,2.8vw,1.6rem)/1.2 var(--display);
+      letter-spacing:.04em;
+      border-bottom:1px solid rgba(197,160,89,.7);
+      display:inline-block;
+      padding-bottom:6px;
+    }
+    p{margin:.4rem 0 1rem; color:var(--tinta-2)}
+
+    /* Cards tipo pergamino */
+    .card{
+      background:var(--papel);
+      border:1px solid rgba(212,197,161,.9);
+      border-radius:var(--radius);
+      padding:28px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"❧";
+      position:absolute;
+      top:10px; right:14px;
+      color:var(--dorado);
+      font-size:1.1rem;
+      opacity:.38;
+    }
+
+    /* Layout */
     .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
     .half{grid-column:span 12}
     @media(min-width:760px){ .half{grid-column:span 6} }
 
-    /* Botones */
-    .btn{display:inline-block; padding:.75rem 1.1rem; border-radius:12px; font-weight:800}
-    .btn.primary{background:var(--morado); color:#fff}
-    .btn.primary:hover{background:var(--morado-2); text-decoration:none}
-    .btn.ghost{border:1px solid var(--linea); background:#fff; color:var(--tinta)}
+    .gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
+    .gallery img{grid-column:span 12}
+    @media(min-width:720px){ .gallery img{grid-column:span 6} }
+
+    /* Botones sobrios */
+    .btn{
+      display:inline-block;
+      padding:11px 18px;
+      border-radius:12px;
+      font:700 .85rem/1 var(--display);
+      letter-spacing:.03em;
+      transition:.2s;
+      text-transform:none;
+    }
+    .btn.primary{
+      background:var(--acento);
+      color:#fff;
+      border:1px solid rgba(93,46,23,.55);
+    }
+    .btn.primary:hover{background:var(--primario); transform:translateY(-1px); text-decoration:none}
+    .btn.ghost{
+      border:1px solid rgba(93,46,23,.55);
+      color:var(--primario);
+      background: rgba(255,255,255,.55);
+    }
+    .btn.ghost:hover{background: rgba(93,46,23,.92); color:#fff; text-decoration:none}
 
     /* Embeds */
-    iframe.embed{width:100%; aspect-ratio:16/9; border:0; border-radius:12px}
+    iframe.embed{
+      width:100%; aspect-ratio:16/9;
+      border:3px solid rgba(26,15,10,.85);
+      border-radius:12px;
+      box-shadow:0 10px 26px rgba(0,0,0,.32);
+    }
+
+    /* Arquetipos: como usas UNA sola imagen con los 3, lo presentamos como “lámina” + 3 textos */
+    .arquetipos{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      align-items:start;
+    }
+    @media(min-width:900px){
+      .arquetipos{ grid-template-columns: 5fr 7fr; }
+    }
+    .arquetipos .lamina img{
+      width:100%;
+      border-radius:14px;
+      border:1px solid rgba(212,197,161,.95);
+      box-shadow:var(--shadow);
+    }
+    .arquetipos .fichas{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    .ficha{
+      border-radius:14px;
+      border:1px solid rgba(212,197,161,.9);
+      background: linear-gradient(180deg, #fffdf5, #ffffff 70%);
+      box-shadow:var(--shadow);
+      padding:16px 16px 14px;
+    }
+    .ficha .tag{
+      display:inline-block;
+      margin:0 0 10px;
+      padding:.45rem .65rem;
+      border-radius:999px;
+      border:1px solid rgba(93,46,23,.25);
+      background:rgba(197,160,89,.12);
+      color:var(--primario);
+      font:700 .78rem/1 var(--display);
+      letter-spacing:.06em;
+      text-transform:uppercase;
+    }
+    .ficha h3{
+      margin:.2rem 0 .4rem;
+      color:var(--tinta);
+      font:800 1.1rem/1.2 var(--display);
+      letter-spacing:.03em;
+    }
+    .ficha p{margin:0 0 10px}
+    .ficha .seal{
+      margin-top:10px;
+      padding-top:10px;
+      border-top:1px dashed rgba(212,197,161,.9);
+      color:rgba(44,27,16,.85);
+      font:600 .95rem/1.35 var(--serif);
+    }
 
     /* Footer */
-    footer{background:var(--morado); color:#fff; text-align:center; padding:28px 20px}
-    footer a{color:#ffe28a}
+    footer{
+      background:#1a0f0a;
+      border-top:4px solid var(--acento);
+      color:#d4c5a1;
+      text-align:center;
+      padding:28px 20px;
+    }
+    footer a{color:var(--dorado)}
 
-    /* Motion-safe */
     @media (prefers-reduced-motion:reduce){
       *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
     }
@@ -230,18 +392,8 @@
         "@type": "BreadcrumbList",
         "@id": "https://lacasadelduende.art/#breadcrumbs",
         "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Inicio",
-            "item": "https://lacasadelduende.art/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Aldea Mágica",
-            "item": "https://lacasadelduende.art/#aldea"
-          }
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://lacasadelduende.art/" },
+          { "@type": "ListItem", "position": 2, "name": "Aldea Mágica", "item": "https://lacasadelduende.art/#aldea" }
         ]
       },
       {
@@ -283,11 +435,7 @@
     },
     "url": "https://doi.org/10.5281/zenodo.17021534",
     "sameAs": ["https://zenodo.org/records/17021534"],
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "La Casa del Duende",
-      "url": "https://lacasadelduende.art/"
-    },
+    "isPartOf": { "@type": "WebSite", "name": "La Casa del Duende", "url": "https://lacasadelduende.art/" },
     "about": "Documento con evidencia primaria (PDF + video + checksums) que respalda una solicitud de cese y abstención por presuntas prácticas desleales."
   }
   </script>
@@ -307,10 +455,7 @@
     "datePublished":"2025-10-04",
     "license":"https://creativecommons.org/licenses/by-nc-nd/4.0/",
     "url":"https://doi.org/10.5281/zenodo.17268348",
-    "isPartOf":{
-      "@type":"CreativeWorkSeries",
-      "name":"Archivo de Defensa Cultural Independiente"
-    }
+    "isPartOf":{"@type":"CreativeWorkSeries","name":"Archivo de Defensa Cultural Independiente"}
   }
   </script>
 
@@ -363,7 +508,6 @@
             <a class="btn primary" href="#aldea">Recorrer la Aldea</a>
             <a class="btn ghost" href="/comprar-duendes-en-ecuador.html">Comprar duendes en Ecuador</a>
             <a class="btn ghost" href="/mapa-del-conocimiento.html">Mapa del conocimiento</a>
-            <!-- ✅ CORREGIDO: botón PCI al link real -->
             <a class="btn ghost" href="/pci/index.html">Documento marco PCI</a>
             <a class="btn ghost" href="#documentos">Ver documentación</a>
           </p>
@@ -462,6 +606,56 @@
       </div>
     </section>
 
+    <!-- Arquetipos (una lámina + 3 fichas) -->
+    <section id="arquetipos">
+      <div class="wrap">
+        <article class="card">
+          <h2>Arquetipos</h2>
+          <p>Presentamos tres arquetipos en clave curatorial: cuidado material, tiempo vivido y presencia en el hogar.</p>
+
+          <div class="arquetipos" aria-label="Arquetipos de duendes">
+            <!-- Lámina con los 3 -->
+            <div class="lamina">
+              <img src="/assets/img/duende_resguardo_card.png"
+                   alt="Arquetipos: Duendes del Resguardo, Duendes del Ritmo y Duendes del Amparo"
+                   loading="lazy">
+            </div>
+
+            <!-- Textos -->
+            <div class="fichas">
+              <div class="ficha">
+                <span class="tag">Arquetipo</span>
+                <h3>Duendes del Resguardo</h3>
+                <p>Estos duendes acompañan el gesto consciente de guardar.</p>
+                <p>Su presencia señala un lugar donde algo se cuida en el tiempo: una moneda, una nota, un pequeño símbolo material. Guardar es una forma de atención; un modo de reconocer que el futuro también forma parte del presente.</p>
+                <p>Los Duendes del Resguardo habitan procesos de reserva, constancia y previsión. Acompañan decisiones pequeñas que, sostenidas, construyen estabilidad. Su sentido aparece en la continuidad y en el cuidado cotidiano.</p>
+                <div class="seal">Piezas simbólicas artesanales que acompañan prácticas humanas de cuidado.</div>
+              </div>
+
+              <div class="ficha">
+                <span class="tag">Arquetipo</span>
+                <h3>Duendes del Ritmo</h3>
+                <p>Estos duendes acompañan procesos que se desarrollan con tiempo.</p>
+                <p>Habitan los espacios donde el ritmo personal se expresa: una mesa de trabajo, un cuaderno, una entrada habitual, un rincón elegido. Su presencia recuerda que lo sostenido avanza incluso cuando no se nota.</p>
+                <p>Los Duendes del Ritmo acompañan continuidad, pausas necesarias y repetición consciente. Ayudan a volver al paso propio y a reconocer que cada proceso tiene su cadencia. El sentido se construye mientras el camino continúa.</p>
+                <div class="seal">Piezas simbólicas artesanales que acompañan prácticas humanas de tiempo.</div>
+              </div>
+
+              <div class="ficha">
+                <span class="tag">Arquetipo</span>
+                <h3>Duendes del Amparo</h3>
+                <p>Estos duendes acompañan la presencia en el hogar.</p>
+                <p>Habitan el espacio doméstico como figuras serenas que invitan a permanecer. Su función es recordar que el hogar puede ser un lugar elegido, de calma compartida y sostén cotidiano.</p>
+                <p>Los Duendes del Amparo se ubican donde se busca tranquilidad: una repisa, una mesa baja, un rincón íntimo. Su presencia acompaña momentos de recogimiento y descanso, integrándose al ritmo del hogar. A veces, estar juntos es suficiente.</p>
+                <div class="seal">Piezas simbólicas artesanales que acompañan prácticas humanas de presencia.</div>
+              </div>
+            </div>
+          </div>
+
+        </article>
+      </div>
+    </section>
+
     <!-- Lecturas y guías recomendadas -->
     <section>
       <div class="wrap card">
@@ -508,7 +702,7 @@
           <div id="paypal-container-DYF6QQ6DYC6GL" aria-live="polite"></div>
 
           <div style="margin-top:22px; text-align:center;">
-            <h3 style="margin:.2rem 0 1rem">📚 También disponible en Buscalibre</h3>
+            <h3 style="margin:.2rem 0 1rem; font-family:var(--display); color:var(--primario); letter-spacing:.04em;">📚 También disponible en Buscalibre</h3>
             <div class="card" style="display:inline-block; text-align:center;">
               <a href="https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078?srsltid=AfmBOorjxV3wpAUuw5zm6a9pNM-IybaSLCPrpGFl1kcMUPxYZ4CzcbSH"
                  target="_blank" rel="noopener" style="text-decoration:none;">
@@ -544,7 +738,7 @@
           <li><a href="https://doi.org/10.5281/zenodo.17268348" target="_blank" rel="noopener">Duende de Baños: ¿Obra Protegible o Abstracta? (Zenodo)</a></li>
           <li><a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Registro oficial de marca (Zenodo)</a></li>
           <li><a href="https://osf.io/smvg6/" target="_blank" rel="noopener">Publicación académica OSF</a></li>
-          <li><a href="https://medium.com/@girolami/filosofía-invisible-un-manifiesto-por-lo-que-no-se-ve-pero-permanece-c962be4e7519" target="_blank" rel="noopener">Filosofía invisible</a></li>
+          <li><a href="https://medium.com/@girolami/filosof%C3%ADa-invisible-un-manifiesto-por-lo-que-no-se-ve-pero-permanece-c962be4e7519" target="_blank" rel="noopener">Filosofía invisible</a></li>
           <li><a href="/investigacion.html" rel="noopener">¿Qué son los duendes? – Antropología simbólica (síntesis de investigación)</a></li>
           <li>
             <a href="https://www.banos.travel/origen-duendes-banos.html" target="_blank" rel="noopener">
@@ -563,24 +757,24 @@
   </main>
 
   <footer role="contentinfo">
-    <div class="wrap" style="text-align:center; color:#ffe6a8">
+    <div class="wrap" style="text-align:center;">
       <p style="color:#fff; margin:.2rem 0">© <span id="y"></span> La Casa del Duende · Baños de Agua Santa · Ecuador</p>
-      <p style="margin:.2rem 0 .8rem;">Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong>.</p>
-      <p style="font-size:.95rem; margin:.4rem 0 1rem;">
+      <p style="margin:.2rem 0 .8rem; color:#d4c5a1;">Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong>.</p>
+      <p style="font-size:.95rem; margin:.4rem 0 1rem; color:#d4c5a1;">
         👉 ¿Buscas <strong>qué hacer en Baños de Agua Santa</strong>? Explora experiencias simbólicas
         <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html">aquí</a>.
       </p>
-      <p style="font-size:.85rem; color:#ffe28a;">
+      <p style="font-size:.85rem; color:#d4c5a1; margin-top:.2rem;">
         Para prensa e investigadores: registro documental abierto en
         <a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Zenodo (DOI 10.5281/zenodo.17021534)</a>.
       </p>
-      <p style="font-size:.85rem; margin-top:.6rem;">
-        <a href="/lo-que-no-somos.html" style="color:#ffdfff;">Leer declaración de identidad simbólica</a>
+      <p style="font-size:.85rem; margin-top:.6rem; color:#d4c5a1;">
+        <a href="/lo-que-no-somos.html" style="color:var(--dorado);">Leer declaración de identidad simbólica</a>
         <span aria-hidden="true"> · </span>
-        <a href="/transparencia.html" title="Transparencia y documentación" style="color:#ffdfff;">Transparencia</a>
+        <a href="/transparencia.html" title="Transparencia y documentación" style="color:var(--dorado);">Transparencia</a>
       </p>
 
-      <p style="font-size:.9rem; margin-top:1rem; color:#ffe28a;">
+      <p style="font-size:.9rem; margin-top:1rem; color:#d4c5a1;">
         Todas las imágenes y creaciones de <strong>La Casa del Duende</strong> —realizadas por
         <strong>Fito Girolami</strong> (Argentina) y <strong>Catalina Lucz-Ligeti</strong> (Chile)— están protegidas por derechos de autor ©
         y licenciadas bajo
@@ -603,4 +797,3 @@
   </script>
 </body>
 </html>
-
