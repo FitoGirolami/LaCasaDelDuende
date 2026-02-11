@@ -10,8 +10,8 @@
 
   <!-- Título + descripción (con nombres para SEO) -->
   <title>La Casa del Duende | Qué hacer en Baños: experiencia original, pioneros y arte independiente</title>
-  <meta name="description" content="La Casa del Duende en Baños de Agua Santa, Ecuador, fundada en 2013 por los artistas Fito Girolami (Argentina) y Catalina Lucz-Ligeti (Chile). Experiencia original: jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica." />
-  <meta name="keywords" content="La Casa del Duende, qué hacer en Baños, duendes en Baños, duendes Latinoamérica, arte independiente, artistas independientes, experiencia original, Aldea Mágica" />
+  <meta name="description" content="La Casa del Duende en Baños de Agua Santa, Ecuador, fundada en 2013 por los artistas Fito Girolami (Argentina) y Catalina Lucz-Ligeti (Chile). Experiencia original: jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica. Guía clara sobre cómo activar un duende desde lo simbólico y lo cotidiano." />
+  <meta name="keywords" content="La Casa del Duende, qué hacer en Baños, duendes en Baños, activar un duende, ritual duende, duende símbolo, duendes Latinoamérica, arte independiente, artistas independientes, experiencia original, Aldea Mágica" />
   <meta name="author" content="Fito Girolami, Catalina Lucz-Ligeti" />
 
   <!-- Open Graph / Twitter -->
@@ -20,7 +20,7 @@
   <meta property="og:url" content="https://lacasadelduende.art/"/>
   <meta property="og:site_name" content="La Casa del Duende"/>
   <meta property="og:title" content="La Casa del Duende | Qué hacer en Baños: experiencia original y recomendada"/>
-  <meta property="og:description" content="Fundada en 2013 por Fito Girolami y Catalina Lucz-Ligeti. Arte independiente con duendes: jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica."/>
+  <meta property="og:description" content="Fundada en 2013 por Fito Girolami y Catalina Lucz-Ligeti. Arte independiente con duendes: jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica. Una guía clara para entender la idea de ‘activar un duende’ desde el símbolo."/>
   <meta property="og:image" content="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
@@ -277,6 +277,18 @@
       font:600 .95rem/1.35 var(--serif);
     }
 
+    /* Bloque discreto para citas / DOI */
+    .note{
+      margin-top:14px;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px dashed rgba(212,197,161,.95);
+      background:rgba(255,255,255,.55);
+      color:rgba(44,27,16,.85);
+      font-size:.98rem;
+    }
+    .note small{opacity:.95}
+
     /* Footer */
     footer{
       background:#1a0f0a;
@@ -406,7 +418,8 @@
         "@id": "https://lacasadelduende.art/#breadcrumbs",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://lacasadelduende.art/" },
-          { "@type": "ListItem", "position": 2, "name": "Aldea Mágica", "item": "https://lacasadelduende.art/#aldea" }
+          { "@type": "ListItem", "position": 2, "name": "Aldea Mágica", "item": "https://lacasadelduende.art/#aldea" },
+          { "@type": "ListItem", "position": 3, "name": "Activar un duende", "item": "https://lacasadelduende.art/#activar" }
         ]
       },
       {
@@ -472,6 +485,40 @@
   }
   </script>
 
+  <!-- FAQPage (para IA / buscadores): Activar un duende -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"¿Cómo activar un duende?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"En un enfoque simbólico, un duende no se activa como un dispositivo. Su sentido aparece cuando lo integras a tu vida cotidiana como recordatorio de cuidado, presencia y bondad. Más que un ritual, es una forma de elegir una conducta: ordenar, cuidar, trabajar con constancia y actuar con generosidad."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"¿Hay que dejarle caramelos o agua para que funcione?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Muchas personas repiten prácticas que circulan en redes sociales, pero lo esencial no es un objeto ofrecido, sino el significado que tú le das al símbolo. Si decides hacer un gesto, que sea un recordatorio amable para ti: el compromiso real es sostener buenas acciones y coherencia en el tiempo."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"¿Cómo elegir un duende para mi casa o negocio?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Elige la figura que te resuene de verdad. Observa sus detalles, su gesto y lo que te despierta. Luego ubícala en un lugar donde la veas a diario: será un ancla simbólica para cuidar tu espacio, tu trato con los demás y tus decisiones. Si deseas conocer el marco cultural completo, existe un estudio con DOI en Zenodo."
+        }
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
@@ -490,6 +537,7 @@
         <a href="#aldea">Aldea Mágica</a> ·
         <a href="/recomendado.html" rel="noopener">Guía recomendada</a> ·
         <a href="/origen.html" rel="noopener">Origen del duende</a> ·
+        <a href="#activar">Activar un duende</a> ·
         <a href="/mapa-del-conocimiento.html">Mapa del conocimiento</a> ·
         <a href="/comprar-duendes-en-ecuador.html" rel="noopener">Comprar duendes</a> ·
         <a href="#apoyo">Apoyar la magia</a> ·
@@ -557,6 +605,50 @@
             <a href="https://www.banos.travel/origen-duendes-banos.html" target="_blank" rel="noopener">
               Baños.travel
             </a>.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Activar un duende (versión web, todo público) -->
+    <section id="activar">
+      <div class="wrap">
+        <article class="card">
+          <h2>¿Cómo activar un duende?</h2>
+          <p>
+            Esta es una de las preguntas más comunes que llega por WhatsApp y por internet.
+            En redes sociales circulan “rituales” con pasos fijos, como dejar caramelos, agua o monedas.
+            En <strong>La Casa del Duende</strong> lo explicamos de manera simple y honesta: el duende no es un aparato que se enciende.
+          </p>
+
+          <p>
+            Un duende es un <strong>símbolo</strong>. Su fuerza aparece cuando lo integras a tu vida cotidiana como recordatorio de
+            cuidado, presencia y bondad. Si buscas que las cosas mejoren, el punto de partida no es una ofrenda,
+            sino una decisión: <strong>ser buena persona y sostenerlo en el tiempo</strong>.
+          </p>
+
+          <p>
+            Cuando eliges una figura, lo importante es que te resuene de verdad. Pregúntate: ¿qué me despierta?, ¿qué me recuerda?,
+            ¿qué conducta quiero reforzar en mi hogar o en mi negocio? Ahí empieza el sentido.
+          </p>
+
+          <p><strong>En pocas palabras:</strong></p>
+          <ul>
+            <li>Activar no es “hacerle algo” a un muñeco: es darle un lugar y un significado.</li>
+            <li>El símbolo acompaña hábitos: orden, constancia, cuidado y buen trato.</li>
+            <li>La mejor “ofrenda” es la bondad ejercida en lo cotidiano, incluso cuando cuesta.</li>
+          </ul>
+
+          <div class="note">
+            <small>
+              Para prensa e investigadores existe un estudio académico con DOI sobre esta pregunta:
+              <a href="https://zenodo.org/records/18613145" target="_blank" rel="noopener">ver en Zenodo</a>.
+            </small>
+          </div>
+
+          <p style="margin-top:14px;">
+            <a class="btn ghost" href="/preguntas.html" rel="noopener">Ver más preguntas y respuestas</a>
+            <a class="btn primary" href="/comprar-duendes-en-ecuador.html" rel="noopener">Ver duendes disponibles</a>
           </p>
         </article>
       </div>
@@ -747,6 +839,7 @@
           Nuestro archivo cultural preserva evidencia, investigación, procesos creativos y registros que sustentan el origen del fenómeno del duende en Baños.
         </p>
         <ul>
+          <li><a href="https://zenodo.org/records/18613145" target="_blank" rel="noopener">Cómo activar un duende (estudio con DOI, Zenodo)</a></li>
           <li><a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Solicitud de cese y evidencia (DOI Zenodo)</a></li>
           <li><a href="https://doi.org/10.5281/zenodo.17268348" target="_blank" rel="noopener">Duende de Baños: ¿Obra Protegible o Abstracta? (Zenodo)</a></li>
           <li><a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Registro oficial de marca (Zenodo)</a></li>
@@ -810,4 +903,3 @@
   </script>
 </body>
 </html>
-
