@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pack Digital: Duendes y Otras Hierbas + Guía Definitiva sobre Duendes Vol. 1 | La Casa del Duende</title>
+  <meta name="description" content="Pack Digital de 2 libros para entrar al mundo del duende con emoción y comprensión: Duendes y Otras Hierbas + Guía Definitiva sobre Duendes Vol. 1. Compra por WhatsApp. Argentina: AR$ 20.000 | Resto del mundo: USD 15." />
+  <link rel="canonical" href="https://lacasadelduende.art/pack-libros-digitales" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pack Digital de 2 Libros | La Casa del Duende" />
+  <meta property="og:description" content="Dos obras complementarias para comprender el mundo del duende: emoción + profundidad. Compra por WhatsApp. AR$ 20.000 | USD 15." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lacasadelduende.art/pack-libros-digitales" />
+  <!-- Reemplazá por tu imagen real (ideal 1200x630) -->
+  <meta property="og:image" content="https://lacasadelduende.art/assets/pack-libros.jpg" />
+
+  <!-- Tailwind CDN (rápido para publicar) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Detalle fino sin cambiar Tailwind */
+    .glass { backdrop-filter: blur(10px); background: rgba(0,0,0,.35); }
+  </style>
+
+  <!-- JSON-LD Product / Offer -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Pack Digital (2 libros): Duendes y Otras Hierbas + Guía Definitiva sobre Duendes Vol. 1",
+    "description": "Pack digital de dos obras complementarias: una obra iniciática y narrativa (Duendes y Otras Hierbas) y una obra estructural de investigación simbólica e histórica (Guía Definitiva sobre Duendes Vol. 1). Compra por WhatsApp.",
+    "brand": { "@type": "Brand", "name": "La Casa del Duende" },
+    "category": "Ebooks",
+    "offers": [
+      {
+        "@type": "Offer",
+        "priceCurrency": "ARS",
+        "price": "20000",
+        "availability": "https://schema.org/InStock",
+        "url": "https://lacasadelduende.art/pack-libros-digitales",
+        "name": "Precio Argentina (Mercado Pago): AR$ 20.000"
+      },
+      {
+        "@type": "Offer",
+        "priceCurrency": "USD",
+        "price": "15",
+        "availability": "https://schema.org/InStock",
+        "url": "https://lacasadelduende.art/pack-libros-digitales",
+        "name": "Precio resto del mundo: USD 15"
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body class="bg-zinc-950 text-zinc-100">
+  <!-- HERO -->
+  <header class="relative overflow-hidden">
+    <!-- Fondo (podés reemplazar por imagen/gradient propio) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950"></div>
+
+    <div class="relative max-w-6xl mx-auto px-6 py-14">
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <p class="inline-flex items-center gap-2 text-sm text-zinc-300/90 border border-zinc-700/70 rounded-full px-4 py-2 glass">
+            Pack Digital • 2 Libros • Acceso inmediato
+          </p>
+
+          <h1 class="mt-5 text-4xl md:text-5xl font-semibold leading-tight">
+            Entrá al mundo del duende con una mirada completa:
+            <span class="text-zinc-200">emoción + comprensión</span>.
+          </h1>
+
+          <p class="mt-5 text-lg text-zinc-300 leading-relaxed">
+            Este pack reúne dos obras complementarias: una abre el universo simbólico desde el relato y la experiencia,
+            la otra ordena y profundiza desde la investigación cultural e histórica.
+          </p>
+
+          <div class="mt-7 flex flex-col sm:flex-row gap-3">
+            <!-- WhatsApp CTA -->
+            <a
+              class="inline-flex justify-center items-center gap-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold px-6 py-4 transition"
+              href="https://wa.me/593984373739?text=Hola%20Fito%2C%20quiero%20comprar%20el%20PACK%20digital%20de%202%20libros%20(Duendes%20y%20Otras%20Hierbas%20%2B%20Gu%C3%ADa%20Definitiva%20Vol.%201).%20Estoy%20en%20%5BPA%C3%8DS%5D%20y%20quiero%20pagar%20en%20%5BARS%2FUSD%5D."
+              target="_blank" rel="noopener"
+            >
+              Comprar por WhatsApp
+              <span aria-hidden="true">→</span>
+            </a>
+
+            <a class="inline-flex justify-center items-center rounded-2xl border border-zinc-700 hover:border-zinc-500 text-zinc-100 px-6 py-4 transition"
+               href="#contenido">
+              Ver contenido del pack
+            </a>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="rounded-2xl border border-zinc-800 p-4">
+              <p class="text-sm text-zinc-400">Argentina</p>
+              <p class="text-xl font-semibold">AR$ 20.000</p>
+              <p class="text-sm text-zinc-400">Pago por Mercado Pago</p>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 p-4">
+              <p class="text-sm text-zinc-400">Resto del mundo</p>
+              <p class="text-xl font-semibold">USD 15</p>
+              <p class="text-sm text-zinc-400">Pago internacional</p>
+            </div>
+            <div class="rounded-2xl border border-zinc-800 p-4">
+              <p class="text-sm text-zinc-400">Entrega</p>
+              <p class="text-xl font-semibold">Digital (PDF)</p>
+              <p class="text-sm text-zinc-400">Acceso inmediato</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BLOQUE VISUAL: portadas -->
+        <div class="rounded-3xl border border-zinc-800 p-6 bg-zinc-950/40">
+          <p class="text-sm text-zinc-400">Incluye</p>
+
+          <div class="mt-4 grid grid-cols-2 gap-4">
+            <!-- Reemplazá src por tus imágenes reales -->
+            <figure class="rounded-2xl overflow-hidden border border-zinc-800">
+              <img src="https://lacasadelduende.art/assets/duendes-y-otras-hierbas-cover.jpg"
+                   alt="Portada Duendes y Otras Hierbas" class="w-full h-full object-cover" />
+            </figure>
+            <figure class="rounded-2xl overflow-hidden border border-zinc-800">
+              <img src="https://lacasadelduende.art/assets/guia-definitiva-vol1-cover.jpg"
+                   alt="Portada Guía Definitiva sobre Duendes Vol. 1" class="w-full h-full object-cover" />
+            </figure>
+          </div>
+
+          <div class="mt-5 rounded-2xl border border-zinc-800 p-4">
+            <p class="text-zinc-200 font-semibold">¿Qué logran juntos?</p>
+            <p class="text-zinc-300 mt-2">
+              Un recorrido completo: <strong>sentir</strong> el mundo del duende desde lo narrativo y <strong>comprender</strong>
+              su dimensión simbólica, cultural e histórica con claridad.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main id="contenido" class="max-w-6xl mx-auto px-6 py-14">
+    <section class="grid lg:grid-cols-2 gap-8">
+      <article class="rounded-3xl border border-zinc-800 p-8">
+        <h2 class="text-2xl font-semibold">📘 Duendes y Otras Hierbas</h2>
+        <p class="mt-3 text-zinc-300 leading-relaxed">
+          Obra iniciática y narrativa: folklore, relatos y exploración simbólica desde la experiencia. Es el libro que
+          abre el universo, la sensibilidad y el imaginario del duende como presencia cultural y creativa.
+        </p>
+        <ul class="mt-5 space-y-2 text-zinc-300">
+          <li>• Relatos y recorrido simbólico</li>
+          <li>• Folklore y criaturas afines</li>
+          <li>• Enfoque artístico y vivencial</li>
+        </ul>
+      </article>
+
+      <article class="rounded-3xl border border-zinc-800 p-8">
+        <h2 class="text-2xl font-semibold">📘 Guía Definitiva sobre Duendes – Vol. 1</h2>
+        <p class="mt-3 text-zinc-300 leading-relaxed">
+          Obra estructural e investigativa: ordena conceptos, cruza historia, cultura y símbolo. Es el mapa para entender
+          el duende con profundidad, claridad y contexto.
+        </p>
+        <ul class="mt-5 space-y-2 text-zinc-300">
+          <li>• Origen y evolución cultural del concepto</li>
+          <li>• Lectura simbólica y mirada comparada</li>
+          <li>• Profundidad conceptual para comprender</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- POR QUÉ ESTE PACK -->
+    <section class="mt-10 rounded-3xl border border-zinc-800 p-8">
+      <h3 class="text-2xl font-semibold">Por qué este pack funciona</h3>
+      <div class="mt-5 grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl border border-zinc-800 p-5">
+          <p class="font-semibold">1) Entrada</p>
+          <p class="mt-2 text-zinc-300">Una obra abre el mundo desde el relato, la sensibilidad y el símbolo.</p>
+        </div>
+        <div class="rounded-2xl border border-zinc-800 p-5">
+          <p class="font-semibold">2) Comprensión</p>
+          <p class="mt-2 text-zinc-300">La otra te da estructura, contexto cultural e investigación para entender.</p>
+        </div>
+        <div class="rounded-2xl border border-zinc-800 p-5">
+          <p class="font-semibold">3) Visión completa</p>
+          <p class="mt-2 text-zinc-300">Juntas construyen una mirada completa, clara y con profundidad.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARA QUIÉN -->
+    <section class="mt-10 grid lg:grid-cols-2 gap-8">
+      <div class="rounded-3xl border border-zinc-800 p-8">
+        <h3 class="text-2xl font-semibold">¿Para quién es?</h3>
+        <ul class="mt-4 space-y-2 text-zinc-300">
+          <li>• Artistas y creadores que sienten afinidad por lo simbólico</li>
+          <li>• Lectores de folklore y cultura</li>
+          <li>• Personas que buscan profundidad sin perder poesía</li>
+          <li>• Curiosos que quieren una entrada seria y vivencial al tema</li>
+        </ul>
+      </div>
+
+      <div class="rounded-3xl border border-zinc-800 p-8">
+        <h3 class="text-2xl font-semibold">Compra simple por WhatsApp</h3>
+        <p class="mt-3 text-zinc-300">
+          Escribís, te paso el link de pago según tu país (ARS o USD) y te envío el pack digital.
+        </p>
+
+        <div class="mt-6">
+          <a
+            class="w-full inline-flex justify-center items-center gap-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold px-6 py-4 transition"
+            href="https://wa.me/593984373739?text=Hola%20Fito%2C%20quiero%20comprar%20el%20PACK%20digital%20de%202%20libros%20(Duendes%20y%20Otras%20Hierbas%20%2B%20Gu%C3%ADa%20Definitiva%20Vol.%201).%20Estoy%20en%20%5BPA%C3%8DS%5D%20y%20quiero%20pagar%20en%20%5BARS%2FUSD%5D."
+            target="_blank" rel="noopener"
+          >
+            Comprar ahora por WhatsApp
+            <span aria-hidden="true">→</span>
+          </a>
+          <p class="mt-3 text-sm text-zinc-400">
+            Tip: reemplazá <strong>[PAÍS]</strong> y <strong>[ARS/USD]</strong> en el mensaje cuando te abra WhatsApp.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mt-10 rounded-3xl border border-zinc-800 p-8">
+      <h3 class="text-2xl font-semibold">Preguntas frecuentes</h3>
+
+      <div class="mt-5 space-y-4">
+        <details class="rounded-2xl border border-zinc-800 p-5">
+          <summary class="cursor-pointer font-semibold">¿Qué formato recibo?</summary>
+          <p class="mt-2 text-zinc-300">Formato digital (PDF), ideal para leer en celular, tablet o computadora.</p>
+        </details>
+
+        <details class="rounded-2xl border border-zinc-800 p-5">
+          <summary class="cursor-pointer font-semibold">¿Cómo es el pago?</summary>
+          <p class="mt-2 text-zinc-300">
+            Argentina: AR$ 20.000 (Mercado Pago). Resto del mundo: USD 15. Se coordina todo por WhatsApp.
+          </p>
+        </details>
+
+        <details class="rounded-2xl border border-zinc-800 p-5">
+          <summary class="cursor-pointer font-semibold">¿Sirve si soy principiante?</summary>
+          <p class="mt-2 text-zinc-300">
+            Sí. El pack está diseñado como recorrido: primero el universo narrativo, después la comprensión profunda.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- FOOT CTA -->
+    <section class="mt-12 text-center">
+      <h4 class="text-2xl md:text-3xl font-semibold">¿Listo para entrar al mundo del duende con una mirada completa?</h4>
+      <p class="mt-3 text-zinc-300">Argentina: AR$ 20.000 • Resto del mundo: USD 15 • Acceso inmediato</p>
+
+      <div class="mt-6">
+        <a
+          class="inline-flex justify-center items-center gap-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold px-8 py-4 transition"
+          href="https://wa.me/593984373739?text=Hola%20Fito%2C%20quiero%20comprar%20el%20PACK%20digital%20de%202%20libros%20(Duendes%20y%20Otras%20Hierbas%20%2B%20Gu%C3%ADa%20Definitiva%20Vol.%201).%20Estoy%20en%20%5BPA%C3%8DS%5D%20y%20quiero%20pagar%20en%20%5BARS%2FUSD%5D."
+          target="_blank" rel="noopener"
+        >
+          Comprar por WhatsApp
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <p class="mt-6 text-sm text-zinc-500">
+        © La Casa del Duende • Fito Girolami
+      </p>
+    </section>
+  </main>
+</body>
+</html>
