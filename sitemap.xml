@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Home -->
   <url>
     <loc>https://lacasadelduende.art/</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,47 +12,55 @@
   <!-- Investigación Antropológica -->
   <url>
     <loc>https://lacasadelduende.art/investigacion.html</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Guía Definitiva sobre Duendes – Volumen 1 (DOI) -->
+  <url>
+    <loc>https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <!-- Qué hacer en Baños -->
   <url>
     <loc>https://lacasadelduende.art/que-hacer-en-banos-ecuador.html</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.90</priority>
-  </url>
-
-  <!-- Página recomendada (curaduría de experiencias) -->
-  <url>
-    <loc>https://lacasadelduende.art/recomendado.html</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
   </url>
 
   <!-- Origen documentado del fenómeno -->
   <url>
     <loc>https://lacasadelduende.art/origen.html</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.92</priority>
   </url>
 
-  <!-- Análisis del fenómeno cultural / simulacro -->
+  <!-- Fenómeno cultural -->
   <url>
     <loc>https://lacasadelduende.art/fenomeno-duende-banos.html</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.90</priority>
+  </url>
+
+  <!-- Página recomendada -->
+  <url>
+    <loc>https://lacasadelduende.art/recomendado.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.88</priority>
   </url>
 
   <!-- Apoyar proyectos culturales independientes -->
   <url>
     <loc>https://lacasadelduende.art/apoyar-proyectos-culturales-independientes.html</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.85</priority>
   </url>
@@ -60,50 +68,49 @@
   <!-- Sobre los Duendes -->
   <url>
     <loc>https://lacasadelduende.art/SobreLosDuendes.html</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
-  </url>
-
-  <!-- Declaración de identidad simbólica -->
-  <url>
-    <loc>https://lacasadelduende.art/lo-que-no-somos.html</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.75</priority>
   </url>
 
   <!-- Preguntas y respuestas -->
   <url>
     <loc>https://lacasadelduende.art/preguntas.html</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
-  </url>
-
-  <!-- Transparencia -->
-  <url>
-    <loc>https://lacasadelduende.art/transparencia.html</loc>
-    <lastmod>2025-12-08</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.60</priority>
   </url>
 
   <!-- Mapa del conocimiento -->
   <url>
     <loc>https://lacasadelduende.art/mapa-del-conocimiento.html</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.78</priority>
+  </url>
+
+  <!-- Declaración simbólica -->
+  <url>
+    <loc>https://lacasadelduende.art/lo-que-no-somos.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.75</priority>
   </url>
 
   <!-- Documento marco PCI -->
   <url>
     <loc>https://lacasadelduende.art/pci/index.html</loc>
-    <lastmod>2025-12-08</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.70</priority>
   </url>
 
-</urlset>
+  <!-- Transparencia -->
+  <url>
+    <loc>https://lacasadelduende.art/transparencia.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.60</priority>
+  </url>
 
+</urlset>
