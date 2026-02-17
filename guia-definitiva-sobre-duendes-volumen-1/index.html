@@ -4,281 +4,405 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>Guía Definitiva sobre Duendes – Volumen 1 (2025) | Fito Girolami</title>
-  <meta name="description" content="Publicación 2025 (Ecuador) de Fito Girolami, con colaboración de Catalina Lucz-Ligeti. Estudio cultural, simbólico y artístico del duende. Acceso a la versión académica con DOI en Zenodo." />
-  <meta name="keywords" content="duendes, duendismo cultural, folklore, simbolismo, estudios culturales, arte simbólico, Ecuador, Baños de Agua Santa, La Casa del Duende, La Aldea Mágica, mitología comparada" />
+  <title>Guía Definitiva sobre Duendes – Volumen 1 (2025) | Publicación académica (DOI)</title>
+  <meta name="description" content="Libro publicado en Ecuador (2025) por Fito Girolami (colab. Catalina Lucz-Ligeti). Estudio cultural, simbólico y artístico del duende con DOI (Zenodo) e ISBN 978-9942-51-585-8." />
+  <meta name="keywords" content="Guía Definitiva sobre Duendes, duende, duendismo cultural, estudios culturales, folklore, simbolismo, mitología comparada, patrimonio cultural inmaterial, Ecuador, Baños de Agua Santa, La Casa del Duende, La Aldea Mágica, Zenodo, DOI" />
   <meta name="author" content="Fito Girolami" />
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <link rel="canonical" href="https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1" />
+
+  <link rel="canonical" href="https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="es_ES" />
   <meta property="og:site_name" content="La Casa del Duende" />
-  <meta property="og:title" content="Guía Definitiva sobre Duendes – Volumen 1 (2025)" />
-  <meta property="og:description" content="Libro de Fito Girolami (colab. Catalina Lucz-Ligeti). Estudio cultural, simbólico y artístico del duende. Versión académica con DOI en Zenodo." />
-  <meta property="og:url" content="https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1" />
-  <!-- Cambia esta imagen si tienes portada -->
+  <meta property="og:title" content="Guía Definitiva sobre Duendes – Volumen 1 (2025) | DOI + ISBN" />
+  <meta property="og:description" content="Libro publicado en Ecuador (2025) por Fito Girolami (colab. Catalina Lucz-Ligeti). Estudio cultural, simbólico y artístico del duende. Acceso al registro académico con DOI en Zenodo." />
+  <meta property="og:url" content="https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/" />
   <meta property="og:image" content="https://lacasadelduende.art/assets/Guia-defintiva-sobre-duendes-vol-1.jpg" />
   <meta property="og:image:alt" content="Portada: Guía Definitiva sobre Duendes – Volumen 1" />
+  <meta property="og:see_also" content="https://doi.org/10.5281/zenodo.18673708" />
+  <meta property="og:see_also" content="https://zenodo.org/records/18673708" />
+  <meta property="og:see_also" content="https://medium.com/@lacasadelduende/la-gu%C3%ADa-definitiva-sobre-duendes-ha-sido-publicada-como-obra-acad%C3%A9mica-internacional-4e1f031a6cf7" />
+  <meta property="og:article:author" content="Fito Girolami" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Guía Definitiva sobre Duendes – Volumen 1 (2025)" />
-  <meta name="twitter:description" content="Estudio cultural, simbólico y artístico del duende. Versión académica con DOI en Zenodo." />
+  <meta name="twitter:title" content="Guía Definitiva sobre Duendes – Volumen 1 (2025) | DOI + ISBN" />
+  <meta name="twitter:description" content="Estudio cultural, simbólico y artístico del duende. Registro académico con DOI en Zenodo." />
   <meta name="twitter:image" content="https://lacasadelduende.art/assets/Guia-defintiva-sobre-duendes-vol-1.jpg" />
 
-  <!-- Favicons (opcional) -->
   <link rel="icon" href="/favicon.ico" />
-
-  <!-- Preconnect (opcional) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <style>
     :root{
-      --bg:#0b0f14;
-      --card:#111826;
-      --muted:#9fb0c3;
-      --text:#eaf2ff;
-      --accent:#7cf7c6;
-      --accent2:#7aa7ff;
-      --line:rgba(255,255,255,.10);
-      --shadow: 0 20px 60px rgba(0,0,0,.45);
-      --radius:18px;
+      --bg1:#120a1f;
+      --bg2:#0c0b19;
+
+      --paper: rgba(255,255,255,.06);
+      --paper2: rgba(255,255,255,.04);
+      --stroke: rgba(255,255,255,.12);
+      --stroke2: rgba(255,255,255,.18);
+
+      --text:#f6f2ff;
+      --muted:#d7cfe6;
+      --muted2:#b8aecd;
+
+      --p1:#cbb6ff; /* pastel lila */
+      --p2:#f0c8ff; /* pastel rosado */
+      --p3:#aee8ff; /* pastel celeste */
+
+      --shadow: 0 20px 70px rgba(0,0,0,.45);
+      --radius: 22px;
+      --radius2: 16px;
+
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background:
-        radial-gradient(1200px 600px at 15% -10%, rgba(122,167,255,.25), transparent 60%),
-        radial-gradient(900px 500px at 90% 10%, rgba(124,247,198,.18), transparent 55%),
-        radial-gradient(700px 400px at 50% 110%, rgba(122,167,255,.16), transparent 60%),
-        var(--bg);
       color:var(--text);
-      line-height:1.45;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.5;
+      background:
+        radial-gradient(900px 500px at 15% -10%, rgba(203,182,255,.28), transparent 60%),
+        radial-gradient(900px 500px at 95% 10%, rgba(240,200,255,.22), transparent 60%),
+        radial-gradient(900px 520px at 55% 110%, rgba(174,232,255,.16), transparent 65%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
     }
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 80px}
+
+    a{color:inherit;text-decoration:none}
+    a:hover{text-decoration:underline;text-underline-offset:3px}
+
+    .wrap{max-width:1120px;margin:0 auto;padding:26px 18px 80px}
+
+    /* Top bar */
     .topbar{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:12px;padding:10px 0 18px;border-bottom:1px solid var(--line);
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:10px 0 18px;
+      border-bottom:1px solid var(--stroke);
     }
+
     .brand{
-      display:flex;align-items:center;gap:12px;text-decoration:none;
+      display:flex;align-items:center;gap:12px;
     }
+
     .mark{
-      width:42px;height:42px;border-radius:14px;
-      background: linear-gradient(135deg, rgba(124,247,198,.28), rgba(122,167,255,.25));
-      border:1px solid rgba(255,255,255,.12);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      width:44px;height:44px;border-radius:16px;
+      background: linear-gradient(135deg, rgba(203,182,255,.35), rgba(240,200,255,.22), rgba(174,232,255,.18));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
     }
-    .brand strong{display:block;font-size:14px;letter-spacing:.2px}
-    .brand span{display:block;font-size:12px;color:var(--muted)}
+
+    .brand .t1{font-weight:800;letter-spacing:.2px;font-size:14px}
+    .brand .t2{font-size:12px;color:var(--muted2);margin-top:2px}
+
     .nav{
       display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;
     }
+
     .pill{
-      text-decoration:none;
-      font-size:12px;color:var(--muted);
-      padding:8px 10px;border:1px solid var(--line);
-      border-radius:999px;background: rgba(255,255,255,.03);
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
     }
-    .pill:hover{border-color:rgba(255,255,255,.22);color:var(--text)}
+    .pill:hover{border-color:var(--stroke2);text-decoration:none;color:var(--text)}
+
+    /* Hero grid */
     .hero{
-      display:grid;grid-template-columns: 1.05fr .95fr;
-      gap:18px;align-items:stretch;
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap:18px;
       padding-top:22px;
+      align-items:stretch;
     }
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .nav{justify-content:flex-start}
-    }
+    @media (max-width:920px){ .hero{grid-template-columns:1fr} .nav{justify-content:flex-start} }
+
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
-      border:1px solid var(--line);
       border-radius: var(--radius);
+      border:1px solid var(--stroke);
+      background: linear-gradient(180deg, var(--paper), var(--paper2));
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .card.pad{padding:18px}
-    .kicker{
+    .pad{padding:18px}
+
+    .badge{
       display:inline-flex;align-items:center;gap:10px;
       font-size:12px;color:var(--muted);
-      padding:8px 10px;border-radius:999px;border:1px solid var(--line);
+      padding:8px 10px;border-radius:999px;
+      border:1px solid var(--stroke);
       background: rgba(255,255,255,.03);
     }
-    .dot{
-      width:8px;height:8px;border-radius:999px;background:var(--accent);
-      box-shadow: 0 0 0 6px rgba(124,247,198,.12);
+    .spark{
+      width:9px;height:9px;border-radius:999px;
+      background: linear-gradient(135deg, var(--p1), var(--p2));
+      box-shadow: 0 0 0 7px rgba(203,182,255,.14);
     }
+
     h1{
       margin:14px 0 10px;
-      font-size:34px;line-height:1.08;
-      letter-spacing:-.6px;
+      font-size:34px;
+      line-height:1.08;
+      letter-spacing:-.7px;
     }
-    .sub{
-      color:var(--muted);
-      font-size:15px;
+    .subtitle{
       margin:0 0 14px;
+      font-size:15px;
+      color:var(--muted);
     }
+
     .meta{
-      display:grid;grid-template-columns:1fr 1fr;
-      gap:10px;margin:14px 0 16px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin:14px 0 16px;
     }
-    @media (max-width:520px){ .meta{grid-template-columns:1fr} }
-    .meta .item{
-      padding:12px 12px;border-radius:14px;
-      border:1px solid var(--line);background: rgba(0,0,0,.22);
+    @media (max-width:540px){ .meta{grid-template-columns:1fr} }
+
+    .mitem{
+      padding:12px 12px;
+      border-radius: var(--radius2);
+      border:1px solid var(--stroke);
+      background: rgba(0,0,0,.22);
     }
-    .meta .item b{display:block;font-size:12px;color:var(--muted);font-weight:600}
-    .meta .item span{display:block;margin-top:4px;font-size:14px}
+    .mitem b{
+      display:block;
+      font-size:12px;
+      color:var(--muted2);
+      letter-spacing:.2px;
+    }
+    .mitem span{
+      display:block;
+      margin-top:5px;
+      font-size:14px;
+      color:var(--text);
+      word-break:break-word;
+    }
+
     .actions{
-      display:flex;gap:10px;flex-wrap:wrap;margin-top:10px
+      display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;
     }
     .btn{
       display:inline-flex;align-items:center;justify-content:center;gap:10px;
-      padding:12px 14px;border-radius:14px;
-      border:1px solid rgba(255,255,255,.14);
+      padding:12px 14px;border-radius:16px;
+      border:1px solid rgba(255,255,255,.16);
       background: rgba(255,255,255,.04);
-      text-decoration:none;font-weight:650;
-      transition: transform .12s ease, border-color .12s ease;
+      font-weight:750;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
     }
-    .btn:hover{transform: translateY(-1px);border-color:rgba(255,255,255,.26)}
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.28);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
+    }
     .btn.primary{
-      background: linear-gradient(135deg, rgba(124,247,198,.24), rgba(122,167,255,.18));
-      border-color: rgba(124,247,198,.35);
+      border-color: rgba(203,182,255,.45);
+      background: linear-gradient(135deg, rgba(203,182,255,.22), rgba(240,200,255,.14));
     }
-    .btn small{font-weight:600;color:var(--muted)}
+    .btn .tiny{font-weight:650;color:var(--muted2)}
+
+    .divider{height:1px;background:var(--stroke);margin:18px 0}
+
+    h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+
+    .list{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+    }
+    .list li{margin:7px 0}
+
+    /* Cover */
     .cover{
       display:grid;grid-template-rows:auto 1fr;
       height:100%;
     }
-    .cover .img{
-      aspect-ratio: 4/5;
+    .coverTop{
+      border-bottom:1px solid var(--stroke);
       background:
-        radial-gradient(600px 240px at 50% 0%, rgba(124,247,198,.12), transparent 55%),
-        radial-gradient(600px 240px at 50% 100%, rgba(122,167,255,.10), transparent 55%),
-        rgba(0,0,0,.25);
-      border-bottom:1px solid var(--line);
-      position:relative;
+        radial-gradient(650px 240px at 50% 0%, rgba(203,182,255,.14), transparent 55%),
+        radial-gradient(650px 240px at 50% 100%, rgba(240,200,255,.12), transparent 55%),
+        rgba(0,0,0,.20);
     }
-    .cover img{
-      width:100%;height:100%;object-fit:cover;display:block;
-      filter: contrast(1.02) saturate(1.02);
+    .coverTop img{
+      width:100%;height:100%;
+      display:block;object-fit:cover;
+      aspect-ratio:4/5;
+      filter: contrast(1.02) saturate(1.05);
     }
-    .cover .cap{
+    .coverCap{
       padding:14px 16px;
-      color:var(--muted);font-size:13px;
+      color:var(--muted);
+      font-size:13px;
     }
+    .coverCap b{color:var(--text)}
+
+    /* Sections grid */
     .grid2{
       margin-top:18px;
       display:grid;grid-template-columns:1fr 1fr;gap:18px;
     }
-    @media (max-width:900px){ .grid2{grid-template-columns:1fr} }
-    h2{margin:0 0 8px;font-size:18px;letter-spacing:-.2px}
-    p{margin:10px 0}
-    ul{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-    li{margin:6px 0}
-    .quote{
-      border-left:3px solid rgba(124,247,198,.55);
-      padding:10px 12px;margin:12px 0 0;
-      background: rgba(0,0,0,.18);
-      border-radius:12px;
+    @media (max-width:920px){ .grid2{grid-template-columns:1fr} }
+
+    .note{
+      padding:12px 12px;
+      border-radius: var(--radius2);
+      border:1px solid rgba(203,182,255,.22);
+      background: rgba(203,182,255,.08);
       color:var(--muted);
     }
-    .divider{height:1px;background:var(--line);margin:18px 0}
-    .faq details{
-      border:1px solid var(--line);
+
+    .kbd{
+      display:inline-block;
+      font-family: var(--mono);
+      font-size:12px;
+      padding:8px 10px;
       border-radius:14px;
+      border:1px solid var(--stroke);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      word-break:break-word;
+    }
+
+    .copyRow{
+      display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+      margin-top:10px;
+    }
+    .copyBtn{
+      cursor:pointer;
+      font-weight:800;
+      border-radius:14px;
+      border:1px solid rgba(174,232,255,.28);
+      background: rgba(174,232,255,.10);
+      padding:10px 12px;
+    }
+    .copyBtn:hover{
+      background: rgba(174,232,255,.14);
+      text-decoration:none;
+    }
+    .copyMsg{
+      font-size:12px;color:var(--muted2);
+    }
+
+    /* FAQ */
+    .faq details{
+      border:1px solid var(--stroke);
+      border-radius:16px;
       padding:12px 12px;
       background: rgba(0,0,0,.18);
       margin:10px 0;
     }
     .faq summary{
       cursor:pointer;
-      font-weight:700;
+      font-weight:800;
       color:var(--text);
       list-style:none;
     }
     .faq summary::-webkit-details-marker{display:none}
     .faq p{color:var(--muted);margin:10px 0 0}
+
+    /* Footer */
     .footer{
       margin-top:24px;
-      color:var(--muted);
+      padding-top:16px;
+      border-top:1px solid var(--stroke);
+      color:var(--muted2);
       font-size:12px;
       display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
-      border-top:1px solid var(--line);
-      padding-top:16px;
     }
-    .kbd{
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size:12px;
-      padding:3px 8px;border-radius:10px;
-      border:1px solid var(--line);background: rgba(255,255,255,.03);
-      color:var(--muted);
-    }
+
+    /* Small helper */
+    .muted{color:var(--muted)}
   </style>
 
-  <!-- JSON-LD: Book + WebPage -->
+  <!-- JSON-LD: WebPage + Book + ScholarlyArticle -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebSite",
+        "@id": "https://lacasadelduende.art/#website",
+        "name": "La Casa del Duende",
+        "url": "https://lacasadelduende.art/",
+        "inLanguage": "es"
+      },
+      {
         "@type": "WebPage",
-        "@id": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1",
-        "url": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1",
-        "name": "Guía Definitiva sobre Duendes – Volumen 1 (2025) | Fito Girolami",
-        "description": "Libro (Ecuador, 2025) de Fito Girolami con colaboración de Catalina Lucz-Ligeti. Estudio cultural, simbólico y artístico del duende. Acceso a la versión académica con DOI en Zenodo.",
-        "inLanguage": "es",
-        "isPartOf": {
-          "@type": "WebSite",
-          "name": "La Casa del Duende",
-          "url": "https://lacasadelduende.art/"
-        }
+        "@id": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/#webpage",
+        "url": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/",
+        "name": "Guía Definitiva sobre Duendes – Volumen 1 (2025) | Publicación académica (DOI)",
+        "description": "Libro publicado en Ecuador (2025) por Fito Girolami (colab. Catalina Lucz-Ligeti). Estudio cultural, simbólico y artístico del duende con DOI en Zenodo e ISBN 978-9942-51-585-8.",
+        "isPartOf": { "@id": "https://lacasadelduende.art/#website" },
+        "inLanguage": "es"
       },
       {
         "@type": "Book",
-        "@id": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1#book",
+        "@id": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/#book",
         "name": "Guía Definitiva sobre Duendes – Volumen 1",
         "alternateName": "La Guía Definitiva sobre Duendes – Volumen 1",
-        "author": {
-          "@type": "Person",
-          "name": "Fito Girolami"
-        },
+        "author": { "@type": "Person", "name": "Fito Girolami" },
         "contributor": [
-          { "@type": "Person", "name": "Catalina Lucz-Ligeti", "roleName": "Colaboración" }
+          { "@type": "Person", "name": "Catalina Lucz-Ligeti" },
+          { "@type": "Person", "name": "Juan Mondillo", "description": "Prólogo" }
         ],
-        "isbn": "978-9942-51-585-8",
+        "publisher": { "@type": "Organization", "name": "La Casa del Duende" },
         "datePublished": "2025",
         "inLanguage": "es",
-        "publisher": {
-          "@type": "Organization",
-          "name": "La Casa del Duende"
-        },
+        "isbn": "978-9942-51-585-8",
+        "sameAs": [
+          "https://doi.org/10.5281/zenodo.18673708",
+          "https://zenodo.org/records/18673708"
+        ],
+        "image": "https://lacasadelduende.art/assets/Guia-defintiva-sobre-duendes-vol-1.jpg",
         "about": [
           "Duendismo Cultural",
+          "Estudios culturales",
+          "Folklore",
+          "Simbolismo",
+          "Mitología comparada",
+          "Patrimonio cultural inmaterial"
+        ]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/#record",
+        "headline": "Guía Definitiva sobre Duendes – Volumen 1 (2025)",
+        "author": { "@type": "Person", "name": "Fito Girolami" },
+        "datePublished": "2025",
+        "inLanguage": "es",
+        "identifier": [
+          { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.5281/zenodo.18673708" },
+          { "@type": "PropertyValue", "propertyID": "ISBN", "value": "978-9942-51-585-8" }
+        ],
+        "publisher": { "@type": "Organization", "name": "Zenodo" },
+        "url": "https://doi.org/10.5281/zenodo.18673708",
+        "isPartOf": { "@id": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/#webpage" },
+        "about": [
+          "Duende",
+          "Duendismo Cultural",
           "Folklore Latinoamericano",
-          "Simbolismo Cultural",
-          "Mitología Comparada",
-          "Arte simbólico"
-        ],
-        "sameAs": [
-          "https://zenodo.org/records/18673708",
-          "https://doi.org/10.5281/zenodo.18673708"
-        ],
-        "image": "https://lacasadelduende.art/assets/Guia-defintiva-sobre-duendes-vol-1.jpg"
+          "Simbolismo cultural"
+        ]
       },
       {
         "@type": "BreadcrumbList",
-        "@id": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1#breadcrumbs",
+        "@id": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/#breadcrumbs",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://lacasadelduende.art/" },
-          { "@type": "ListItem", "position": 2, "name": "Publicaciones", "item": "https://lacasadelduende.art/publicaciones" },
-          { "@type": "ListItem", "position": 3, "name": "Guía Definitiva sobre Duendes – Volumen 1", "item": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1" }
+          { "@type": "ListItem", "position": 2, "name": "Guía Definitiva sobre Duendes – Volumen 1", "item": "https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/" }
         ]
       }
     ]
@@ -288,163 +412,177 @@
 
 <body>
   <div class="wrap">
-    <header class="topbar">
-      <a class="brand" href="/" aria-label="Volver al inicio">
+    <header class="topbar" role="banner">
+      <a class="brand" href="/" aria-label="La Casa del Duende - Inicio">
         <div class="mark" aria-hidden="true"></div>
         <div>
-          <strong>La Casa del Duende</strong>
-          <span>Publicaciones • Duendismo Cultural</span>
+          <div class="t1">La Casa del Duende</div>
+          <div class="t2">Nodo editorial • Publicaciones • Investigación simbólica</div>
         </div>
       </a>
 
-      <nav class="nav" aria-label="Navegación">
+      <nav class="nav" aria-label="Enlaces principales">
         <a class="pill" href="https://doi.org/10.5281/zenodo.18673708" target="_blank" rel="noopener">DOI</a>
         <a class="pill" href="https://zenodo.org/records/18673708" target="_blank" rel="noopener">Zenodo</a>
+        <a class="pill" href="https://medium.com/@lacasadelduende/la-gu%C3%ADa-definitiva-sobre-duendes-ha-sido-publicada-como-obra-acad%C3%A9mica-internacional-4e1f031a6cf7" target="_blank" rel="noopener">Artículo en Medium</a>
         <a class="pill" href="/pack-libros-duendes.html">Pack de libros</a>
-        <a class="pill" href="https://share.google/mYcQphhS4Dn0HlbQA" target="_blank" rel="noopener">Visitar La Aldea Mágica</a>
       </nav>
     </header>
 
-    <main>
-      <section class="hero">
-        <!-- Left: info -->
+    <main role="main">
+      <section class="hero" aria-label="Presentación de la publicación">
         <article class="card pad">
-          <div class="kicker"><span class="dot" aria-hidden="true"></span> Publicación 2025 • Ecuador • Libro con ISBN</div>
+          <div class="badge"><span class="spark" aria-hidden="true"></span> Publicación 2025 • Ecuador • Registro académico con DOI</div>
 
           <h1>Guía Definitiva sobre Duendes – Volumen 1</h1>
-          <p class="sub">
-            Un recorrido cultural, simbólico y artístico por la figura del duende: su raíz etimológica, su presencia intercultural
-            y su lectura contemporánea como símbolo vivo.
+          <p class="subtitle">
+            Libro de investigación cultural y simbólica que recorre la figura del <em>duende</em> como arquetipo universal,
+            presencia del imaginario humano y expresión artística contemporánea, con enfoque comparado entre tradiciones
+            de Europa, América Latina, Asia, África y Medio Oriente.
           </p>
 
           <div class="meta" role="list">
-            <div class="item" role="listitem">
+            <div class="mitem" role="listitem">
               <b>Autor</b>
               <span>Fito Girolami</span>
             </div>
-            <div class="item" role="listitem">
+            <div class="mitem" role="listitem">
               <b>Colaboración</b>
               <span>Catalina Lucz-Ligeti</span>
             </div>
-            <div class="item" role="listitem">
+            <div class="mitem" role="listitem">
               <b>ISBN</b>
               <span>978-9942-51-585-8</span>
             </div>
-            <div class="item" role="listitem">
-              <b>DOI (versión académica)</b>
+            <div class="mitem" role="listitem">
+              <b>DOI</b>
               <span>10.5281/zenodo.18673708</span>
             </div>
           </div>
 
           <div class="actions">
             <a class="btn primary" href="https://doi.org/10.5281/zenodo.18673708" target="_blank" rel="noopener">
-              Leer en Zenodo (DOI)
-              <small>↗</small>
+              Acceder al libro (DOI)
+              <span class="tiny">↗</span>
             </a>
-
             <a class="btn" href="https://zenodo.org/records/18673708" target="_blank" rel="noopener">
-              Ver registro Zenodo
-              <small>↗</small>
+              Ver registro en Zenodo
+              <span class="tiny">↗</span>
             </a>
-
-            <!-- Cambia este link por tu artículo de Medium (si quieres) -->
-            <a class="btn" href="#" id="mediumLink">
-              Leer artículo en Medium
-              <small>↗</small>
+            <a class="btn" href="https://medium.com/@lacasadelduende/la-gu%C3%ADa-definitiva-sobre-duendes-ha-sido-publicada-como-obra-acad%C3%A9mica-internacional-4e1f031a6cf7" target="_blank" rel="noopener">
+              Lectura contextual (Medium)
+              <span class="tiny">↗</span>
             </a>
           </div>
 
           <div class="divider"></div>
 
-          <h2>Qué encontrarás en este volumen</h2>
-          <ul>
-            <li>El término <em>duende</em> como palabra preservada: densidad cultural, emocional y simbólica.</li>
-            <li>Relatos tradicionales de Europa y América Latina como pedagogía del entorno y lo invisible.</li>
-            <li>Comparativa intercultural: figuras semejantes en Asia, África y Medio Oriente.</li>
-            <li>La evolución histórica del concepto: del medievo a la contemporaneidad.</li>
-            <li>Una lectura contemporánea del duende como símbolo vivo en el arte y en la experiencia cotidiana.</li>
-          </ul>
+          <h2>Resumen (Abstract)</h2>
+          <p class="muted">
+            Esta obra desarrolla una lectura cultural, simbólica y artística del <em>duende</em> como figura persistente en el imaginario humano.
+            Reúne etimología, relatos tradicionales, comparativa intercultural y análisis de transformaciones históricas para describir
+            cómo el símbolo se mantiene activo en la experiencia contemporánea. El libro integra la dimensión estética del duende en el arte,
+            su relación con el entorno y su capacidad de operar como espejo de percepción, atención y sentido.
+          </p>
 
-          <div class="quote" aria-label="Nota editorial">
-            Esta página funciona como nodo de referencia y siembra: conecta tu dominio como fuente primaria con el DOI académico,
-            reforzando indexación y autoridad.
+          <div class="note" aria-label="Nota de indexación">
+            Para citación, preservación y trazabilidad académica, la referencia recomendada es el DOI:
+            <strong>https://doi.org/10.5281/zenodo.18673708</strong>
           </div>
         </article>
 
-        <!-- Right: cover -->
-        <aside class="card cover" aria-label="Portada del libro">
-          <div class="img">
-            <!-- Si el nombre del archivo es distinto, cámbialo aquí -->
+        <aside class="card cover" aria-label="Portada y datos editoriales">
+          <div class="coverTop">
             <img src="/assets/Guia-defintiva-sobre-duendes-vol-1.jpg" alt="Portada: Guía Definitiva sobre Duendes – Volumen 1" loading="eager" />
           </div>
-          <div class="cap">
-            <div><b style="color:var(--text)">Edición independiente</b> • La Casa del Duende • Baños de Agua Santa</div>
-            <div style="margin-top:6px">Contacto: <a href="mailto:contacto@fitogirolami.art">contacto@fitogirolami.art</a></div>
+          <div class="coverCap">
+            <div><b>Edición independiente</b> • La Casa del Duende • Baños de Agua Santa, Ecuador</div>
+            <div style="margin-top:6px">Contacto editorial: <a href="mailto:contacto@fitogirolami.art">contacto@fitogirolami.art</a></div>
+            <div style="margin-top:10px;color:var(--muted2)">
+              DOI: <a href="https://doi.org/10.5281/zenodo.18673708" target="_blank" rel="noopener">10.5281/zenodo.18673708</a>
+              <span aria-hidden="true"> • </span>
+              Zenodo: <a href="https://zenodo.org/records/18673708" target="_blank" rel="noopener">record 18673708</a>
+            </div>
           </div>
         </aside>
       </section>
 
-      <section class="grid2">
+      <section class="grid2" aria-label="Contenido y metadatos">
         <article class="card pad">
-          <h2>Cómo citar esta publicación</h2>
-          <p style="color:var(--muted);margin-top:8px">
-            Usa el DOI como referencia estable. Si necesitas una cita rápida en estilo general:
+          <h2>Palabras clave (Keywords)</h2>
+          <p class="muted" style="margin-top:8px">
+            duende • duendismo cultural • estudios culturales • folklore • simbolismo • mitología comparada • patrimonio cultural inmaterial • Ecuador • Baños de Agua Santa • arte simbólico
           </p>
-          <p class="kbd" style="display:inline-block;margin:10px 0 0">
-            Girolami, F. (2025). <em>Guía Definitiva sobre Duendes – Volumen 1</em>. La Casa del Duende. https://doi.org/10.5281/zenodo.18673708
-          </p>
-          <p style="color:var(--muted);margin-top:12px">
-            El DOI es permanente y facilita indexación académica e interoperabilidad en buscadores.
-          </p>
+
+          <div class="divider"></div>
+
+          <h2>Estructura temática</h2>
+          <ul class="list">
+            <li>Etimología y densidad cultural del término <em>duende</em>.</li>
+            <li>Relatos tradicionales de Europa y América Latina como pedagogía simbólica.</li>
+            <li>Comparativa con figuras semejantes en Asia, África y Medio Oriente.</li>
+            <li>Transformaciones históricas del concepto desde el medievo hasta la contemporaneidad.</li>
+            <li>Duende como símbolo interior: arte, inspiración y experiencia.</li>
+            <li>Dimensión contemporánea en espacios culturales: La Casa del Duende y La Aldea Mágica.</li>
+          </ul>
         </article>
 
         <article class="card pad">
-          <h2>Siembra recomendada del DOI</h2>
-          <p style="color:var(--muted);margin-top:8px">
-            Para aumentar autoridad, enlaza este DOI desde tus activos principales:
+          <h2>Cómo citar</h2>
+          <p class="muted" style="margin-top:8px">
+            Cita sugerida (formato general):
           </p>
-          <ul>
-            <li>Tu web: sección “Publicaciones académicas”.</li>
-            <li>Internet Archive (con DOI en la descripción).</li>
-            <li>Academia.edu (subida del PDF citando el DOI).</li>
-            <li>LinkedIn Article (anuncio profesional con DOI).</li>
-            <li>Medium (artículo que remita al DOI).</li>
+
+          <div class="kbd" id="citeText">
+            Girolami, F. (2025). <em>Guía Definitiva sobre Duendes – Volumen 1</em>. La Casa del Duende. https://doi.org/10.5281/zenodo.18673708
+          </div>
+
+          <div class="copyRow" aria-label="Copiar cita">
+            <a class="copyBtn" href="#" id="copyBtn">Copiar cita</a>
+            <span class="copyMsg" id="copyMsg" aria-live="polite"></span>
+          </div>
+
+          <div class="divider"></div>
+
+          <h2>Enlaces de referencia</h2>
+          <ul class="list">
+            <li><a href="https://doi.org/10.5281/zenodo.18673708" target="_blank" rel="noopener">DOI (acceso directo)</a></li>
+            <li><a href="https://zenodo.org/records/18673708" target="_blank" rel="noopener">Registro en Zenodo</a></li>
+            <li><a href="https://medium.com/@lacasadelduende/la-gu%C3%ADa-definitiva-sobre-duendes-ha-sido-publicada-como-obra-acad%C3%A9mica-internacional-4e1f031a6cf7" target="_blank" rel="noopener">Artículo editorial en Medium</a></li>
           </ul>
         </article>
       </section>
 
-      <section class="card pad" style="margin-top:18px">
+      <section class="card pad" style="margin-top:18px" aria-label="Preguntas frecuentes">
         <h2>Preguntas frecuentes</h2>
         <div class="faq">
           <details>
-            <summary>¿Qué significa que el libro tenga DOI?</summary>
+            <summary>¿Qué aporta el DOI a la publicación?</summary>
             <p>
-              Significa que la publicación cuenta con un identificador permanente que permite citarla, preservarla
-              y conectarla con el ecosistema académico global. Es una puerta directa a la obra, estable en el tiempo.
+              El DOI establece una referencia persistente para citación, preservación y trazabilidad académica, conectando el libro con el ecosistema de investigación.
             </p>
           </details>
 
           <details>
-            <summary>¿El DOI sirve para posicionamiento en buscadores e IA?</summary>
+            <summary>¿Cuál es el marco disciplinar sugerido?</summary>
             <p>
-              Sí: el DOI crea una referencia estable y verificable. Al enlazarlo desde tu dominio y desde plataformas de alta autoridad,
-              fortaleces la probabilidad de que motores e IA lo reconozcan como fuente primaria.
+              Estudios culturales, folklore y simbolismo, con alcance hacia antropología, patrimonio cultural y arte contemporáneo.
             </p>
           </details>
 
           <details>
-            <summary>¿Dónde puedo acceder a la versión oficial?</summary>
+            <summary>¿Dónde se accede a la versión oficial?</summary>
             <p>
-              En Zenodo, usando el DOI: <a href="https://doi.org/10.5281/zenodo.18673708" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.18673708</a>.
+              En Zenodo, a través del DOI: <a href="https://doi.org/10.5281/zenodo.18673708" target="_blank" rel="noopener">https://doi.org/10.5281/zenodo.18673708</a>.
             </p>
           </details>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div>
-        © <span id="y"></span> La Casa del Duende • Publicaciones • Duendismo Cultural
+        © <span id="y"></span> La Casa del Duende • Nodo editorial
       </div>
       <div>
         DOI: <a href="https://doi.org/10.5281/zenodo.18673708" target="_blank" rel="noopener">10.5281/zenodo.18673708</a>
@@ -456,18 +594,23 @@
     // Año en footer
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // (Opcional) Pega aquí tu URL de Medium cuando la tengas.
-    // Ejemplo: https://medium.com/@lacasadelduende/...
-    const MEDIUM_URL = ""; // <-- pega tu link
-    const mediumLink = document.getElementById("mediumLink");
-    if (MEDIUM_URL && MEDIUM_URL.startsWith("http")) {
-      mediumLink.href = MEDIUM_URL;
-      mediumLink.target = "_blank";
-      mediumLink.rel = "noopener";
-    } else {
-      // Si aún no hay Medium, lo ocultamos para evitar un link muerto
-      mediumLink.style.display = "none";
-    }
+    // Copiar cita
+    const btn = document.getElementById('copyBtn');
+    const msg = document.getElementById('copyMsg');
+    const citeTextEl = document.getElementById('citeText');
+
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const text = citeTextEl.innerText.replace(/\s+/g, ' ').trim();
+      try {
+        await navigator.clipboard.writeText(text);
+        msg.textContent = "Cita copiada.";
+        setTimeout(() => (msg.textContent = ""), 1800);
+      } catch (err) {
+        msg.textContent = "Selecciona y copia manualmente.";
+        setTimeout(() => (msg.textContent = ""), 2400);
+      }
+    });
   </script>
 </body>
 </html>
