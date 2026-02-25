@@ -4,17 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Canonical + robots -->
   <link rel="canonical" href="https://lacasadelduende.art/" />
   <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
 
-  <!-- Título + descripción (con nombres para SEO) -->
   <title>La Casa del Duende | Qué hacer en Baños: experiencia original, pioneros y arte independiente</title>
   <meta name="description" content="La Casa del Duende en Baños de Agua Santa, Ecuador, fundada en 2013 por los artistas Fito Girolami (Argentina) y Catalina Lucz-Ligeti (Chile). Experiencia original: jardín simbólico, figuras únicas y recorrido real en la Aldea Mágica. Guía clara sobre cómo activar un duende desde lo simbólico y lo cotidiano." />
   <meta name="keywords" content="La Casa del Duende, qué hacer en Baños, duendes en Baños, activar un duende, ritual duende, duende símbolo, duendes Latinoamérica, arte independiente, artistas independientes, experiencia original, Aldea Mágica" />
   <meta name="author" content="Fito Girolami, Catalina Lucz-Ligeti" />
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:locale" content="es_EC"/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://lacasadelduende.art/"/>
@@ -27,26 +24,21 @@
   <meta property="og:image:alt" content="La Casa del Duende en Baños de Agua Santa, jardín simbólico y arte independiente"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Geodatos -->
   <meta name="geo.position" content="-1.392255;-78.419648">
   <meta name="geo.placename" content="La Aldea Mágica, Baños de Agua Santa, Ecuador">
   <meta name="geo.region" content="EC-T">
 
-  <!-- Favicons / theme -->
   <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
   <meta name="theme-color" content="#4b3a6d">
 
-  <!-- Performance -->
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
   <link rel="preload" as="image" href="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg">
 
-  <!-- Licencia / derechos (SEO) -->
   <link rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
   <meta name="license" content="Creative Commons CC BY-NC-ND 4.0">
   <meta name="rights" content="© La Casa del Duende – Fito Girolami & Catalina Lucz-Ligeti">
   <meta name="copyright" content="© La Casa del Duende">
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCLBJT60LV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -55,21 +47,25 @@
     gtag('config', 'G-NCLBJT60LV', { anonymize_ip: true });
   </script>
 
-  <!-- Estilos (Tarjeta/Archivo — sin cambiar el contenido) -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&family=EB+Garamond:ital,wght@0,400;0,700;1,400&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600&display=swap');
 
     :root{
-      /* Mantengo tu morado como firma, y sumo “papel/archivo” */
-      --morado:#4b3a6d; --morado-2:#3a2d55;
-      --primario:#5d2e17; --acento:#a64b2a; --dorado:#c5a059;
-      --crema:#f2e7c3; --papel:#fffdf5;
-      --tinta:#2c1b10; --tinta-2:#3b2a1c;
-      --linea:rgba(93,46,23,.18);
-      --radius:14px;
-      --shadow:0 10px 28px rgba(0,0,0,.12);
-      --serif:'EB Garamond', ui-serif, Georgia, "Times New Roman", Times, serif;
-      --display:'Cinzel', ui-serif, Georgia, "Times New Roman", Times, serif;
+      --morado:#5a448a; 
+      --morado-2:#3a2d55;
+      --primario:#4a2c1d; 
+      --acento:#8c3b1a; 
+      --dorado:#b08d4b;
+      --crema:#fdfaf3; 
+      --papel:#ffffff;
+      --bosque:#f2f5ed;
+      --tinta:#2c1b10; 
+      --tinta-2:#3b2a1c;
+      --linea:rgba(93,46,23,.1);
+      --radius:20px;
+      --shadow:0 12px 35px rgba(0,0,0,.07);
+      --serif:'EB Garamond', serif;
+      --display:'Cinzel', serif;
     }
 
     *{box-sizing:border-box}
@@ -77,97 +73,107 @@
     body{
       margin:0; color:var(--tinta);
       background:
-        radial-gradient(900px 520px at 50% -200px, rgba(255,255,255,.35), transparent 60%),
-        linear-gradient(180deg, #f6edcf, var(--crema));
-      font:18px/1.65 var(--serif);
+        radial-gradient(circle at top right, rgba(242,245,237,0.8), transparent 40%),
+        linear-gradient(180deg, #fffcf5, var(--crema));
+      font:19px/1.7 var(--serif);
+      -webkit-font-smoothing: antialiased;
     }
 
-    a{color:var(--morado); text-decoration:none}
-    a:hover{text-decoration:underline}
+    a{color:var(--morado); text-decoration:none; transition: 0.3s; font-weight: 600;}
+    a:hover{color: var(--acento); text-decoration:underline}
 
     img{
       max-width:100%; height:auto;
-      border-radius:10px;
-      border:1px solid rgba(197,160,89,.55);
+      border-radius:var(--radius);
+      border:1px solid var(--linea);
+      transition: transform 0.4s ease;
     }
+    img:hover { transform: scale(1.01); }
 
-    .wrap{max-width:1000px; margin:0 auto; padding:24px}
+    .wrap{max-width:1100px; margin:0 auto; padding:40px 24px}
 
-    /* HERO */
+    /* HERO RENOVADO */
     header.hero{
-      background:
-        radial-gradient(900px 260px at 50% -80px, rgba(255,255,255,.18), transparent 60%),
-        linear-gradient(180deg, #3e1f0f, #5d2e17);
+      background: linear-gradient(135deg, #2c1b10 0%, #4a2c1d 100%);
       color:#f7f3ea; text-align:center;
-      padding:56px 20px 44px;
-      border-bottom:3px double var(--dorado);
-      box-shadow: inset 0 -14px 28px rgba(0,0,0,.28);
+      padding:80px 20px;
+      border-bottom:4px solid var(--dorado);
+      position: relative; overflow: hidden;
+      box-shadow: inset 0 -10px 30px rgba(0,0,0,0.2);
     }
-    header .brand{display:flex; align-items:center; justify-content:center; gap:.9rem; margin-bottom:10px}
+    header.hero::after {
+      content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(197,160,89,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    header .brand{display:flex; align-items:center; justify-content:center; gap:1.2rem; margin-bottom:25px}
     header .brand img{
-      width:92px; height:auto;
+      width:105px; height:auto;
       border:2px solid var(--dorado);
-      border-radius:18px;
+      border-radius:24px; background: #fff; padding: 4px;
     }
     header h1{
       margin:0;
-      font:800 clamp(1.8rem,5vw,2.7rem)/1.12 var(--display);
+      font:800 clamp(2.2rem,6vw,3.2rem)/1.1 var(--display);
       color:var(--crema);
-      text-shadow:2px 2px 4px rgba(0,0,0,.45);
-      letter-spacing:.04em;
+      text-shadow:0 4px 12px rgba(0,0,0,0.4);
+      letter-spacing:.05em;
     }
 
-    /* ✅ FIX CONTRASTE + PLACA SUTIL para los .sub */
     header p.sub{
       margin:12px auto;
-      max-width:760px;
+      max-width:800px;
       font-family:var(--serif);
       font-style:italic;
-      color:rgba(255,255,255,.92);
-      opacity:1;
-      text-shadow:0 2px 10px rgba(0,0,0,.55);
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:14px;
-      background:rgba(0,0,0,.18);
-      border:1px solid rgba(197,160,89,.22);
+      color:rgba(255,255,255,0.95);
+      background:rgba(255,255,255,0.08);
+      backdrop-filter: blur(5px);
+      padding:12px 20px;
+      border-radius:50px;
+      border:1px solid rgba(255,255,255,0.15);
+      display: block;
     }
 
+    nav.main{ margin-top: 35px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
     nav.main a{
-      font:700 .9rem/1 var(--display);
+      font:700 .75rem var(--display);
       color:var(--dorado);
-      padding:8px 10px;
-      border-radius:999px;
-      letter-spacing:.03em;
-      transition:.2s;
-      display:inline-block;
+      padding:8px 18px;
+      border-radius:50px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(197,160,89,0.3);
+      letter-spacing:.06em;
+      transition:.3s;
+      text-transform: uppercase;
     }
     nav.main a:hover{
-      background: rgba(197,160,89,.14);
-      color:#fff;
+      background: var(--dorado);
+      color:var(--primario);
       text-decoration:none;
     }
 
     /* Secciones */
-    section{padding:40px 0; border-bottom:1px solid var(--linea)}
+    section{padding:60px 0; border-bottom:1px solid var(--linea)}
 
     h2{
-      margin:0 0 18px;
+      margin:0 0 30px;
       color:var(--primario);
-      font:800 clamp(1.1rem,2.8vw,1.6rem)/1.2 var(--display);
-      letter-spacing:.04em;
-      border-bottom:1px solid rgba(197,160,89,.7);
-      display:inline-block;
-      padding-bottom:6px;
+      font:800 clamp(1.6rem,4vw,2.2rem)/1.2 var(--display);
+      position: relative;
     }
-    p{margin:.4rem 0 1rem; color:var(--tinta-2)}
+    h2::after {
+      content: ""; display: block; width: 50px; height: 3px;
+      background: var(--dorado); margin-top: 12px; border-radius: 2px;
+    }
+    
+    p{margin:.8rem 0 1.2rem; color:var(--tinta-2)}
 
-    /* Cards tipo pergamino */
+    /* Cards Renovadas */
     .card{
       background:var(--papel);
-      border:1px solid rgba(212,197,161,.9);
+      border:none;
       border-radius:var(--radius);
-      padding:28px;
+      padding:45px;
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
@@ -175,139 +181,120 @@
     .card::before{
       content:"❧";
       position:absolute;
-      top:10px; right:14px;
+      top:20px; right:25px;
       color:var(--dorado);
-      font-size:1.1rem;
-      opacity:.38;
+      font-size:1.5rem;
+      opacity:.15;
     }
 
     /* Layout */
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:35px; align-items: center;}
     .half{grid-column:span 12}
-    @media(min-width:760px){ .half{grid-column:span 6} }
+    @media(min-width:850px){ .half{grid-column:span 6} }
 
-    .gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:14px}
-    .gallery img{grid-column:span 12}
+    .gallery{display:grid; grid-template-columns:repeat(12,1fr); gap:20px}
+    .gallery img{grid-column:span 12; border:none; box-shadow: 0 8px 20px rgba(0,0,0,0.05);}
     @media(min-width:720px){ .gallery img{grid-column:span 6} }
 
-    /* Botones sobrios */
+    /* Botones */
     .btn{
       display:inline-block;
-      padding:11px 18px;
-      border-radius:12px;
-      font:700 .85rem/1 var(--display);
-      letter-spacing:.03em;
-      transition:.2s;
-      text-transform:none;
-      margin:4px 6px 4px 0;
+      padding:14px 28px;
+      border-radius:50px;
+      font:700 0.8rem var(--display);
+      letter-spacing:.08em;
+      transition:.3s;
+      text-transform:uppercase;
+      margin:8px 8px 8px 0;
+      text-align: center;
     }
     .btn.primary{
       background:var(--acento);
       color:#fff;
-      border:1px solid rgba(93,46,23,.55);
+      border:none;
+      box-shadow: 0 4px 15px rgba(140,59,26,0.25);
     }
-    .btn.primary:hover{background:var(--primario); transform:translateY(-1px); text-decoration:none}
+    .btn.primary:hover{background:var(--primario); transform:translateY(-2px); text-decoration:none}
     .btn.ghost{
-      border:1px solid rgba(93,46,23,.55);
+      border:2px solid var(--primario);
       color:var(--primario);
-      background: rgba(255,255,255,.55);
+      background: transparent;
     }
-    .btn.ghost:hover{background: rgba(93,46,23,.92); color:#fff; text-decoration:none}
+    .btn.ghost:hover{background: var(--primario); color:#fff; text-decoration:none}
 
     /* Embeds */
     iframe.embed{
       width:100%; aspect-ratio:16/9;
-      border:3px solid rgba(26,15,10,.85);
-      border-radius:12px;
-      box-shadow:0 10px 26px rgba(0,0,0,.32);
+      border:none;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
     }
 
-    /* Arquetipos: UNA sola imagen con los 3 */
+    /* Arquetipos Renovados */
     .arquetipos{
       display:grid;
       grid-template-columns:1fr;
-      gap:18px;
-      align-items:start;
+      gap:30px;
     }
     @media(min-width:900px){
       .arquetipos{ grid-template-columns: 5fr 7fr; }
     }
-    .arquetipos .lamina img{
-      width:100%;
-      border-radius:14px;
-      border:1px solid rgba(212,197,161,.95);
-      box-shadow:var(--shadow);
-    }
-    .arquetipos .fichas{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:14px;
-    }
     .ficha{
-      border-radius:14px;
-      border:1px solid rgba(212,197,161,.9);
-      background: linear-gradient(180deg, #fffdf5, #ffffff 70%);
-      box-shadow:var(--shadow);
-      padding:16px 16px 14px;
+      border-radius:var(--radius);
+      border: 1px solid rgba(0,0,0,0.03);
+      background: var(--bosque);
+      padding:30px;
+      margin-bottom: 20px;
     }
     .ficha .tag{
-      display:inline-block;
-      margin:0 0 10px;
-      padding:.45rem .65rem;
-      border-radius:999px;
-      border:1px solid rgba(93,46,23,.25);
-      background:rgba(197,160,89,.12);
-      color:var(--primario);
-      font:700 .78rem/1 var(--display);
-      letter-spacing:.06em;
+      background:var(--dorado);
+      color:#fff;
+      padding:5px 15px;
+      border-radius:50px;
+      font:700 .65rem var(--Inter, sans-serif);
       text-transform:uppercase;
     }
     .ficha h3{
-      margin:.2rem 0 .4rem;
-      color:var(--tinta);
-      font:800 1.1rem/1.2 var(--display);
-      letter-spacing:.03em;
+      margin:15px 0 10px;
+      color:var(--primario);
+      font:800 1.3rem var(--display);
     }
-    .ficha p{margin:0 0 10px}
     .ficha .seal{
-      margin-top:10px;
-      padding-top:10px;
-      border-top:1px dashed rgba(212,197,161,.9);
-      color:rgba(44,27,16,.85);
-      font:600 .95rem/1.35 var(--serif);
+      margin-top:20px;
+      padding-top:15px;
+      border-top:1px dashed var(--dorado);
+      color:rgba(44,27,16,.7);
+      font-style: italic;
     }
 
-    /* Bloque discreto para citas / DOI */
+    /* Notas */
     .note{
-      margin-top:14px;
-      padding:12px 14px;
-      border-radius:12px;
-      border:1px dashed rgba(212,197,161,.95);
-      background:rgba(255,255,255,.55);
-      color:rgba(44,27,16,.85);
-      font-size:.98rem;
+      margin-top:20px;
+      padding:20px;
+      border-radius:15px;
+      background:var(--bosque);
+      border-left: 5px solid var(--dorado);
+      font-size:1rem;
     }
-    .note small{opacity:.95}
 
     /* Footer */
     footer{
-      background:#1a0f0a;
-      border-top:4px solid var(--acento);
+      background:#1a1a1a;
+      border-top:none;
       color:#d4c5a1;
       text-align:center;
-      padding:28px 20px;
+      padding:60px 20px;
     }
     footer a{color:var(--dorado)}
 
-    @media (prefers-reduced-motion:reduce){
-      *{animation:none!important; transition:none!important; scroll-behavior:auto!important}
+    @media (max-width: 768px) {
+      .card { padding: 30px 20px; }
+      header.hero { padding: 60px 20px; }
     }
   </style>
 
-  <!-- SDK PayPal Hosted Buttons -->
   <script src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD" defer></script>
 
-  <!-- Datos estructurados principales -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -439,7 +426,6 @@
   }
   </script>
 
-  <!-- JSON-LD del Report con DOI -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -466,7 +452,6 @@
   }
   </script>
 
-  <!-- JSON-LD del ScholarlyArticle (ensayo académico con DOI) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -485,7 +470,6 @@
   }
   </script>
 
-  <!-- FAQPage (para IA / buscadores): Activar un duende -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -522,7 +506,6 @@
 </head>
 <body>
 
-  <!-- HERO -->
   <header class="hero" role="banner" aria-label="La Casa del Duende">
     <div class="wrap">
       <div class="brand">
@@ -551,7 +534,6 @@
 
   <main>
 
-    <!-- Bienvenida -->
     <section>
       <div class="wrap grid">
         <article class="half card">
@@ -582,7 +564,6 @@
       </div>
     </section>
 
-    <!-- Qué hacer -->
     <section>
       <div class="wrap">
         <article class="card">
@@ -610,7 +591,6 @@
       </div>
     </section>
 
-    <!-- Activar un duende (versión web, todo público) -->
     <section id="activar">
       <div class="wrap">
         <article class="card">
@@ -624,7 +604,7 @@
           <p>
             Un duende es un <strong>símbolo</strong>. Su fuerza aparece cuando lo integras a tu vida cotidiana como recordatorio de
             cuidado, presencia y bondad. Si buscas que las cosas mejoren, el punto de partida no es una ofrenda,
-            sino una decisión: <strong>ser buena persona y sostenerlo en el tiempo</strong>.
+            sinó una decisión: <strong>ser buena persona y sostenerlo en el tiempo</strong>.
           </p>
 
           <p>
@@ -646,7 +626,7 @@
             </small>
           </div>
 
-          <p style="margin-top:14px;">
+          <p style="margin-top:20px;">
             <a class="btn ghost" href="/preguntas.html" rel="noopener">Ver más preguntas y respuestas</a>
             <a class="btn primary" href="/comprar-duendes-en-ecuador.html" rel="noopener">Ver duendes disponibles</a>
           </p>
@@ -654,7 +634,6 @@
       </div>
     </section>
 
-    <!-- Recorrido virtual -->
     <section id="aldea">
       <div class="wrap">
         <article class="card">
@@ -669,7 +648,6 @@
       </div>
     </section>
 
-    <!-- Galería Aldea -->
     <section>
       <div class="wrap">
         <h2>La Aldea Mágica: arte simbólico y naturaleza</h2>
@@ -682,7 +660,6 @@
       </div>
     </section>
 
-    <!-- Reseñas -->
     <section>
       <div class="wrap card">
         <h2>Testimonios y valoración</h2>
@@ -691,7 +668,6 @@
       </div>
     </section>
 
-    <!-- Acústicos -->
     <section>
       <div class="wrap card">
         <h2>Acústicos íntimos</h2>
@@ -703,7 +679,6 @@
       </div>
     </section>
 
-    <!-- Figuras -->
     <section>
       <div class="wrap card">
         <h2>Figuras simbólicas de Duendes y Hadas</h2>
@@ -711,7 +686,6 @@
       </div>
     </section>
 
-    <!-- Arquetipos (una lámina + 3 fichas) -->
     <section id="arquetipos">
       <div class="wrap">
         <article class="card">
@@ -719,14 +693,12 @@
           <p>Presentamos tres arquetipos en clave curatorial: cuidado material, tiempo vivido y presencia en el hogar.</p>
 
           <div class="arquetipos" aria-label="Arquetipos de duendes">
-            <!-- Lámina con los 3 -->
             <div class="lamina">
               <img src="assets/img/duende_resguardo_card.png"
                    alt="Arquetipos: Duendes del Resguardo, Duendes del Ritmo y Duendes del Amparo"
                    loading="lazy">
             </div>
 
-            <!-- Textos -->
             <div class="fichas">
               <div class="ficha">
                 <span class="tag">Arquetipo</span>
@@ -761,7 +733,6 @@
       </div>
     </section>
 
-    <!-- Lecturas y guías recomendadas -->
     <section>
       <div class="wrap card">
         <h2>Lecturas y guías recomendadas</h2>
@@ -798,7 +769,6 @@
       </div>
     </section>
 
-    <!-- Apoyo -->
     <section id="apoyo">
       <div class="wrap">
         <article class="card">
@@ -806,15 +776,15 @@
           <p>Tu aporte sostiene el proyecto. Al colaborar, recibes la versión digital de <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!</p>
           <div id="paypal-container-DYF6QQ6DYC6GL" aria-live="polite"></div>
 
-          <div style="margin-top:22px; text-align:center;">
-            <h3 style="margin:.2rem 0 1rem; font-family:var(--display); color:var(--primario); letter-spacing:.04em;">📚 También disponible en Buscalibre</h3>
-            <div class="card" style="display:inline-block; text-align:center;">
+          <div style="margin-top:35px; text-align:center;">
+            <h3 style="margin:.2rem 0 1.5rem; font-family:var(--display); color:var(--primario); letter-spacing:.04em;">📚 También disponible en Buscalibre</h3>
+            <div class="card" style="display:inline-block; text-align:center; padding: 25px;">
               <a href="https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078?srsltid=AfmBOorjxV3wpAUuw5zm6a9pNM-IybaSLCPrpGFl1kcMUPxYZ4CzcbSH"
                  target="_blank" rel="noopener" style="text-decoration:none;">
                 <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/39/99/3999fbfc96ef43fbc42889206acb1d45.jpg"
                      alt="Portada del libro Duendes y otras hierbas"
                      width="240" height="240" loading="lazy">
-                <div style="font-weight:700; margin:.4rem 0 .2rem; color:var(--tinta)">USD $37.99</div>
+                <div style="font-weight:700; margin:1rem 0 .5rem; color:var(--tinta); font-size: 1.2rem;">USD $37.99</div>
                 <span class="btn primary">Comprar en Buscalibre</span>
               </a>
             </div>
@@ -823,7 +793,6 @@
       </div>
     </section>
 
-    <!-- Ubicación -->
     <section>
       <div class="wrap card">
         <h2>Ubicación</h2>
@@ -831,7 +800,6 @@
       </div>
     </section>
 
-    <!-- Documentación -->
     <section id="documentos">
       <div class="wrap card">
         <h2>Documentación y registro oficial</h2>
@@ -891,7 +859,6 @@
     </div>
   </footer>
 
-  <!-- PayPal render + año dinámico -->
   <script>
     window.addEventListener('DOMContentLoaded', function(){
       if (window.paypal && paypal.HostedButtons) {
