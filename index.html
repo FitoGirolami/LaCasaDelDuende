@@ -32,7 +32,7 @@
   <meta name="geo.region" content="EC-T">
 
   <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
-  <meta name="theme-color" content="#4a3475">
+  <meta name="theme-color" content="#1b2a22">
 
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
   <link rel="preload" as="image" href="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg">
@@ -51,233 +51,271 @@
   </script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&family=EB+Garamond:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;700&display=swap');
 
     :root {
-      --morado: #4a3475;
-      --primario: #3b2114;
-      --acento: #99411d;
-      --dorado: #b89140;
-      --crema: #faf8f2;
-      --papel: #ffffff;
-      --bosque: #f0f4eb;
-      --tinta: #24150c;
-      --tinta-2: #402c21;
-      --linea: rgba(59, 33, 20, 0.08);
-      --radius: 24px;
-      --shadow-soft: 0 4px 15px rgba(0,0,0,0.03), 0 1px 3px rgba(0,0,0,0.02);
-      --shadow-pro: 0 15px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
-      --serif: 'EB Garamond', serif;
+      /* Nueva paleta "Bosque Encantado" */
+      --verde-profundo: #17241d;
+      --verde-bosque: #23382d;
+      --verde-claro: #e9f0eb;
+      --dorado: #d4af37;
+      --dorado-oscuro: #b59226;
+      --crema: #fdfbf7;
+      --pergamino: #f5f2eb;
+      --texto-principal: #2c3631;
+      --texto-secundario: #4a5750;
+      
+      --radius-sm: 16px;
+      --radius-md: 24px;
+      --radius-lg: 32px;
+      
+      --shadow-soft: 0 10px 30px rgba(23, 36, 29, 0.05);
+      --shadow-pro: 0 20px 40px rgba(23, 36, 29, 0.12);
+      --shadow-gold: 0 8px 25px rgba(212, 175, 55, 0.2);
+      
+      --serif: 'Lora', serif;
       --display: 'Cinzel', serif;
       --sans: 'Inter', sans-serif;
     }
 
-    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar { width: 12px; }
     ::-webkit-scrollbar-track { background: var(--crema); }
-    ::-webkit-scrollbar-thumb { background: rgba(184, 145, 64, 0.6); border-radius: 10px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--dorado); }
+    ::-webkit-scrollbar-thumb { background: var(--dorado); border-radius: 10px; border: 3px solid var(--crema); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--dorado-oscuro); }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 16px; }
 
     body {
       margin: 0;
-      color: var(--tinta);
-      background:
-        radial-gradient(circle at 80% -20%, rgba(240, 244, 235, 0.9) 0%, transparent 60%),
-        linear-gradient(180deg, #fffdfa 0%, var(--crema) 100%);
-      font: 20px/1.75 var(--serif);
+      color: var(--texto-principal);
+      background-color: var(--crema);
+      background-image: radial-gradient(circle at 100% 0%, var(--verde-claro) 0%, transparent 40%),
+                        radial-gradient(circle at 0% 100%, var(--pergamino) 0%, transparent 40%);
+      font: 1.125rem/1.8 var(--serif);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    a { color: var(--morado); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
-    a:hover { color: var(--acento); text-decoration: underline; text-underline-offset: 4px; }
+    a { color: var(--verde-bosque); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+    a:hover { color: var(--dorado-oscuro); text-decoration: underline; text-underline-offset: 4px; }
 
     img {
       max-width: 100%; height: auto;
-      border-radius: calc(var(--radius) - 4px);
+      border-radius: var(--radius-md);
       box-shadow: var(--shadow-soft);
-      transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.5s ease;
+      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s ease;
+      object-fit: cover;
     }
-    img:hover { transform: scale(1.02); box-shadow: var(--shadow-pro); }
+    img:hover { transform: scale(1.03); box-shadow: var(--shadow-pro); }
 
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 60px 24px; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 80px 24px; }
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    header.hero {
-      background: linear-gradient(145deg, #24150c 0%, #3b2114 100%);
-      color: #fcfbf8; text-align: center;
-      padding: 90px 20px 70px;
-      position: relative; overflow: hidden;
-      box-shadow: inset 0 -15px 40px rgba(0,0,0,0.3);
-    }
-    header.hero::before {
-      content: ""; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(184,145,64,0.12) 0%, transparent 60%);
-      pointer-events: none; animation: fadeUp 2s ease-out;
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
     }
 
-    header .brand { display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-bottom: 30px; animation: fadeUp 0.8s ease-out forwards; }
-    header .brand img {
-      width: 110px; border: 2px solid rgba(184,145,64,0.8);
-      border-radius: 28px; background: rgba(255,255,255,0.95); padding: 5px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    /* Rediseño del Hero */
+    header.hero {
+      background: linear-gradient(to bottom, rgba(23, 36, 29, 0.7), rgba(23, 36, 29, 0.95)),
+                  url('https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg') center/cover no-repeat;
+      color: var(--crema); 
+      text-align: center;
+      padding: 120px 20px 100px;
+      position: relative; 
+      overflow: hidden;
+      border-bottom: 4px solid var(--dorado);
     }
+
+    header .brand { 
+      display: flex; flex-direction: column; align-items: center; justify-content: center; 
+      gap: 1.5rem; margin-bottom: 40px; 
+      animation: fadeIn 1s ease-out forwards; 
+    }
+    
+    header .brand img {
+      width: 140px; 
+      border: 2px solid var(--dorado);
+      border-radius: 50%; 
+      background: rgba(253, 251, 247, 0.95); 
+      padding: 8px;
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+      animation: float 6s ease-in-out infinite;
+    }
+
     header h1 {
-      margin: 0; font: 800 clamp(2.4rem, 6vw, 3.8rem)/1.1 var(--display);
-      color: #fffdfa; letter-spacing: 0.04em;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      margin: 0; font: 800 clamp(2.5rem, 6vw, 4.5rem)/1.1 var(--display);
+      color: var(--crema); letter-spacing: 0.02em;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
     }
 
     header p.sub {
-      margin: 14px auto; max-width: 860px;
-      font-family: var(--serif); font-style: italic; font-size: 1.1rem;
-      color: rgba(255,255,255,0.9);
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-      padding: 14px 24px; border-radius: 50px;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      opacity: 0; animation: fadeUp 0.8s ease-out 0.2s forwards;
+      margin: 16px auto; max-width: 860px;
+      font-family: var(--serif); font-size: 1.2rem;
+      color: rgba(253, 251, 247, 0.9);
+      line-height: 1.6;
+      opacity: 0; animation: fadeIn 0.8s ease-out 0.3s forwards;
     }
+    
+    header p.sub strong { color: var(--dorado); font-weight: 600; }
 
+    /* Navegación rediseñada */
     nav.main {
-      margin-top: 45px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
-      opacity: 0; animation: fadeUp 0.8s ease-out 0.4s forwards; position: relative; z-index: 10;
+      margin-top: 60px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+      opacity: 0; animation: fadeIn 0.8s ease-out 0.6s forwards; position: relative; z-index: 10;
+      max-width: 1000px; margin-left: auto; margin-right: auto;
     }
     nav.main a {
-      font: 700 0.75rem var(--sans);
-      color: #fcfbf8;
-      padding: 10px 20px;
+      font: 600 0.8rem var(--sans);
+      color: var(--crema);
+      padding: 12px 24px;
       border-radius: 50px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(184,145,64,0.4);
-      letter-spacing: 0.08em; text-transform: uppercase;
-      backdrop-filter: blur(5px);
+      background: rgba(23, 36, 29, 0.6);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      letter-spacing: 0.05em; text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
     }
     nav.main a:hover {
-      background: var(--dorado); color: var(--primario);
-      transform: translateY(-2px); box-shadow: 0 6px 15px rgba(184,145,64,0.3);
+      background: var(--dorado); color: var(--verde-profundo);
+      transform: translateY(-3px); box-shadow: var(--shadow-gold);
       text-decoration: none; border-color: var(--dorado);
     }
 
-    section { padding: 80px 0; border-bottom: 1px solid var(--linea); }
+    section { position: relative; z-index: 1; }
+    section:nth-child(even) { background-color: var(--pergamino); border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
 
     h2 {
-      margin: 0 0 35px; color: var(--primario);
-      font: 800 clamp(1.8rem, 4vw, 2.5rem)/1.2 var(--display);
+      margin: 0 0 40px; color: var(--verde-profundo);
+      font: 700 clamp(2rem, 4vw, 2.8rem)/1.2 var(--display);
       position: relative; display: inline-block;
     }
     h2::after {
       content: ""; position: absolute; left: 0; bottom: -12px;
-      width: 60px; height: 3px; background: var(--dorado); border-radius: 2px;
+      width: 80px; height: 3px; background: var(--dorado); border-radius: 2px;
     }
 
-    p { margin: 0.8rem 0 1.4rem; color: var(--tinta-2); }
+    p { margin: 0 0 1.5rem; color: var(--texto-secundario); }
+    p:last-child { margin-bottom: 0; }
+    strong { color: var(--verde-bosque); }
 
+    /* Tarjetas rediseñadas */
     .card {
-      background: var(--papel);
-      border: 1px solid rgba(255,255,255,0.8);
-      border-radius: var(--radius);
-      padding: 55px;
+      background: #ffffff;
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 60px;
       box-shadow: var(--shadow-soft);
       position: relative; overflow: hidden;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-pro); }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-pro); }
     .card::before {
-      content: "❧"; position: absolute; top: 25px; right: 30px;
-      color: var(--dorado); font-size: 1.8rem; opacity: 0.12; font-family: var(--serif);
+      content: "✦"; position: absolute; top: 30px; right: 40px;
+      color: var(--dorado); font-size: 2rem; opacity: 0.15; font-family: var(--display);
     }
 
-    .grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 40px; align-items: center; }
+    .grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 50px; align-items: center; }
     .half { grid-column: span 12; }
-    @media(min-width: 850px){ .half { grid-column: span 6; } }
+    @media(min-width: 900px){ .half { grid-column: span 6; } }
 
-    .gallery { display: grid; grid-template-columns: repeat(12,1fr); gap: 24px; }
-    .gallery img { grid-column: span 12; }
-    @media(min-width: 720px){ .gallery img { grid-column: span 6; } }
+    .gallery { display: grid; grid-template-columns: repeat(12,1fr); gap: 30px; }
+    .gallery img { grid-column: span 12; height: 350px; width: 100%; }
+    @media(min-width: 600px){ .gallery img { grid-column: span 6; } }
+    @media(min-width: 900px){ .gallery img { grid-column: span 3; height: 250px; } }
 
+    /* Botones rediseñados */
+    .btn-container { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 15px; }
     .btn {
-      display: inline-block; padding: 15px 32px; border-radius: 50px;
-      font: 700 0.8rem var(--sans); letter-spacing: 0.1em; text-transform: uppercase;
-      transition: all 0.3s ease; margin: 10px 10px 10px 0; text-align: center;
-      cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 32px; border-radius: 50px;
+      font: 600 0.85rem var(--sans); letter-spacing: 0.05em; text-transform: uppercase;
+      transition: all 0.3s ease; text-align: center; cursor: pointer;
     }
     .btn.primary {
-      background: var(--acento); color: #fff; border: none;
-      box-shadow: 0 4px 15px rgba(153,65,29,0.25);
+      background: var(--verde-bosque); color: var(--crema); border: 2px solid var(--verde-bosque);
     }
     .btn.primary:hover {
-      background: var(--primario); transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(59,33,20,0.3); text-decoration: none;
+      background: var(--dorado); border-color: var(--dorado); color: var(--verde-profundo);
+      transform: translateY(-3px); box-shadow: var(--shadow-gold); text-decoration: none;
     }
     .btn.ghost {
-      border: 2px solid var(--primario); color: var(--primario); background: transparent;
+      border: 2px solid var(--dorado); color: var(--verde-bosque); background: transparent;
     }
     .btn.ghost:hover {
-      background: var(--primario); color: #fff; text-decoration: none; transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(59,33,20,0.15);
+      background: var(--dorado); color: var(--verde-profundo); text-decoration: none; transform: translateY(-3px);
+      box-shadow: var(--shadow-gold);
     }
 
     iframe.embed {
       width: 100%; aspect-ratio: 16/9; border: none;
-      border-radius: calc(var(--radius) - 4px);
+      border-radius: var(--radius-md);
       box-shadow: var(--shadow-soft); transition: box-shadow 0.4s ease;
+      margin-top: 20px;
     }
     iframe.embed:hover { box-shadow: var(--shadow-pro); }
 
-    .arquetipos { display: grid; grid-template-columns: 1fr; gap: 35px; }
-    @media(min-width: 900px){ .arquetipos { grid-template-columns: 5fr 7fr; align-items: start; } }
+    /* Sección Arquetipos */
+    .arquetipos { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 30px;}
+    @media(min-width: 900px){ .arquetipos { grid-template-columns: 4fr 8fr; align-items: start; } }
 
     .ficha {
-      border-radius: calc(var(--radius) - 4px);
-      background: var(--bosque);
-      padding: 35px; margin-bottom: 24px;
-      border: 1px solid rgba(255,255,255,0.6);
-      box-shadow: inset 0 2px 10px rgba(255,255,255,0.5), var(--shadow-soft);
-      transition: transform 0.3s ease;
+      border-radius: var(--radius-md);
+      background: var(--verde-claro);
+      padding: 40px; margin-bottom: 25px;
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s ease, background 0.3s ease;
     }
-    .ficha:hover { transform: translateX(5px); }
+    .ficha:hover { transform: translateX(8px); background: #ffffff; }
     .ficha .tag {
-      background: var(--dorado); color: #fff; padding: 6px 16px; border-radius: 50px;
-      font: 700 0.65rem var(--sans); text-transform: uppercase; letter-spacing: 0.05em;
-      box-shadow: 0 2px 8px rgba(184,145,64,0.3);
+      background: var(--dorado); color: var(--verde-profundo); padding: 6px 16px; border-radius: 50px;
+      font: 700 0.7rem var(--sans); text-transform: uppercase; letter-spacing: 0.05em;
+      display: inline-block; margin-bottom: 15px;
     }
-    .ficha h3 { margin: 18px 0 12px; color: var(--primario); font: 800 1.4rem var(--display); }
+    .ficha h3 { margin: 0 0 15px; color: var(--verde-profundo); font: 700 1.6rem var(--display); }
     .ficha .seal {
-      margin-top: 24px; padding-top: 18px; border-top: 1px dashed rgba(184,145,64,0.5);
-      color: rgba(36,21,12,0.7); font-style: italic; font-size: 0.95rem;
+      margin-top: 25px; padding-top: 20px; border-top: 1px dashed rgba(212, 175, 55, 0.5);
+      color: var(--verde-bosque); font-style: italic; font-size: 1rem; font-weight: 500;
     }
 
     .note {
-      margin-top: 25px; padding: 22px 25px; border-radius: 16px;
-      background: var(--bosque); border-left: 5px solid var(--dorado);
-      font-size: 0.95rem; line-height: 1.6; color: var(--tinta-2);
-      box-shadow: inset 0 2px 5px rgba(255,255,255,0.8);
+      margin-top: 35px; padding: 25px 30px; border-radius: var(--radius-sm);
+      background: var(--pergamino); border-left: 5px solid var(--dorado);
+      font-size: 1rem; line-height: 1.6; color: var(--texto-secundario);
     }
     .note small { font-family: var(--sans); }
 
+    ul { padding-left: 20px; }
+    li { margin-bottom: 12px; color: var(--texto-secundario); }
+    li::marker { color: var(--dorado); font-size: 1.2em; }
+
+    /* Footer */
     footer {
-      background: #170d08; color: #d6cbb1; text-align: center;
-      padding: 80px 24px; position: relative;
+      background: var(--verde-profundo); color: var(--pergamino); text-align: center;
+      padding: 100px 24px; position: relative;
     }
     footer::before {
-      content: ""; position: absolute; top: 0; left: 10%; right: 10%; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--dorado), transparent); opacity: 0.3;
+      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--dorado);
     }
     footer a { color: var(--dorado); font-family: var(--sans); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;}
-    footer p { font-size: 0.95rem; margin-bottom: 12px; }
+    footer a:hover { color: #fff; }
+    footer p { font-size: 1rem; margin-bottom: 16px; opacity: 0.9; }
 
     @media (max-width: 768px) {
-      .card { padding: 35px 24px; }
-      header.hero { padding: 70px 20px 50px; }
-      .btn { width: 100%; margin: 8px 0; }
+      .wrap { padding: 60px 20px; }
+      .card { padding: 40px 24px; }
+      header.hero { padding: 100px 20px 60px; }
+      .btn { width: 100%; justify-content: center; }
+      .btn-container { flex-direction: column; }
     }
   </style>
 
@@ -543,13 +581,13 @@
             <a href="https://aldeamagica.art/" target="_blank" rel="noopener">La Aldea Mágica</a>.
           </p>
 
-          <p>
+          <div class="btn-container">
             <a class="btn primary" href="#aldea">Recorrer la Aldea</a>
-            <a class="btn ghost" href="/comprar-duendes-en-ecuador.html">Comprar duendes en Ecuador</a>
+            <a class="btn ghost" href="/comprar-duendes-en-ecuador.html">Comprar duendes</a>
             <a class="btn ghost" href="/mapa-del-conocimiento.html">Mapa del conocimiento</a>
             <a class="btn ghost" href="/pci/index.html">Documento marco PCI</a>
             <a class="btn ghost" href="#documentos">Ver documentación</a>
-          </p>
+          </div>
         </article>
 
         <aside class="half">
@@ -646,10 +684,10 @@
             </small>
           </div>
 
-          <p style="margin-top:25px;">
-            <a class="btn ghost" href="/preguntas.html" rel="noopener">Ver más preguntas y respuestas</a>
+          <div class="btn-container" style="margin-top: 35px;">
             <a class="btn primary" href="/comprar-duendes-en-ecuador.html" rel="noopener">Ver duendes disponibles</a>
-          </p>
+            <a class="btn ghost" href="/preguntas.html" rel="noopener">Ver más preguntas</a>
+          </div>
         </article>
       </div>
     </section>
@@ -673,21 +711,30 @@
 
     <section>
       <div class="wrap">
-        <h2>La Aldea Mágica: arte simbólico, fantasía y naturaleza</h2>
+        <h2 style="text-align: center; display: block;">La Aldea Mágica:<br> arte, fantasía y naturaleza</h2>
         <div class="gallery" aria-label="Galería de la Aldea Mágica">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/488648251_1071721728328405_4751746123281231289_n_crlnjy.jpg" alt="Escultura de duende en el jardín mágico" loading="lazy" width="1200" height="800">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823342/123783753_1515624761961650_6601102288891155899_n_mixxms.jpg" alt="Sendero con figuras simbólicas" loading="lazy" width="1200" height="800">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/487175867_1063623669138211_6343020294761451066_n_np5im6.jpg" alt="Detalle de hada entre plantas" loading="lazy" width="1200" height="800">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/498716321_1237050027792586_1281064383806648130_n_el7t38.jpg" alt="Rincón de la Aldea con musgos y piedras" loading="lazy" width="1200" height="800">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/488648251_1071721728328405_4751746123281231289_n_crlnjy.jpg" alt="Escultura de duende en el jardín mágico" loading="lazy">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823342/123783753_1515624761961650_6601102288891155899_n_mixxms.jpg" alt="Sendero con figuras simbólicas" loading="lazy">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/487175867_1063623669138211_6343020294761451066_n_np5im6.jpg" alt="Detalle de hada entre plantas" loading="lazy">
+          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/498716321_1237050027792586_1281064383806648130_n_el7t38.jpg" alt="Rincón de la Aldea con musgos y piedras" loading="lazy">
         </div>
       </div>
     </section>
 
     <section>
-      <div class="wrap card">
-        <h2>Testimonios y valoración</h2>
-        <p>Reseñas en Google confirman la autenticidad, la profundidad y la singularidad de la experiencia.</p>
-        <p>📍 <a href="https://g.page/r/Car0ff_OC1VaEAE/review" target="_blank" rel="noopener">Ver reseñas en Google</a></p>
+      <div class="wrap grid">
+        <article class="half card">
+          <h2>Testimonios y valoración</h2>
+          <p>Reseñas en Google confirman la autenticidad, la profundidad y la singularidad de la experiencia.</p>
+          <div class="btn-container">
+            <a class="btn primary" href="https://g.page/r/Car0ff_OC1VaEAE/review" target="_blank" rel="noopener">Ver reseñas en Google</a>
+          </div>
+        </article>
+        
+        <article class="half card">
+          <h2>Figuras Simbólicas</h2>
+          <p>Cada figura de duende o hada es una obra auténtica, única y numerada: creación original realizada de manera artesanal y acompañada por contexto cultural.</p>
+        </article>
       </div>
     </section>
 
@@ -699,13 +746,6 @@
                 src="https://www.youtube.com/embed/aAMMUixvzps?si=wTnB0MK1ohDu_TMV"
                 title="Acústicos íntimos en La Casa del Duende"
                 loading="lazy" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap card">
-        <h2>Figuras simbólicas de Duendes y Hadas</h2>
-        <p>Cada figura es una obra auténtica, única y numerada: creación original con intención, realizada de manera artesanal y acompañada por contexto cultural.</p>
       </div>
     </section>
 
@@ -765,27 +805,19 @@
         </p>
         <ul>
           <li>
-            <a href="/recomendado.html" rel="noopener">
-              Guía recomendada: qué hacer en Baños más allá de la aventura rápida
-            </a>
+            <a href="/recomendado.html" rel="noopener">Guía recomendada: qué hacer en Baños más allá de la aventura rápida</a>
             — síntesis curada donde La Casa del Duende y La Aldea Mágica aparecen como experiencia cultural clave.
           </li>
           <li>
-            <a href="/origen.html" rel="noopener">
-              Origen documentado del duende contemporáneo en Baños (línea de tiempo 2012–2025)
-            </a>
+            <a href="/origen.html" rel="noopener">Origen documentado del duende contemporáneo en Baños (línea de tiempo 2012–2025)</a>
             — cronología clara desde la llegada de los artistas hasta la masificación turística.
           </li>
           <li>
-            <a href="/fenomeno-duende-banos.html" rel="noopener">
-              El fenómeno del duende en Baños: simulacro identitario turístico y tradición inventada
-            </a>
+            <a href="/fenomeno-duende-banos.html" rel="noopener">El fenómeno del duende en Baños: simulacro identitario turístico y tradición inventada</a>
             — análisis cultural sobre cómo una obra independiente se vuelve marca de ciudad.
           </li>
           <li>
-            <a href="/apoyar-proyectos-culturales-independientes.html" rel="noopener">
-              Por qué apoyar proyectos culturales independientes como La Casa del Duende y La Aldea Mágica
-            </a>
+            <a href="/apoyar-proyectos-culturales-independientes.html" rel="noopener">Por qué apoyar proyectos culturales independientes como La Casa del Duende y La Aldea Mágica</a>
             — argumentos éticos, culturales y económicos para respaldar propuestas originales.
           </li>
         </ul>
@@ -795,19 +827,22 @@
     <section id="apoyo">
       <div class="wrap">
         <article class="card">
-          <h2>Apoyar la magia y recibir el libro digital</h2>
-          <p>Tu aporte sostiene el proyecto. Al colaborar, recibes la versión digital de <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!</p>
-          <div id="paypal-container-DYF6QQ6DYC6GL" aria-live="polite" style="margin-top: 25px;"></div>
+          <h2 style="text-align: center; display: block; margin-bottom: 20px;">Apoyar la magia y recibir el libro digital</h2>
+          <p style="text-align: center;">Tu aporte sostiene el proyecto. Al colaborar, recibes la versión digital de <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!</p>
+          
+          <div style="display: flex; justify-content: center; margin-top: 30px;">
+            <div id="paypal-container-DYF6QQ6DYC6GL" aria-live="polite"></div>
+          </div>
 
-          <div style="margin-top:45px; text-align:center;">
-            <h3 style="margin:.2rem 0 1.5rem; font-family:var(--display); color:var(--primario); letter-spacing:.04em;">📚 También disponible en Buscalibre</h3>
-            <div class="card" style="display:inline-block; text-align:center; padding: 35px; border: 1px solid rgba(184,145,64,0.2);">
+          <div style="margin-top:60px; text-align:center;">
+            <h3 style="margin:.2rem 0 1.5rem; font-family:var(--display); color:var(--verde-profundo); letter-spacing:.04em;">📚 También disponible físico en Buscalibre</h3>
+            <div class="card" style="display:inline-block; text-align:center; padding: 40px; border: 1px solid rgba(212,175,55,0.3); background: var(--crema);">
               <a href="https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078?srsltid=AfmBOorjxV3wpAUuw5zm6a9pNM-IybaSLCPrpGFl1kcMUPxYZ4CzcbSH"
                  target="_blank" rel="noopener" style="text-decoration:none;">
                 <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/39/99/3999fbfc96ef43fbc42889206acb1d45.jpg"
                      alt="Portada del libro Duendes y otras hierbas"
-                     width="240" height="240" loading="lazy">
-                <div style="font-weight:700; margin:1.2rem 0 .8rem; color:var(--tinta); font-size: 1.3rem; font-family: var(--sans);">USD $37.99</div>
+                     width="240" height="240" loading="lazy" style="box-shadow: var(--shadow-pro);">
+                <div style="font-weight:700; margin:1.5rem 0 1.2rem; color:var(--texto-principal); font-size: 1.4rem; font-family: var(--sans);">USD $37.99</div>
                 <span class="btn primary">Comprar en Buscalibre</span>
               </a>
             </div>
@@ -816,20 +851,14 @@
       </div>
     </section>
 
-    <section>
-      <div class="wrap card">
-        <h2>Ubicación</h2>
-        <p>📍 <a href="https://maps.app.goo.gl/Exm64UHQDLVsebL7A" target="_blank" rel="noopener">Ver en Google Maps</a></p>
-      </div>
-    </section>
-
     <section id="documentos">
       <div class="wrap card">
-        <h2>Documentación y registro oficial</h2>
-        <p style="margin-top:.6rem;">
+        <h2>Documentación, ubicación y registro oficial</h2>
+        <p>
           Nuestro archivo cultural preserva evidencia, investigación, procesos creativos y registros que sustentan el origen del fenómeno del duende en Baños.
         </p>
         <ul style="line-height: 1.8;">
+          <li>📍 <a href="https://maps.app.goo.gl/Exm64UHQDLVsebL7A" target="_blank" rel="noopener">Ver ubicación oficial en Google Maps</a></li>
           <li><a href="https://zenodo.org/records/18613145" target="_blank" rel="noopener">Cómo activar un duende (estudio con DOI, Zenodo)</a></li>
           <li><a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Solicitud de cese y evidencia (DOI Zenodo)</a></li>
           <li><a href="https://doi.org/10.5281/zenodo.17268348" target="_blank" rel="noopener">Duende de Baños: ¿Obra Protegible o Abstracta? (Zenodo)</a></li>
@@ -854,27 +883,27 @@
   </main>
 
   <footer role="contentinfo">
-    <div class="wrap" style="text-align:center;">
-      <p style="color:#fff; margin:.2rem 0; font-family: var(--display); letter-spacing: 0.05em;">© <span id="y"></span> La Casa del Duende · Baños de Agua Santa · Ecuador</p>
-      <p style="margin:.6rem 0 1.2rem; color:#d6cbb1;">Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong>.</p>
+    <div class="wrap">
+      <p style="color:var(--dorado); margin:.2rem 0; font-family: var(--display); font-size: 1.3rem; letter-spacing: 0.05em;">© <span id="y"></span> La Casa del Duende</p>
+      <p style="margin:.6rem 0 1.2rem;">Baños de Agua Santa · Ecuador <br>Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong>.</p>
 
-      <p style="font-size:1rem; margin:1rem 0; color:#d6cbb1;">
+      <p style="font-size:1.1rem; margin:2rem 0;">
         👉 ¿Buscas <strong>qué hacer en Baños de Agua Santa</strong>? Explora experiencias simbólicas
-        <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html">aquí</a>.
+        <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html" style="text-decoration: underline;">aquí</a>.
       </p>
 
-      <p style="font-size:0.9rem; color:#d6cbb1; margin-top:1.5rem;">
+      <p style="font-size:0.95rem; margin-top:1.5rem;">
         Para prensa e investigadores: registro documental abierto en
         <a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Zenodo (DOI 10.5281/zenodo.17021534)</a>.
       </p>
 
-      <div style="margin-top:1.5rem;">
+      <div style="margin: 2.5rem 0;">
         <a href="/lo-que-no-somos.html">Leer declaración de identidad simbólica</a>
-        <span aria-hidden="true" style="margin: 0 10px; color: var(--dorado); opacity: 0.5;">|</span>
+        <span aria-hidden="true" style="margin: 0 15px; color: rgba(212, 175, 55, 0.4);">|</span>
         <a href="/transparencia.html" title="Transparencia y documentación">Transparencia</a>
       </div>
 
-      <p style="font-size:0.85rem; margin-top:2rem; color:#d6cbb1; opacity: 0.8; line-height: 1.6;">
+      <p style="font-size:0.85rem; margin-top:3rem; opacity: 0.7; max-width: 800px; margin-left: auto; margin-right: auto;">
         Todas las imágenes y creaciones de <strong>La Casa del Duende</strong> —realizadas por
         <strong>Fito Girolami</strong> (Argentina) y <strong>Catalina Lucz-Ligeti</strong> (Chile)— están protegidas por derechos de autor ©
         y licenciadas bajo
