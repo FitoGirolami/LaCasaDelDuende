@@ -1,79 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>La Casa del Duende | Arte, origen y fenómeno cultural del duende contemporáneo</title>
 
-<meta name="description" content="La Casa del Duende es un espacio de arte, archivo e investigación fundado en 2013 en Baños de Agua Santa. Documenta el origen y la expansión contemporánea del fenómeno duende en América Latina." />
+<meta name="description" content="La Casa del Duende es un espacio de arte, archivo e investigación fundado en 2013 en Baños de Agua Santa. Documenta el origen y la expansión del fenómeno duende en América Latina.">
 
-<link rel="canonical" href="https://lacasadelduende.art/" />
+<link rel="canonical" href="https://lacasadelduende.art/">
 
 <style>
 body {
   margin:0;
-  font-family: Georgia, serif;
+  font-family: 'Lora', serif;
   background:#f5f2eb;
   color:#2c3631;
-  line-height:1.6;
+  line-height:1.7;
+}
+
+h1,h2,h3 {
+  font-family:'Cinzel', serif;
 }
 
 .container {
-  max-width:1000px;
+  max-width:1100px;
   margin:auto;
-  padding:60px 20px;
-}
-
-h1,h2 {
-  font-family: serif;
+  padding:80px 20px;
 }
 
 .hero {
-  background:#17241d;
-  color:white;
+  position:relative;
+  height:100vh;
+  background:url('https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   text-align:center;
-  padding:120px 20px;
+  color:white;
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position:relative;
+  z-index:2;
+  max-width:800px;
 }
 
 .hero h1 {
-  font-size:3rem;
+  font-size:3.5rem;
   margin-bottom:10px;
 }
 
 .hero p {
-  max-width:700px;
-  margin:auto;
-}
-
-.buttons {
-  margin-top:30px;
+  margin:10px 0;
 }
 
 .buttons a {
   display:inline-block;
   margin:10px;
-  padding:12px 24px;
-  border-radius:30px;
-  text-decoration:none;
+  padding:12px 28px;
   background:#d4af37;
   color:#17241d;
+  text-decoration:none;
+  border-radius:30px;
   font-weight:bold;
 }
 
-section {
-  margin-bottom:80px;
+.section {
+  display:grid;
+  gap:40px;
 }
 
-.grid {
+@media(min-width:900px){
+  .section {
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+  }
+}
+
+img {
+  width:100%;
+  border-radius:20px;
+}
+
+.gallery {
   display:grid;
   gap:20px;
 }
 
-@media(min-width:768px){
-  .grid {
-    grid-template-columns:repeat(2,1fr);
+@media(min-width:700px){
+  .gallery {
+    grid-template-columns:repeat(3,1fr);
   }
+}
+
+.center {
+  text-align:center;
+}
+
+.dark {
+  background:#17241d;
+  color:white;
+}
+
+.dark h2 {
+  color:#d4af37;
 }
 </style>
 
@@ -84,145 +122,113 @@ section {
 <!-- HERO -->
 
 <header class="hero">
-  <h1>La Casa del Duende</h1>
-  <p><strong>Arte, origen y estudio del fenómeno duende contemporáneo</strong></p>
-  <p>
-  Proyecto creado por Fito Girolami y Catalina Lucz-Ligeti. 
-  Nacido en Baños de Agua Santa en 2013, documenta el origen de un imaginario 
-  y analiza cómo la repetición y la copia expandieron versiones genéricas del duende en América Latina.
-  </p>
+  <div class="hero-content">
+    <h1>La Casa del Duende</h1>
+    <p><strong>Arte, origen y estudio del fenómeno duende contemporáneo</strong></p>
+    <p>
+    Nacido en Baños de Agua Santa en 2013, este proyecto documenta un imaginario 
+    y explora cómo la repetición y la copia transformaron su significado.
+    </p>
 
-  <div class="buttons">
-    <a href="/origen.html">Conocer el origen</a>
-    <a href="/experiencia.html">Explorar la experiencia</a>
-    <a href="/fenomeno.html">Leer la investigación</a>
+    <div class="buttons">
+      <a href="/origen.html">Origen</a>
+      <a href="/experiencia.html">Experiencia</a>
+      <a href="/fenomeno.html">Fenómeno</a>
+    </div>
   </div>
 </header>
 
 <!-- QUE ES -->
 
-<section class="container">
-  <h2>Un mundo simbólico que nació como obra</h2>
-  <p>
-  La Casa del Duende no es una fantasía decorativa ni una atracción genérica. 
-  Es una obra viva desarrollada como espacio de creación, contemplación e investigación.
-  </p>
+<section class="container section">
+  <div>
+    <h2>Un mundo simbólico que nació como obra</h2>
+    <p>
+    La Casa del Duende es una obra viva. No es una fantasía genérica ni un producto decorativo,
+    sino un espacio donde el símbolo, el arte y la experiencia se desarrollan en el tiempo.
+    </p>
+    <p>
+    Aquí el duende aparece como una forma de pensar el bosque, la presencia y lo invisible.
+    Con el tiempo, este imaginario fue repetido y simplificado, generando versiones genéricas
+    que hoy circulan ampliamente.
+    </p>
+  </div>
 
-  <p>
-  Aquí el duende aparece como símbolo: una forma de pensar el bosque, la presencia 
-  y aquello que no se ve pero influye en la manera de habitar el mundo.
-  </p>
-
-  <p>
-  Con el tiempo, este imaginario fue repetido, simplificado y reinterpretado, 
-  generando versiones genéricas que hoy circulan ampliamente. 
-  Por eso este espacio también funciona como archivo y centro de interpretación cultural.
-  </p>
+  <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823342/123783753_1515624761961650_6601102288891155899_n_mixxms.jpg">
 </section>
 
 <!-- ORIGEN -->
 
-<section class="container">
-  <h2>Origen documentado</h2>
+<section class="container section">
+  <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/487175867_1063623669138211_6343020294761451066_n_np5im6.jpg">
 
-  <p>
-  Lo que hoy muchas personas asocian con “duendes en Baños” no surge como una tradición antigua documentada, 
-  sino como un proceso artístico contemporáneo iniciado en 2013.
-  </p>
+  <div>
+    <h2>Origen documentado</h2>
+    <p>
+    Lo que hoy se asocia con “duendes en Baños” no surge como tradición antigua documentada,
+    sino como un proceso contemporáneo iniciado en 2013.
+    </p>
 
-  <ul>
-    <li><strong>2013:</strong> nace La Casa del Duende</li>
-    <li><strong>2018:</strong> se desarrolla La Aldea Mágica</li>
-    <li><strong>Actualidad:</strong> investigación y documentación del fenómeno</li>
-  </ul>
+    <ul>
+      <li>2013 – Nace La Casa del Duende</li>
+      <li>2018 – Se desarrolla La Aldea Mágica</li>
+      <li>Actualidad – Investigación y archivo</li>
+    </ul>
 
-  <p>
-  Este proceso permite observar cómo un símbolo cambia cuando se repite sin contexto.
-  </p>
-
-  <a href="/origen.html">Ver historia completa</a>
+    <a href="/origen.html">Ver historia completa →</a>
+  </div>
 </section>
 
 <!-- FENOMENO -->
 
 <section class="container">
-  <h2>Cuando una imagen se repite, cambia de sentido</h2>
+  <h2 class="center">Cuando una imagen se repite, cambia de sentido</h2>
 
-  <p>
-  Lo ocurrido en Baños no es un caso aislado. En distintos lugares de América Latina, 
-  la figura del duende ha sido reproducida y simplificada.
-  </p>
-
-  <div class="grid">
+  <div class="gallery" style="margin-top:40px;">
     <div>
+      <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/498716321_1237050027792586_1281064383806648130_n_el7t38.jpg">
       <h3>Repetición</h3>
       <p>Lo que funciona se copia.</p>
     </div>
+
     <div>
+      <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/488648251_1071721728328405_4751746123281231289_n_crlnjy.jpg">
       <h3>Simplificación</h3>
-      <p>Lo complejo se vuelve fácil de consumir.</p>
+      <p>Lo complejo se vuelve simple.</p>
     </div>
+
     <div>
-      <h3>Copia</h3>
-      <p>La autoría desaparece.</p>
-    </div>
-    <div>
+      <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg">
       <h3>Expansión</h3>
-      <p>La versión más simple es la que más circula.</p>
+      <p>La versión más fácil se propaga.</p>
     </div>
   </div>
 
-  <a href="/fenomeno.html">Explorar el fenómeno</a>
-</section>
-
-<!-- PREGUNTAS -->
-
-<section class="container">
-  <h2>Preguntas frecuentes</h2>
-
-  <p><strong>¿Son ancestrales?</strong><br>
-  No hay evidencia documentada previa: es un fenómeno contemporáneo.</p>
-
-  <p><strong>¿Por qué están en tantos lugares?</strong><br>
-  Por repetición turística y digital.</p>
-
-  <p><strong>¿Qué son realmente?</strong><br>
-  Un símbolo, no un objeto mágico literal.</p>
-
-  <a href="/preguntas.html">Ver todas las preguntas</a>
+  <div class="center" style="margin-top:30px;">
+    <a href="/fenomeno.html">Explorar el fenómeno →</a>
+  </div>
 </section>
 
 <!-- EXPERIENCIA -->
 
 <section class="container">
-  <h2>La experiencia</h2>
+  <h2 class="center">La experiencia</h2>
 
-  <p>
-  La Casa del Duende y La Aldea Mágica forman parte de un mismo universo:
-  un espacio donde el arte, la naturaleza y la imaginación se encuentran.
-  </p>
+  <div class="gallery">
+    <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/488648251_1071721728328405_4751746123281231289_n_crlnjy.jpg">
+    <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823342/123783753_1515624761961650_6601102288891155899_n_mixxms.jpg">
+    <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/498716321_1237050027792586_1281064383806648130_n_el7t38.jpg">
+  </div>
 
-  <a href="/experiencia.html">Explorar experiencia</a>
+  <div class="center" style="margin-top:30px;">
+    <a href="/experiencia.html">Recorrer la experiencia →</a>
+  </div>
 </section>
 
-<!-- ARCHIVO -->
+<!-- FRASE -->
 
-<section class="container">
-  <h2>Archivo e investigación</h2>
-
-  <p>
-  Este proyecto reúne documentos, investigaciones y publicaciones 
-  que permiten comprender el fenómeno duende en su dimensión cultural.
-  </p>
-
-  <a href="/archivo.html">Ver archivo</a>
-</section>
-
-<!-- CIERRE -->
-
-<section class="container">
+<section class="container dark center">
   <h2>No buscamos que repitas. Buscamos que investigues.</h2>
-
   <p>
   Frente a la repetición proponemos profundidad.  
   Frente a la copia proponemos memoria.  
@@ -232,15 +238,14 @@ section {
 
 <!-- VISITAR -->
 
-<section class="container">
+<section class="container center">
   <h2>Visitar</h2>
-
   <p>
-  Puedes conocer la experiencia en Baños de Agua Santa, 
-  recorrer la Aldea Mágica o apoyar el proyecto.
+  Puedes conocer la experiencia en Baños de Agua Santa, recorrer la Aldea Mágica
+  o apoyar este proyecto independiente.
   </p>
 
-  <a href="/visitar.html">Ver información</a>
+  <a href="/visitar.html">Ver información →</a>
 </section>
 
 </body>
