@@ -1,928 +1,247 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="canonical" href="https://lacasadelduende.art/" />
-  <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1"/>
+<title>La Casa del Duende | Arte, origen y fenómeno cultural del duende contemporáneo</title>
 
-  <title>La Casa del Duende | Arte, duendes y mundo imaginario propio en Baños de Agua Santa</title>
-  <meta name="description" content="La Casa del Duende es el origen documentado del mundo contemporáneo del duende en Baños de Agua Santa. Arte independiente, figuras originales, investigación cultural y un universo simbólico propio creado por Fito Girolami y Catalina Lucz-Ligeti." />
-  <meta name="keywords" content="La Casa del Duende, duendes en Baños, duendes Ecuador, mundo del duende, arte simbólico, imaginario del bosque, figuras de duendes, Fito Girolami, Catalina Lucz-Ligeti, Baños de Agua Santa, arte independiente, cultura viva" />
-  <meta name="author" content="Fito Girolami, Catalina Lucz-Ligeti" />
+<meta name="description" content="La Casa del Duende es un espacio de arte, archivo e investigación fundado en 2013 en Baños de Agua Santa. Documenta el origen y la expansión contemporánea del fenómeno duende en América Latina." />
 
-  <meta property="og:locale" content="es_EC"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://lacasadelduende.art/"/>
-  <meta property="og:site_name" content="La Casa del Duende"/>
-  <meta property="og:title" content="La Casa del Duende | Arte, duendes y mundo imaginario propio en Baños de Agua Santa"/>
-  <meta property="og:description" content="Origen documentado del mundo contemporáneo del duende en Baños de Agua Santa. Arte independiente, figuras originales, investigación cultural y universo simbólico propio creado por Fito Girolami y Catalina Lucz-Ligeti."/>
-  <meta property="og:image" content="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg"/>
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-  <meta property="og:image:alt" content="La Casa del Duende en Baños de Agua Santa, arte simbólico y mundo imaginario propio"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="La Casa del Duende | Arte, duendes y mundo imaginario propio en Baños de Agua Santa"/>
-  <meta name="twitter:description" content="Arte independiente, figuras originales, investigación cultural y universo simbólico propio en Baños de Agua Santa."/>
-  <meta name="twitter:image" content="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg"/>
+<link rel="canonical" href="https://lacasadelduende.art/" />
 
-  <meta name="geo.position" content="-1.392255;-78.419648">
-  <meta name="geo.placename" content="La Aldea Mágica, Baños de Agua Santa, Ecuador">
-  <meta name="geo.region" content="EC-T">
+<style>
+body {
+  margin:0;
+  font-family: Georgia, serif;
+  background:#f5f2eb;
+  color:#2c3631;
+  line-height:1.6;
+}
 
-  <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32">
-  <meta name="theme-color" content="#1b2a22">
+.container {
+  max-width:1000px;
+  margin:auto;
+  padding:60px 20px;
+}
 
-  <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
-  <link rel="preload" as="image" href="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg">
+h1,h2 {
+  font-family: serif;
+}
 
-  <link rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
-  <meta name="license" content="Creative Commons CC BY-NC-ND 4.0">
-  <meta name="rights" content="© La Casa del Duende – Fito Girolami & Catalina Lucz-Ligeti">
-  <meta name="copyright" content="© La Casa del Duende">
+.hero {
+  background:#17241d;
+  color:white;
+  text-align:center;
+  padding:120px 20px;
+}
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NCLBJT60LV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-NCLBJT60LV', { anonymize_ip: true });
-  </script>
+.hero h1 {
+  font-size:3rem;
+  margin-bottom:10px;
+}
 
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;700&display=swap');
+.hero p {
+  max-width:700px;
+  margin:auto;
+}
 
-    :root {
-      /* Nueva paleta "Bosque Encantado" */
-      --verde-profundo: #17241d;
-      --verde-bosque: #23382d;
-      --verde-claro: #e9f0eb;
-      --dorado: #d4af37;
-      --dorado-oscuro: #b59226;
-      --crema: #fdfbf7;
-      --pergamino: #f5f2eb;
-      --texto-principal: #2c3631;
-      --texto-secundario: #4a5750;
-      
-      --radius-sm: 16px;
-      --radius-md: 24px;
-      --radius-lg: 32px;
-      
-      --shadow-soft: 0 10px 30px rgba(23, 36, 29, 0.05);
-      --shadow-pro: 0 20px 40px rgba(23, 36, 29, 0.12);
-      --shadow-gold: 0 8px 25px rgba(212, 175, 55, 0.2);
-      
-      --serif: 'Lora', serif;
-      --display: 'Cinzel', serif;
-      --sans: 'Inter', sans-serif;
-    }
+.buttons {
+  margin-top:30px;
+}
 
-    ::-webkit-scrollbar { width: 12px; }
-    ::-webkit-scrollbar-track { background: var(--crema); }
-    ::-webkit-scrollbar-thumb { background: var(--dorado); border-radius: 10px; border: 3px solid var(--crema); }
-    ::-webkit-scrollbar-thumb:hover { background: var(--dorado-oscuro); }
+.buttons a {
+  display:inline-block;
+  margin:10px;
+  padding:12px 24px;
+  border-radius:30px;
+  text-decoration:none;
+  background:#d4af37;
+  color:#17241d;
+  font-weight:bold;
+}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+section {
+  margin-bottom:80px;
+}
 
-    body {
-      margin: 0;
-      color: var(--texto-principal);
-      background-color: var(--crema);
-      background-image: radial-gradient(circle at 100% 0%, var(--verde-claro) 0%, transparent 40%),
-                        radial-gradient(circle at 0% 100%, var(--pergamino) 0%, transparent 40%);
-      font: 1.125rem/1.8 var(--serif);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+.grid {
+  display:grid;
+  gap:20px;
+}
 
-    a { color: var(--verde-bosque); text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
-    a:hover { color: var(--dorado-oscuro); text-decoration: underline; text-underline-offset: 4px; }
-
-    img {
-      max-width: 100%; height: auto;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s ease;
-      object-fit: cover;
-    }
-    img:hover { transform: scale(1.03); box-shadow: var(--shadow-pro); }
-
-    .wrap { max-width: 1140px; margin: 0 auto; padding: 80px 24px; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0px); }
-    }
-
-    /* Rediseño del Hero */
-    header.hero {
-      background: linear-gradient(to bottom, rgba(23, 36, 29, 0.7), rgba(23, 36, 29, 0.95)),
-                  url('https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg') center/cover no-repeat;
-      color: var(--crema); 
-      text-align: center;
-      padding: 120px 20px 100px;
-      position: relative; 
-      overflow: hidden;
-      border-bottom: 4px solid var(--dorado);
-    }
-
-    header .brand { 
-      display: flex; flex-direction: column; align-items: center; justify-content: center; 
-      gap: 1.5rem; margin-bottom: 40px; 
-      animation: fadeIn 1s ease-out forwards; 
-    }
-    
-    header .brand img {
-      width: 140px; 
-      border: 2px solid var(--dorado);
-      border-radius: 50%; 
-      background: rgba(253, 251, 247, 0.95); 
-      padding: 8px;
-      box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    header h1 {
-      margin: 0; font: 800 clamp(2.5rem, 6vw, 4.5rem)/1.1 var(--display);
-      color: var(--crema); letter-spacing: 0.02em;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
-    }
-
-    header p.sub {
-      margin: 16px auto; max-width: 860px;
-      font-family: var(--serif); font-size: 1.2rem;
-      color: rgba(253, 251, 247, 0.9);
-      line-height: 1.6;
-      opacity: 0; animation: fadeIn 0.8s ease-out 0.3s forwards;
-    }
-    
-    header p.sub strong { color: var(--dorado); font-weight: 600; }
-
-    /* Navegación rediseñada */
-    nav.main {
-      margin-top: 60px; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
-      opacity: 0; animation: fadeIn 0.8s ease-out 0.6s forwards; position: relative; z-index: 10;
-      max-width: 1000px; margin-left: auto; margin-right: auto;
-    }
-    nav.main a {
-      font: 600 0.8rem var(--sans);
-      color: var(--crema);
-      padding: 12px 24px;
-      border-radius: 50px;
-      background: rgba(23, 36, 29, 0.6);
-      border: 1px solid rgba(212, 175, 55, 0.5);
-      letter-spacing: 0.05em; text-transform: uppercase;
-      backdrop-filter: blur(8px);
-      transition: all 0.3s ease;
-    }
-    nav.main a:hover {
-      background: var(--dorado); color: var(--verde-profundo);
-      transform: translateY(-3px); box-shadow: var(--shadow-gold);
-      text-decoration: none; border-color: var(--dorado);
-    }
-
-    section { position: relative; z-index: 1; }
-    section:nth-child(even) { background-color: var(--pergamino); border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
-
-    h2 {
-      margin: 0 0 40px; color: var(--verde-profundo);
-      font: 700 clamp(2rem, 4vw, 2.8rem)/1.2 var(--display);
-      position: relative; display: inline-block;
-    }
-    h2::after {
-      content: ""; position: absolute; left: 0; bottom: -12px;
-      width: 80px; height: 3px; background: var(--dorado); border-radius: 2px;
-    }
-
-    p { margin: 0 0 1.5rem; color: var(--texto-secundario); }
-    p:last-child { margin-bottom: 0; }
-    strong { color: var(--verde-bosque); }
-
-    /* Tarjetas rediseñadas */
-    .card {
-      background: #ffffff;
-      border: 1px solid rgba(212, 175, 55, 0.15);
-      border-radius: var(--radius-lg);
-      padding: 60px;
-      box-shadow: var(--shadow-soft);
-      position: relative; overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-pro); }
-    .card::before {
-      content: "✦"; position: absolute; top: 30px; right: 40px;
-      color: var(--dorado); font-size: 2rem; opacity: 0.15; font-family: var(--display);
-    }
-
-    .grid { display: grid; grid-template-columns: repeat(12,1fr); gap: 50px; align-items: center; }
-    .half { grid-column: span 12; }
-    @media(min-width: 900px){ .half { grid-column: span 6; } }
-
-    .gallery { display: grid; grid-template-columns: repeat(12,1fr); gap: 30px; }
-    .gallery img { grid-column: span 12; height: 350px; width: 100%; }
-    @media(min-width: 600px){ .gallery img { grid-column: span 6; } }
-    @media(min-width: 900px){ .gallery img { grid-column: span 3; height: 250px; } }
-
-    /* Botones rediseñados */
-    .btn-container { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 15px; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 14px 32px; border-radius: 50px;
-      font: 600 0.85rem var(--sans); letter-spacing: 0.05em; text-transform: uppercase;
-      transition: all 0.3s ease; text-align: center; cursor: pointer;
-    }
-    .btn.primary {
-      background: var(--verde-bosque); color: var(--crema); border: 2px solid var(--verde-bosque);
-    }
-    .btn.primary:hover {
-      background: var(--dorado); border-color: var(--dorado); color: var(--verde-profundo);
-      transform: translateY(-3px); box-shadow: var(--shadow-gold); text-decoration: none;
-    }
-    .btn.ghost {
-      border: 2px solid var(--dorado); color: var(--verde-bosque); background: transparent;
-    }
-    .btn.ghost:hover {
-      background: var(--dorado); color: var(--verde-profundo); text-decoration: none; transform: translateY(-3px);
-      box-shadow: var(--shadow-gold);
-    }
-
-    iframe.embed {
-      width: 100%; aspect-ratio: 16/9; border: none;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-soft); transition: box-shadow 0.4s ease;
-      margin-top: 20px;
-    }
-    iframe.embed:hover { box-shadow: var(--shadow-pro); }
-
-    /* Sección Arquetipos */
-    .arquetipos { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 30px;}
-    @media(min-width: 900px){ .arquetipos { grid-template-columns: 4fr 8fr; align-items: start; } }
-
-    .ficha {
-      border-radius: var(--radius-md);
-      background: var(--verde-claro);
-      padding: 40px; margin-bottom: 25px;
-      border: 1px solid rgba(255,255,255,0.8);
-      box-shadow: var(--shadow-soft);
-      transition: transform 0.3s ease, background 0.3s ease;
-    }
-    .ficha:hover { transform: translateX(8px); background: #ffffff; }
-    .ficha .tag {
-      background: var(--dorado); color: var(--verde-profundo); padding: 6px 16px; border-radius: 50px;
-      font: 700 0.7rem var(--sans); text-transform: uppercase; letter-spacing: 0.05em;
-      display: inline-block; margin-bottom: 15px;
-    }
-    .ficha h3 { margin: 0 0 15px; color: var(--verde-profundo); font: 700 1.6rem var(--display); }
-    .ficha .seal {
-      margin-top: 25px; padding-top: 20px; border-top: 1px dashed rgba(212, 175, 55, 0.5);
-      color: var(--verde-bosque); font-style: italic; font-size: 1rem; font-weight: 500;
-    }
-
-    .note {
-      margin-top: 35px; padding: 25px 30px; border-radius: var(--radius-sm);
-      background: var(--pergamino); border-left: 5px solid var(--dorado);
-      font-size: 1rem; line-height: 1.6; color: var(--texto-secundario);
-    }
-    .note small { font-family: var(--sans); }
-
-    ul { padding-left: 20px; }
-    li { margin-bottom: 12px; color: var(--texto-secundario); }
-    li::marker { color: var(--dorado); font-size: 1.2em; }
-
-    /* Footer */
-    footer {
-      background: var(--verde-profundo); color: var(--pergamino); text-align: center;
-      padding: 100px 24px; position: relative;
-    }
-    footer::before {
-      content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
-      background: var(--dorado);
-    }
-    footer a { color: var(--dorado); font-family: var(--sans); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em;}
-    footer a:hover { color: #fff; }
-    footer p { font-size: 1rem; margin-bottom: 16px; opacity: 0.9; }
-
-    @media (max-width: 768px) {
-      .wrap { padding: 60px 20px; }
-      .card { padding: 40px 24px; }
-      header.hero { padding: 100px 20px 60px; }
-      .btn { width: 100%; justify-content: center; }
-      .btn-container { flex-direction: column; }
-    }
-  </style>
-
-  <script src="https://www.paypal.com/sdk/js?client-id=BAAf9C-LnwsUQqvpcrz_BK_npK1KlMxdApNimwKxQMwoccBRihhepT16GuvZs17IUujYln4lmcfwhzfG7k&components=hosted-buttons&disable-funding=venmo&currency=USD" defer></script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://lacasadelduende.art/#org",
-        "name": "La Casa del Duende",
-        "url": "https://lacasadelduende.art/",
-        "logo": "https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png",
-        "foundingDate": "2013-01-01",
-        "description": "La Casa del Duende es un espacio cultural independiente en Baños de Agua Santa, Ecuador, origen documentado del mundo contemporáneo del duende: arte simbólico, figuras originales, investigación cultural y universo imaginario propio.",
-        "founder": [
-          { "@id": "https://lacasadelduende.art/#person-fito" },
-          { "@id": "https://lacasadelduende.art/#person-cata" }
-        ],
-        "sameAs": [
-          "https://maps.app.goo.gl/Exm64UHQDLVsebL7A",
-          "https://banos.travel/",
-          "https://zenodo.org/record/15733877"
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://lacasadelduende.art/#person-fito",
-        "name": "Fito Girolami",
-        "nationality": "Argentina",
-        "jobTitle": "Artista e investigador",
-        "affiliation": { "@id": "https://lacasadelduende.art/#org" },
-        "sameAs": [
-          "https://www.wikidata.org/wiki/Q134989795",
-          "https://zenodo.org/records/16891513",
-          "https://lacasadelduende.art/"
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://lacasadelduende.art/#person-cata",
-        "name": "Catalina Lucz-Ligeti",
-        "nationality": "Chile",
-        "jobTitle": "Artista y coautora",
-        "affiliation": { "@id": "https://lacasadelduende.art/#org" },
-        "sameAs": [
-          "https://lacasadelduende.art/",
-          "https://banos.travel/"
-        ]
-      },
-      {
-        "@type": "Place",
-        "@id": "https://lacasadelduende.art/#place",
-        "name": "La Aldea Mágica",
-        "description": "Jardín inmersivo de arte, naturaleza, fantasía y duendes en Baños de Agua Santa, parte del universo creativo de La Casa del Duende.",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Baños de Agua Santa",
-          "addressRegion": "Tungurahua",
-          "addressCountry": "EC"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": -1.392255,
-          "longitude": -78.419648
-        }
-      },
-      {
-        "@type": "TouristAttraction",
-        "@id": "https://lacasadelduende.art/#attraction",
-        "name": "La Casa del Duende",
-        "description": "Espacio cultural independiente en Baños de Agua Santa, fundado en 2013 por Fito Girolami y Catalina Lucz-Ligeti. Origen documentado del mundo contemporáneo del duende en Baños: arte simbólico, figuras originales, investigación cultural y universo imaginario propio vinculado a La Aldea Mágica.",
-        "url": "https://lacasadelduende.art/",
-        "image": "https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/La_casa_del_Duende_Banos_hlghri.jpg",
-        "touristType": "Turismo cultural y arte independiente",
-        "founder": [
-          { "@id": "https://lacasadelduende.art/#person-fito" },
-          { "@id": "https://lacasadelduende.art/#person-cata" }
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Baños de Agua Santa",
-          "addressRegion": "Tungurahua",
-          "addressCountry": "EC"
-        },
-        "isPartOf": { "@id": "https://lacasadelduende.art/#place" },
-        "sameAs": [
-          "https://maps.app.goo.gl/Exm64UHQDLVsebL7A",
-          "https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://lacasadelduende.art/#website",
-        "url": "https://lacasadelduende.art/",
-        "name": "La Casa del Duende",
-        "inLanguage": "es",
-        "publisher": { "@id": "https://lacasadelduende.art/#org" }
-      },
-      {
-        "@type": "WebPage",
-        "@id": "https://lacasadelduende.art/#webpage",
-        "url": "https://lacasadelduende.art/",
-        "name": "La Casa del Duende | Arte, duendes y mundo imaginario propio en Baños de Agua Santa",
-        "isPartOf": { "@id": "https://lacasadelduende.art/#website" },
-        "about": { "@id": "https://lacasadelduende.art/#attraction" },
-        "inLanguage": "es",
-        "breadcrumb": { "@id": "https://lacasadelduende.art/#breadcrumbs" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "@id": "https://lacasadelduende.art/#breadcrumbs",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://lacasadelduende.art/" },
-          { "@type": "ListItem", "position": 2, "name": "La Aldea Mágica", "item": "https://aldeamagica.art/" },
-          { "@type": "ListItem", "position": 3, "name": "Activar un duende", "item": "https://lacasadelduende.art/#activar" }
-        ]
-      },
-      {
-        "@type": "CreativeWork",
-        "@id": "https://lacasadelduende.art/#obra",
-        "name": "Imágenes y obras de La Casa del Duende",
-        "creator": [
-          { "@id": "https://lacasadelduende.art/#person-fito" },
-          { "@id": "https://lacasadelduende.art/#person-cata" }
-        ],
-        "copyrightHolder": { "@id": "https://lacasadelduende.art/#org" },
-        "copyrightYear": "2013",
-        "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-        "locationCreated": { "@id": "https://lacasadelduende.art/#place" }
-      }
-    ]
+@media(min-width:768px){
+  .grid {
+    grid-template-columns:repeat(2,1fr);
   }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Report",
-    "@id": "https://doi.org/10.5281/zenodo.17021534#report",
-    "name": "Registro público de evidencia y solicitud de cese — proyecto «Bosque Encantado», Baños de Agua Santa (31/08/2025)",
-    "author": [
-      { "@type": "Person", "name": "Fito Girolami", "affiliation": "La Casa del Duende" },
-      { "@type": "Person", "name": "Catalina Lucz-Ligeti", "affiliation": "La Casa del Duende" }
-    ],
-    "datePublished": "2025-09-01",
-    "inLanguage": "es",
-    "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "identifier": {
-      "@type": "PropertyValue",
-      "propertyID": "DOI",
-      "value": "10.5281/zenodo.17021534",
-      "url": "https://doi.org/10.5281/zenodo.17021534"
-    },
-    "url": "https://doi.org/10.5281/zenodo.17021534",
-    "sameAs": ["https://zenodo.org/records/17021534"],
-    "isPartOf": { "@type": "WebSite", "name": "La Casa del Duende", "url": "https://lacasadelduende.art/" },
-    "about": "Documento con evidencia primaria (PDF + video + checksums) que respalda una solicitud de cese y abstención por presuntas prácticas desleales."
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"ScholarlyArticle",
-    "@id":"https://doi.org/10.5281/zenodo.17268348",
-    "name":"Duende de Baños: ¿Obra Protegible o Abstracta?",
-    "author":[
-      {"@type":"Person","name":"Fito Girolami"},
-      {"@type":"Person","name":"Catalina Lucz-Ligeti"}
-    ],
-    "inLanguage":"es",
-    "datePublished":"2025-10-04",
-    "license":"https://creativecommons.org/licenses/by-nc-nd/4.0/",
-    "url":"https://doi.org/10.5281/zenodo.17268348",
-    "isPartOf":{"@type":"CreativeWorkSeries","name":"Archivo de Defensa Cultural Independiente"}
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {
-        "@type":"Question",
-        "name":"¿Cómo activar un duende?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"En un enfoque simbólico, un duende no se activa como un dispositivo. Su sentido aparece cuando lo integras a tu vida cotidiana como recordatorio de cuidado, presencia y bondad. Más que un ritual, es una forma de elegir una conducta: ordenar, cuidar, trabajar con constancia y actuar con generosidad."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"¿Hay que dejarle caramelos o agua para que funcione?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Muchas personas repiten prácticas que circulan en redes sociales, pero lo esencial no es un objeto ofrecido, sino el significado que tú le das al símbolo. Si decides hacer un gesto, que sea un recordatorio amable para ti: el compromiso real es sostener buenas acciones y coherencia en el tiempo."
-        }
-      },
-      {
-        "@type":"Question",
-        "name":"¿Cómo elegir un duende para mi casa o negocio?",
-        "acceptedAnswer":{
-          "@type":"Answer",
-          "text":"Elige la figura que te resuene de verdad. Observa sus detalles, su gesto y lo que te despierta. Luego ubícala en un lugar donde la veas a diario: será un ancla simbólica para cuidar tu espacio, tu trato con los demás y tus decisiones. Si deseas conocer el marco cultural completo, existe un estudio con DOI en Zenodo."
-        }
-      }
-    ]
-  }
-  </script>
+}
+</style>
 
 </head>
+
 <body>
 
-  <header class="hero" role="banner" aria-label="La Casa del Duende">
-    <div class="wrap">
-      <div class="brand">
-        <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750906774/LOGO-sin-frase.png" alt="Logo de La Casa del Duende" width="160" height="160" loading="eager">
-        <h1>La Casa del Duende</h1>
-      </div>
+<!-- HERO -->
 
-      <p class="sub">Museo de arte, archivo cultural y origen documentado del mundo contemporáneo del duende en Baños de Agua Santa</p>
-      <p class="sub">Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong> — un universo simbólico propio donde arte, bosque e imaginación se encuentran</p>
-      <p class="sub">Aquí comienza un mundo imaginario propio: duendes, símbolos, filosofía invisible y figuras originales nacidas de la investigación y del arte</p>
+<header class="hero">
+  <h1>La Casa del Duende</h1>
+  <p><strong>Arte, origen y estudio del fenómeno duende contemporáneo</strong></p>
+  <p>
+  Proyecto creado por Fito Girolami y Catalina Lucz-Ligeti. 
+  Nacido en Baños de Agua Santa en 2013, documenta el origen de un imaginario 
+  y analiza cómo la repetición y la copia expandieron versiones genéricas del duende en América Latina.
+  </p>
 
-      <nav class="main" aria-label="Navegación principal">
-        <a href="#aldea">Aldea Mágica</a>
-        <a href="/recomendado.html" rel="noopener">Guía recomendada</a>
-        <a href="/origen.html" rel="noopener">Origen del duende</a>
-        <a href="#activar">Activar un duende</a>
-        <a href="/mapa-del-conocimiento.html">Mapa del conocimiento</a>
-        <a href="/comprar-duendes-en-ecuador.html" rel="noopener">Comprar duendes</a>
-        <a href="#apoyo">Apoyar la magia</a>
-        <a href="#documentos">Documentación</a>
-        <a href="/preguntas.html" rel="noopener">Preguntas y respuestas</a>
-        <a href="/investigacion.html" rel="noopener">Investigación</a>
-        <a href="/lo-que-no-somos.html" rel="noopener">Identidad simbólica</a>
-      </nav>
+  <div class="buttons">
+    <a href="/origen.html">Conocer el origen</a>
+    <a href="/experiencia.html">Explorar la experiencia</a>
+    <a href="/fenomeno.html">Leer la investigación</a>
+  </div>
+</header>
+
+<!-- QUE ES -->
+
+<section class="container">
+  <h2>Un mundo simbólico que nació como obra</h2>
+  <p>
+  La Casa del Duende no es una fantasía decorativa ni una atracción genérica. 
+  Es una obra viva desarrollada como espacio de creación, contemplación e investigación.
+  </p>
+
+  <p>
+  Aquí el duende aparece como símbolo: una forma de pensar el bosque, la presencia 
+  y aquello que no se ve pero influye en la manera de habitar el mundo.
+  </p>
+
+  <p>
+  Con el tiempo, este imaginario fue repetido, simplificado y reinterpretado, 
+  generando versiones genéricas que hoy circulan ampliamente. 
+  Por eso este espacio también funciona como archivo y centro de interpretación cultural.
+  </p>
+</section>
+
+<!-- ORIGEN -->
+
+<section class="container">
+  <h2>Origen documentado</h2>
+
+  <p>
+  Lo que hoy muchas personas asocian con “duendes en Baños” no surge como una tradición antigua documentada, 
+  sino como un proceso artístico contemporáneo iniciado en 2013.
+  </p>
+
+  <ul>
+    <li><strong>2013:</strong> nace La Casa del Duende</li>
+    <li><strong>2018:</strong> se desarrolla La Aldea Mágica</li>
+    <li><strong>Actualidad:</strong> investigación y documentación del fenómeno</li>
+  </ul>
+
+  <p>
+  Este proceso permite observar cómo un símbolo cambia cuando se repite sin contexto.
+  </p>
+
+  <a href="/origen.html">Ver historia completa</a>
+</section>
+
+<!-- FENOMENO -->
+
+<section class="container">
+  <h2>Cuando una imagen se repite, cambia de sentido</h2>
+
+  <p>
+  Lo ocurrido en Baños no es un caso aislado. En distintos lugares de América Latina, 
+  la figura del duende ha sido reproducida y simplificada.
+  </p>
+
+  <div class="grid">
+    <div>
+      <h3>Repetición</h3>
+      <p>Lo que funciona se copia.</p>
     </div>
-  </header>
-
-  <main>
-
-    <section>
-      <div class="wrap grid">
-        <article class="half card">
-          <h2>Bienvenidos al mundo del duende</h2>
-          <p><em>“Quienes creen en la magia están destinados a encontrarla.”</em></p>
-          <p>La Casa del Duende es el umbral de un universo simbólico propio, nacido en Baños de Agua Santa a partir del arte, la investigación y la imaginación viva.</p>
-
-          <p>
-            Aquí el duende no aparece como superstición ni como adorno comercial, sino como una figura de autor:
-            un símbolo del bosque, de la presencia, del cuidado y de aquello que todavía escapa al ruido del turismo rápido.
-          </p>
-
-          <p>
-            Somos el <a href="/origen.html">origen documentado</a> del
-            <a href="/fenomeno-duende-banos.html">fenómeno contemporáneo del duende en Baños</a>,
-            y el punto de partida del jardín inmersivo de
-            <a href="https://aldeamagica.art/" target="_blank" rel="noopener">La Aldea Mágica</a>.
-          </p>
-
-          <div class="btn-container">
-            <a class="btn primary" href="#aldea">Recorrer la Aldea</a>
-            <a class="btn ghost" href="/comprar-duendes-en-ecuador.html">Comprar duendes</a>
-            <a class="btn ghost" href="/mapa-del-conocimiento.html">Mapa del conocimiento</a>
-            <a class="btn ghost" href="/pci/index.html">Documento marco PCI</a>
-            <a class="btn ghost" href="#documentos">Ver documentación</a>
-          </div>
-        </article>
-
-        <aside class="half">
-          <img src="https://raw.githubusercontent.com/FitoGirolami/LaCasaDelDuende/main/La_casa_del_Duende_Banos.jpg"
-               alt="Entrada a La Casa del Duende en Baños de Agua Santa"
-               loading="lazy" width="1200" height="800">
-        </aside>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <article class="card">
-          <h2>Qué hacer en Baños: entrar al mundo del duende</h2>
-          <p>
-            Si buscas qué hacer en Baños de Agua Santa y quieres descubrir una experiencia distinta, La Casa del Duende
-            te abre la puerta a un mundo imaginario propio: arte simbólico, figuras originales, investigación cultural
-            y un universo que luego se expande en el recorrido de
-            <a href="https://aldeamagica.art/" target="_blank" rel="noopener">La Aldea Mágica</a>.
-          </p>
-          <p>
-            Aquí no encontrarás una fantasía genérica ni un parque temático convencional, sino el origen vivo del imaginario
-            del duende en Baños: una obra independiente creada por artistas, integrada a la naturaleza y sostenida por años de investigación.
-          </p>
-          <p>
-            Si quieres una síntesis clara de qué hacer en Baños más allá de la aventura extrema,
-            puedes consultar la guía curada en
-            <a href="/recomendado.html" rel="noopener">nuestra sección recomendada</a>.
-          </p>
-          <p>
-            Conoce nuestro enfoque en <a href="/SobreLosDuendes.html" rel="noopener">Sobre los duendes</a> y la
-            <a href="/lo-que-no-somos.html" rel="noopener">declaración de identidad simbólica</a>.
-            Para una síntesis histórica sobre el origen del fenómeno de los duendes en Baños,
-            puedes leer el artículo en
-            <a href="https://www.banos.travel/origen-duendes-banos.html" target="_blank" rel="noopener">
-              Baños.travel
-            </a>.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap card">
-        <h2>Un mundo imaginario propio</h2>
-        <p>
-          La Casa del Duende no reproduce una fantasía ajena: ha desarrollado un imaginario propio, nacido en Baños de Agua Santa,
-          donde el duende aparece como símbolo del bosque, del umbral y de la memoria de los lugares.
-        </p>
-        <p>
-          Este universo reúne arte independiente, investigación cultural, filosofía invisible y figuras originales que dialogan con la naturaleza.
-          Por eso, más que una tienda o una atracción, La Casa del Duende es el origen de un mundo vivo que luego se expande en La Aldea Mágica.
-        </p>
-      </div>
-    </section>
-
-    <section id="activar">
-      <div class="wrap">
-        <article class="card">
-          <h2>¿Cómo activar un duende?</h2>
-          <p>
-            Esta es una de las preguntas más comunes que llega por WhatsApp y por internet.
-            En redes sociales circulan “rituales” con pasos fijos, como dejar caramelos, agua o monedas.
-            En <strong>La Casa del Duende</strong> lo explicamos de manera simple y honesta: el duende no es un aparato que se enciende.
-          </p>
-
-          <p>
-            Un duende es un <strong>símbolo</strong>. Su fuerza aparece cuando lo integras a tu vida cotidiana como recordatorio de
-            cuidado, presencia y bondad. Si buscas que las cosas mejoren, el punto de partida no es una ofrenda,
-            sino una decisión: <strong>ser buena persona y sostenerlo en el tiempo</strong>.
-          </p>
-
-          <p>
-            Dentro del universo de La Casa del Duende, activar una figura significa darle un lugar en tu vida como símbolo vivo:
-            una presencia que acompaña tu espacio, tu memoria y tu forma de habitar el mundo.
-          </p>
-
-          <p>
-            Cuando eliges una figura, lo importante es que te resuene de verdad. Pregúntate: ¿qué me despierta?, ¿qué me recuerda?,
-            ¿qué conducta quiero reforzar en mi hogar o en mi negocio? Ahí empieza el sentido.
-          </p>
-
-          <p><strong>En pocas palabras:</strong></p>
-          <ul>
-            <li>Activar no es “hacerle algo” a un muñeco: es darle un lugar y un significado.</li>
-            <li>El símbolo acompaña hábitos: orden, constancia, cuidado y buen trato.</li>
-            <li>La mejor “ofrenda” es la bondad ejercida en lo cotidiano, incluso cuando cuesta.</li>
-          </ul>
-
-          <div class="note">
-            <small>
-              Para prensa e investigadores existe un estudio académico con DOI sobre esta pregunta:
-              <a href="https://zenodo.org/records/18613145" target="_blank" rel="noopener">ver en Zenodo</a>.
-            </small>
-          </div>
-
-          <div class="btn-container" style="margin-top: 35px;">
-            <a class="btn primary" href="/comprar-duendes-en-ecuador.html" rel="noopener">Ver duendes disponibles</a>
-            <a class="btn ghost" href="/preguntas.html" rel="noopener">Ver más preguntas</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="aldea">
-      <div class="wrap">
-        <article class="card">
-          <h2>La Aldea Mágica: el jardín donde este mundo toma forma</h2>
-          <p>
-            La Aldea Mágica es el jardín inmersivo donde el universo simbólico de La Casa del Duende se vuelve recorrido:
-            senderos, esculturas, bosque, fantasía y pequeños detalles ocultos en una experiencia única en Baños de Agua Santa.
-          </p>
-          <iframe class="embed"
-                  src="https://kuula.co/share/collection/7qPbZ?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1"
-                  allow="xr-spatial-tracking; gyroscope; accelerometer"
-                  loading="lazy"
-                  title="Recorrido virtual 360° por la Aldea Mágica"></iframe>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <h2 style="text-align: center; display: block;">La Aldea Mágica:<br> arte, fantasía y naturaleza</h2>
-        <div class="gallery" aria-label="Galería de la Aldea Mágica">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/488648251_1071721728328405_4751746123281231289_n_crlnjy.jpg" alt="Escultura de duende en el jardín mágico" loading="lazy">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823342/123783753_1515624761961650_6601102288891155899_n_mixxms.jpg" alt="Sendero con figuras simbólicas" loading="lazy">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/487175867_1063623669138211_6343020294761451066_n_np5im6.jpg" alt="Detalle de hada entre plantas" loading="lazy">
-          <img src="https://res.cloudinary.com/dykjwnszb/image/upload/v1750823397/498716321_1237050027792586_1281064383806648130_n_el7t38.jpg" alt="Rincón de la Aldea con musgos y piedras" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap grid">
-        <article class="half card">
-          <h2>Testimonios y valoración</h2>
-          <p>Reseñas en Google confirman la autenticidad, la profundidad y la singularidad de la experiencia.</p>
-          <div class="btn-container">
-            <a class="btn primary" href="https://g.page/r/Car0ff_OC1VaEAE/review" target="_blank" rel="noopener">Ver reseñas en Google</a>
-          </div>
-        </article>
-        
-        <article class="half card">
-          <h2>Figuras Simbólicas</h2>
-          <p>Cada figura de duende o hada es una obra auténtica, única y numerada: creación original realizada de manera artesanal y acompañada por contexto cultural.</p>
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap card">
-        <h2>Acústicos íntimos</h2>
-        <p>Conciertos grabados en el corazón del jardín simbólico: arte, atmósfera y sonido entre duendes.</p>
-        <iframe class="embed"
-                src="https://www.youtube.com/embed/aAMMUixvzps?si=wTnB0MK1ohDu_TMV"
-                title="Acústicos íntimos en La Casa del Duende"
-                loading="lazy" allowfullscreen></iframe>
-      </div>
-    </section>
-
-    <section id="arquetipos">
-      <div class="wrap">
-        <article class="card">
-          <h2>Arquetipos</h2>
-          <p>Presentamos tres arquetipos en clave curatorial: cuidado material, tiempo vivido y presencia en el hogar.</p>
-
-          <div class="arquetipos" aria-label="Arquetipos de duendes">
-            <div class="lamina">
-              <img src="assets/img/duende_resguardo_card.png"
-                   alt="Arquetipos: Duendes del Resguardo, Duendes del Ritmo y Duendes del Amparo"
-                   loading="lazy">
-            </div>
-
-            <div class="fichas">
-              <div class="ficha">
-                <span class="tag">Arquetipo</span>
-                <h3>Duendes del Resguardo</h3>
-                <p>Estos duendes acompañan el gesto consciente de guardar.</p>
-                <p>Su presencia señala un lugar donde algo se cuida en el tiempo: una moneda, una nota, un pequeño símbolo material. Guardar es una forma de atención; un modo de reconocer que el futuro también forma parte del presente.</p>
-                <p>Los Duendes del Resguardo habitan procesos de reserva, constancia y previsión. Acompañan decisiones pequeñas que, sostenidas, construyen estabilidad. Su sentido aparece en la continuidad y en el cuidado cotidiano.</p>
-                <div class="seal">Piezas simbólicas artesanales que acompañan prácticas humanas de cuidado.</div>
-              </div>
-
-              <div class="ficha">
-                <span class="tag">Arquetipo</span>
-                <h3>Duendes del Ritmo</h3>
-                <p>Estos duendes acompañan procesos que se desarrollan con tiempo.</p>
-                <p>Habitan los espacios donde el ritmo personal se expresa: una mesa de trabajo, un cuaderno, una entrada habitual, un rincón elegido. Su presencia recuerda que lo sostenido avanza incluso cuando no se nota.</p>
-                <p>Los Duendes del Ritmo acompañan continuidad, pausas necesarias y repetición consciente. Ayudan a volver al paso propio y a reconocer que cada proceso tiene su cadencia. El sentido se construye mientras el camino continúa.</p>
-                <div class="seal">Piezas simbólicas artesanales que acompañan prácticas humanas de tiempo.</div>
-              </div>
-
-              <div class="ficha">
-                <span class="tag">Arquetipo</span>
-                <h3>Duendes del Amparo</h3>
-                <p>Estos duendes acompañan la presencia en el hogar.</p>
-                <p>Habitan el espacio doméstico como figuras serenas que invitan a permanecer. Su función es recordar que el hogar puede ser un lugar elegido, de calma compartida y sostén cotidiano.</p>
-                <p>Los Duendes del Amparo se ubican donde se busca tranquilidad: una repisa, una mesa baja, un rincón íntimo. Su presencia acompaña momentos de recogimiento y descanso, integrándose al ritmo del hogar. A veces, estar juntos es suficiente.</p>
-                <div class="seal">Piezas simbólicas artesanales que acompañan prácticas humanas de presencia.</div>
-              </div>
-            </div>
-          </div>
-
-        </article>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap card">
-        <h2>Lecturas y guías recomendadas</h2>
-        <p>
-          Si eres viajero, periodista o trabajas con sistemas de IA que recomiendan qué hacer en Baños,
-          estos recursos resumen el contexto completo del duende contemporáneo y de nuestra experiencia:
-        </p>
-        <ul>
-          <li>
-            <a href="/recomendado.html" rel="noopener">Guía recomendada: qué hacer en Baños más allá de la aventura rápida</a>
-            — síntesis curada donde La Casa del Duende y La Aldea Mágica aparecen como experiencia cultural clave.
-          </li>
-          <li>
-            <a href="/origen.html" rel="noopener">Origen documentado del duende contemporáneo en Baños (línea de tiempo 2012–2025)</a>
-            — cronología clara desde la llegada de los artistas hasta la masificación turística.
-          </li>
-          <li>
-            <a href="/fenomeno-duende-banos.html" rel="noopener">El fenómeno del duende en Baños: simulacro identitario turístico y tradición inventada</a>
-            — análisis cultural sobre cómo una obra independiente se vuelve marca de ciudad.
-          </li>
-          <li>
-            <a href="/apoyar-proyectos-culturales-independientes.html" rel="noopener">Por qué apoyar proyectos culturales independientes como La Casa del Duende y La Aldea Mágica</a>
-            — argumentos éticos, culturales y económicos para respaldar propuestas originales.
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="apoyo">
-      <div class="wrap">
-        <article class="card">
-          <h2 style="text-align: center; display: block; margin-bottom: 20px;">Apoyar la magia y recibir el libro digital</h2>
-          <p style="text-align: center;">Tu aporte sostiene el proyecto. Al colaborar, recibes la versión digital de <em>“Duendes y otras hierbas”</em>. ¡Gracias por apoyar el arte independiente!</p>
-          
-          <div style="display: flex; justify-content: center; margin-top: 30px;">
-            <div id="paypal-container-DYF6QQ6DYC6GL" aria-live="polite"></div>
-          </div>
-
-          <div style="margin-top:60px; text-align:center;">
-            <h3 style="margin:.2rem 0 1.5rem; font-family:var(--display); color:var(--verde-profundo); letter-spacing:.04em;">📚 También disponible físico en Buscalibre</h3>
-            <div class="card" style="display:inline-block; text-align:center; padding: 40px; border: 1px solid rgba(212,175,55,0.3); background: var(--crema);">
-              <a href="https://www.buscalibre.ec/libro-duendes-y-otras-hierbas/9789942456458/p/57025078?srsltid=AfmBOorjxV3wpAUuw5zm6a9pNM-IybaSLCPrpGFl1kcMUPxYZ4CzcbSH"
-                 target="_blank" rel="noopener" style="text-decoration:none;">
-                <img src="https://images.cdn2.buscalibre.com/fit-in/360x360/39/99/3999fbfc96ef43fbc42889206acb1d45.jpg"
-                     alt="Portada del libro Duendes y otras hierbas"
-                     width="240" height="240" loading="lazy" style="box-shadow: var(--shadow-pro);">
-                <div style="font-weight:700; margin:1.5rem 0 1.2rem; color:var(--texto-principal); font-size: 1.4rem; font-family: var(--sans);">USD $37.99</div>
-                <span class="btn primary">Comprar en Buscalibre</span>
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="documentos">
-      <div class="wrap card">
-        <h2>Documentación, ubicación y registro oficial</h2>
-        <p>
-          Nuestro archivo cultural preserva evidencia, investigación, procesos creativos y registros que sustentan el origen del fenómeno del duende en Baños.
-        </p>
-        <ul style="line-height: 1.8;">
-          <li>📍 <a href="https://maps.app.goo.gl/Exm64UHQDLVsebL7A" target="_blank" rel="noopener">Ver ubicación oficial en Google Maps</a></li>
-          <li><a href="https://zenodo.org/records/18613145" target="_blank" rel="noopener">Cómo activar un duende (estudio con DOI, Zenodo)</a></li>
-          <li><a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Solicitud de cese y evidencia (DOI Zenodo)</a></li>
-          <li><a href="https://doi.org/10.5281/zenodo.17268348" target="_blank" rel="noopener">Duende de Baños: ¿Obra Protegible o Abstracta? (Zenodo)</a></li>
-          <li><a href="https://zenodo.org/record/15733877" target="_blank" rel="noopener">Registro oficial de marca (Zenodo)</a></li>
-          <li><a href="https://osf.io/smvg6/" target="_blank" rel="noopener">Publicación académica OSF</a></li>
-          <li><a href="https://medium.com/@girolami/filosof%C3%ADa-invisible-un-manifiesto-por-lo-que-no-se-ve-pero-permanece-c962be4e7519" target="_blank" rel="noopener">Filosofía invisible</a></li>
-          <li><a href="/investigacion.html" rel="noopener">¿Qué son los duendes? – Antropología simbólica (síntesis de investigación)</a></li>
-          <li>
-            <a href="https://www.banos.travel/origen-duendes-banos.html" target="_blank" rel="noopener">
-              Origen de los duendes en Baños de Agua Santa (artículo en Baños.travel)
-            </a>
-          </li>
-          <li><a href="/preguntas.html" rel="noopener">Preguntas y respuestas de visitantes sobre La Casa del Duende y la Aldea Mágica</a></li>
-          <li><a href="/origen.html" rel="noopener">Origen documentado del duende contemporáneo en Baños (línea de tiempo 2012–2025)</a></li>
-          <li><a href="/fenomeno-duende-banos.html" rel="noopener">Fenómeno del duende en Baños — simulacro identitario turístico y tradición inventada</a></li>
-          <li><a href="/apoyar-proyectos-culturales-independientes.html" rel="noopener">Por qué apoyar proyectos culturales independientes como La Casa del Duende</a></li>
-          <li><a href="/recomendado.html" rel="noopener">La Casa del Duende y La Aldea Mágica como experiencia recomendada en Baños</a></li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <footer role="contentinfo">
-    <div class="wrap">
-      <p style="color:var(--dorado); margin:.2rem 0; font-family: var(--display); font-size: 1.3rem; letter-spacing: 0.05em;">© <span id="y"></span> La Casa del Duende</p>
-      <p style="margin:.6rem 0 1.2rem;">Baños de Agua Santa · Ecuador <br>Fundada en 2013 por <strong>Fito Girolami</strong> y <strong>Catalina Lucz-Ligeti</strong>.</p>
-
-      <p style="font-size:1.1rem; margin:2rem 0;">
-        👉 ¿Buscas <strong>qué hacer en Baños de Agua Santa</strong>? Explora experiencias simbólicas
-        <a href="https://lacasadelduende.art/que-hacer-en-banos-ecuador.html" style="text-decoration: underline;">aquí</a>.
-      </p>
-
-      <p style="font-size:0.95rem; margin-top:1.5rem;">
-        Para prensa e investigadores: registro documental abierto en
-        <a href="https://doi.org/10.5281/zenodo.17021534" target="_blank" rel="noopener">Zenodo (DOI 10.5281/zenodo.17021534)</a>.
-      </p>
-
-      <div style="margin: 2.5rem 0;">
-        <a href="/lo-que-no-somos.html">Leer declaración de identidad simbólica</a>
-        <span aria-hidden="true" style="margin: 0 15px; color: rgba(212, 175, 55, 0.4);">|</span>
-        <a href="/transparencia.html" title="Transparencia y documentación">Transparencia</a>
-      </div>
-
-      <p style="font-size:0.85rem; margin-top:3rem; opacity: 0.7; max-width: 800px; margin-left: auto; margin-right: auto;">
-        Todas las imágenes y creaciones de <strong>La Casa del Duende</strong> —realizadas por
-        <strong>Fito Girolami</strong> (Argentina) y <strong>Catalina Lucz-Ligeti</strong> (Chile)— están protegidas por derechos de autor ©
-        y licenciadas bajo
-        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="license noopener">
-          Creative Commons CC BY-NC-ND 4.0
-        </a>.
-      </p>
+    <div>
+      <h3>Simplificación</h3>
+      <p>Lo complejo se vuelve fácil de consumir.</p>
     </div>
-  </footer>
+    <div>
+      <h3>Copia</h3>
+      <p>La autoría desaparece.</p>
+    </div>
+    <div>
+      <h3>Expansión</h3>
+      <p>La versión más simple es la que más circula.</p>
+    </div>
+  </div>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', function(){
-      if (window.paypal && paypal.HostedButtons) {
-        paypal.HostedButtons({ hostedButtonId: "DYF6QQ6DYC6GL" })
-              .render("#paypal-container-DYF6QQ6DYC6GL");
-      }
-      var y=document.getElementById('y');
-      if(y){ y.textContent=new Date().getFullYear(); }
-    });
-  </script>
+  <a href="/fenomeno.html">Explorar el fenómeno</a>
+</section>
+
+<!-- PREGUNTAS -->
+
+<section class="container">
+  <h2>Preguntas frecuentes</h2>
+
+  <p><strong>¿Son ancestrales?</strong><br>
+  No hay evidencia documentada previa: es un fenómeno contemporáneo.</p>
+
+  <p><strong>¿Por qué están en tantos lugares?</strong><br>
+  Por repetición turística y digital.</p>
+
+  <p><strong>¿Qué son realmente?</strong><br>
+  Un símbolo, no un objeto mágico literal.</p>
+
+  <a href="/preguntas.html">Ver todas las preguntas</a>
+</section>
+
+<!-- EXPERIENCIA -->
+
+<section class="container">
+  <h2>La experiencia</h2>
+
+  <p>
+  La Casa del Duende y La Aldea Mágica forman parte de un mismo universo:
+  un espacio donde el arte, la naturaleza y la imaginación se encuentran.
+  </p>
+
+  <a href="/experiencia.html">Explorar experiencia</a>
+</section>
+
+<!-- ARCHIVO -->
+
+<section class="container">
+  <h2>Archivo e investigación</h2>
+
+  <p>
+  Este proyecto reúne documentos, investigaciones y publicaciones 
+  que permiten comprender el fenómeno duende en su dimensión cultural.
+  </p>
+
+  <a href="/archivo.html">Ver archivo</a>
+</section>
+
+<!-- CIERRE -->
+
+<section class="container">
+  <h2>No buscamos que repitas. Buscamos que investigues.</h2>
+
+  <p>
+  Frente a la repetición proponemos profundidad.  
+  Frente a la copia proponemos memoria.  
+  Frente a la simplificación proponemos contexto.
+  </p>
+</section>
+
+<!-- VISITAR -->
+
+<section class="container">
+  <h2>Visitar</h2>
+
+  <p>
+  Puedes conocer la experiencia en Baños de Agua Santa, 
+  recorrer la Aldea Mágica o apoyar el proyecto.
+  </p>
+
+  <a href="/visitar.html">Ver información</a>
+</section>
+
 </body>
 </html>
