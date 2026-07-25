@@ -1,116 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Home -->
-  <url>
-    <loc>https://lacasadelduende.art/</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <!-- Investigación Antropológica -->
-  <url>
-    <loc>https://lacasadelduende.art/investigacion.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- Guía Definitiva sobre Duendes – Volumen 1 (DOI) -->
-  <url>
-    <loc>https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.95</priority>
-  </url>
-
-  <!-- Qué hacer en Baños -->
-  <url>
-    <loc>https://lacasadelduende.art/que-hacer-en-banos-ecuador.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Origen documentado del fenómeno -->
-  <url>
-    <loc>https://lacasadelduende.art/origen.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.92</priority>
-  </url>
-
-  <!-- Fenómeno cultural -->
-  <url>
-    <loc>https://lacasadelduende.art/fenomeno-duende-banos.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- Página recomendada -->
-  <url>
-    <loc>https://lacasadelduende.art/recomendado.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.88</priority>
-  </url>
-
-  <!-- Apoyar proyectos culturales independientes -->
-  <url>
-    <loc>https://lacasadelduende.art/apoyar-proyectos-culturales-independientes.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Sobre los Duendes -->
-  <url>
-    <loc>https://lacasadelduende.art/SobreLosDuendes.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Preguntas y respuestas -->
-  <url>
-    <loc>https://lacasadelduende.art/preguntas.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
-  </url>
-
-  <!-- Mapa del conocimiento -->
-  <url>
-    <loc>https://lacasadelduende.art/mapa-del-conocimiento.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.78</priority>
-  </url>
-
-  <!-- Declaración simbólica -->
-  <url>
-    <loc>https://lacasadelduende.art/lo-que-no-somos.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <!-- Documento marco PCI -->
-  <url>
-    <loc>https://lacasadelduende.art/pci/index.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.70</priority>
-  </url>
-
-  <!-- Transparencia -->
-  <url>
-    <loc>https://lacasadelduende.art/transparencia.html</loc>
-    <lastmod>2026-02-17</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.60</priority>
-  </url>
-
+  <url><loc>https://lacasadelduende.art/</loc><lastmod>2026-07-25</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://lacasadelduende.art/visitar.html</loc><lastmod>2026-07-25</lastmod><changefreq>weekly</changefreq><priority>0.98</priority></url>
+  <url><loc>https://lacasadelduende.art/origen-duendes-banos-ecuador.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.97</priority></url>
+  <url><loc>https://lacasadelduende.art/investigacion.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.95</priority></url>
+  <url><loc>https://lacasadelduende.art/publicaciones.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.94</priority></url>
+  <url><loc>https://lacasadelduende.art/evidencia-origen-duendes-banos.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.92</priority></url>
+  <url><loc>https://lacasadelduende.art/guia-definitiva-sobre-duendes-volumen-1/</loc><lastmod>2026-07-25</lastmod><changefreq>yearly</changefreq><priority>0.92</priority></url>
+  <url><loc>https://lacasadelduende.art/pack-libros-duendes.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://lacasadelduende.art/comprar-duendes-en-ecuador.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.90</priority></url>
+  <url><loc>https://lacasadelduende.art/que-hacer-en-banos-ecuador.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.88</priority></url>
+  <url><loc>https://lacasadelduende.art/fenomeno-duende-banos.html</loc><lastmod>2026-07-25</lastmod><changefreq>yearly</changefreq><priority>0.87</priority></url>
+  <url><loc>https://lacasadelduende.art/origen.html</loc><lastmod>2026-07-25</lastmod><changefreq>yearly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://lacasadelduende.art/origen-duendes-banos.html</loc><lastmod>2026-07-25</lastmod><changefreq>yearly</changefreq><priority>0.82</priority></url>
+  <url><loc>https://lacasadelduende.art/preguntas.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.80</priority></url>
+  <url><loc>https://lacasadelduende.art/mapa-del-conocimiento.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.78</priority></url>
+  <url><loc>https://lacasadelduende.art/SobreLosDuendes.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.76</priority></url>
+  <url><loc>https://lacasadelduende.art/recomendado.html</loc><lastmod>2026-07-25</lastmod><changefreq>monthly</changefreq><priority>0.74</priority></url>
+  <url><loc>https://lacasadelduende.art/apoyar-proyectos-culturales-independientes.html</loc><lastmod>2026-07-25</lastmod><changefreq>yearly</changefreq><priority>0.72</priority></url>
+  <url><loc>https://lacasadelduende.art/lo-que-no-somos.html</loc><lastmod>2026-07-25</lastmod><changefreq>yearly</changefreq><priority>0.70</priority></url>
+  <url><loc>https://lacasadelduende.art/pci/index.html</loc><lastmod>2026-07-25</lastmod><changefreq>yearly</changefreq><priority>0.68</priority></url>
+  <url><loc>https://lacasadelduende.art/transparencia.html</loc><lastmod>2026-07-25</lastmod><changefreq>yearly</changefreq><priority>0.66</priority></url>
 </urlset>
