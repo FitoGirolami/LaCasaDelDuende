@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Printable QR Codes | English Audio Guide</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#17241d;--paper:#f8f4eb;--line:#d8ccb7}*{box-sizing:border-box}body{margin:0;padding:36px 24px 60px;background:#ece7dd;color:var(--ink);font-family:'Lora',Georgia,serif}header{max-width:980px;margin:0 auto 28px;text-align:center}h1,h2{font-family:'Cinzel',Georgia,serif}h1{margin:0 0 8px;font-size:clamp(2rem,5vw,3.5rem)}header p{margin:0;color:#566159}.print{display:block;margin:22px auto 0;padding:11px 20px;border:0;border-radius:999px;color:#fff;background:var(--ink);font:600 .9rem 'Lora',serif;cursor:pointer}.grid{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{min-height:430px;display:flex;flex-direction:column;align-items:center;padding:24px 20px 22px;background:var(--paper);border:1px solid var(--line);border-radius:22px;text-align:center;break-inside:avoid;box-shadow:0 10px 24px rgba(0,0,0,.07)}.number{padding:6px 11px;border:1px solid var(--line);border-radius:999px;color:#6d4a0e;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}.qr{width:220px;max-width:100%;margin:18px auto 14px;padding:10px;background:#fff;border-radius:14px}.qr img,.qr canvas{width:100%!important;height:auto!important;display:block}h2{margin:5px 0 10px;font-size:1.1rem;line-height:1.2}.card p{margin:auto 0 0;font-size:.66rem;color:#6f756f;overflow-wrap:anywhere}@media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){body{padding:24px 14px 40px}.grid{grid-template-columns:1fr}}@media print{@page{size:A4 portrait;margin:10mm}body{padding:0;background:#fff}header{margin:0 0 8mm}header p,.print{display:none}h1{font-size:18pt}.grid{grid-template-columns:repeat(2,1fr);gap:7mm}.card{min-height:125mm;padding:8mm;border-radius:5mm;box-shadow:none}.qr{width:58mm;margin:5mm auto 4mm}h2{font-size:12pt}.card p{font-size:6pt}}
+</style>
+</head>
+<body>
+<header><h1>English Audio Guide</h1><p>Printable QR cards for the twelve stations of La Aldea Mágica.</p><button class="print" type="button" onclick="window.print()">Print QR cards</button></header>
+<main class="grid">
+<article class="card" data-station="01"><div class="number">Station 1</div><div class="qr"></div><h2>Welcome to La Aldea Mágica</h2><p>lacasadelduende.art/guia/en/?station=01</p></article>
+<article class="card" data-station="02"><div class="number">Station 2</div><div class="qr"></div><h2>Before You Enter</h2><p>lacasadelduende.art/guia/en/?station=02</p></article>
+<article class="card" data-station="03"><div class="number">Station 3</div><div class="qr"></div><h2>A Territory of Nature and Imagination</h2><p>lacasadelduende.art/guia/en/?station=03</p></article>
+<article class="card" data-station="04"><div class="number">Station 4</div><div class="qr"></div><h2>The Journey That Started It All</h2><p>lacasadelduende.art/guia/en/?station=04</p></article>
+<article class="card" data-station="05"><div class="number">Station 5</div><div class="qr"></div><h2>La Casa del Duende: Where the Story Took Root</h2><p>lacasadelduende.art/guia/en/?station=05</p></article>
+<article class="card" data-station="06"><div class="number">Station 6</div><div class="qr"></div><h2>What Is a Duende?</h2><p>lacasadelduende.art/guia/en/?station=06</p></article>
+<article class="card" data-station="07"><div class="number">Station 7</div><div class="qr"></div><h2>How a Character Is Born</h2><p>lacasadelduende.art/guia/en/?station=07</p></article>
+<article class="card" data-station="08"><div class="number">Station 8</div><div class="qr"></div><h2>The Language of Their Faces</h2><p>lacasadelduende.art/guia/en/?station=08</p></article>
+<article class="card" data-station="09"><div class="number">Station 9</div><div class="qr"></div><h2>La Aldea Mágica: A Living Garden</h2><p>lacasadelduende.art/guia/en/?station=09</p></article>
+<article class="card" data-station="10"><div class="number">Station 10</div><div class="qr"></div><h2>Cultural Duendism</h2><p>lacasadelduende.art/guia/en/?station=10</p></article>
+<article class="card" data-station="11"><div class="number">Station 11</div><div class="qr"></div><h2>The Ethics of Kindness</h2><p>lacasadelduende.art/guia/en/?station=11</p></article>
+<article class="card" data-station="12"><div class="number">Station 12</div><div class="qr"></div><h2>Take the Story With You</h2><p>lacasadelduende.art/guia/en/?station=12</p></article>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const base='https://lacasadelduende.art/guia/en/?station=';
+document.querySelectorAll('.card').forEach(card=>new QRCode(card.querySelector('.qr'),{text:base+card.dataset.station,width:420,height:420,colorDark:'#17241d',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M}));
+</script>
+</body>
+</html>
