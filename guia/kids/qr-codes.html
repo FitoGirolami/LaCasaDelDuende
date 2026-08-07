@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tarjetas QR imprimibles | Audioguía KIDS</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&amp;family=Nunito:wght@600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root{--violet:#49336d;--teal:#1e7a72;--coral:#e96a5e;--yellow:#f4c95d;--cream:#fff8e8;--ink:#28243a;--line:#d9cfb8}
+    *{box-sizing:border-box}body{margin:0;padding:36px 24px 60px;color:var(--ink);background:var(--cream);font-family:'Nunito',system-ui,sans-serif}header{max-width:980px;margin:0 auto 30px;text-align:center}h1,h2{font-family:'Fraunces',Georgia,serif}h1{margin:0 0 8px;color:var(--violet);font-size:clamp(2.1rem,5vw,3.8rem)}header p{margin:0;color:#625d72}.print{display:block;margin:22px auto 0;padding:11px 20px;border:0;border-radius:14px;color:#fff;background:var(--violet);box-shadow:0 6px 0 #302247;font-weight:900;cursor:pointer}.grid{max-width:1080px;margin:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{--accent:var(--violet);min-height:425px;display:flex;flex-direction:column;align-items:center;padding:24px 20px 22px;border:2px dashed var(--accent);border-radius:24px;background:#fff;text-align:center;break-inside:avoid;box-shadow:0 10px 24px rgba(48,34,71,.08)}.card:nth-child(3n+2){--accent:var(--teal)}.card:nth-child(3n+3){--accent:var(--coral)}.number{padding:6px 11px;border-radius:999px;color:#fff;background:var(--accent);font-size:.75rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.qr{width:220px;max-width:100%;margin:18px auto 14px;padding:10px;border:1px solid var(--line);border-radius:14px;background:#fff}.qr img,.qr canvas{width:100%!important;height:auto!important;display:block}h2{margin:5px 0 10px;color:var(--violet);font-size:1.18rem;line-height:1.15}.card p{margin:auto 0 0;color:#6f697a;font-size:.65rem;overflow-wrap:anywhere}
+    @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){body{padding:24px 14px 40px}.grid{grid-template-columns:1fr}}
+    @media print{@page{size:A4 portrait;margin:10mm}body{padding:0;background:#fff}header{margin:0 0 8mm}header p,.print{display:none}h1{font-size:18pt}.grid{grid-template-columns:repeat(2,1fr);gap:7mm}.card{min-height:125mm;padding:8mm;border-radius:5mm;box-shadow:none}.qr{width:58mm;margin:5mm auto 4mm}h2{font-size:12pt}.card p{font-size:6pt}}
+  </style>
+</head>
+<body>
+  <header><h1>Audioguía KIDS</h1><p>Tarjetas QR imprimibles para las nueve estaciones de los pequeños guardianes.</p><button class="print" type="button" onclick="window.print()">Imprimir tarjetas QR</button></header>
+  <main class="grid">
+    <article class="card" data-station="01"><div class="number">Estación 1</div><div class="qr"></div><h2>Bienvenidos, pequeños guardianes</h2><p>lacasadelduende.art/guia/kids/?station=01</p></article>
+    <article class="card" data-station="02"><div class="number">Estación 2</div><div class="qr"></div><h2>¿Quién inventa los miedos?</h2><p>lacasadelduende.art/guia/kids/?station=02</p></article>
+    <article class="card" data-station="03"><div class="number">Estación 3</div><div class="qr"></div><h2>Muchas historias, muchas criaturas</h2><p>lacasadelduende.art/guia/kids/?station=03</p></article>
+    <article class="card" data-station="04"><div class="number">Estación 4</div><div class="qr"></div><h2>La historia de La Casa del Duende</h2><p>lacasadelduende.art/guia/kids/?station=04</p></article>
+    <article class="card" data-station="05"><div class="number">Estación 5</div><div class="qr"></div><h2>El poder de imaginar</h2><p>lacasadelduende.art/guia/kids/?station=05</p></article>
+    <article class="card" data-station="06"><div class="number">Estación 6</div><div class="qr"></div><h2>Las manos que crean magia</h2><p>lacasadelduende.art/guia/kids/?station=06</p></article>
+    <article class="card" data-station="07"><div class="number">Estación 7</div><div class="qr"></div><h2>Las historias y la verdad</h2><p>lacasadelduende.art/guia/kids/?station=07</p></article>
+    <article class="card" data-station="08"><div class="number">Estación 8</div><div class="qr"></div><h2>Tú puedes crear nuevas historias</h2><p>lacasadelduende.art/guia/kids/?station=08</p></article>
+    <article class="card" data-station="09"><div class="number">Estación 9</div><div class="qr"></div><h2>La magia continúa con ustedes</h2><p>lacasadelduende.art/guia/kids/?station=09</p></article>
+  </main>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    const base='https://lacasadelduende.art/guia/kids/?station=';
+    document.querySelectorAll('.card').forEach(card=>new QRCode(card.querySelector('.qr'),{text:base+card.dataset.station,width:420,height:420,colorDark:'#302247',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M}));
+  </script>
+</body>
+</html>
