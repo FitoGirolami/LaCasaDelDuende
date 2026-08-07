@@ -5,6 +5,7 @@
   const measurementId = script?.dataset.measurementId || 'G-KY6MFZZ1SH';
   const guideLanguage = script?.dataset.guideLanguage || document.documentElement.lang || 'unknown';
   const guideName = script?.dataset.guideName || 'La Aldea Magica QR Audio Guide';
+  const configuredStationId = script?.dataset.stationId || '';
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function(){ window.dataLayer.push(arguments); };
@@ -36,7 +37,7 @@
     const restart = document.getElementById('restart');
     if (!audio) return;
 
-    const rawStation = (new URLSearchParams(window.location.search).get('station') || '').replace(/\D/g, '');
+    const rawStation = (new URLSearchParams(window.location.search).get('station') || configuredStationId).replace(/\D/g, '');
     const stationId = rawStation ? rawStation.padStart(2, '0') : 'unknown';
     const stationTitle = (document.getElementById('title')?.textContent || 'Unknown station').trim();
 

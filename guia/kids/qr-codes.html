@@ -18,20 +18,20 @@
 <body>
   <header><h1>Audioguía KIDS</h1><p>Tarjetas QR imprimibles para las nueve estaciones de los pequeños guardianes.</p><button class="print" type="button" onclick="window.print()">Imprimir tarjetas QR</button></header>
   <main class="grid">
-    <article class="card" data-station="01"><div class="number">Estación 1</div><div class="qr"></div><h2>Bienvenidos, pequeños guardianes</h2><p>lacasadelduende.art/guia/kids/?station=01</p></article>
-    <article class="card" data-station="02"><div class="number">Estación 2</div><div class="qr"></div><h2>¿Quién inventa los miedos?</h2><p>lacasadelduende.art/guia/kids/?station=02</p></article>
-    <article class="card" data-station="03"><div class="number">Estación 3</div><div class="qr"></div><h2>Muchas historias, muchas criaturas</h2><p>lacasadelduende.art/guia/kids/?station=03</p></article>
-    <article class="card" data-station="04"><div class="number">Estación 4</div><div class="qr"></div><h2>La historia de La Casa del Duende</h2><p>lacasadelduende.art/guia/kids/?station=04</p></article>
-    <article class="card" data-station="05"><div class="number">Estación 5</div><div class="qr"></div><h2>El poder de imaginar</h2><p>lacasadelduende.art/guia/kids/?station=05</p></article>
-    <article class="card" data-station="06"><div class="number">Estación 6</div><div class="qr"></div><h2>Las manos que crean magia</h2><p>lacasadelduende.art/guia/kids/?station=06</p></article>
-    <article class="card" data-station="07"><div class="number">Estación 7</div><div class="qr"></div><h2>Las historias y la verdad</h2><p>lacasadelduende.art/guia/kids/?station=07</p></article>
-    <article class="card" data-station="08"><div class="number">Estación 8</div><div class="qr"></div><h2>Tú puedes crear nuevas historias</h2><p>lacasadelduende.art/guia/kids/?station=08</p></article>
-    <article class="card" data-station="09"><div class="number">Estación 9</div><div class="qr"></div><h2>La magia continúa con ustedes</h2><p>lacasadelduende.art/guia/kids/?station=09</p></article>
+    <article class="card" data-station="01"><div class="number">Estación 1</div><div class="qr"></div><h2>Bienvenidos, pequeños guardianes</h2><p>lacasadelduende.art/guia/kids/estacion-01/</p></article>
+    <article class="card" data-station="02"><div class="number">Estación 2</div><div class="qr"></div><h2>¿Quién inventa los miedos?</h2><p>lacasadelduende.art/guia/kids/estacion-02/</p></article>
+    <article class="card" data-station="03"><div class="number">Estación 3</div><div class="qr"></div><h2>Muchas historias, muchas criaturas</h2><p>lacasadelduende.art/guia/kids/estacion-03/</p></article>
+    <article class="card" data-station="04"><div class="number">Estación 4</div><div class="qr"></div><h2>La historia de La Casa del Duende</h2><p>lacasadelduende.art/guia/kids/estacion-04/</p></article>
+    <article class="card" data-station="05"><div class="number">Estación 5</div><div class="qr"></div><h2>El poder de imaginar</h2><p>lacasadelduende.art/guia/kids/estacion-05/</p></article>
+    <article class="card" data-station="06"><div class="number">Estación 6</div><div class="qr"></div><h2>Las manos que crean magia</h2><p>lacasadelduende.art/guia/kids/estacion-06/</p></article>
+    <article class="card" data-station="07"><div class="number">Estación 7</div><div class="qr"></div><h2>Las historias y la verdad</h2><p>lacasadelduende.art/guia/kids/estacion-07/</p></article>
+    <article class="card" data-station="08"><div class="number">Estación 8</div><div class="qr"></div><h2>Tú puedes crear nuevas historias</h2><p>lacasadelduende.art/guia/kids/estacion-08/</p></article>
+    <article class="card" data-station="09"><div class="number">Estación 9</div><div class="qr"></div><h2>La magia continúa con ustedes</h2><p>lacasadelduende.art/guia/kids/estacion-09/</p></article>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
-    const base='https://lacasadelduende.art/guia/kids/?station=';
-    document.querySelectorAll('.card').forEach(card=>new QRCode(card.querySelector('.qr'),{text:base+card.dataset.station,width:420,height:420,colorDark:'#302247',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M}));
+    const base='https://lacasadelduende.art/guia/kids/estacion-';
+    document.querySelectorAll('.card').forEach(card=>new QRCode(card.querySelector('.qr'),{text:base+card.dataset.station+'/',width:420,height:420,colorDark:'#302247',colorLight:'#ffffff',correctLevel:QRCode.CorrectLevel.M}));
   </script>
 </body>
 </html>

@@ -20,6 +20,8 @@ Las tarjetas QR imprimibles estarán disponibles en:
 
 `https://lacasadelduende.art/guia/kids/qr-codes.html`
 
+Cada QR abre una página independiente, desde `guia/kids/estacion-01/` hasta `guia/kids/estacion-09/`. Ninguna página de estación contiene enlaces a los demás audios.
+
 ## Recomendaciones
 
 - Mantener la voz claramente por encima de la música.
