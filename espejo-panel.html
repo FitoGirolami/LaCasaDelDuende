@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>Panel privado | El Espejo del Duende</title>
+  <style>
+    :root{--bg:#101712;--panel:#18241c;--card:#f2ead8;--ink:#202a21;--muted:#aeb7ad;--gold:#d4af37;--line:rgba(255,255,255,.12)}
+    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:#fff9ec;font-family:Georgia,serif;min-height:100vh}.wrap{width:min(1180px,94%);margin:auto;padding:32px 0 56px}h1,h2,h3{font-family:Georgia,serif}.top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:22px}.eyebrow{text-transform:uppercase;letter-spacing:.14em;color:#d7c78e;font-size:.76rem}.muted{color:var(--muted)}.login{max-width:520px;margin:80px auto;background:var(--panel);padding:28px;border:1px solid var(--line);border-radius:22px}.login label{display:block;margin-bottom:8px;color:#d8dfd7}.login-row{display:flex;gap:10px}.login input{flex:1;min-width:0;padding:13px 14px;border-radius:12px;border:1px solid #4a5a4e;background:#0e1510;color:white;font-size:16px}.btn{border:1px solid var(--gold);background:var(--gold);color:#17160f;padding:12px 18px;border-radius:999px;font-weight:700;cursor:pointer}.btn.secondary{background:transparent;color:#fff9ec;border-color:#647266}.error{color:#ffb9ac;margin-top:12px;min-height:1.2em}.dashboard[hidden],.login[hidden]{display:none}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:24px 0}.metric{background:var(--card);color:var(--ink);border-radius:18px;padding:20px}.metric small{display:block;text-transform:uppercase;letter-spacing:.08em;color:#6f735e;font-size:.68rem}.metric strong{display:block;font-size:2rem;margin-top:7px}.panels{display:grid;grid-template-columns:1fr 1fr;gap:16px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:20px;min-width:0}.bars{display:grid;gap:11px}.bar-row{display:grid;grid-template-columns:minmax(110px,1fr) 2fr auto;gap:10px;align-items:center}.bar-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.bar-track{height:10px;background:#26342a;border-radius:999px;overflow:hidden}.bar-fill{height:100%;background:var(--gold);border-radius:999px}.bar-count{font-variant-numeric:tabular-nums;color:#d8dfd7}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:.9rem}.table th,.table td{padding:10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}.daily{grid-column:1/-1}.daily-grid{display:flex;align-items:flex-end;gap:5px;min-height:180px;padding-top:20px;overflow-x:auto}.day{min-width:22px;flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:3px;height:150px}.day .start,.day .complete{border-radius:5px 5px 0 0}.day .start{background:#526457}.day .complete{background:var(--gold)}.legend{display:flex;gap:18px;flex-wrap:wrap;color:#c4cec4;font-size:.82rem;margin-top:12px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;background:#526457}.dot.complete{background:var(--gold)}@media(max-width:800px){.grid{grid-template-columns:1fr 1fr}.panels{grid-template-columns:1fr}.daily{grid-column:auto}}@media(max-width:480px){.grid{grid-template-columns:1fr}.login-row{flex-direction:column}.bar-row{grid-template-columns:1fr auto}.bar-track{grid-column:1/-1}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="login" id="login">
+      <p class="eyebrow">Acceso privado</p>
+      <h1>Panel del Espejo</h1>
+      <p class="muted">Ingresa la clave de administración para consultar datos agregados de la experiencia.</p>
+      <form id="loginForm">
+        <label for="key">Clave</label>
+        <div class="login-row"><input id="key" type="password" autocomplete="current-password" required /><button class="btn" type="submit">Entrar</button></div>
+        <div class="error" id="loginError" aria-live="polite"></div>
+      </form>
+    </section>
+
+    <main class="dashboard" id="dashboard" hidden>
+      <div class="top">
+        <div><p class="eyebrow">Observatorio privado</p><h1>El Espejo del Duende</h1><p class="muted" id="updated">Estadísticas anónimas y agregadas.</p></div>
+        <div><button class="btn secondary" id="refreshBtn" type="button">Actualizar</button> <button class="btn secondary" id="logoutBtn" type="button">Salir</button></div>
+      </div>
+
+      <section class="grid">
+        <div class="metric"><small>Experiencias iniciadas</small><strong id="starts">0</strong></div>
+        <div class="metric"><small>Completadas</small><strong id="completes">0</strong></div>
+        <div class="metric"><small>Finalización</small><strong id="rate">0%</strong></div>
+        <div class="metric"><small>Tiempo medio</small><strong id="duration">—</strong></div>
+      </section>
+
+      <section class="panels">
+        <article class="panel"><h2>Manifestaciones</h2><div class="bars" id="resultsBars"></div></article>
+        <article class="panel"><h2>Figuras dominantes</h2><div class="bars" id="figuresBars"></div></article>
+        <article class="panel"><h2>Dispositivos</h2><div class="bars" id="devicesBars"></div></article>
+        <article class="panel"><h2>Últimos resultados</h2><div class="table-wrap"><table class="table"><thead><tr><th>Fecha</th><th>Resultado</th><th>Figura 1</th><th>Figura 2</th><th>Duración</th></tr></thead><tbody id="recentRows"></tbody></table></div></article>
+        <article class="panel daily"><h2>Actividad últimos 30 días</h2><div class="daily-grid" id="dailyChart"></div><div class="legend"><span><i class="dot"></i>Inicios</span><span><i class="dot complete"></i>Finalizaciones</span></div></article>
+      </section>
+    </main>
+  </div>
+<script>
+(() => {
+  const ENDPOINT = "https://pmbfxirbpacdeympyfcs.supabase.co/functions/v1/espejo-dashboard";
+  const login = document.getElementById("login");
+  const dashboard = document.getElementById("dashboard");
+  const form = document.getElementById("loginForm");
+  const keyInput = document.getElementById("key");
+  const errorEl = document.getElementById("loginError");
+  let accessKey = sessionStorage.getItem("espejo_panel_key") || "";
+
+  function fmtDuration(seconds){
+    const s = Number(seconds || 0); if(!s) return "—";
+    const m = Math.floor(s/60), rest = s%60; return `${m}m ${rest}s`;
+  }
+  function esc(value){ return String(value ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c])); }
+  function renderBars(id, rows){
+    const root = document.getElementById(id); root.innerHTML = "";
+    const max = Math.max(1,...(rows || []).map(x=>Number(x.count)||0));
+    (rows || []).slice(0,15).forEach(row=>{
+      const div = document.createElement("div"); div.className="bar-row";
+      div.innerHTML=`<span class="bar-name" title="${esc(row.name)}">${esc(row.name)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(2,(row.count/max)*100)}%"></div></div><span class="bar-count">${Number(row.count)||0}</span>`;
+      root.appendChild(div);
+    });
+    if(!(rows||[]).length) root.innerHTML='<p class="muted">Aún no hay datos.</p>';
+  }
+  function renderDaily(rows){
+    const root=document.getElementById("dailyChart"); root.innerHTML="";
+    const max=Math.max(1,...(rows||[]).flatMap(x=>[x.starts||0,x.completes||0]));
+    (rows||[]).forEach(row=>{
+      const day=document.createElement("div"); day.className="day"; day.title=`${row.date}: ${row.starts} inicios / ${row.completes} finalizaciones`;
+      day.innerHTML=`<div class="start" style="height:${Math.max(2,(row.starts/max)*145)}px"></div><div class="complete" style="height:${Math.max(2,(row.completes/max)*145)}px"></div>`;
+      root.appendChild(day);
+    });
+  }
+  function renderRecent(rows){
+    document.getElementById("recentRows").innerHTML=(rows||[]).map(r=>`<tr><td>${esc(new Date(r.created_at).toLocaleString("es-EC"))}</td><td>${esc(r.result_title)}</td><td>${esc(r.primary_figure)}</td><td>${esc(r.secondary_figure)}</td><td>${esc(fmtDuration(r.duration_seconds))}</td></tr>`).join("") || '<tr><td colspan="5" class="muted">Aún no hay resultados.</td></tr>';
+  }
+  async function load(){
+    errorEl.textContent="";
+    try{
+      const res=await fetch(ENDPOINT,{headers:{"x-dashboard-key":accessKey},cache:"no-store"});
+      if(res.status===401) throw new Error("unauthorized");
+      if(!res.ok) throw new Error("server");
+      const data=await res.json();
+      login.hidden=true; dashboard.hidden=false;
+      document.getElementById("starts").textContent=data.summary?.starts ?? 0;
+      document.getElementById("completes").textContent=data.summary?.completes ?? 0;
+      document.getElementById("rate").textContent=(data.summary?.completion_rate ?? 0)+"%";
+      document.getElementById("duration").textContent=fmtDuration(data.summary?.avg_duration_seconds);
+      document.getElementById("updated").textContent="Actualizado: "+new Date(data.generated_at).toLocaleString("es-EC");
+      renderBars("resultsBars",data.results); renderBars("figuresBars",data.primary_figures); renderBars("devicesBars",data.devices); renderRecent(data.recent); renderDaily(data.daily);
+    }catch(err){
+      dashboard.hidden=true; login.hidden=false;
+      errorEl.textContent=err.message==="unauthorized" ? "Clave incorrecta." : "No se pudo consultar el panel en este momento.";
+      if(err.message==="unauthorized"){ sessionStorage.removeItem("espejo_panel_key"); accessKey=""; }
+    }
+  }
+  form.addEventListener("submit",e=>{e.preventDefault();accessKey=keyInput.value.trim();sessionStorage.setItem("espejo_panel_key",accessKey);load();});
+  document.getElementById("refreshBtn").addEventListener("click",load);
+  document.getElementById("logoutBtn").addEventListener("click",()=>{sessionStorage.removeItem("espejo_panel_key");accessKey="";dashboard.hidden=true;login.hidden=false;keyInput.value="";});
+  if(accessKey) load();
+})();
+</script>
+</body>
+</html>
