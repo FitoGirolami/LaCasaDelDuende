@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>El Espejo del Duende | La Casa del Duende</title>
+  <meta name="description" content="Una experiencia simbólica e interactiva de La Casa del Duende, inspirada libremente en la psicología analítica de C. G. Jung." />
+  <meta name="author" content="La Casa del Duende" />
+  <meta name="theme-color" content="#101712" />
+  <link rel="canonical" href="https://lacasadelduende.art/espejo-del-duende.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="El Espejo del Duende" />
+  <meta property="og:description" content="No descubrirás qué duende eres. Descubrirás qué aparece cuando miras hacia lo desconocido." />
+  <meta property="og:url" content="https://lacasadelduende.art/espejo-del-duende.html" />
+  <meta property="og:image" content="https://lacasadelduende.art/assets/duende-espejo.jpg" />
+  <meta property="og:image:alt" content="Duende de La Casa del Duende junto a una cascada en Tungurahua, Ecuador." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --forest:#101712;
+      --forest-2:#17231b;
+      --forest-3:#223126;
+      --moss:#99a878;
+      --gold:#d4af37;
+      --paper:#f4eddd;
+      --paper-2:#e8dcc2;
+      --ink:#172018;
+      --cream:#fff9ec;
+      --muted:#bfc8bb;
+      --line:rgba(255,255,255,.14);
+      --shadow:0 24px 70px rgba(0,0,0,.34);
+      --radius:26px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:"Lora",Georgia,serif;
+      background:
+        radial-gradient(circle at 18% 10%,rgba(153,168,120,.12),transparent 30rem),
+        radial-gradient(circle at 85% 80%,rgba(212,175,55,.08),transparent 28rem),
+        var(--forest);
+      color:var(--cream);
+    }
+    button,a{font:inherit}
+    button{cursor:pointer}
+    .shell{min-height:100vh;display:flex;flex-direction:column}
+    .topbar{
+      min-height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:12px clamp(16px,4vw,34px);
+      border-bottom:1px solid var(--line);
+      background:rgba(16,23,18,.86);
+      backdrop-filter:blur(12px);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+    .brand{
+      color:var(--cream);
+      text-decoration:none;
+      font-family:"Cinzel",Georgia,serif;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .back{
+      color:#e6d8b9;
+      text-decoration:none;
+      font-size:.92rem;
+    }
+    .back:hover,.back:focus{color:#fff}
+
+    main{
+      width:min(1100px,100%);
+      margin:auto;
+      padding:clamp(26px,5vw,58px) clamp(16px,4vw,34px) 56px;
+      flex:1;
+    }
+
+    .stage{
+      display:grid;
+      grid-template-columns:minmax(260px,390px) minmax(0,1fr);
+      gap:clamp(24px,5vw,58px);
+      align-items:center;
+    }
+
+    .portrait-wrap{position:relative}
+    .portrait{
+      width:100%;
+      aspect-ratio:3/4;
+      object-fit:cover;
+      object-position:center;
+      border-radius:34px;
+      display:block;
+      box-shadow:var(--shadow);
+      border:1px solid rgba(255,255,255,.14);
+      filter:saturate(.92) contrast(1.02);
+    }
+    .portrait-wrap::after{
+      content:"";
+      position:absolute;
+      inset:auto 8% -14px 8%;
+      height:50px;
+      background:rgba(0,0,0,.46);
+      filter:blur(24px);
+      z-index:-1;
+    }
+    .sigil{
+      position:absolute;
+      right:18px;
+      bottom:18px;
+      width:52px;
+      height:52px;
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      background:rgba(16,23,18,.74);
+      border:1px solid rgba(212,175,55,.55);
+      color:var(--gold);
+      font-family:"Cinzel",serif;
+      font-size:1.35rem;
+      backdrop-filter:blur(8px);
+    }
+
+    .experience{
+      min-height:560px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+    .eyebrow{
+      color:#d9c996;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.75rem;
+      margin:0 0 12px;
+    }
+    h1,h2,h3{
+      font-family:"Cinzel",Georgia,serif;
+      line-height:1.1;
+      margin-top:0;
+    }
+    h1{
+      font-size:clamp(2.35rem,6vw,5rem);
+      letter-spacing:-.04em;
+      margin-bottom:18px;
+    }
+    h2{
+      font-size:clamp(1.7rem,3.5vw,2.8rem);
+      margin-bottom:16px;
+    }
+    .lead{
+      font-size:clamp(1.08rem,2vw,1.32rem);
+      line-height:1.72;
+      color:#efe4cf;
+      max-width:700px;
+      margin:0 0 22px;
+    }
+    .whisper{
+      border-left:2px solid var(--gold);
+      padding:4px 0 4px 20px;
+      margin:22px 0 26px;
+      color:#f6ecd8;
+      font-style:italic;
+      font-size:1.08rem;
+      line-height:1.7;
+    }
+    .notice{
+      color:var(--muted);
+      font-size:.84rem;
+      line-height:1.6;
+      max-width:720px;
+      margin-top:18px;
+    }
+
+    .primary,.secondary,.answer-btn{
+      border-radius:999px;
+      transition:transform .16s ease,background .16s ease,border-color .16s ease,color .16s ease;
+    }
+    .primary{
+      border:1px solid var(--gold);
+      background:var(--gold);
+      color:#17160f;
+      font-weight:700;
+      padding:13px 23px;
+      min-height:48px;
+    }
+    .primary:hover,.primary:focus{transform:translateY(-1px);background:#e2c259}
+    .secondary{
+      border:1px solid rgba(255,255,255,.25);
+      background:transparent;
+      color:var(--cream);
+      padding:12px 20px;
+    }
+    .secondary:hover,.secondary:focus{border-color:rgba(255,255,255,.6);background:rgba(255,255,255,.06)}
+    .actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    .conversation{display:none}
+    .conversation.active{display:block;animation:fade .38s ease}
+    .intro.hidden{display:none}
+    .bubble{
+      position:relative;
+      background:var(--paper);
+      color:var(--ink);
+      border-radius:var(--radius);
+      padding:clamp(24px,4vw,38px);
+      box-shadow:var(--shadow);
+    }
+    .bubble::before{
+      content:"";
+      position:absolute;
+      left:-14px;
+      top:56px;
+      width:28px;
+      height:28px;
+      background:var(--paper);
+      transform:rotate(45deg);
+    }
+    .speaker{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:16px;
+      color:#6e5a24;
+      font-family:"Cinzel",serif;
+      text-transform:uppercase;
+      letter-spacing:.11em;
+      font-size:.72rem;
+      font-weight:700;
+    }
+    .speaker-dot{
+      width:8px;height:8px;border-radius:50%;background:var(--gold);
+      box-shadow:0 0 0 5px rgba(212,175,55,.13);
+    }
+    .reaction{
+      min-height:1.6em;
+      color:#6c685f;
+      font-style:italic;
+      margin:0 0 8px;
+      opacity:0;
+      transition:opacity .2s ease;
+    }
+    .reaction.show{opacity:1}
+    .question{
+      font-size:clamp(1.24rem,2.3vw,1.65rem);
+      line-height:1.55;
+      margin:0 0 22px;
+      color:#20291f;
+    }
+    .answers{display:grid;gap:10px}
+    .answer-btn{
+      width:100%;
+      text-align:left;
+      border:1px solid #cabd9e;
+      background:rgba(255,255,255,.42);
+      color:#252b25;
+      padding:14px 17px;
+      min-height:52px;
+      border-radius:16px;
+      line-height:1.4;
+    }
+    .answer-btn:hover,.answer-btn:focus{
+      transform:translateY(-1px);
+      border-color:#8c773e;
+      background:#fffaf0;
+    }
+    .answer-btn:disabled{opacity:.62;cursor:default;transform:none}
+    .trail{
+      margin-top:18px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      color:#a9a396;
+      font-size:.8rem;
+    }
+    .trail-line{
+      height:2px;
+      flex:1;
+      background:#d8ccb2;
+      overflow:hidden;
+      border-radius:10px;
+    }
+    .trail-fill{
+      width:0%;
+      height:100%;
+      background:#957c36;
+      transition:width .4s ease;
+    }
+
+    .result{display:none}
+    .result.active{display:block;animation:fade .55s ease}
+    .result-card{
+      background:linear-gradient(180deg,#f6efdf,#eadfc8);
+      color:var(--ink);
+      border-radius:var(--radius);
+      padding:clamp(24px,4vw,40px);
+      box-shadow:var(--shadow);
+      border:1px solid rgba(212,175,55,.38);
+    }
+    .result-kicker{
+      color:#766225;
+      text-transform:uppercase;
+      letter-spacing:.13em;
+      font-size:.72rem;
+      font-family:"Cinzel",serif;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+    .result-title{color:#1e291e;margin-bottom:12px}
+    .result-copy{
+      line-height:1.72;
+      color:#3c453c;
+      font-size:1.02rem;
+      margin:0 0 22px;
+    }
+    .pair{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+      margin:22px 0;
+    }
+    .pair-card{
+      background:rgba(255,255,255,.45);
+      border:1px solid #cabc9c;
+      border-radius:18px;
+      padding:16px;
+    }
+    .pair-card small{
+      display:block;
+      color:#776f60;
+      margin-bottom:5px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:.68rem;
+    }
+    .pair-card strong{font-family:"Cinzel",serif;color:#324132}
+    .open-question{
+      margin:24px 0;
+      border-left:3px solid #9a7d26;
+      padding:4px 0 4px 18px;
+      font-size:1.15rem;
+      line-height:1.55;
+      color:#283328;
+    }
+    .tension{
+      background:#1d2a20;
+      color:#f4ead8;
+      border-radius:18px;
+      padding:18px;
+      margin:22px 0;
+      line-height:1.6;
+    }
+    .tension strong{color:#e2c768}
+    .result-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+    .result .secondary{color:#253025;border-color:#968b73}
+    .result .secondary:hover,.result .secondary:focus{background:rgba(255,255,255,.5);border-color:#675b40}
+    .privacy{
+      margin-top:30px;
+      padding-top:20px;
+      border-top:1px solid rgba(32,41,31,.15);
+      color:#6c6b64;
+      font-size:.8rem;
+      line-height:1.55;
+    }
+    #shareStatus{font-size:.82rem;color:#5c644e;margin-top:10px;min-height:1.2em}
+
+    footer{
+      border-top:1px solid var(--line);
+      color:#9eaa9f;
+      text-align:center;
+      padding:24px 18px calc(24px + env(safe-area-inset-bottom));
+      font-size:.8rem;
+    }
+
+    @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+    @media(max-width:760px){
+      .stage{grid-template-columns:1fr;gap:22px}
+      .portrait-wrap{width:min(72vw,300px);margin:auto}
+      .experience{min-height:0}
+      .bubble::before{display:none}
+      main{padding-top:28px}
+      .topbar{position:relative}
+      .pair{grid-template-columns:1fr}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+    }
+  </style>
+</head>
+
+<body>
+<div class="shell">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Volver a La Casa del Duende">La Casa del Duende</a>
+    <a class="back" href="/">← Volver al sitio</a>
+  </header>
+
+  <main>
+    <section class="stage" aria-labelledby="mainTitle">
+      <div class="portrait-wrap">
+        <img class="portrait" src="assets/duende-espejo.jpg" alt="Duende artesanal de La Casa del Duende sentado sobre una roca junto a una cascada." />
+        <div class="sigil" aria-hidden="true">☿</div>
+      </div>
+
+      <div class="experience">
+        <div class="intro" id="intro">
+          <p class="eyebrow">Experiencia simbólica interactiva</p>
+          <h1 id="mainTitle">El Espejo<br>del Duende</h1>
+          <p class="lead">No voy a decirte quién eres. Voy a preguntarte qué aparece cuando miras hacia lo desconocido.</p>
+
+          <div class="whisper">
+            «Mírame un momento. No sabes nada de mí todavía… y, sin embargo, probablemente ya decidiste algunas cosas.»
+          </div>
+
+          <div class="actions">
+            <button class="primary" id="startBtn" type="button">Entrar al bosque</button>
+          </div>
+
+          <p class="notice">
+            Experiencia artística inspirada libremente en ideas de la psicología analítica de C. G. Jung y en el universo simbólico de La Casa del Duende. No constituye un test psicológico, diagnóstico ni asesoramiento profesional. Tus respuestas se procesan únicamente en este navegador y no se envían a ningún servidor.
+          </p>
+        </div>
+
+        <div class="conversation" id="conversation" aria-live="polite">
+          <div class="bubble">
+            <div class="speaker"><span class="speaker-dot"></span> El duende observa</div>
+            <p class="reaction" id="reaction"></p>
+            <p class="question" id="question"></p>
+            <div class="answers" id="answers"></div>
+            <div class="trail" aria-hidden="true">
+              <span>el sendero</span>
+              <div class="trail-line"><div class="trail-fill" id="trailFill"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="result" id="result" aria-live="polite">
+          <div class="result-card">
+            <div class="result-kicker">El duende que apareció ante ti</div>
+            <h2 class="result-title" id="resultTitle"></h2>
+            <p class="result-copy" id="resultCopy"></p>
+
+            <div class="pair">
+              <div class="pair-card">
+                <small>Figura que se hizo más visible</small>
+                <strong id="primaryFigure"></strong>
+              </div>
+              <div class="pair-card">
+                <small>Figura que la acompaña</small>
+                <strong id="secondaryFigure"></strong>
+              </div>
+            </div>
+
+            <div class="tension" id="tensionBox"></div>
+
+            <div class="open-question" id="openQuestion"></div>
+
+            <p class="result-copy"><em>No confundas esto con una respuesta. Es apenas un espejo.</em></p>
+
+            <div class="result-actions">
+              <button class="primary" id="shareBtn" type="button">Compartir mi espejo</button>
+              <button class="secondary" id="restartBtn" type="button">Volver a entrar</button>
+            </div>
+            <div id="shareStatus" aria-live="polite"></div>
+
+            <div class="privacy">
+              Esta experiencia no clasifica tu personalidad ni pretende describirte de manera objetiva. Utiliza elecciones narrativas para construir una devolución simbólica. Inspiración junguiana ≠ evaluación psicológica.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© La Casa del Duende · Baños de Agua Santa · Tungurahua, Ecuador</footer>
+</div>
+
+<script>
+(() => {
+  const DIMENSIONS = {
+    sombra: {label: "La Sombra", essence: "lo que incomoda, se evita o todavía no ha sido integrado"},
+    trickster: {label: "El Trickster", essence: "la ruptura, la paradoja, el humor y aquello que desordena certezas"},
+    nino: {label: "El Niño", essence: "el asombro, el juego y la posibilidad de mirar sin saber de antemano"},
+    sabio: {label: "El Sabio", essence: "la búsqueda de sentido, observación y comprensión"},
+    artesano: {label: "El Artesano", essence: "la transformación paciente de la materia y de la experiencia"},
+    umbral: {label: "El Umbral", essence: "la transición, la decisión y el paso entre una forma conocida y otra posible"}
+  };
+
+  const CORE = [
+    {text:"Encuentras una puerta en medio del bosque. Ayer no estaba allí. Nadie más parece verla. ¿Qué haces?",answers:[
+      {text:"La abro antes de pensarlo demasiado.",w:{nino:2,umbral:2},tags:["open_unknown"]},
+      {text:"La observo hasta entender qué puede ser.",w:{sabio:2,umbral:1},tags:["observe_first"]},
+      {text:"Busco marcas: quién la hizo, con qué, para qué.",w:{artesano:2,sabio:1},tags:["need_structure"]},
+      {text:"No la abro. Que exista no significa que deba cruzarla.",w:{sombra:2,umbral:1},tags:["protect_boundary"]}
+    ]},
+    {text:"Un duende te dice: «Sé algo de ti que tú todavía no sabes». ¿Qué respuesta se parece más a la tuya?",answers:[
+      {text:"Entonces dímelo.",w:{sombra:1,umbral:2},tags:["seek_truth"]},
+      {text:"Primero quiero saber cómo podrías saberlo.",w:{sabio:2,artesano:1},tags:["verify"]},
+      {text:"Le respondería con otra pregunta para desconcertarlo.",w:{trickster:2,sabio:1},tags:["play_rules"]},
+      {text:"Me reiría. Tal vez él tampoco sabe tanto como cree.",w:{trickster:2,nino:1},tags:["play_rules"]}
+    ]},
+    {text:"Te devuelve un objeto que perdiste hace muchos años. No recordabas cuánto te importaba. ¿Qué haces primero?",answers:[
+      {text:"Lo tomo. Quiero sentir otra vez lo que significaba.",w:{nino:2,sombra:1},tags:["recover_past"]},
+      {text:"Le pregunto dónde lo encontró.",w:{sabio:2},tags:["verify"]},
+      {text:"Miro si sigue siendo el mismo objeto o si fue reparado.",w:{artesano:2,sabio:1},tags:["need_structure"]},
+      {text:"Dudo en aceptarlo. Algunas cosas quizá se pierden por una razón.",w:{sombra:2,umbral:1},tags:["protect_boundary"]}
+    ]},
+    {text:"El sendero se divide. Un camino tiene señales; el otro parece no haber sido recorrido nunca.",answers:[
+      {text:"Voy por donde no hay señales.",w:{nino:2,umbral:2},tags:["open_unknown"]},
+      {text:"Leo todas las señales antes de decidir.",w:{sabio:2},tags:["observe_first"]},
+      {text:"Busco huellas reales, no señales.",w:{artesano:1,sabio:1},tags:["verify"]},
+      {text:"Me pregunto quién decidió que uno de los caminos era el correcto.",w:{trickster:2,umbral:1},tags:["question_rules"]}
+    ]},
+    {text:"Escuchas una risa detrás de ti. Cuando te das vuelta, no hay nadie.",answers:[
+      {text:"Me río también.",w:{trickster:2,nino:1},tags:["play_rules"]},
+      {text:"Quiero encontrar de dónde vino.",w:{sabio:1,nino:1},tags:["open_unknown"]},
+      {text:"Me inquieta más no poder explicarla que la risa misma.",w:{sombra:2,sabio:1},tags:["need_control"]},
+      {text:"Sigo caminando. No todo necesita una explicación.",w:{umbral:1,trickster:1},tags:["accept_ambiguity"]}
+    ]},
+    {text:"Encuentras una figura rota. Nadie sabe quién la hizo ni por qué fue abandonada.",answers:[
+      {text:"Intento repararla.",w:{artesano:3},tags:["repair"]},
+      {text:"La dejo como está. La fractura también cuenta algo.",w:{sombra:1,sabio:2},tags:["accept_trace"]},
+      {text:"Imagino una historia completamente nueva para ella.",w:{nino:2,trickster:1},tags:["invent"]},
+      {text:"Busco primero rastros de su origen.",w:{sabio:2,artesano:1},tags:["verify"]}
+    ]},
+    {text:"Descubres algo verdadero que contradice una idea que has sostenido durante mucho tiempo.",answers:[
+      {text:"La cambio, aunque me incomode.",w:{umbral:2,sombra:2},tags:["seek_truth","change_belief"]},
+      {text:"Necesito comprobarlo varias veces.",w:{sabio:2},tags:["verify"]},
+      {text:"Intento hacer convivir ambas ideas antes de descartar una.",w:{sabio:1,artesano:2},tags:["integrate"]},
+      {text:"Prefiero no decidir todavía.",w:{sombra:1,umbral:1},tags:["delay_change"]}
+    ]},
+    {text:"Te encuentras con una versión de ti mismo cuando eras niño. Te mira, pero no dice nada.",answers:[
+      {text:"Le pregunto qué recuerda de mí.",w:{nino:2,sombra:2},tags:["recover_past"]},
+      {text:"Juego con él sin preguntarle nada.",w:{nino:3},tags:["play_rules"]},
+      {text:"Quiero explicarle en quién se convertirá.",w:{sabio:1,artesano:1},tags:["need_structure"]},
+      {text:"Me costaría sostenerle la mirada.",w:{sombra:3},tags:["avoid_past"]}
+    ]},
+    {text:"Una regla que todos obedecen deja de tener sentido para ti.",answers:[
+      {text:"La rompo para ver qué ocurre.",w:{trickster:3},tags:["question_rules"]},
+      {text:"Pregunto por qué existe antes de obedecerla otra vez.",w:{sabio:2,trickster:1},tags:["question_rules"]},
+      {text:"Busco una forma mejor de hacer lo mismo.",w:{artesano:2,umbral:1},tags:["repair"]},
+      {text:"La sigo mientras decido si estoy dispuesto a asumir el costo de romperla.",w:{umbral:2,sombra:1},tags:["protect_boundary"]}
+    ]},
+    {text:"Sueñas varias veces con el mismo lugar que nunca has visitado. ¿Qué haces con ese sueño?",answers:[
+      {text:"Lo dibujo o construyo para poder verlo despierto.",w:{artesano:2,nino:1},tags:["make_visible"]},
+      {text:"Anoto cada detalle y busco patrones.",w:{sabio:2,sombra:1},tags:["observe_first"]},
+      {text:"Intento volver allí en el siguiente sueño.",w:{nino:2,umbral:1},tags:["open_unknown"]},
+      {text:"Me pregunto qué parte de mí insiste en llevarme allí.",w:{sombra:2,sabio:1},tags:["seek_inward"]}
+    ]}
+  ];
+
+  const CLARIFIERS = {
+    sombra:{text:"Al final del bosque hay un espejo. Tu reflejo hace un gesto que tú no hiciste. ¿Qué te resulta más difícil aceptar?",answers:[{text:"Que el gesto también pueda pertenecerme.",w:{sombra:3,sabio:1}},{text:"No saber por qué ocurrió.",w:{sabio:2,sombra:1}},{text:"Que una parte de mí encuentre divertido asustarme.",w:{trickster:2,sombra:1}},{text:"Que quizá deba acercarme en lugar de alejarme.",w:{umbral:2,sombra:1}}]},
+    trickster:{text:"En medio de una ceremonia solemne, alguien se ríe y todo el mundo queda en silencio. ¿Qué ves en esa risa?",answers:[{text:"Una falta de respeto.",w:{sombra:1,umbral:1}},{text:"Una grieta que revela que la ceremonia también es un juego.",w:{trickster:3,sabio:1}},{text:"Una oportunidad para que todos vuelvan a ser humanos.",w:{trickster:2,nino:2}},{text:"Depende de quién ríe y de quién puede permitirse hacerlo.",w:{sabio:2,trickster:1}}]},
+    nino:{text:"Te entregan un objeto hermoso que no tiene ninguna utilidad. ¿Qué haces con él?",answers:[{text:"Juego hasta inventarle una.",w:{nino:3,trickster:1}},{text:"Lo conservo precisamente porque no sirve para nada.",w:{nino:2,sabio:1}},{text:"Intento descubrir cómo fue hecho.",w:{artesano:2,sabio:1}},{text:"Me cuesta darle valor si no cumple una función.",w:{artesano:1,sombra:1}}]},
+    sabio:{text:"En una biblioteca infinita existe un solo libro que no puedes leer. ¿Qué haces?",answers:[{text:"Aprendo el idioma.",w:{sabio:3,artesano:1}},{text:"Busco a alguien que pueda leerlo.",w:{sabio:2,umbral:1}},{text:"Acepto que quizá ese libro no esté hecho para ser entendido.",w:{sombra:1,umbral:2}},{text:"Empiezo a imaginar qué dice.",w:{nino:2,trickster:1}}]},
+    artesano:{text:"Te dan una materia que nunca has trabajado. Nadie puede enseñarte a usarla.",answers:[{text:"La pruebo con las manos hasta que responda.",w:{artesano:3,nino:1}},{text:"Primero observo cómo reacciona a cada cambio.",w:{artesano:2,sabio:2}},{text:"La rompo para saber de qué está hecha.",w:{artesano:2,trickster:1}},{text:"Dejo que su forma sugiera qué quiere convertirse.",w:{artesano:2,umbral:1}}]},
+    umbral:{text:"Cruzas un puente. Al mirar atrás, el puente ha desaparecido. ¿Qué pensamiento aparece primero?",answers:[{text:"Ahora tengo que descubrir qué hay adelante.",w:{umbral:3,nino:1}},{text:"¿Por qué desapareció?",w:{sabio:2,umbral:1}},{text:"Algo de mí sabía que no habría regreso.",w:{sombra:2,umbral:2}},{text:"Entonces construiré otro cuando sea necesario.",w:{artesano:2,umbral:1}}]}
+  };
+
+  const PAIRS = {
+    "artesano|sombra":{title:"El Artesano de la Sombra",copy:"Tu recorrido se acercó a lo desconocido intentando transformarlo, tocarlo o comprender cómo está hecho. Pero junto a esa necesidad apareció también aquello que no siempre se deja reparar. La materia puede cambiar en tus manos; no todo lo interior obedece de la misma manera.",question:"¿Qué haces cuando aquello que encuentras no puede ser arreglado, sólo reconocido?"},
+    "nino|trickster":{title:"El Pequeño Embaucador",copy:"El juego y la ruptura caminaron juntos. Donde otros buscan una regla, tú pareciste encontrar una posibilidad de cambiarla. Esta figura recuerda que la imaginación puede abrir puertas, aunque también puede utilizar la risa para no permanecer demasiado tiempo frente a lo incómodo.",question:"¿Cuándo el juego te libera y cuándo te ayuda a escapar?"},
+    "sabio|umbral":{title:"El Guardián del Umbral",copy:"No pareces cruzar por impulso: observas, preguntas y buscas sentido antes de pasar. Sin embargo, todo umbral termina exigiendo un momento en el que comprender deja de ser suficiente y hay que decidir.",question:"¿Cuánto necesitas saber antes de permitirte atravesar una puerta?"},
+    "sombra|trickster":{title:"El Habitante del Revés",copy:"Lo incómodo y lo paradójico aparecieron cerca uno del otro. Esta figura habita donde una certeza se da vuelta y muestra su reverso. A veces la burla revela lo que una explicación demasiado ordenada intenta esconder.",question:"¿Qué verdad puede decir una risa que no te atreverías a formular seriamente?"},
+    "artesano|nino":{title:"El Constructor de Imposibles",copy:"La imaginación apareció unida al deseo de convertirla en materia. No basta con fantasear: algo en tu recorrido quiso probar, construir, reparar o dar forma. El riesgo es creer que todo misterio necesita terminar convertido en objeto.",question:"¿Puedes conservar el asombro después de descubrir cómo está hecho?"},
+    "sabio|sombra":{title:"El Viejo que Mira Hacia Adentro",copy:"La búsqueda de comprensión estuvo acompañada por una fuerte atención hacia aquello que permanece oculto. Esta figura no teme demasiado a las preguntas, pero sabe que explicar algo y aceptarlo son movimientos diferentes.",question:"¿Qué cambiaría si comprendieras perfectamente algo que todavía no quieres aceptar?"},
+    "nino|umbral":{title:"El Caminante del Bosque",copy:"El asombro apareció cerca del movimiento. Hay una disposición a cruzar, explorar y dejar que lo desconocido modifique el recorrido. El desafío de esta figura es distinguir la curiosidad auténtica de la necesidad de estar siempre comenzando algo nuevo.",question:"¿Qué ocurre cuando el verdadero viaje consiste en quedarse?"},
+    "artesano|sabio":{title:"El Maestro de las Manos Silenciosas",copy:"Comprender y hacer parecieron inseparables. Observas para intervenir e intervienes para comprender. Esta figura sabe que el conocimiento también puede residir en las manos, aunque a veces podría querer convertir toda incertidumbre en un mecanismo explicable.",question:"¿Qué sabes hacer que todavía no sabes explicar?"},
+    "artesano|trickster":{title:"El Forjador de Accidentes",copy:"La transformación se encontró con la ruptura. Esta figura aprende alterando reglas, probando límites y permitiendo que el error produzca una forma inesperada. Su sombra aparece cuando romper se vuelve más atractivo que terminar.",question:"¿Qué parte de tus errores merece ser corregida y cuál merece convertirse en método?"},
+    "artesano|umbral":{title:"El Constructor de Puertas",copy:"Tu recorrido relacionó el cambio con la capacidad de construir una salida, un método o una nueva forma. No esperas solamente a que aparezca un camino: existe una tendencia a fabricarlo. Pero no todo tránsito necesita una estructura previa.",question:"¿Podrías cruzar un umbral que todavía no sabes cómo construir?"},
+    "nino|sabio":{title:"El Niño Antiguo",copy:"La curiosidad y la búsqueda de significado aparecieron juntas. Preguntar no anuló el asombro; pareció alimentarlo. Esta figura recuerda que saber más no necesariamente vuelve al mundo menos misterioso.",question:"¿Qué pregunta conservarías incluso si pudieras obtener su respuesta?"},
+    "nino|sombra":{title:"El Niño de la Cueva",copy:"El asombro se acercó a recuerdos, incomodidades y lugares que no siempre se miran de frente. Esta figura sugiere que algunas partes olvidadas no regresan para que volvamos al pasado, sino para recuperar posibilidades que quedaron allí.",question:"¿Qué parte de tu capacidad de asombro aprendiste a esconder para poder crecer?"},
+    "sabio|trickster":{title:"El Sabio Burlón",copy:"La necesidad de comprender no estuvo reñida con cuestionar las propias reglas. Esta figura sospecha de las respuestas demasiado perfectas y utiliza la paradoja para comprobar si una certeza resiste ser mirada desde otro ángulo.",question:"¿Qué idea importante para ti debería soportar que te rías de ella?"},
+    "trickster|umbral":{title:"El Guardián del Revés",copy:"El cambio apareció acompañado por una inclinación a romper el orden esperado. Esta figura no siempre abre la puerta correcta: a veces descubre que la puerta era precisamente aquello que todos daban por sentado.",question:"¿Qué regla tendrías que desobedecer para descubrir si realmente era necesaria?"},
+    "sombra|umbral":{title:"El Custodio de la Noche",copy:"El tránsito y aquello que incomoda caminaron muy cerca. Esta figura aparece cuando avanzar exige dejar de evitar una parte de la experiencia. No promete que cruzar elimine el miedo; propone que el miedo también puede cruzar contigo.",question:"¿Qué puerta sigues llamando peligrosa porque todavía no estás dispuesto a atravesarla?"}
+  };
+
+  const GENERIC_REACTIONS=["Mmm… esa elección deja una huella.","Curioso. No es lo mismo mirar que acercarse.","Ya veo… aunque todavía no sé si te creo del todo.","Interesante. A veces elegimos antes de saber por qué.","Eso cambia un poco el sendero.","No hay respuesta correcta aquí. Sólo rastros.","Bien. Guardaré eso sin ponerle nombre todavía."];
+  const TENSIONS=[
+    {a:"seek_truth",b:"delay_change",text:"Dijiste acercarte a la verdad, pero también apareció el impulso de aplazar el cambio cuando esa verdad altera una certeza."},
+    {a:"open_unknown",b:"need_control",text:"La curiosidad hacia lo desconocido convivió con la necesidad de comprenderlo o controlarlo antes de sentirte seguro."},
+    {a:"open_unknown",b:"protect_boundary",text:"Aparecieron al mismo tiempo el deseo de cruzar y la necesidad de proteger el límite. Esa tensión puede ser más interesante que elegir uno de los dos lados."},
+    {a:"play_rules",b:"need_structure",text:"El juego y la estructura se alternaron: una parte quiere mover las reglas y otra necesita saber cómo están construidas."},
+    {a:"recover_past",b:"avoid_past",text:"El pasado apareció como algo que atrae y, al mismo tiempo, puede resultar difícil de sostener de frente."},
+    {a:"question_rules",b:"protect_boundary",text:"Cuestionar reglas no significó necesariamente querer romper todos los límites. Algo distingue para ti entre una norma impuesta y un límite necesario."}
+  ];
+  const fallbackPair={title:"El Duende del Espejo",copy:"Dos figuras quedaron muy próximas durante el recorrido. Más que una categoría, apareció una tensión: una manera de acercarte a lo desconocido y otra que la acompaña, la discute o la compensa.",question:"¿Qué parte de lo que acabas de elegir te sorprendió más?"};
+
+  const intro=document.getElementById("intro"),conversation=document.getElementById("conversation"),result=document.getElementById("result"),questionEl=document.getElementById("question"),answersEl=document.getElementById("answers"),reactionEl=document.getElementById("reaction"),trailFill=document.getElementById("trailFill"),startBtn=document.getElementById("startBtn"),restartBtn=document.getElementById("restartBtn"),shareBtn=document.getElementById("shareBtn"),shareStatus=document.getElementById("shareStatus");
+  let scores,tags,queue,step,totalSteps,lastReaction,finalResult;
+
+  function resetState(){scores=Object.fromEntries(Object.keys(DIMENSIONS).map(k=>[k,0]));tags=new Set();queue=[...CORE];step=0;totalSteps=CORE.length+2;lastReaction=-1;finalResult=null;reactionEl.textContent="";reactionEl.classList.remove("show");trailFill.style.width="0%";shareStatus.textContent=""}
+  function begin(){resetState();intro.classList.add("hidden");result.classList.remove("active");conversation.classList.add("active");renderQuestion();window.scrollTo({top:0,behavior:"smooth"})}
+  function renderQuestion(){const q=queue[step];if(!q){finish();return}questionEl.textContent=q.text;answersEl.innerHTML="";q.answers.forEach(answer=>{const btn=document.createElement("button");btn.type="button";btn.className="answer-btn";btn.textContent=answer.text;btn.addEventListener("click",()=>choose(answer));answersEl.appendChild(btn)});trailFill.style.width=Math.min(100,(step/totalSteps)*100)+"%"}
+  function choose(answer){[...answersEl.querySelectorAll("button")].forEach(b=>b.disabled=true);Object.entries(answer.w||{}).forEach(([dim,value])=>{scores[dim]=(scores[dim]||0)+value});(answer.tags||[]).forEach(tag=>tags.add(tag));const special=detectTension();reactionEl.textContent=special||nextReaction();reactionEl.classList.add("show");step++;if(step===CORE.length){const top=rankedDimensions().slice(0,2).map(x=>x[0]);queue.push(CLARIFIERS[top[0]],CLARIFIERS[top[1]])}setTimeout(()=>{reactionEl.classList.remove("show");setTimeout(()=>{if(step>=queue.length)finish();else renderQuestion()},150)},720)}
+  function nextReaction(){let idx;do{idx=Math.floor(Math.random()*GENERIC_REACTIONS.length)}while(idx===lastReaction&&GENERIC_REACTIONS.length>1);lastReaction=idx;return GENERIC_REACTIONS[idx]}
+  function detectTension(){for(const t of TENSIONS){if(tags.has(t.a)&&tags.has(t.b)&&!tags.has("shown:"+t.a+"|"+t.b)){tags.add("shown:"+t.a+"|"+t.b);return"Ah… aquí aparece una contradicción interesante."}}return null}
+  function rankedDimensions(){return Object.entries(scores).sort((a,b)=>b[1]-a[1])}
+  function pairKey(a,b){return[a,b].sort().join("|")}
+  function findTensionText(){for(const t of TENSIONS){if(tags.has(t.a)&&tags.has(t.b))return t.text}return"No apareció una contradicción dominante. Eso no significa ausencia de tensión: sólo que, en este recorrido, tus elecciones se organizaron alrededor de dos figuras que prefirieron acompañarse antes que enfrentarse."}
+  function finish(){const ranking=rankedDimensions(),primary=ranking[0][0],secondary=ranking[1][0],pair=PAIRS[pairKey(primary,secondary)]||fallbackPair;finalResult={primary,secondary,pair};document.getElementById("resultTitle").textContent=pair.title;document.getElementById("resultCopy").textContent=pair.copy;document.getElementById("primaryFigure").textContent=DIMENSIONS[primary].label;document.getElementById("secondaryFigure").textContent=DIMENSIONS[secondary].label;document.getElementById("openQuestion").textContent=pair.question;document.getElementById("tensionBox").innerHTML="<strong>Una tensión que apareció:</strong><br>"+escapeHtml(findTensionText());trailFill.style.width="100%";conversation.classList.remove("active");result.classList.add("active");window.scrollTo({top:0,behavior:"smooth"})}
+  function escapeHtml(str){return String(str).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;")}
+  async function shareResult(){if(!finalResult)return;const text=`El Espejo del Duende me mostró: ${finalResult.pair.title}. “${finalResult.pair.question}”`,data={title:"El Espejo del Duende | La Casa del Duende",text,url:location.href};try{if(navigator.share){await navigator.share(data);shareStatus.textContent="El espejo salió del bosque."}else if(navigator.clipboard){await navigator.clipboard.writeText(text+" "+location.href);shareStatus.textContent="Resultado copiado para compartir."}else{shareStatus.textContent="Puedes copiar la dirección de esta página y compartir tu resultado."}}catch(err){if(err&&err.name!=="AbortError")shareStatus.textContent="No pude abrir el menú para compartir."}}
+
+  startBtn.addEventListener("click",begin);restartBtn.addEventListener("click",begin);shareBtn.addEventListener("click",shareResult);
+})();
+</script>
+</body>
+</html>
