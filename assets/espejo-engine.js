@@ -1,5 +1,6 @@
 (() => {
   const {DIMENSIONS,CORE,CLARIFIERS,PAIRS,GENERIC_REACTIONS,TENSIONS,fallbackPair} = window.ESPEJO_DATA;
+
   const intro = document.getElementById("intro");
   const conversation = document.getElementById("conversation");
   const result = document.getElementById("result");
@@ -14,14 +15,182 @@
   const duendeVideo = document.getElementById("duendeVideo");
   const soundBtn = document.getElementById("soundBtn");
 
-  let scores, tags, queue, step, totalSteps, lastReaction, finalResult;
+  const MAIN_QUESTIONS_PER_RUN = 10;
+  const RECENT_LIMIT = 20;
+  const RECENT_KEY = "espejo_duende_recent_questions_v2";
+  const BANK_SRC = "assets/espejo-preguntas.js?v=20260830c";
+
+  let scores, tags, queue, step, totalSteps, lastReaction, finalResult, coreLength;
+  let extraBank = {QUESTION_BANK:[],CLARIFIER_BANK:{}};
+
+  const bankReady = loadQuestionBank();
+
+  function loadQuestionBank(){
+    return new Promise((resolve) => {
+      if(window.ESPEJO_BANK){
+        extraBank = window.ESPEJO_BANK;
+        resolve(extraBank);
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.src = BANK_SRC;
+      script.async = true;
+      script.onload = () => {
+        extraBank = window.ESPEJO_BANK || extraBank;
+        resolve(extraBank);
+      };
+      script.onerror = () => resolve(extraBank);
+      document.head.appendChild(script);
+    });
+  }
+
+  function randomInt(max){
+    if(max <= 1) return 0;
+    try{
+      if(window.crypto && crypto.getRandomValues){
+        const value = new Uint32Array(1);
+        crypto.getRandomValues(value);
+        return Math.floor((value[0] / 4294967296) * max);
+      }
+    }catch(_){ }
+    return Math.floor(Math.random() * max);
+  }
+
+  function shuffle(items){
+    const arr = [...items];
+    for(let i = arr.length - 1; i > 0; i--){
+      const j = randomInt(i + 1);
+      [arr[i],arr[j]] = [arr[j],arr[i]];
+    }
+    return arr;
+  }
+
+  function stableId(text){
+    let hash = 2166136261;
+    const input = String(text || "");
+    for(let i = 0; i < input.length; i++){
+      hash ^= input.charCodeAt(i);
+      hash = Math.imul(hash,16777619);
+    }
+    return "legacy-" + (hash >>> 0).toString(36);
+  }
+
+  function inferFocus(question){
+    const sums = Object.fromEntries(Object.keys(DIMENSIONS).map(key => [key,0]));
+    (question.answers || []).forEach(answer => {
+      Object.entries(answer.w || {}).forEach(([dim,value]) => {
+        if(dim in sums) sums[dim] += Number(value) || 0;
+      });
+    });
+    return Object.entries(sums).sort((a,b) => b[1] - a[1])[0]?.[0] || "sabio";
+  }
+
+  function normalizeQuestion(question, forcedFocus){
+    return {
+      ...question,
+      id: question.id || stableId(question.text),
+      focus: forcedFocus || question.focus || inferFocus(question)
+    };
+  }
+
+  function readRecent(){
+    try{
+      const parsed = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+      return Array.isArray(parsed) ? parsed : [];
+    }catch(_){
+      return [];
+    }
+  }
+
+  function rememberIds(ids){
+    try{
+      const current = readRecent();
+      const merged = [...current,...ids.filter(Boolean)];
+      const unique = [];
+      for(const id of merged){
+        const existing = unique.indexOf(id);
+        if(existing !== -1) unique.splice(existing,1);
+        unique.push(id);
+      }
+      localStorage.setItem(RECENT_KEY,JSON.stringify(unique.slice(-RECENT_LIMIT)));
+    }catch(_){ }
+  }
+
+  function buildMainPool(){
+    const legacy = CORE.map(q => normalizeQuestion(q));
+    const expanded = (extraBank.QUESTION_BANK || []).map(q => normalizeQuestion(q));
+    return [...legacy,...expanded];
+  }
+
+  function selectMainQuestions(){
+    const pool = buildMainPool();
+    const recent = new Set(readRecent());
+    const dimensions = shuffle(Object.keys(DIMENSIONS));
+
+    let available = pool.filter(q => !recent.has(q.id));
+    if(available.length < MAIN_QUESTIONS_PER_RUN){
+      available = [...pool];
+    }
+
+    const selected = [];
+    const selectedIds = new Set();
+
+    // Garantiza que las seis dimensiones tengan al menos una oportunidad de aparecer.
+    dimensions.forEach(dim => {
+      const candidates = available.filter(q => q.focus === dim && !selectedIds.has(q.id));
+      if(candidates.length){
+        const chosen = candidates[randomInt(candidates.length)];
+        selected.push(chosen);
+        selectedIds.add(chosen.id);
+      }
+    });
+
+    const remaining = shuffle(available.filter(q => !selectedIds.has(q.id)));
+    for(const question of remaining){
+      if(selected.length >= MAIN_QUESTIONS_PER_RUN) break;
+      selected.push(question);
+      selectedIds.add(question.id);
+    }
+
+    // Fallback si el banco externo no cargó o quedó demasiado pequeño.
+    if(selected.length < MAIN_QUESTIONS_PER_RUN){
+      for(const question of shuffle(pool)){
+        if(selected.length >= MAIN_QUESTIONS_PER_RUN) break;
+        if(!selectedIds.has(question.id)){
+          selected.push(question);
+          selectedIds.add(question.id);
+        }
+      }
+    }
+
+    const finalSelection = shuffle(selected.slice(0,MAIN_QUESTIONS_PER_RUN));
+    rememberIds(finalSelection.map(q => q.id));
+    return finalSelection;
+  }
+
+  function selectClarifier(dimension){
+    const expanded = (extraBank.CLARIFIER_BANK?.[dimension] || []).map(q => normalizeQuestion(q,dimension));
+    const legacy = CLARIFIERS[dimension] ? [normalizeQuestion(CLARIFIERS[dimension],dimension)] : [];
+    const pool = [...expanded,...legacy];
+    if(!pool.length) return null;
+
+    const recent = new Set(readRecent());
+    let candidates = pool.filter(q => !recent.has(q.id));
+    if(!candidates.length) candidates = pool;
+
+    const chosen = candidates[randomInt(candidates.length)];
+    rememberIds([chosen.id]);
+    return chosen;
+  }
 
   function resetState(){
     scores = Object.fromEntries(Object.keys(DIMENSIONS).map(k => [k,0]));
     tags = new Set();
-    queue = [...CORE];
+    queue = selectMainQuestions();
+    coreLength = queue.length;
     step = 0;
-    totalSteps = CORE.length + 2;
+    totalSteps = coreLength + 2;
     lastReaction = -1;
     finalResult = null;
     reactionEl.textContent = "";
@@ -30,8 +199,14 @@
     shareStatus.textContent = "";
   }
 
-  function begin(){
+  async function begin(){
+    startBtn.disabled = true;
+    restartBtn.disabled = true;
+    await bankReady;
     resetState();
+    startBtn.disabled = false;
+    restartBtn.disabled = false;
+
     intro.classList.add("hidden");
     result.classList.remove("active");
     conversation.classList.add("active");
@@ -50,7 +225,8 @@
     questionEl.textContent = q.text;
     answersEl.innerHTML = "";
 
-    q.answers.forEach((answer) => {
+    // También cambia el orden de las respuestas en cada aparición.
+    shuffle(q.answers || []).forEach((answer) => {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "answer-btn";
@@ -59,7 +235,7 @@
       answersEl.appendChild(btn);
     });
 
-    const progress = Math.min(100, (step / totalSteps) * 100);
+    const progress = Math.min(100,(step / totalSteps) * 100);
     trailFill.style.width = progress + "%";
   }
 
@@ -72,15 +248,18 @@
     (answer.tags || []).forEach(tag => tags.add(tag));
 
     const special = detectTension();
-    let reaction = special || nextReaction();
-    reactionEl.textContent = reaction;
+    reactionEl.textContent = special || nextReaction();
     reactionEl.classList.add("show");
 
     step++;
 
-    if(step === CORE.length){
+    if(step === coreLength){
       const top = rankedDimensions().slice(0,2).map(x => x[0]);
-      queue.push(CLARIFIERS[top[0]], CLARIFIERS[top[1]]);
+      const first = selectClarifier(top[0]);
+      const second = selectClarifier(top[1]);
+      if(first) queue.push(first);
+      if(second) queue.push(second);
+      totalSteps = queue.length;
     }
 
     setTimeout(() => {
@@ -88,15 +267,15 @@
       setTimeout(() => {
         if(step >= queue.length){ finish(); }
         else { renderQuestion(); }
-      }, 150);
-    }, 720);
+      },150);
+    },720);
   }
 
   function nextReaction(){
     let idx;
-    do {
-      idx = Math.floor(Math.random() * GENERIC_REACTIONS.length);
-    } while(idx === lastReaction && GENERIC_REACTIONS.length > 1);
+    do{
+      idx = randomInt(GENERIC_REACTIONS.length);
+    }while(idx === lastReaction && GENERIC_REACTIONS.length > 1);
     lastReaction = idx;
     return GENERIC_REACTIONS[idx];
   }
@@ -159,13 +338,8 @@
   async function shareResult(){
     if(!finalResult) return;
     const text = `El Espejo del Duende me mostró: ${finalResult.pair.title}. “${finalResult.pair.question}”`;
-    // URL versionada para que WhatsApp vuelva a leer la vista previa Open Graph.
     const shareUrl = "https://lacasadelduende.art/espejo-del-duende.html?wa=2";
-    const data = {
-      title:"El Espejo del Duende | La Casa del Duende",
-      text,
-      url:shareUrl
-    };
+    const data = {title:"El Espejo del Duende | La Casa del Duende",text,url:shareUrl};
 
     try{
       if(navigator.share){
@@ -188,7 +362,7 @@
     duendeVideo.muted = true;
     duendeVideo.loop = true;
     soundBtn.textContent = "🔊 Escuchar al duende";
-    soundBtn.setAttribute("aria-label", "Reproducir la introducción del duende con sonido");
+    soundBtn.setAttribute("aria-label","Reproducir la introducción del duende con sonido");
     duendeVideo.play().catch(() => {});
   }
 
@@ -203,19 +377,18 @@
       duendeVideo.muted = false;
       await duendeVideo.play();
       soundBtn.textContent = "🔇 Silenciar";
-      soundBtn.setAttribute("aria-label", "Silenciar la introducción del duende");
+      soundBtn.setAttribute("aria-label","Silenciar la introducción del duende");
     }catch(err){
       setAmbientLoop();
     }
   }
 
-  duendeVideo.addEventListener("ended", () => {
+  duendeVideo.addEventListener("ended",() => {
     duendeVideo.currentTime = 0;
     setAmbientLoop();
   });
-  soundBtn.addEventListener("click", toggleDuendeSound);
-  startBtn.addEventListener("click", begin);
-  restartBtn.addEventListener("click", begin);
-  shareBtn.addEventListener("click", shareResult);
-
+  soundBtn.addEventListener("click",toggleDuendeSound);
+  startBtn.addEventListener("click",begin);
+  restartBtn.addEventListener("click",begin);
+  shareBtn.addEventListener("click",shareResult);
 })();
