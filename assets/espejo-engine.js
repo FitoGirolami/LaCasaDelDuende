@@ -19,8 +19,12 @@
   const RECENT_LIMIT = 20;
   const RECENT_KEY = "espejo_duende_recent_questions_v2";
   const BANK_SRC = "assets/espejo-preguntas.js?v=20260830c";
+  const SUPABASE_URL = "https://pmbfxirbpacdeympyfcs.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_CdLmyB7K3JIColDR4CP2SA_6eLegVM1";
+  const ANALYTICS_ENDPOINT = `${SUPABASE_URL}/rest/v1/espejo_sesiones`;
 
   let scores, tags, queue, step, totalSteps, lastReaction, finalResult, coreLength;
+  let sessionId = null, sessionStartedAt = null;
   let extraBank = {QUESTION_BANK:[],CLARIFIER_BANK:{}};
 
   const bankReady = loadQuestionBank();
@@ -32,7 +36,6 @@
         resolve(extraBank);
         return;
       }
-
       const script = document.createElement("script");
       script.src = BANK_SRC;
       script.async = true;
@@ -55,6 +58,38 @@
       }
     }catch(_){ }
     return Math.floor(Math.random() * max);
+  }
+
+  function uuid(){
+    if(window.crypto?.randomUUID) return crypto.randomUUID();
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,c=>{
+      const r = randomInt(16);
+      const v = c === "x" ? r : (r & 0x3) | 0x8;
+      return v.toString(16);
+    });
+  }
+
+  function deviceClass(){
+    const ua = navigator.userAgent || "";
+    if(/tablet|ipad/i.test(ua)) return "tablet";
+    if(/mobile|iphone|android/i.test(ua)) return "mobile";
+    return "desktop";
+  }
+
+  async function trackEvent(payload){
+    try{
+      await fetch(ANALYTICS_ENDPOINT,{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json",
+          "apikey":SUPABASE_KEY,
+          "Authorization":`Bearer ${SUPABASE_KEY}`,
+          "Prefer":"return=minimal"
+        },
+        body:JSON.stringify(payload),
+        keepalive:true
+      });
+    }catch(_){ }
   }
 
   function shuffle(items){
@@ -87,20 +122,14 @@
   }
 
   function normalizeQuestion(question, forcedFocus){
-    return {
-      ...question,
-      id: question.id || stableId(question.text),
-      focus: forcedFocus || question.focus || inferFocus(question)
-    };
+    return {...question,id:question.id || stableId(question.text),focus:forcedFocus || question.focus || inferFocus(question)};
   }
 
   function readRecent(){
     try{
       const parsed = JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
       return Array.isArray(parsed) ? parsed : [];
-    }catch(_){
-      return [];
-    }
+    }catch(_){ return []; }
   }
 
   function rememberIds(ids){
@@ -127,16 +156,12 @@
     const pool = buildMainPool();
     const recent = new Set(readRecent());
     const dimensions = shuffle(Object.keys(DIMENSIONS));
-
     let available = pool.filter(q => !recent.has(q.id));
-    if(available.length < MAIN_QUESTIONS_PER_RUN){
-      available = [...pool];
-    }
+    if(available.length < MAIN_QUESTIONS_PER_RUN) available = [...pool];
 
     const selected = [];
     const selectedIds = new Set();
 
-    // Garantiza que las seis dimensiones tengan al menos una oportunidad de aparecer.
     dimensions.forEach(dim => {
       const candidates = available.filter(q => q.focus === dim && !selectedIds.has(q.id));
       if(candidates.length){
@@ -153,7 +178,6 @@
       selectedIds.add(question.id);
     }
 
-    // Fallback si el banco externo no cargó o quedó demasiado pequeño.
     if(selected.length < MAIN_QUESTIONS_PER_RUN){
       for(const question of shuffle(pool)){
         if(selected.length >= MAIN_QUESTIONS_PER_RUN) break;
@@ -197,6 +221,8 @@
     reactionEl.classList.remove("show");
     trailFill.style.width = "0%";
     shareStatus.textContent = "";
+    sessionId = uuid();
+    sessionStartedAt = Date.now();
   }
 
   async function begin(){
@@ -206,6 +232,15 @@
     resetState();
     startBtn.disabled = false;
     restartBtn.disabled = false;
+
+    trackEvent({
+      session_id:sessionId,
+      event_type:"start",
+      question_ids:queue.map(q=>q.id),
+      question_count:queue.length,
+      app_version:"2026-08-30-analytics",
+      user_agent_class:deviceClass()
+    });
 
     intro.classList.add("hidden");
     result.classList.remove("active");
@@ -225,7 +260,6 @@
     questionEl.textContent = q.text;
     answersEl.innerHTML = "";
 
-    // También cambia el orden de las respuestas en cada aparición.
     shuffle(q.answers || []).forEach((answer) => {
       const btn = document.createElement("button");
       btn.type = "button";
@@ -241,16 +275,12 @@
 
   function choose(answer){
     [...answersEl.querySelectorAll("button")].forEach(b => b.disabled = true);
-
-    Object.entries(answer.w || {}).forEach(([dim,value]) => {
-      scores[dim] = (scores[dim] || 0) + value;
-    });
+    Object.entries(answer.w || {}).forEach(([dim,value]) => { scores[dim] = (scores[dim] || 0) + value; });
     (answer.tags || []).forEach(tag => tags.add(tag));
 
     const special = detectTension();
     reactionEl.textContent = special || nextReaction();
     reactionEl.classList.add("show");
-
     step++;
 
     if(step === coreLength){
@@ -273,9 +303,8 @@
 
   function nextReaction(){
     let idx;
-    do{
-      idx = randomInt(GENERIC_REACTIONS.length);
-    }while(idx === lastReaction && GENERIC_REACTIONS.length > 1);
+    do{ idx = randomInt(GENERIC_REACTIONS.length); }
+    while(idx === lastReaction && GENERIC_REACTIONS.length > 1);
     lastReaction = idx;
     return GENERIC_REACTIONS[idx];
   }
@@ -290,18 +319,11 @@
     return null;
   }
 
-  function rankedDimensions(){
-    return Object.entries(scores).sort((a,b) => b[1] - a[1]);
-  }
-
-  function pairKey(a,b){
-    return [a,b].sort().join("|");
-  }
+  function rankedDimensions(){ return Object.entries(scores).sort((a,b) => b[1] - a[1]); }
+  function pairKey(a,b){ return [a,b].sort().join("|"); }
 
   function findTensionText(){
-    for(const t of TENSIONS){
-      if(tags.has(t.a) && tags.has(t.b)) return t.text;
-    }
+    for(const t of TENSIONS){ if(tags.has(t.a) && tags.has(t.b)) return t.text; }
     return "No apareció una contradicción dominante. Eso no significa ausencia de tensión: sólo que, en este recorrido, tus elecciones se organizaron alrededor de dos figuras que prefirieron acompañarse antes que enfrentarse.";
   }
 
@@ -320,6 +342,20 @@
     document.getElementById("openQuestion").textContent = pair.question;
     document.getElementById("tensionBox").innerHTML = "<strong>Una tensión que apareció:</strong><br>" + escapeHtml(findTensionText());
 
+    const duration = sessionStartedAt ? Math.max(0,Math.round((Date.now()-sessionStartedAt)/1000)) : null;
+    trackEvent({
+      session_id:sessionId,
+      event_type:"complete",
+      duration_seconds:duration,
+      result_title:pair.title,
+      primary_figure:DIMENSIONS[primary].label,
+      secondary_figure:DIMENSIONS[secondary].label,
+      question_ids:queue.map(q=>q.id).filter(Boolean),
+      question_count:queue.length,
+      app_version:"2026-08-30-analytics",
+      user_agent_class:deviceClass()
+    });
+
     trailFill.style.width = "100%";
     conversation.classList.remove("active");
     result.classList.add("active");
@@ -327,12 +363,7 @@
   }
 
   function escapeHtml(str){
-    return String(str)
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
+    return String(str).replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
   }
 
   async function shareResult(){
@@ -340,21 +371,12 @@
     const text = `El Espejo del Duende me mostró: ${finalResult.pair.title}. “${finalResult.pair.question}”`;
     const shareUrl = "https://lacasadelduende.art/espejo-del-duende.html?wa=2";
     const data = {title:"El Espejo del Duende | La Casa del Duende",text,url:shareUrl};
-
     try{
-      if(navigator.share){
-        await navigator.share(data);
-        shareStatus.textContent = "El espejo salió del bosque.";
-      }else if(navigator.clipboard){
-        await navigator.clipboard.writeText(text + " " + shareUrl);
-        shareStatus.textContent = "Resultado copiado para compartir.";
-      }else{
-        shareStatus.textContent = "Puedes copiar la dirección de esta página y compartir tu resultado.";
-      }
+      if(navigator.share){ await navigator.share(data); shareStatus.textContent = "El espejo salió del bosque."; }
+      else if(navigator.clipboard){ await navigator.clipboard.writeText(text + " " + shareUrl); shareStatus.textContent = "Resultado copiado para compartir."; }
+      else{ shareStatus.textContent = "Puedes copiar la dirección de esta página y compartir tu resultado."; }
     }catch(err){
-      if(err && err.name !== "AbortError"){
-        shareStatus.textContent = "No pude abrir el menú para compartir.";
-      }
+      if(err && err.name !== "AbortError") shareStatus.textContent = "No pude abrir el menú para compartir.";
     }
   }
 
@@ -367,10 +389,7 @@
   }
 
   async function toggleDuendeSound(){
-    if(!duendeVideo.muted){
-      setAmbientLoop();
-      return;
-    }
+    if(!duendeVideo.muted){ setAmbientLoop(); return; }
     try{
       duendeVideo.loop = false;
       duendeVideo.currentTime = 0;
@@ -378,15 +397,10 @@
       await duendeVideo.play();
       soundBtn.textContent = "🔇 Silenciar";
       soundBtn.setAttribute("aria-label","Silenciar la introducción del duende");
-    }catch(err){
-      setAmbientLoop();
-    }
+    }catch(err){ setAmbientLoop(); }
   }
 
-  duendeVideo.addEventListener("ended",() => {
-    duendeVideo.currentTime = 0;
-    setAmbientLoop();
-  });
+  duendeVideo.addEventListener("ended",() => { duendeVideo.currentTime = 0; setAmbientLoop(); });
   soundBtn.addEventListener("click",toggleDuendeSound);
   startBtn.addEventListener("click",begin);
   restartBtn.addEventListener("click",begin);
