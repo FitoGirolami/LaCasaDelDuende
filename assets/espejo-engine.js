@@ -159,10 +159,12 @@
   async function shareResult(){
     if(!finalResult) return;
     const text = `El Espejo del Duende me mostró: ${finalResult.pair.title}. “${finalResult.pair.question}”`;
+    // URL versionada para que WhatsApp vuelva a leer la vista previa Open Graph.
+    const shareUrl = "https://lacasadelduende.art/espejo-del-duende.html?wa=2";
     const data = {
       title:"El Espejo del Duende | La Casa del Duende",
       text,
-      url:location.href
+      url:shareUrl
     };
 
     try{
@@ -170,7 +172,7 @@
         await navigator.share(data);
         shareStatus.textContent = "El espejo salió del bosque.";
       }else if(navigator.clipboard){
-        await navigator.clipboard.writeText(text + " " + location.href);
+        await navigator.clipboard.writeText(text + " " + shareUrl);
         shareStatus.textContent = "Resultado copiado para compartir.";
       }else{
         shareStatus.textContent = "Puedes copiar la dirección de esta página y compartir tu resultado.";
