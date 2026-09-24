@@ -13,6 +13,11 @@
 
   <link rel="canonical" href="https://lacasadelduende.art/origen-duendes-banos-ecuador.html" />
 
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:wght@400;600;700&display=swap" rel="stylesheet" />
+
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
   <meta property="og:locale" content="es_EC" />
@@ -30,219 +35,77 @@
   <meta name="twitter:image" content="https://lacasadelduende.art/assets/img/origen-duendes-banos.jpg" />
 
   <style>
-    :root {
-      --max: 980px;
-      --bg: #120f0b;
-      --paper: #fffaf2;
-      --ink: #19140d;
-      --muted: #5f5548;
-      --line: #e6dac8;
-      --soft: #f4eadb;
-      --gold: #9b6a24;
-      --green: #4d6b3f;
-      --radius: 16px;
+    :root{--bg:#f5f2eb;--ink:#2c3631;--dark:#17241d;--gold:#d4af37;--soft:#fffaf0;--line:#ddd1bd;--muted:#5f665f;--max:1080px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px}
+    body{margin:0;font-family:'Lora',Georgia,serif;background:var(--bg);color:var(--ink);line-height:1.78}
+    h1,h2,h3{font-family:'Cinzel',Georgia,serif;line-height:1.16}
+    a{color:#6d4a0e;text-underline-offset:4px}
+    a:hover{color:#2f2108}
+    .skip-link{position:absolute;left:-9999px;top:10px;z-index:100;background:#fff;color:var(--dark);padding:10px 14px;border-radius:8px}
+    .skip-link:focus{left:10px}
+    .site-nav{position:sticky;top:0;z-index:50;background:rgba(15,23,19,.96);border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(10px)}
+    .nav-inner{max-width:1120px;margin:auto;min-height:66px;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{color:#fff;text-decoration:none;font-family:'Cinzel',Georgia,serif;font-weight:700;white-space:nowrap}
+    .nav-links{display:flex;align-items:center;justify-content:flex-end;gap:18px;flex-wrap:wrap}
+    .nav-links a{color:#f4ead8;text-decoration:none;font-size:.93rem}
+    .nav-links a:hover,.nav-links a:focus,.nav-links a[aria-current="page"]{color:#ffe7a4}
+    .nav-links .visit-link{background:var(--gold);color:var(--dark);padding:7px 14px;border-radius:999px;font-weight:700}
+    .nav-links .language-link{border-left:1px solid rgba(255,255,255,.25);padding-left:16px}
+    .hero{position:relative;min-height:620px;display:flex;align-items:flex-end;color:#fff;padding:72px 20px 58px;background:url('https://lacasadelduende.art/assets/img/origen-duendes-banos.jpg') center 42%/cover no-repeat}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,15,11,.30),rgba(8,15,11,.88))}
+    .hero .wrap{position:relative;z-index:2;max-width:1120px;width:100%;margin:auto}
+    nav.breadcrumb{font-size:.9rem;margin-bottom:18px;color:#eadfc9}
+    nav.breadcrumb a{color:#fff2d7}
+    .eyebrow{display:inline-block;padding:6px 12px;border:1px solid rgba(255,255,255,.38);border-radius:999px;color:#ffe7a4;background:rgba(255,255,255,.08);font-size:.8rem;letter-spacing:.09em;text-transform:uppercase}
+    .hero h1{max-width:960px;font-size:clamp(2.65rem,6vw,5.45rem);margin:18px 0 16px;letter-spacing:-.035em;text-wrap:balance}
+    .lead{max-width:860px;font-size:clamp(1.08rem,2.1vw,1.42rem);color:#f5eee3;margin:0}
+    .meta{max-width:920px;font-size:.9rem;color:#dfd7ca;margin-top:18px}
+    main{background:var(--bg);padding:64px 20px 82px}
+    article.wrap{max-width:var(--max);margin:auto}
+    .callout{background:linear-gradient(135deg,#fff6df,#fffaf0);border:1px solid #d8c79d;border-left:6px solid var(--gold);border-radius:22px;padding:26px 28px;margin:0 0 28px;box-shadow:0 12px 34px rgba(0,0,0,.07);font-size:1.06rem}
+    .toc{border:1px solid var(--line);border-radius:22px;padding:24px 26px;background:var(--soft);margin:0 0 34px;box-shadow:0 10px 28px rgba(0,0,0,.05)}
+    .toc>strong{font-family:'Cinzel',Georgia,serif;color:#78540f;font-size:1.05rem}
+    .toc ul{margin:14px 0 0;padding-left:20px;columns:2;column-gap:42px}
+    .toc li{margin:7px 0;break-inside:avoid}
+    article>section{background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,4vw,38px);margin:22px 0;box-shadow:0 10px 30px rgba(0,0,0,.055)}
+    article>section h2{color:#6d4a0e;font-size:clamp(1.65rem,3vw,2.35rem);margin:0 0 16px}
+    article>section h3{color:#78540f}
+    article>section p:first-of-type{margin-top:0}
+    .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:24px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 8px 24px rgba(0,0,0,.045)}
+    .card strong{display:block;color:#78540f;font-family:'Cinzel',Georgia,serif;margin-bottom:8px}
+    .timeline{display:grid;gap:14px;margin-top:22px}
+    .timeline-item{display:grid;grid-template-columns:110px 1fr;gap:20px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+    .year{color:#78540f;font-weight:700;font-family:'Cinzel',Georgia,serif;font-size:1.08rem}
+    .faq details{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin:12px 0}
+    .faq summary{cursor:pointer;font-weight:700;color:#2f2108}
+    .faq details p{color:var(--muted);margin-bottom:0}
+    .btn{display:inline-block;padding:12px 22px;background:var(--gold);color:var(--dark);text-decoration:none;border-radius:999px;font-weight:700;border:1px solid transparent;margin:6px 8px 6px 0}
+    .btn:hover{color:var(--dark);filter:brightness(.97)}
+    .btn.secondary{background:transparent;color:#6d4a0e;border-color:#b89a59}
+    .internal-links ul{padding-left:20px}
+    .footer{background:#0f1713;color:#d8cbb8;padding:38px 20px;text-align:center}
+    .footer a{color:#ffe7a4}
+    .footer p{max-width:1040px;margin:8px auto}
+    @media(max-width:820px){
+      .nav-inner{align-items:flex-start;flex-direction:column;gap:8px}
+      .nav-links{justify-content:flex-start;gap:12px 16px}
+      .nav-links .language-link{border-left:0;padding-left:0}
+      .site-nav{position:relative}
+      html{scroll-padding-top:0}
+      .hero{min-height:560px;padding:58px 18px 42px;background-position:center}
+      main{padding:44px 18px 62px}
+      .toc ul{columns:1}
+      .grid{grid-template-columns:1fr}
+      .timeline-item{grid-template-columns:1fr}
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      line-height: 1.68;
-      color: var(--ink);
-      background: linear-gradient(180deg, #24190f 0%, #120f0b 260px, #f8f0e3 260px, #f8f0e3 100%);
-    }
-
-    a { color: #6f4614; text-underline-offset: 3px; }
-    a:hover { color: #3c250b; }
-
-    header, main, footer { padding: 24px; }
-    .wrap { max-width: var(--max); margin: 0 auto; }
-
-    .hero {
-      color: #fff8ea;
-      padding-top: 36px;
-      padding-bottom: 22px;
-    }
-
-    nav.breadcrumb {
-      font-size: 14px;
-      margin-bottom: 18px;
-      color: #e6d3b5;
-    }
-
-    nav.breadcrumb a { color: #fff2d7; }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 6px 10px;
-      border: 1px solid rgba(255,255,255,.28);
-      border-radius: 999px;
-      font-size: 13px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      color: #f5d99b;
-      background: rgba(255,255,255,.06);
-    }
-
-    h1 {
-      max-width: 900px;
-      font-size: clamp(34px, 6vw, 64px);
-      line-height: 1.05;
-      margin: 18px 0 14px;
-      letter-spacing: -.04em;
-    }
-
-    h2 {
-      margin-top: 34px;
-      font-size: clamp(24px, 3vw, 34px);
-      line-height: 1.18;
-      letter-spacing: -.02em;
-    }
-
-    h3 { margin-top: 24px; font-size: 21px; }
-
-    .lead {
-      max-width: 820px;
-      font-size: clamp(18px, 2vw, 22px);
-      color: #eadbc2;
-    }
-
-    .meta {
-      font-size: 14px;
-      color: #eadbc2;
-      margin-top: 14px;
-    }
-
-    article {
-      background: var(--paper);
-      border-radius: 24px;
-      padding: clamp(18px, 4vw, 42px);
-      box-shadow: 0 20px 70px rgba(0,0,0,.16);
-      border: 1px solid var(--line);
-    }
-
-    .callout {
-      background: #efe1cc;
-      border-left: 5px solid var(--gold);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      margin: 22px 0;
-    }
-
-    .toc {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 18px 20px;
-      background: #fffdf8;
-      margin: 24px 0 30px;
-    }
-
-    .toc ul {
-      margin: 10px 0 0;
-      padding-left: 20px;
-      columns: 2;
-    }
-
-    .toc li { margin: 5px 0; break-inside: avoid; }
-
-    section {
-      border-top: 1px solid var(--line);
-      padding-top: 4px;
-      margin-top: 30px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 18px;
-    }
-
-    .card {
-      background: #fffdf8;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-
-    .card strong {
-      display: block;
-      color: var(--gold);
-      margin-bottom: 6px;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 14px;
-      background: #fffdf8;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 16px;
-    }
-
-    .year {
-      font-weight: 800;
-      color: var(--gold);
-    }
-
-    .faq details {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      margin: 12px 0;
-      background: #fffdf8;
-    }
-
-    .faq summary {
-      cursor: pointer;
-      font-weight: 700;
-      color: #3c250b;
-    }
-
-    .faq details p { margin-bottom: 0; color: var(--muted); }
-
-    .btn {
-      display: inline-block;
-      padding: 11px 15px;
-      border-radius: 999px;
-      border: 1px solid #2a1b0d;
-      text-decoration: none;
-      color: #fff8ea;
-      background: #2a1b0d;
-      font-weight: 700;
-      margin: 6px 8px 6px 0;
-    }
-
-    .btn.secondary {
-      background: transparent;
-      color: #2a1b0d;
-    }
-
-    .internal-links ul { padding-left: 20px; }
-
-    footer {
-      color: #e6d3b5;
-      background: var(--bg);
-      border-top: 1px solid rgba(255,255,255,.12);
-      margin-top: 36px;
-    }
-
-    footer a { color: #f5d99b; }
-
-    @media (max-width: 760px) {
-      header, main, footer { padding: 18px; }
-      .toc ul { columns: 1; }
-      .grid { grid-template-columns: 1fr; }
-      .timeline-item { grid-template-columns: 1fr; }
+    @media(max-width:520px){
+      .hero h1{font-size:2.55rem}
+      .meta{font-size:.82rem}
+      article>section,.callout,.toc{border-radius:18px}
+      .brand{font-size:.95rem}
+      .nav-links a{font-size:.86rem}
     }
   </style>
 
@@ -427,6 +290,22 @@
 </head>
 
 <body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+<nav class="site-nav" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <a class="brand" href="/">La Casa del Duende</a>
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/duendes.html">Duendes</a>
+      <a href="/origen-duendes-banos-ecuador.html" aria-current="page">Origen</a>
+      <a href="/investigacion.html">Investigación</a>
+      <a href="/publicaciones.html">Publicaciones</a>
+      <a href="/comprar-duendes-en-ecuador.html">Comprar</a>
+      <a class="visit-link" href="/visitar.html">Visitar</a>
+      <a class="language-link" href="/en/" lang="en" hreflang="en">EN</a>
+    </div>
+  </div>
+</nav>
   <header class="hero">
     <div class="wrap">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -449,7 +328,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="contenido">
     <article class="wrap">
       <div class="callout">
         <strong>Idea central:</strong> la evidencia reunida sitúa entre <strong>2012 y 2013</strong> el comienzo de una
@@ -743,16 +622,10 @@
     </article>
   </main>
 
-  <footer>
-    <div class="wrap">
-      <p>
-        © <span id="y"></span> La Casa del Duende · Baños de Agua Santa, Ecuador<br />
-        Proyecto artístico-cultural creado en 2013 por Fito Girolami y Catalina Lucz-Ligeti.
-      </p>
-    </div>
-    <script>
-      document.getElementById("y").textContent = new Date().getFullYear();
-    </script>
+  <footer class="footer">
+    <p>© <span id="y"></span> La Casa del Duende · Baños de Agua Santa, Ecuador<br />Proyecto artístico-cultural creado en 2013 por Fito Girolami y Catalina Lucz-Ligeti.</p>
+    <p><a href="/duendes.html">Duendes</a> · <a href="/historias-de-duendes.html">Historias</a> · <a href="/visitar.html">Visitar</a> · <a href="/comprar-duendes-en-ecuador.html">Comprar</a> · <a href="/origen-duendes-banos-ecuador.html">Origen</a> · <a href="/investigacion.html">Investigación</a> · <a href="/publicaciones.html">Publicaciones</a> · <a href="/preguntas.html">Preguntas frecuentes</a> · <a href="/en/" lang="en">English</a></p>
+    <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
   </footer>
 </body>
 </html>
